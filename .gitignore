@@ -1,0 +1,9 @@
+# Company proprietary source code — has its own remote on Azure DevOps.
+# Re-clone separately on a new machine (see README.md).
+Concilia%C3%A7%C3%A3oCaixaAPI/
+Concilia%C3%A7%C3%A3oCaixaFront/
+
+# Third-party skills source clone — public on GitHub, re-clone if you want
+# to browse/add more skills. Only the selected skills under .claude/skills
+# are tracked in this repo.
+claude-skills/
