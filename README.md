@@ -2,6 +2,10 @@
 
 Workspace pessoal de trabalho como PO no projeto **Var Retaguarda** (Azure DevOps, Grupo Avenida): skills do Claude Code, board de refinamento de cards e artefatos de planejamento produzidos ao longo do processo.
 
+## Documentação
+
+- **[`docs/processo-de-refinamento.md`](docs/processo-de-refinamento.md)** — guia do checklist e do passo a passo usado pra refinar cards: formato de história e AC, INVEST, Definition of Done, quando investigar código, quando usar fluxograma, e a lista de skills.
+
 ## Boards
 
 - **[`boards/board-refinamento.html`](boards/board-refinamento.html)** — board estilo Trello com os 25 cards de "Ready for Dev" + "Refinement" do Var Retaguarda, agrupados por status de prontidão (Precisa refinar / Quase pronto / 100% pronto) contra um checklist de refinamento: formato Cenário + Dado/Quando/Então, rótulo de nível de verificação (backend, UI, revisão), estimativa preenchida e ausência de bloqueio real. Clique num card pra abrir o detalhe do que falta. Também publicado como [Artifact](https://claude.ai/code/artifact/ced8aba8-8054-44d2-a8f9-a4b410264a96).
