@@ -1,0 +1,311 @@
+<title>O que fazer — Ready for Dev (exceto Conciliação Fase 2)</title>
+<style>
+  :root{
+    --bg:#F2F5F6; --surface:#FFFFFF; --surface-alt:#E9EEF0; --border:#D6DEE2;
+    --text:#16212A; --text-secondary:#55666C;
+    --accent:#3B4FA3; --accent-soft:#E7EAF7; --accent-strong:#2A3B85;
+    --good:#1E8E5A; --good-soft:#E3F5EC;
+    --warn:#B7791F; --warn-soft:#FAF0DC;
+    --bad:#C0392B; --bad-soft:#FBE7E4;
+    --neutral-soft:#EEF1F2; --avatar-bg:#DDE3F0; --avatar-text:#2A3B85;
+    --diagram:#6A4FA3; --diagram-soft:#EEE7F7;
+    --font-display: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    --font-body: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    --font-mono: ui-monospace, "Cascadia Code", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0E1416; --surface:#151D20; --surface-alt:#1C262A; --border:#2A3639;
+      --text:#E6EEEF; --text-secondary:#93A6AC;
+      --accent:#8B9DFF; --accent-soft:#1E2440; --accent-strong:#B4C0FF;
+      --good:#4ADE93; --good-soft:#12301F;
+      --warn:#E5B558; --warn-soft:#332510;
+      --bad:#F17569; --bad-soft:#341613;
+      --neutral-soft:#1C262A; --avatar-bg:#232C4A; --avatar-text:#B4C0FF;
+      --diagram:#B79CFF; --diagram-soft:#241C3A;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0E1416; --surface:#151D20; --surface-alt:#1C262A; --border:#2A3639;
+    --text:#E6EEEF; --text-secondary:#93A6AC;
+    --accent:#8B9DFF; --accent-soft:#1E2440; --accent-strong:#B4C0FF;
+    --good:#4ADE93; --good-soft:#12301F;
+    --warn:#E5B558; --warn-soft:#332510;
+    --bad:#F17569; --bad-soft:#341613;
+    --neutral-soft:#1C262A; --avatar-bg:#232C4A; --avatar-text:#B4C0FF;
+    --diagram:#B79CFF; --diagram-soft:#241C3A;
+  }
+
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--bg); color:var(--text); font-family:var(--font-body); font-size:15px; line-height:1.55; -webkit-font-smoothing:antialiased;}
+  a{color:var(--accent);}
+  .wrap{max-width:1120px; margin:0 auto; padding:40px 24px 80px; display:flex; flex-direction:column; gap:32px;}
+
+  .breadcrumb{font-family:var(--font-mono); font-size:12px; letter-spacing:0.03em; color:var(--text-secondary); display:flex; flex-wrap:wrap; gap:6px; align-items:center;}
+  .breadcrumb .sep{opacity:0.5;}
+  h1{font-family:var(--font-display); font-size:28px; font-weight:800; letter-spacing:-0.01em; text-wrap:balance; margin:6px 0 4px;}
+  .subtitle{color:var(--text-secondary); font-size:15px; max-width:70ch;}
+
+  .stats{display:grid; grid-template-columns:repeat(auto-fit, minmax(170px,1fr)); gap:12px;}
+  .stat{background:var(--surface); border:1px solid var(--border); border-left:4px solid var(--stripe, var(--accent)); border-radius:8px; padding:14px 16px; display:flex; flex-direction:column; gap:4px;}
+  .stat .label{font-size:11px; text-transform:uppercase; letter-spacing:0.07em; color:var(--text-secondary); font-weight:600;}
+  .stat .value{font-family:var(--font-mono); font-size:22px; font-weight:600; font-variant-numeric:tabular-nums;}
+  .stat .meta{font-size:12.5px; color:var(--text-secondary);}
+  .stat.diagram{--stripe:var(--diagram);} .stat.diagram .value{color:var(--diagram);}
+
+  h2{font-family:var(--font-display); font-size:18px; font-weight:700; margin:0;}
+
+  .legend{display:flex; gap:16px; flex-wrap:wrap; font-size:12.5px; color:var(--text-secondary); align-items:center;}
+  .legend .swatch{display:inline-flex; align-items:center; gap:6px;}
+  .legend .dot{width:9px; height:9px; border-radius:999px; display:inline-block;}
+
+  .epics{display:flex; flex-direction:column; gap:22px;}
+  .epic-section{display:flex; flex-direction:column; gap:12px;}
+  .epic-head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; padding-bottom:8px; border-bottom:2px solid var(--epic-color, var(--accent));}
+  .epic-head h3{font-family:var(--font-display); font-size:16px; font-weight:700; margin:0;}
+  .epic-id{font-family:var(--font-mono); font-size:12px; color:var(--text-secondary);}
+  .epic-count{margin-left:auto; font-size:12.5px; color:var(--text-secondary);}
+
+  .card-grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(340px,1fr)); gap:14px;}
+
+  .card{background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:16px; display:flex; flex-direction:column; gap:12px;}
+  .card-top{display:flex; justify-content:space-between; align-items:flex-start; gap:8px;}
+  .card-id{font-family:var(--font-mono); font-size:11.5px; color:var(--text-secondary);}
+  .card-title{font-weight:600; font-size:14px; line-height:1.35; margin-top:2px;}
+  .card-meta{font-size:11.5px; color:var(--text-secondary); display:flex; gap:8px; align-items:center;}
+  .avatar{width:18px; height:18px; border-radius:999px; background:var(--avatar-bg); color:var(--avatar-text); font-family:var(--font-mono); font-size:9px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+
+  .pill{display:inline-flex; align-items:center; gap:5px; font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.04em; padding:3px 8px; border-radius:999px; white-space:nowrap; flex-shrink:0;}
+  .pill.good{background:var(--good-soft); color:var(--good);}
+  .pill.warn{background:var(--warn-soft); color:var(--warn);}
+  .pill.neutral{background:var(--neutral-soft); color:var(--text-secondary);}
+  .pill.diagram{background:var(--diagram-soft); color:var(--diagram);}
+
+  .todo-list{margin:0; padding-left:16px; font-size:12.8px; display:flex; flex-direction:column; gap:5px;}
+  .todo-list li.blocked{color:var(--warn);}
+  .todo-list li.blocked::marker{color:var(--warn);}
+
+  .flow-verdict{display:flex; gap:8px; align-items:flex-start; padding-top:10px; border-top:1px solid var(--border);}
+  .flow-verdict p{margin:0; font-size:12.3px; color:var(--text-secondary);}
+  .flow-verdict strong{color:var(--text);}
+
+  footer{font-size:12px; color:var(--text-secondary); text-align:center; padding-top:8px;}
+  @media (max-width:520px){h1{font-size:23px;}}
+</style>
+
+<div class="wrap">
+
+  <div>
+    <div class="breadcrumb">
+      <span>Grupo Avenida</span><span class="sep">/</span>
+      <span>Var Retaguarda</span><span class="sep">/</span>
+      <span>Ready for Dev — sem Conciliação Fase 2</span>
+    </div>
+    <h1>O que fazer em cada card</h1>
+    <p class="subtitle">8 cards em "Ready for Dev" (os 7 da Conciliação Fase 2 ficaram de fora, por pedido). Cada card traz a lista de trabalho concreta e um veredito sobre precisar ou não de fluxograma — técnico (senior-architect, Mermaid/PlantUML) ou de negócio/processo (process-mapper, BPMN).</p>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <span class="label">Cards</span>
+      <span class="value">8</span>
+      <span class="meta">4 epics</span>
+    </div>
+    <div class="stat diagram">
+      <span class="label">Precisam de fluxograma</span>
+      <span class="value">4</span>
+      <span class="meta">1 obrigatório pelo próprio AC</span>
+    </div>
+    <div class="stat">
+      <span class="label">Sem fluxograma</span>
+      <span class="value">4</span>
+      <span class="meta">Fixes/bugs pontuais</span>
+    </div>
+    <div class="stat warn">
+      <span class="label">Com bloqueio ativo</span>
+      <span class="value">2</span>
+      <span class="meta">#12405 (teto de retry) · #12499 (espera #12498)</span>
+    </div>
+  </div>
+
+  <div class="legend">
+    <span class="swatch"><span class="dot" style="background:var(--diagram)"></span>Fluxograma técnico</span>
+    <span class="swatch"><span class="dot" style="background:#8A6FD9"></span>Fluxograma de negócio/processo</span>
+    <span class="swatch"><span class="dot" style="background:var(--text-secondary)"></span>Não precisa</span>
+  </div>
+
+  <div class="epics">
+
+    <div class="epic-section" style="--epic-color:var(--good)">
+      <div class="epic-head"><h3>Motor de Descontos</h3><span class="epic-id">#6669</span><span class="epic-count">1 card</span></div>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-top">
+            <div><span class="card-id">PBI #12405</span><div class="card-title">Gravação direta de campanhas no banco Retaguarda</div></div>
+            <span class="pill good">Pass</span>
+          </div>
+          <div class="card-meta"><span class="avatar">LS</span><span>Leonardo Silva · 8 pts</span></div>
+          <ul class="todo-list">
+            <li>Implementar escrita direta na Retaguarda em criação/edição (#12500)</li>
+            <li>Implementar soft delete na exclusão (#12501)</li>
+            <li class="blocked">Implementar reprocessamento automático (#12502) — travado até definir teto de tentativas com o time técnico</li>
+            <li>Cutover do fluxo antigo (#12503)</li>
+          </ul>
+          <div class="flow-verdict">
+            <span class="pill diagram">Fluxograma técnico</span>
+            <p>Fluxo com múltiplos branches (sucesso/falha/retry/cutover) e troca de dono dos dados entre equipes — vale desenhar o caminho de escrita e marcar onde a decisão de retry está em aberto. Usar <strong>senior-architect</strong>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="epic-section" style="--epic-color:var(--warn)">
+      <div class="epic-head"><h3>Bugs</h3><span class="epic-id">#9561</span><span class="epic-count">1 card</span></div>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-top">
+            <div><span class="card-id">Bug #12178</span><div class="card-title">Upstream error — Exportação de Excel e Criação de Campanhas</div></div>
+            <span class="pill good">Pass</span>
+          </div>
+          <div class="card-meta"><span class="avatar">KC</span><span>Kauã Cunha · 3 pts</span></div>
+          <ul class="todo-list">
+            <li>Investigar causa raiz (timebox: 1 dia útil)</li>
+            <li>Corrigir exportação de Excel para não retornar upstream error</li>
+            <li>Corrigir criação de campanha para persistir de fato (não só "sem erro")</li>
+            <li>Garantir resposta em até 10s em condições normais</li>
+            <li>Comunicar mitigação (retry manual) às áreas afetadas</li>
+          </ul>
+          <div class="flow-verdict">
+            <span class="pill neutral">Não precisa</span>
+            <p>É investigação + correção pontual de bug, não um processo multi-etapa nem uma decisão de arquitetura nova. O AC já é suficiente pra guiar o dev.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="epic-section" style="--epic-color:var(--accent)">
+      <div class="epic-head"><h3>SSO</h3><span class="epic-id">#11853</span><span class="epic-count">4 cards</span></div>
+      <div class="card-grid">
+
+        <div class="card">
+          <div class="card-top">
+            <div><span class="card-id">PBI #12273</span><div class="card-title">Criar admin permanente no Keycloak e remover temporário</div></div>
+            <span class="pill good">Pass</span>
+          </div>
+          <div class="card-meta"><span class="avatar">GL</span><span>Gabriel Lopes</span></div>
+          <ul class="todo-list">
+            <li>Criar admin permanente com credenciais no vault</li>
+            <li>Validar acesso do admin permanente <strong>antes</strong> de remover o temporário (ordem corrigida — evita lockout)</li>
+            <li>Remover/desabilitar admin temporário</li>
+          </ul>
+          <div class="flow-verdict">
+            <span class="pill diagram">Fluxograma técnico</span>
+            <p>Sequência pequena mas com ordem crítica — um diagrama de 3 passos deixa impossível inverter a ordem por engano. Usar <strong>senior-architect</strong>.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <div><span class="card-id">PBI #12284</span><div class="card-title">Documentar runbook operacional do SSO Hub</div></div>
+            <span class="pill good">Pass</span>
+          </div>
+          <div class="card-meta"><span class="avatar">GL</span><span>Gabriel Lopes</span></div>
+          <ul class="todo-list">
+            <li class="blocked">Enumerar os erros mais comuns a cobrir (ainda em aberto)</li>
+            <li>Escrever procedimento de troubleshooting</li>
+            <li>Escrever procedimento de backup</li>
+            <li>Escrever procedimento de restore</li>
+            <li class="blocked">Definir onde publicar o runbook (ainda em aberto)</li>
+          </ul>
+          <div class="flow-verdict">
+            <span class="pill diagram" style="background:#EEE5FA; color:#6A4FA3">Fluxograma técnico + de processo</span>
+            <p>Troubleshooting pede árvore de decisão técnica (<strong>senior-architect</strong>); backup/restore é processo operacional com etapas e tempo — bom encaixe pro <strong>process-mapper</strong> (BPMN).</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <div><span class="card-id">PBI #12498</span><div class="card-title">Documentação e arquitetura do SSO no SIGA</div></div>
+            <span class="pill good">Pass</span>
+          </div>
+          <div class="card-meta"><span class="avatar">GL</span><span>Gabriel Lopes</span></div>
+          <ul class="todo-list">
+            <li>Desenhar o diagrama end-to-end (browser → Kong → Keycloak → callback → portal)</li>
+            <li>Documentar tratamento de claims/tokens, cookies, MFA</li>
+            <li>Validar e aprovar com responsáveis técnicos antes do front/back começar</li>
+            <li class="blocked">Definir onde publicar o diagrama (ainda em aberto)</li>
+          </ul>
+          <div class="flow-verdict">
+            <span class="pill diagram">Fluxograma técnico — obrigatório</span>
+            <p>O próprio critério de aceite exige um diagrama publicado — o card não pode ser considerado pronto sem ele. Uso mais direto do <strong>senior-architect</strong> entre os 8.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <div><span class="card-id">PBI #12499</span><div class="card-title">Implementação front-end e back-end do SSO no SIGA</div></div>
+            <span class="pill warn">Concerns</span>
+          </div>
+          <div class="card-meta"><span class="avatar">GL</span><span>Gabriel Lopes</span></div>
+          <ul class="todo-list">
+            <li class="blocked">Aguardar #12498 (arquitetura) ser concluído — hoje ainda está só "Ready for Dev"</li>
+            <li>Implementar redirecionamento + callback no front</li>
+            <li>Implementar validação de token + criação de sessão no back</li>
+            <li>Adicionar tratamento de token inválido/expirado</li>
+            <li>Adicionar logout / expiração de sessão</li>
+          </ul>
+          <div class="flow-verdict">
+            <span class="pill neutral">Não precisa (herda do #12498)</span>
+            <p>Segue o diagrama que o #12498 já vai produzir — não precisa de um fluxograma próprio, só precisa que aquele exista antes de começar.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="epic-section" style="--epic-color:var(--good)">
+      <div class="epic-head"><h3>Portal de Retaguarda (Sustentação)</h3><span class="epic-id">#6640</span><span class="epic-count">2 cards</span></div>
+      <div class="card-grid">
+
+        <div class="card">
+          <div class="card-top">
+            <div><span class="card-id">PBI #12489</span><div class="card-title">Scroll horizontal na tabela de Justificativas</div></div>
+            <span class="pill good">Pass</span>
+          </div>
+          <div class="card-meta"><span class="avatar">FL</span><span>Fernando Lima · 2 pts</span></div>
+          <ul class="todo-list">
+            <li>Adicionar <code>overflow-x</code> na tabela, no padrão já usado em outras telas</li>
+            <li>Confirmar que não quebra alinhamento de cabeçalho/corpo</li>
+          </ul>
+          <div class="flow-verdict">
+            <span class="pill neutral">Não precisa</span>
+            <p>Fix de CSS pontual, sem lógica de fluxo envolvida.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <div><span class="card-id">PBI #12493</span><div class="card-title">Contador dessincronizado em Auditoria de Propagação</div></div>
+            <span class="pill good">Pass</span>
+          </div>
+          <div class="card-meta"><span class="avatar">FL</span><span>Fernando Lima · 2 pts</span></div>
+          <ul class="todo-list">
+            <li>Identificar por que contador e tabela usam fontes de dado diferentes</li>
+            <li>Corrigir a fonte incorreta</li>
+            <li>Esclarecer se o contador reflete a página atual ou o total (paginação)</li>
+            <li>Confirmar que o estado vazio funciona corretamente</li>
+          </ul>
+          <div class="flow-verdict">
+            <span class="pill neutral">Não precisa</span>
+            <p>Bug de dessincronia de dado entre duas fontes, não um fluxo de processo.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <footer>8 cards em "Ready for Dev" no projeto Var Retaguarda (Conciliação Fase 2 excluída a pedido), revisados em 2026-08-11.</footer>
+
+</div>

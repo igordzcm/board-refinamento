@@ -1,0 +1,942 @@
+<title>Board de Refinamento — Ready for Dev</title>
+<style>
+  :root{
+    --bg:#EEF1F3; --board-bg:#E4E9EC; --surface:#FFFFFF; --surface-alt:#F3F5F7; --border:#D6DEE2;
+    --text:#16212A; --text-secondary:#55666C;
+    --accent:#3B4FA3; --accent-soft:#E7EAF7; --accent-strong:#2A3B85;
+    --good:#1E8E5A; --good-soft:#E3F5EC;
+    --warn:#B7791F; --warn-soft:#FAF0DC;
+    --bad:#C0392B; --bad-soft:#FBE7E4;
+    --neutral-soft:#EEF1F2; --avatar-bg:#DDE3F0; --avatar-text:#2A3B85;
+    --shadow: 0 1px 2px rgba(20,30,40,0.08), 0 1px 1px rgba(20,30,40,0.04);
+    --font-display: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    --font-body: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    --font-mono: ui-monospace, "Cascadia Code", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0E1416; --board-bg:#0B1012; --surface:#1B2529; --surface-alt:#212C31; --border:#2E3B40;
+      --text:#E6EEEF; --text-secondary:#93A6AC;
+      --accent:#8B9DFF; --accent-soft:#1E2440; --accent-strong:#B4C0FF;
+      --good:#4ADE93; --good-soft:#12301F;
+      --warn:#E5B558; --warn-soft:#332510;
+      --bad:#F17569; --bad-soft:#341613;
+      --neutral-soft:#212C31; --avatar-bg:#232C4A; --avatar-text:#B4C0FF;
+      --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 1px 1px rgba(0,0,0,0.3);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0E1416; --board-bg:#0B1012; --surface:#1B2529; --surface-alt:#212C31; --border:#2E3B40;
+    --text:#E6EEEF; --text-secondary:#93A6AC;
+    --accent:#8B9DFF; --accent-soft:#1E2440; --accent-strong:#B4C0FF;
+    --good:#4ADE93; --good-soft:#12301F;
+    --warn:#E5B558; --warn-soft:#332510;
+    --bad:#F17569; --bad-soft:#341613;
+    --neutral-soft:#212C31; --avatar-bg:#232C4A; --avatar-text:#B4C0FF;
+    --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 1px 1px rgba(0,0,0,0.3);
+  }
+
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--bg); color:var(--text); font-family:var(--font-body); font-size:15px; line-height:1.5; -webkit-font-smoothing:antialiased;}
+  a{color:var(--accent);}
+
+  .topbar{
+    max-width:1280px; margin:0 auto; padding:28px 24px 16px;
+    display:flex; flex-direction:column; gap:10px;
+  }
+  .breadcrumb{font-family:var(--font-mono); font-size:12px; letter-spacing:0.03em; color:var(--text-secondary); display:flex; flex-wrap:wrap; gap:6px; align-items:center;}
+  .breadcrumb .sep{opacity:0.5;}
+  h1{font-family:var(--font-display); font-size:24px; font-weight:800; letter-spacing:-0.01em; margin:0;}
+  .subtitle{color:var(--text-secondary); font-size:13.5px; max-width:80ch; margin:0;}
+
+  .board{
+    max-width:1280px; margin:0 auto; padding:8px 24px 60px;
+    display:grid; grid-template-columns:repeat(3, minmax(280px,1fr)); gap:16px;
+    align-items:start;
+  }
+  @media (max-width:900px){ .board{grid-template-columns:1fr; max-width:600px;} }
+  .chip.source{background:transparent; border:1px solid var(--border); color:var(--text-secondary);}
+
+  .column{
+    background:var(--board-bg); border:1px solid var(--border); border-radius:12px;
+    padding:12px; display:flex; flex-direction:column; gap:10px; min-height:120px;
+  }
+  .column-head{display:flex; align-items:center; gap:8px; padding:4px 6px;}
+  .column-head .dot{width:9px; height:9px; border-radius:999px; flex-shrink:0;}
+  .column-head h2{font-family:var(--font-display); font-size:14px; font-weight:700; margin:0; flex:1;}
+  .column-head .count{
+    font-family:var(--font-mono); font-size:11.5px; color:var(--text-secondary);
+    background:var(--surface); border:1px solid var(--border); border-radius:999px; padding:1px 8px;
+  }
+  .column-cards{display:flex; flex-direction:column; gap:8px;}
+
+  .kcard{
+    background:var(--surface); border:1px solid var(--border); border-radius:8px;
+    padding:11px 12px; text-align:left; cursor:pointer; box-shadow:var(--shadow);
+    display:flex; flex-direction:column; gap:7px; font:inherit; color:inherit;
+    transition:transform 0.08s ease, box-shadow 0.08s ease;
+  }
+  .kcard:hover{transform:translateY(-1px); box-shadow:0 4px 10px rgba(20,30,40,0.12);}
+  .kcard:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+  .kcard .top-row{display:flex; justify-content:space-between; align-items:center; gap:6px;}
+  .kcard .id{font-family:var(--font-mono); font-size:10.5px; color:var(--text-secondary);}
+  .kcard .title{font-weight:600; font-size:13px; line-height:1.35;}
+  .kcard .chips{display:flex; gap:5px; flex-wrap:wrap;}
+  .chip{font-size:9.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.03em; padding:2px 6px; border-radius:5px;}
+  .chip.bad{background:var(--bad-soft); color:var(--bad);}
+  .chip.warn{background:var(--warn-soft); color:var(--warn);}
+  .chip.good{background:var(--good-soft); color:var(--good);}
+  .kcard .bottom-row{display:flex; justify-content:space-between; align-items:center; margin-top:2px;}
+  .avatar{width:20px; height:20px; border-radius:999px; background:var(--avatar-bg); color:var(--avatar-text); font-family:var(--font-mono); font-size:9px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+  .gap-count{font-size:11px; color:var(--text-secondary);}
+
+  /* Modal */
+  dialog{
+    border:none; border-radius:14px; padding:0; max-width:640px; width:calc(100% - 40px);
+    background:var(--surface); color:var(--text); box-shadow:0 20px 60px rgba(0,0,0,0.35);
+  }
+  dialog::backdrop{background:rgba(10,15,18,0.55); backdrop-filter:blur(1px);}
+  .modal-inner{display:flex; flex-direction:column; max-height:85vh;}
+  .modal-head{padding:18px 22px 14px; border-bottom:1px solid var(--border); display:flex; flex-direction:column; gap:8px;}
+  .modal-head .row1{display:flex; justify-content:space-between; align-items:flex-start; gap:10px;}
+  .modal-head .id{font-family:var(--font-mono); font-size:12px; color:var(--text-secondary);}
+  .modal-head .title{font-family:var(--font-display); font-weight:700; font-size:17px; line-height:1.3; text-wrap:balance;}
+  .modal-head .meta{font-size:12px; color:var(--text-secondary); display:flex; gap:8px; align-items:center;}
+  .close-btn{
+    border:none; background:var(--surface-alt); color:var(--text-secondary); width:28px; height:28px; border-radius:999px;
+    font-size:15px; cursor:pointer; flex-shrink:0; line-height:1;
+  }
+  .close-btn:hover{background:var(--border); color:var(--text);}
+  .modal-body{padding:16px 22px 20px; overflow-y:auto; display:flex; flex-direction:column; gap:16px;}
+  .checkgrid{display:grid; grid-template-columns:repeat(2, 1fr); gap:8px;}
+  .check-item{display:flex; align-items:center; gap:8px; font-size:12.5px; background:var(--surface-alt); border-radius:7px; padding:7px 10px;}
+  .check-item .mark{font-size:13px; flex-shrink:0;}
+  .mark.yes{color:var(--good);} .mark.partial{color:var(--warn);} .mark.no{color:var(--bad);}
+  .modal-body h3{font-size:11.5px; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-secondary); margin:0 0 6px; font-weight:700;}
+  .gap-list{margin:0; padding-left:18px; font-size:13px; display:flex; flex-direction:column; gap:5px;}
+  .gap-list.clean{list-style:none; padding-left:0; color:var(--good);}
+  .modal-body a.ext{font-size:12.5px;}
+
+  footer{max-width:1280px; margin:0 auto; padding:0 24px 40px; font-size:12px; color:var(--text-secondary); text-align:center;}
+</style>
+
+<div class="topbar">
+  <div class="breadcrumb">
+    <span>Grupo Avenida</span><span class="sep">/</span>
+    <span>Var Retaguarda</span><span class="sep">/</span>
+    <span>Ready for Dev</span>
+  </div>
+  <h1>Board de Refinamento</h1>
+  <p class="subtitle">Clique num card pra ver o checklist completo e o que falta. Colunas por status de prontidão contra o modelo de refinamento: formato Cenário + Dado/Quando/Então, rótulo de verificação, estimativa e ausência de bloqueio real. Cada card traz uma tag indicando se ele está em "Ready for Dev" ou ainda em "Refinement" no board do Azure DevOps.</p>
+</div>
+
+<div class="board">
+
+  <!-- Coluna: Precisa refinar -->
+  <div class="column">
+    <div class="column-head"><span class="dot" style="background:var(--bad)"></span><h2>Precisa refinar</h2><span class="count">20</span></div>
+    <div class="column-cards">
+
+      <button class="kcard" onclick="m12273.showModal()">
+        <div class="top-row"><span class="id">PBI #12273</span><span class="chip source">Ready for Dev</span></div>
+        <div class="title">Admin permanente Keycloak</div>
+        <div class="chips"><span class="chip bad">Formato</span><span class="chip bad">Estimativa</span></div>
+        <div class="bottom-row"><span class="avatar">GL</span><span class="gap-count">4 pendências</span></div>
+      </button>
+
+      <button class="kcard" onclick="m12284.showModal()">
+        <div class="top-row"><span class="id">PBI #12284</span><span class="chip source">Ready for Dev</span></div>
+        <div class="title">Runbook operacional SSO Hub</div>
+        <div class="chips"><span class="chip bad">Formato</span><span class="chip warn">2 decisões</span></div>
+        <div class="bottom-row"><span class="avatar">GL</span><span class="gap-count">5 pendências</span></div>
+      </button>
+
+      <button class="kcard" onclick="m12499.showModal()">
+        <div class="top-row"><span class="id">PBI #12499</span><span class="chip source">Ready for Dev</span></div>
+        <div class="title">Implementação front/back SSO SIGA</div>
+        <div class="chips"><span class="chip bad">Formato</span><span class="chip warn">Sequenciamento</span></div>
+        <div class="bottom-row"><span class="avatar">GL</span><span class="gap-count">5 pendências</span></div>
+      </button>
+
+      <button class="kcard" onclick="m12395.showModal()">
+        <div class="top-row"><span class="id">PBI #12395</span><span class="chip source">Ready for Dev</span></div>
+        <div class="title">US8 · Envio automático — cron + retry</div>
+        <div class="chips"><span class="chip bad">Formato</span><span class="chip bad">Bloqueio</span></div>
+        <div class="bottom-row"><span class="avatar">KC</span><span class="gap-count">4 pendências</span></div>
+      </button>
+
+      <button class="kcard" onclick="m12396.showModal()">
+        <div class="top-row"><span class="id">PBI #12396</span><span class="chip source">Ready for Dev</span></div>
+        <div class="title">US9 · Webhooks — entrega, bounce, leitura</div>
+        <div class="chips"><span class="chip bad">Formato</span><span class="chip bad">Bloqueio</span></div>
+        <div class="bottom-row"><span class="avatar">KC</span><span class="gap-count">3 pendências</span></div>
+      </button>
+
+      <button class="kcard" onclick="m12397.showModal()">
+        <div class="top-row"><span class="id">PBI #12397</span><span class="chip source">Ready for Dev</span></div>
+        <div class="title">US10 · Reenvio, download, retenção</div>
+        <div class="chips"><span class="chip bad">Formato</span></div>
+        <div class="bottom-row"><span class="avatar">KC</span><span class="gap-count">3 pendências</span></div>
+      </button>
+
+      <button class="kcard" onclick="m12398.showModal()">
+        <div class="top-row"><span class="id">PBI #12398</span><span class="chip source">Ready for Dev</span></div>
+        <div class="title">US11 · Tempo real — Perdas e Vales</div>
+        <div class="chips"><span class="chip bad">Formato</span><span class="chip bad">Arquitetura</span></div>
+        <div class="bottom-row"><span class="avatar">KC</span><span class="gap-count">3 pendências</span></div>
+      </button>
+
+      <button class="kcard" onclick="m12399.showModal()">
+        <div class="top-row"><span class="id">PBI #12399</span><span class="chip source">Ready for Dev</span></div>
+        <div class="title">US12 · Performance, QA, homologação</div>
+        <div class="chips"><span class="chip bad">Formato</span><span class="chip warn">Pré-condição</span></div>
+        <div class="bottom-row"><span class="avatar">KC</span><span class="gap-count">3 pendências</span></div>
+      </button>
+
+      <button class="kcard" onclick="m12400.showModal()">
+        <div class="top-row"><span class="id">PBI #12400</span><span class="chip source">Ready for Dev</span></div>
+        <div class="title">US13 · Validação de negócio, treinamento</div>
+        <div class="chips"><span class="chip bad">Formato</span><span class="chip bad">Bloqueio</span></div>
+        <div class="bottom-row"><span class="avatar">KC</span><span class="gap-count">3 pendências</span></div>
+      </button>
+
+      <button class="kcard" onclick="m12401.showModal()">
+        <div class="top-row"><span class="id">PBI #12401</span><span class="chip source">Ready for Dev</span></div>
+        <div class="title">US14 · Go-live, hypercare</div>
+        <div class="chips"><span class="chip bad">Formato</span><span class="chip bad">Bloqueio</span></div>
+        <div class="bottom-row"><span class="avatar">KC</span><span class="gap-count">3 pendências</span></div>
+      </button>
+
+      <button class="kcard" onclick="m11813.showModal()">
+        <div class="top-row"><span class="id">PBI #11813</span><span class="chip source">Refinement</span></div>
+        <div class="title">Interface para gerenciar destinatários de e-mail</div>
+        <div class="chips"><span class="chip bad">Formato</span><span class="chip bad">Estimativa</span></div>
+        <div class="bottom-row"><span class="avatar">KC</span><span class="gap-count">3 pendências</span></div>
+      </button>
+
+      <button class="kcard" onclick="m11818.showModal()">
+        <div class="top-row"><span class="id">PBI #11818</span><span class="chip source">Refinement</span></div>
+        <div class="title">Relatório de Performance de Campanhas</div>
+        <div class="chips"><span class="chip bad">Formato</span><span class="chip warn">Escopo grande</span></div>
+        <div class="bottom-row"><span class="avatar">KC</span><span class="gap-count">4 pendências</span></div>
+      </button>
+
+      <button class="kcard" onclick="m11840.showModal()">
+        <div class="top-row"><span class="id">Item #11840</span><span class="chip source">Refinement</span></div>
+        <div class="title">Migração Postgres Oracle</div>
+        <div class="chips"><span class="chip bad">Conteúdo insuficiente</span></div>
+        <div class="bottom-row"><span class="avatar">LS</span><span class="gap-count">Reescrever do zero</span></div>
+      </button>
+
+      <button class="kcard" onclick="m11933.showModal()">
+        <div class="top-row"><span class="id">PBI #11933</span><span class="chip source">Refinement</span></div>
+        <div class="title">Sangria, saídas e suprimento na Conciliação</div>
+        <div class="chips"><span class="chip bad">Formato</span></div>
+        <div class="bottom-row"><span class="avatar">—</span><span class="gap-count">2 pendências</span></div>
+      </button>
+
+      <button class="kcard" onclick="m11935.showModal()">
+        <div class="top-row"><span class="id">PBI #11935</span><span class="chip source">Refinement</span></div>
+        <div class="title">Transferência de Tesouraria no Portal</div>
+        <div class="chips"><span class="chip bad">Formato</span></div>
+        <div class="bottom-row"><span class="avatar">—</span><span class="gap-count">2 pendências</span></div>
+      </button>
+
+      <button class="kcard" onclick="m11938.showModal()">
+        <div class="top-row"><span class="id">PBI #11938</span><span class="chip source">Refinement</span></div>
+        <div class="title">Nomenclatura "Ativo" → "Trabalhando"</div>
+        <div class="chips"><span class="chip bad">Formato</span></div>
+        <div class="bottom-row"><span class="avatar">—</span><span class="gap-count">2 pendências</span></div>
+      </button>
+
+      <button class="kcard" onclick="m11941.showModal()">
+        <div class="top-row"><span class="id">PBI #11941</span><span class="chip source">Refinement</span></div>
+        <div class="title">Reset de senha na Consulta de Acessos</div>
+        <div class="chips"><span class="chip bad">Formato</span></div>
+        <div class="bottom-row"><span class="avatar">JN</span><span class="gap-count">2 pendências</span></div>
+      </button>
+
+      <button class="kcard" onclick="m11973.showModal()">
+        <div class="top-row"><span class="id">PBI #11973</span><span class="chip source">Refinement</span></div>
+        <div class="title">FTP no Dashboard CDS, remover PowerAutomate</div>
+        <div class="chips"><span class="chip warn">Comentário Danilo</span></div>
+        <div class="bottom-row"><span class="avatar">JN</span><span class="gap-count">2 pendências técnicas</span></div>
+      </button>
+
+      <button class="kcard" onclick="m12403.showModal()">
+        <div class="top-row"><span class="id">PBI #12403</span><span class="chip source">Refinement</span></div>
+        <div class="title">Ordenar lojas disponíveis para extração</div>
+        <div class="chips"><span class="chip bad">Formato</span><span class="chip bad">Estimativa</span></div>
+        <div class="bottom-row"><span class="avatar">—</span><span class="gap-count">3 pendências</span></div>
+      </button>
+
+      <button class="kcard" onclick="m12483.showModal()">
+        <div class="top-row"><span class="id">Bug #12483</span><span class="chip source">Refinement</span></div>
+        <div class="title">Nota de dev vazou pro texto do usuário</div>
+        <div class="chips"><span class="chip bad">Formato</span><span class="chip warn">Pergunta aberta</span></div>
+        <div class="bottom-row"><span class="avatar">FL</span><span class="gap-count">4 pendências</span></div>
+      </button>
+
+    </div>
+  </div>
+
+  <!-- Coluna: Quase pronto -->
+  <div class="column">
+    <div class="column-head"><span class="dot" style="background:var(--warn)"></span><h2>Quase pronto</h2><span class="count">1</span></div>
+    <div class="column-cards">
+
+      <button class="kcard" onclick="m12498.showModal()">
+        <div class="top-row"><span class="id">PBI #12498</span><span class="chip source">Ready for Dev</span></div>
+        <div class="title">Documentação e arquitetura SSO SIGA</div>
+        <div class="chips"><span class="chip warn">Estimativa</span><span class="chip warn">Publicação</span></div>
+        <div class="bottom-row"><span class="avatar">GL</span><span class="gap-count">2 pendências</span></div>
+      </button>
+
+    </div>
+  </div>
+
+  <!-- Coluna: 100% pronto -->
+  <div class="column">
+    <div class="column-head"><span class="dot" style="background:var(--good)"></span><h2>100% pronto</h2><span class="count">4</span></div>
+    <div class="column-cards">
+
+      <button class="kcard" onclick="m12405.showModal()">
+        <div class="top-row"><span class="id">PBI #12405</span><span class="chip source">Ready for Dev</span></div>
+        <div class="title">Motor de Descontos — gravação direta Retaguarda</div>
+        <div class="chips"><span class="chip good">Pronto</span></div>
+        <div class="bottom-row"><span class="avatar">LS</span><span class="gap-count">0 pendências</span></div>
+      </button>
+
+      <button class="kcard" onclick="m12178.showModal()">
+        <div class="top-row"><span class="id">Bug #12178</span><span class="chip source">Ready for Dev</span></div>
+        <div class="title">Upstream error — Excel e criação de campanha</div>
+        <div class="chips"><span class="chip good">Pronto</span></div>
+        <div class="bottom-row"><span class="avatar">KC</span><span class="gap-count">0 pendências</span></div>
+      </button>
+
+      <button class="kcard" onclick="m12489.showModal()">
+        <div class="top-row"><span class="id">PBI #12489</span><span class="chip source">Ready for Dev</span></div>
+        <div class="title">Scroll horizontal — tabela Justificativas</div>
+        <div class="chips"><span class="chip good">Pronto</span></div>
+        <div class="bottom-row"><span class="avatar">FL</span><span class="gap-count">0 pendências</span></div>
+      </button>
+
+      <button class="kcard" onclick="m12493.showModal()">
+        <div class="top-row"><span class="id">PBI #12493</span><span class="chip source">Ready for Dev</span></div>
+        <div class="title">Contador dessincronizado — Auditoria Propagação</div>
+        <div class="chips"><span class="chip good">Pronto</span></div>
+        <div class="bottom-row"><span class="avatar">FL</span><span class="gap-count">0 pendências</span></div>
+      </button>
+
+    </div>
+  </div>
+
+</div>
+
+<footer>25 cards no projeto Var Retaguarda — 15 em "Ready for Dev" e 10 em "Refinement" (1 epic contêiner excluído), avaliados em 2026-08-11. Clique em qualquer card pra abrir o detalhe.</footer>
+
+<!-- ===================== MODALS ===================== -->
+
+<dialog id="m12405">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #12405</span><div class="title">Motor de Descontos — Gravação direta de campanhas no banco Retaguarda</div></div>
+      <button class="close-btn" onclick="m12405.close()">✕</button></div>
+      <div class="meta">Leonardo Silva · 8 pts · Epic Motor de Descontos (#6669)</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark partial">◐</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list"><li>Teto de reprocessamento ainda em definição com o time técnico — já isolado e rastreado na task #12502, não bloqueia o card em si.</li></ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12405" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m12178">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">Bug #12178</span><div class="title">Upstream error — Exportação de Excel e Criação de Campanhas</div></div>
+      <button class="close-btn" onclick="m12178.close()">✕</button></div>
+      <div class="meta">Kauã Cunha · 3 pts · Epic Bugs (#9561)</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark partial">◐</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark yes">✓</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list"><li>Cenário 1 ainda em prosa, sem Dado/Quando/Então explícito — cosmético, não bloqueia o dev.</li></ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12178" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m12489">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #12489</span><div class="title">Tabela de Justificativas corta colunas sem scroll horizontal</div></div>
+      <button class="close-btn" onclick="m12489.close()">✕</button></div>
+      <div class="meta">Fernando Lima · 2 pts · Epic Portal de Retaguarda (#6640)</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark no">✕</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark yes">✓</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list"><li>Sem rótulo explícito de "verificável por teste de frontend/e2e" — pequeno, o card já é claro sem isso.</li></ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12489" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m12493">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #12493</span><div class="title">Contador de resultados dessincronizado em Auditoria de Propagação</div></div>
+      <button class="close-btn" onclick="m12493.close()">✕</button></div>
+      <div class="meta">Fernando Lima · 2 pts · Epic Portal de Retaguarda (#6640)</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark yes">✓</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list clean"><li>Nenhuma.</li></ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12493" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m12498">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #12498</span><div class="title">Documentação e arquitetura da implementação do SSO no SIGA</div></div>
+      <button class="close-btn" onclick="m12498.close()">✕</button></div>
+      <div class="meta">Gabriel Lopes · sem estimativa · Epic SSO (#11853)</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark no">✕</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark partial">◐</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list"><li>Sem estimativa de esforço.</li><li>Sem definir onde o diagrama/documentação será publicado (wiki, repositório).</li></ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12498" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m12273">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #12273</span><div class="title">Criar admin permanente no Keycloak e remover admin temporário</div></div>
+      <button class="close-btn" onclick="m12273.close()">✕</button></div>
+      <div class="meta">Gabriel Lopes · sem estimativa · Epic SSO (#11853)</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark no">✕</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark no">✕</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark no">✕</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark yes">✓</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list">
+        <li>Reescrever AC em formato Cenário + Dado/Quando/Então.</li>
+        <li>Rotular verificação (backend/integração).</li>
+        <li>Preencher estimativa de esforço.</li>
+        <li>Adicionar critério de ordem: validar acesso do admin permanente antes de remover o temporário (evita lockout).</li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12273" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m12284">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #12284</span><div class="title">Documentar runbook operacional do SSO Hub</div></div>
+      <button class="close-btn" onclick="m12284.close()">✕</button></div>
+      <div class="meta">Gabriel Lopes · sem estimativa · Epic SSO (#11853)</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark no">✕</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark no">✕</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark no">✕</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark partial">◐</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list">
+        <li>Reescrever AC em formato Cenário + Dado/Quando/Então.</li>
+        <li>Rotular verificação (revisão/aprovação técnica).</li>
+        <li>Preencher estimativa de esforço.</li>
+        <li>Enumerar explicitamente os "erros mais comuns" a cobrir (em aberto).</li>
+        <li>Definir onde o runbook será publicado (em aberto).</li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12284" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m12499">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #12499</span><div class="title">Implementação do front-end e back-end do SSO no SIGA</div></div>
+      <button class="close-btn" onclick="m12499.close()">✕</button></div>
+      <div class="meta">Gabriel Lopes · sem estimativa · Epic SSO (#11853)</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark no">✕</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark no">✕</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark no">✕</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark partial">◐</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list">
+        <li>Reescrever AC em formato Cenário + Dado/Quando/Então.</li>
+        <li>Rotular verificação (backend/frontend/integração).</li>
+        <li>Preencher estimativa de esforço.</li>
+        <li>Adicionar critério de token inválido/expirado no callback.</li>
+        <li>Adicionar critério de logout / expiração de sessão.</li>
+        <li>Depende do #12498 (já linkado como Related) — confirmar concluído antes de iniciar.</li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12499" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m12395">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #12395</span><div class="title">US8 · Envio automático — cron + retry</div></div>
+      <button class="close-btn" onclick="m12395.close()">✕</button></div>
+      <div class="meta">Kauã Cunha · 40 pts · Epic Conciliação Fase 2 (#12387)</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark no">✕</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark no">✕</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark no">✕</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list">
+        <li>Reescrever AC em formato Cenário + Dado/Quando/Então.</li>
+        <li>Rotular verificação (backend/cron).</li>
+        <li><strong>Bloqueio externo:</strong> mecanismo/credenciais de envio (MTA) pendentes de definição por Spin/Taunay.</li>
+        <li>Especificar o fuso horário dos horários 23h/08h/06h.</li>
+        <li>Adicionar critério pro job de dispatch em si falhar de rodar.</li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12395" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m12396">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #12396</span><div class="title">US9 · Webhooks — entrega, bounce e leitura</div></div>
+      <button class="close-btn" onclick="m12396.close()">✕</button></div>
+      <div class="meta">Kauã Cunha · 36 pts · Epic Conciliação Fase 2 (#12387)</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark no">✕</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark no">✕</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark no">✕</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list">
+        <li>Reescrever AC em formato Cenário + Dado/Quando/Então.</li>
+        <li>Rotular verificação (backend/webhook).</li>
+        <li><strong>Bloqueio externo:</strong> autorização do tenant Microsoft (Mail.Read) ainda pendente.</li>
+        <li>Adicionar critério de idempotência para webhook duplicado/fora de ordem.</li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12396" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m12397">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #12397</span><div class="title">US10 · Reenvio individual, download auditado e retenção de arquivos</div></div>
+      <button class="close-btn" onclick="m12397.close()">✕</button></div>
+      <div class="meta">Kauã Cunha · 40 pts · Epic Conciliação Fase 2 (#12387)</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark no">✕</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark no">✕</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark partial">◐</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list">
+        <li>Reescrever AC em formato Cenário + Dado/Quando/Então.</li>
+        <li>Rotular verificação (backend/integração).</li>
+        <li>Especificar quais papéis/permissões podem reenviar e baixar.</li>
+        <li>Sem bloqueio próprio, mas herda atraso de US8/US9 (ambas bloqueadas).</li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12397" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m12398">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #12398</span><div class="title">US11 · Tempo real — Perdas e Vales</div></div>
+      <button class="close-btn" onclick="m12398.close()">✕</button></div>
+      <div class="meta">Kauã Cunha · 24 pts · Epic Conciliação Fase 2 (#12387)</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark no">✕</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark no">✕</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark no">✕</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list">
+        <li>Reescrever AC em formato Cenário + Dado/Quando/Então.</li>
+        <li>Rotular verificação (backend/frontend tempo real).</li>
+        <li><strong>Decisão de arquitetura em aberto:</strong> WebSocket, SSE ou polling — ainda não definido nem registrado.</li>
+        <li>Adicionar critério de reconexão/fallback quando a conexão cair.</li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12398" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m12399">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #12399</span><div class="title">US12 · Performance, QA e homologação técnica</div></div>
+      <button class="close-btn" onclick="m12399.close()">✕</button></div>
+      <div class="meta">Kauã Cunha · 40 pts · Epic Conciliação Fase 2 (#12387)</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark no">✕</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark no">✕</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark no">✕</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list">
+        <li>Reescrever AC em formato Cenário + Dado/Quando/Então.</li>
+        <li>Rotular verificação (backend/E2E).</li>
+        <li><strong>Confirmar:</strong> requisito "Épicos 1 e 2 concluídos" ainda não validado, mesmo com o card em Ready for Dev.</li>
+        <li>Adicionar critério de performance mensurável (a descrição menciona "otimizar etapas lentas" sem definir o que é "lento").</li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12399" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m12400">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #12400</span><div class="title">US13 · Validação com as áreas (homologação de negócio) e treinamento</div></div>
+      <button class="close-btn" onclick="m12400.close()">✕</button></div>
+      <div class="meta">Kauã Cunha · 40 pts · Epic Conciliação Fase 2 (#12387)</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark no">✕</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark no">✕</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark no">✕</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list">
+        <li>Reescrever AC em formato Cenário + Dado/Quando/Então.</li>
+        <li>Rotular verificação (aprovação/processo de negócio).</li>
+        <li><strong>Bloqueio externo:</strong> agenda de disponibilidade das áreas de negócio ainda não confirmada.</li>
+        <li>Adicionar critério pro caso de uma área rejeitar mesmo após ajustes.</li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12400" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m12401">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #12401</span><div class="title">US14 · Go-live, pilotagem do 1º fechamento e sustentação inicial (hypercare)</div></div>
+      <button class="close-btn" onclick="m12401.close()">✕</button></div>
+      <div class="meta">Kauã Cunha · 48 pts · Epic Conciliação Fase 2 (#12387)</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark no">✕</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark no">✕</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark no">✕</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list">
+        <li>Reescrever AC em formato Cenário + Dado/Quando/Então.</li>
+        <li>Rotular verificação (deploy/operacional).</li>
+        <li><strong>Bloqueio externo (múltiplo):</strong> ambiente de produção, janela do 1º fechamento e suporte de IT/Infra — nenhum confirmado.</li>
+        <li>Definir gatilho objetivo de rollback (que falha, em qual janela).</li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12401" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m11813">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #11813</span><div class="title">Interface para Gerenciar Destinatários de E-mail no Portal</div></div>
+      <button class="close-btn" onclick="m11813.close()">✕</button></div>
+      <div class="meta">Kauã Cunha · sem estimativa · Epic Motor de Descontos (#6669) · Coluna Azure: Refinement</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark partial">◐</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark no">✕</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark no">✕</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark yes">✓</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list">
+        <li>Reescrever AC em formato Cenário + Dado/Quando/Então (hoje é prosa com bom exemplo concreto, mas sem a estrutura).</li>
+        <li>Rotular verificação (backend/integração para persistência da lista; UI para a tela).</li>
+        <li>Preencher estimativa de esforço.</li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/11813" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m11818">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #11818</span><div class="title">Relatório de Performance de Campanhas</div></div>
+      <button class="close-btn" onclick="m11818.close()">✕</button></div>
+      <div class="meta">Kauã Cunha · sem estimativa · Epic Motor de Descontos (#6669) · Coluna Azure: Refinement</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark partial">◐</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark no">✕</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark no">✕</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark partial">◐</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list">
+        <li>Reescrever AC em formato Cenário + Dado/Quando/Então.</li>
+        <li>Rotular verificação (backend para métricas/exportação, UI para a área de relatórios).</li>
+        <li>Preencher estimativa de esforço.</li>
+        <li>Avaliar se vale quebrar em stories menores — a descrição já lista 4 componentes distintos (área de relatórios, métricas, filtros/exportação, relatório parcial).</li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/11818" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m11840">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">Item #11840</span><div class="title">Migração Postgres Oracle</div></div>
+      <button class="close-btn" onclick="m11840.close()">✕</button></div>
+      <div class="meta">Leonardo Silva · sem estimativa · Nonfunctional Item · Coluna Azure: Refinement</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark no">✕</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark no">✕</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark no">✕</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark no">✕</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list">
+        <li><strong>Isso não é um problema de formato — é conteúdo insuficiente.</strong> Descrição e AC são a mesma frase repetida: "Migração postgres oraclhe, todos os cards de batch estao no mesmo epico." Sem persona, sem regra de negócio, sem escopo definido, sem indicação de quais "cards de batch" são esses.</li>
+        <li>Precisa ser reescrito do zero com o time técnico antes de qualquer refinamento de formato fazer sentido.</li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/11840" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m11933">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #11933</span><div class="title">Exibir Informações de Sangria, Saídas de Caixa e Suprimento na Conciliação</div></div>
+      <button class="close-btn" onclick="m11933.close()">✕</button></div>
+      <div class="meta">7 pts · Epic #7032 · Coluna Azure: Refinement</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark partial">◐</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark no">✕</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark yes">✓</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list">
+        <li>Reescrever os 14 cenários (hoje em "o sistema deve...") pra Dado/Quando/Então — o conteúdo já é bem detalhado a nível de campo, só falta a estrutura.</li>
+        <li>Rotular verificação (backend para os cálculos, UI para o destaque em vermelho).</li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/11933" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m11935">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #11935</span><div class="title">Exibir Transferência de Tesouraria no Portal</div></div>
+      <button class="close-btn" onclick="m11935.close()">✕</button></div>
+      <div class="meta">5 pts · Epic #7032 · Coluna Azure: Refinement</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark partial">◐</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark no">✕</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark yes">✓</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list">
+        <li>Reescrever os 12 cenários pra Dado/Quando/Então — conteúdo já sólido.</li>
+        <li>Rotular verificação (backend/UI).</li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/11935" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m11938">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #11938</span><div class="title">Alterar nomenclatura de situação do colaborador na Consulta de Acessos</div></div>
+      <button class="close-btn" onclick="m11938.close()">✕</button></div>
+      <div class="meta">2 pts · Epic #7032 · Coluna Azure: Refinement</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark partial">◐</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark no">✕</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark yes">✓</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list">
+        <li>Reescrever os 7 cenários pra Dado/Quando/Então — conteúdo já é claro e bem contido (troca de rótulo só na tela, sem mexer em regra).</li>
+        <li>Rotular verificação (UI/frontend).</li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/11938" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m11941">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #11941</span><div class="title">Implementar reset de senha para usuários na Consulta de Acessos</div></div>
+      <button class="close-btn" onclick="m11941.close()">✕</button></div>
+      <div class="meta">João Neto · 4 pts · Epic #7032 · Coluna Azure: Refinement</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark partial">◐</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark no">✕</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark yes">✓</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list">
+        <li>Reescrever os 12 cenários pra Dado/Quando/Então — já cobre permissão, erro e auditoria, conteúdo sólido.</li>
+        <li>Rotular verificação (backend para permissão/reset, UI para o botão).</li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/11941" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m11973">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #11973</span><div class="title">Implementar FTP no Dashboard CDS e remover PowerAutomate</div></div>
+      <button class="close-btn" onclick="m11973.close()">✕</button></div>
+      <div class="meta">João Neto · 8 pts · Epic #10810 · Coluna Azure: Refinement</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark partial">◐</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark no">✕</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark partial">◐</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list">
+        <li><strong>Comentário do Danilo (QA):</strong> descrição e cenários precisam de mais detalhamento pra entender o fluxo completo — já respondido no card.</li>
+        <li>AC reescrito em Dado/Quando/Então com rótulo de verificação, deixando explícito o que falta: host/protocolo/credenciais/formato do FTP, e o mapeamento 1:1 das funcionalidades do PowerAutomate atual.</li>
+        <li>Ainda precisa fechar essas definições técnicas antes de virar Ready for Dev.</li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/11973" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m12403">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #12403</span><div class="title">Ordenar lista de lojas disponíveis para extração, exibindo-as no topo</div></div>
+      <button class="close-btn" onclick="m12403.close()">✕</button></div>
+      <div class="meta">sem estimativa · Epic #11103 · Coluna Azure: Refinement</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark partial">◐</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark no">✕</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark no">✕</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark yes">✓</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list">
+        <li>Já tem um critério em formato Dado/Quando/Então — falta padronizar com cabeçalho "Cenário N — Título" e completar os demais.</li>
+        <li>Rotular verificação (UI/frontend).</li>
+        <li>Preencher estimativa de esforço.</li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12403" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m12483">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">Bug #12483</span><div class="title">Verba anual: nota de desenvolvimento vazou para o texto visível ao usuário final</div></div>
+      <button class="close-btn" onclick="m12483.close()">✕</button></div>
+      <div class="meta">Fernando Lima · sem estimativa · Planejamento Comercial · Coluna Azure: Refinement</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark partial">◐</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark no">✕</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark no">✕</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark partial">◐</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list">
+        <li>Reescrever AC em formato Cenário + Dado/Quando/Então.</li>
+        <li>Rotular verificação (UI/frontend — é troca de copy).</li>
+        <li>Preencher estimativa de esforço.</li>
+        <li>A própria descrição levanta uma pergunta em aberto: confirmar se a tabela vazia (sem nenhuma linha) é esperada neste momento do ciclo ou se é outro bug.</li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12483" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<script>
+  // Close dialog on backdrop click
+  document.querySelectorAll('dialog').forEach(function(dlg){
+    dlg.addEventListener('click', function(e){
+      const rect = dlg.getBoundingClientRect();
+      const inBounds = e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom;
+      if(!inBounds) dlg.close();
+    });
+    // expose as global var by id for inline onclick handlers
+    window[dlg.id] = dlg;
+  });
+</script>

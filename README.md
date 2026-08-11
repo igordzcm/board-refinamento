@@ -1,15 +1,26 @@
-# BMAD — Workspace de PO (Grupo Avenida / Var Retaguarda)
+# board-refinamento
 
-Workspace pessoal de trabalho como PO: skills do Claude Code e artefatos de planejamento gerados ao longo do refinamento dos cards do projeto **Var Retaguarda** no Azure DevOps.
+Workspace pessoal de trabalho como PO no projeto **Var Retaguarda** (Azure DevOps, Grupo Avenida): skills do Claude Code, board de refinamento de cards e artefatos de planejamento produzidos ao longo do processo.
 
-## O que está neste repositório
+## Boards
 
-- **`.claude/skills/`** — 21 skills instaladas para uso como PO (vindas de [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills)):
-  `agile-product-owner`, `apple-hig-expert`, `code-to-prd`, `competitive-teardown`, `experiment-designer`,
-  `landing-page-generator`, `process-mapper`, `product-analytics`, `product-discovery`, `product-manager-toolkit`,
-  `product-skills`, `product-strategist`, `research-summarizer`, `roadmap-communicator`, `saas-scaffolder`,
-  `scrum-master`, `senior-architect`, `senior-pm`, `spec-to-repo`, `ui-design-system`, `ux-researcher-designer`.
-- **`_bmad-output/planning-artifacts/`** — backups de versões originais de cards e o ADR-1 (decisão de arquitetura do Motor de Descontos) produzidos durante o refinamento do card #12405 e outros.
+- **[`boards/board-refinamento.html`](boards/board-refinamento.html)** — board estilo Trello com os 25 cards de "Ready for Dev" + "Refinement" do Var Retaguarda, agrupados por status de prontidão (Precisa refinar / Quase pronto / 100% pronto) contra um checklist de refinamento: formato Cenário + Dado/Quando/Então, rótulo de nível de verificação (backend, UI, revisão), estimativa preenchida e ausência de bloqueio real. Clique num card pra abrir o detalhe do que falta. Também publicado como [Artifact](https://claude.ai/code/artifact/ced8aba8-8054-44d2-a8f9-a4b410264a96).
+- **[`boards/breakdown-ready-for-dev.html`](boards/breakdown-ready-for-dev.html)** — dashboard anterior com a lista de trabalho por card e o veredito de necessidade de fluxograma (técnico via `senior-architect` ou de processo via `process-mapper`) para cada um.
+
+Abra qualquer um dos dois arquivos direto no navegador — são HTML autocontidos, sem dependência externa.
+
+## Skills (`.claude/skills/`)
+
+21 skills selecionadas para uso como PO, vindas de [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills):
+
+`agile-product-owner`, `apple-hig-expert`, `code-to-prd`, `competitive-teardown`, `experiment-designer`,
+`landing-page-generator`, `process-mapper`, `product-analytics`, `product-discovery`, `product-manager-toolkit`,
+`product-skills`, `product-strategist`, `research-summarizer`, `roadmap-communicator`, `saas-scaffolder`,
+`scrum-master`, `senior-architect`, `senior-pm`, `spec-to-repo`, `ui-design-system`, `ux-researcher-designer`.
+
+## Planejamento (`_bmad-output/planning-artifacts/`)
+
+Backups de versões originais de cards e o ADR-1 (decisão de arquitetura do redesenho do Motor de Descontos) produzidos durante o refinamento do card #12405 e outros.
 
 ## O que NÃO está aqui (e como restaurar numa máquina nova)
 
@@ -29,4 +40,4 @@ Requer acesso ao Azure DevOps do Grupo Avenida (`az` CLI autenticado ou credenci
 
 ## Contexto
 
-Este workspace nasceu de um processo de refinamento de cards "Ready for Dev" e "Refinement" no board do Azure DevOps (projeto **Var Retaguarda**), usando primeiro o framework BMAD-METHOD e depois migrando para skills avulsas do `claude-skills` (INVEST, Definition of Done, formato Cenário + Dado/Quando/Então). O BMAD-METHOD em si foi removido deste workspace — só os artefatos de trabalho (`_bmad-output/`) ficaram.
+Este workspace nasceu de um processo de refinamento de cards "Ready for Dev" e "Refinement" no board do Azure DevOps (projeto **Var Retaguarda**), usando primeiro o framework BMAD-METHOD e depois migrando para skills avulsas do `claude-skills` (INVEST, Definition of Done, formato Cenário + Dado/Quando/Então). O BMAD-METHOD em si foi removido deste workspace — só os artefatos de trabalho (`_bmad-output/`) ficaram. Todos os cards de "Ready for Dev" e "Refinement" no Azure DevOps foram marcados com uma tag `Refinamento: Pronto` / `Refinamento: Quase Pronto` / `Refinamento: Precisa Refinar` refletindo o status do board.
