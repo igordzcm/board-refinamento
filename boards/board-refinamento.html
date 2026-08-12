@@ -58,6 +58,7 @@
   .chip.source{background:transparent; border:1px solid var(--border); color:var(--text-secondary);}
   .chip.flow-tech{background:#6A4FA3; color:#FFFFFF;}
   .chip.flow-proc{background:#0E7C77; color:#FFFFFF;}
+  .chip.mock{background:#B23A6B; color:#FFFFFF;}
 
   .column{
     background:var(--board-bg); border:1px solid var(--border); border-radius:12px;
@@ -129,7 +130,7 @@
     <span>Ready for Dev</span>
   </div>
   <h1>Board de Refinamento</h1>
-  <p class="subtitle">Clique num card pra ver o checklist completo e o que falta. Colunas por status de prontidão contra o modelo de refinamento: formato Cenário + Dado/Quando/Então, rótulo de verificação, estimativa e ausência de bloqueio real. Cada card traz uma tag indicando se ele está em "Ready for Dev" ou ainda em "Refinement" no board do Azure DevOps, e — quando cabe — um chip roxo (<strong>fluxograma técnico</strong>, skill <code>senior-architect</code>) ou verde-água (<strong>fluxograma de processo</strong>, skill <code>process-mapper</code>).</p>
+  <p class="subtitle">Clique num card pra ver o checklist completo e o que falta. Colunas por status de prontidão contra o modelo de refinamento: formato Cenário + Dado/Quando/Então, rótulo de verificação, estimativa e ausência de bloqueio real. Cada card traz uma tag indicando se ele está em "Ready for Dev" ou ainda em "Refinement" no board do Azure DevOps, e — quando cabe — um chip roxo (<strong>fluxograma técnico</strong>, skill <code>senior-architect</code>), verde-água (<strong>fluxograma de processo</strong>, skill <code>process-mapper</code>) ou rosa (<strong>mock de tela</strong>, protótipo interativo publicado como Artifact — link no detalhe do card).</p>
 </div>
 
 <div class="board">
@@ -200,7 +201,7 @@
       <button class="kcard" onclick="m11818.showModal()">
         <div class="top-row"><span class="id">PBI #11818</span><span class="chip source">Refinement</span></div>
         <div class="title">Relatório de Performance de Campanhas</div>
-        <div class="chips"><span class="chip good">Pronto</span></div>
+        <div class="chips"><span class="chip good">Pronto</span><span class="chip mock">Mock</span></div>
         <div class="bottom-row"><span class="avatar">KC</span><span class="gap-count">0 pendências</span></div>
       </button>
 
@@ -503,6 +504,7 @@
         <div class="check-item"><span class="mark yes">✓</span>Sem bloqueio aberto</div>
       </div>
       <div><h3>O que falta</h3><ul class="gap-list clean"><li>Nenhuma — 5 cenários cobrindo os 4 componentes (área, métricas, filtros/exportação, relatório parcial) + caso sem resultados. Rótulo backend (cálculo/exportação) + UI (área, filtros). <strong>Decisão de escopo:</strong> avaliada a quebra em 3 stories menores; PO decidiu manter como card único, 13 pts (acima do teto INVEST "Small" — decisão consciente, não pendência).</li></ul></div>
+      <a class="ext" href="https://claude.ai/code/artifact/948d2b06-51d1-4774-9f38-5aae95776c01" target="_blank" rel="noopener">🏷️ Ver mock interativo →</a>
       <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/11818" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
     </div>
   </div>
