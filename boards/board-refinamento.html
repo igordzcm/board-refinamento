@@ -137,15 +137,8 @@
 
   <!-- Coluna: Precisa refinar -->
   <div class="column">
-    <div class="column-head"><span class="dot" style="background:var(--bad)"></span><h2>Precisa refinar</h2><span class="count">4</span></div>
+    <div class="column-head"><span class="dot" style="background:var(--bad)"></span><h2>Precisa refinar</h2><span class="count">3</span></div>
     <div class="column-cards">
-
-      <button class="kcard" onclick="m12401.showModal()">
-        <div class="top-row"><span class="id">PBI #12401</span><span class="chip source">Ready for Dev</span></div>
-        <div class="title">US14 · Go-live, hypercare</div>
-        <div class="chips"><span class="chip bad">Formato</span><span class="chip bad">Bloqueio</span><span class="chip flow-tech">Técnico</span><span class="chip flow-proc">Processo</span></div>
-        <div class="bottom-row"><span class="avatar">KC</span><span class="gap-count">3 pendências</span></div>
-      </button>
 
       <button class="kcard" onclick="m11840.showModal()">
         <div class="top-row"><span class="id">Item #11840</span><span class="chip source">Refinement</span></div>
@@ -173,8 +166,15 @@
 
   <!-- Coluna: Quase pronto -->
   <div class="column">
-    <div class="column-head"><span class="dot" style="background:var(--warn)"></span><h2>Quase pronto</h2><span class="count">2</span></div>
+    <div class="column-head"><span class="dot" style="background:var(--warn)"></span><h2>Quase pronto</h2><span class="count">3</span></div>
     <div class="column-cards">
+
+      <button class="kcard" onclick="m12401.showModal()">
+        <div class="top-row"><span class="id">PBI #12401</span><span class="chip source">Ready for Dev</span></div>
+        <div class="title">US14 · Go-live, hypercare</div>
+        <div class="chips"><span class="chip bad">Bloqueio externo</span><span class="chip flow-tech">Técnico</span><span class="chip flow-proc">Processo</span></div>
+        <div class="bottom-row"><span class="avatar">KC</span><span class="gap-count">1 pendência</span></div>
+      </button>
 
       <button class="kcard" onclick="m12400.showModal()">
         <div class="top-row"><span class="id">PBI #12400</span><span class="chip source">Ready for Dev</span></div>
@@ -287,7 +287,7 @@
 
 </div>
 
-<footer>18 cards no projeto Var Retaguarda — 7 em "Ready for Dev" e 11 em "Refinement", avaliados em 2026-08-12 (atualizado após rodada de refinamento: 7 cards fechados — #11813, #11818, #11933, #11935, #11938, #11941, #12403; #12400 movido pra "Quase pronto" com bloqueio externo real de agenda). Clique em qualquer card pra abrir o detalhe.</footer>
+<footer>18 cards no projeto Var Retaguarda — 7 em "Ready for Dev" e 11 em "Refinement", avaliados em 2026-08-12 (atualizado após rodada de refinamento: 7 cards fechados — #11813, #11818, #11933, #11935, #11938, #11941, #12403; #12400 e #12401 movidos pra "Quase pronto" com bloqueio externo real). Clique em qualquer card pra abrir o detalhe.</footer>
 
 <!-- ===================== MODALS ===================== -->
 
@@ -449,16 +449,13 @@
     </div>
     <div class="modal-body">
       <div class="checkgrid">
-        <div class="check-item"><span class="mark no">✕</span>Formato Cenário + GWT</div>
-        <div class="check-item"><span class="mark no">✕</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
         <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
         <div class="check-item"><span class="mark no">✕</span>Sem bloqueio aberto</div>
       </div>
       <div><h3>O que falta</h3><ul class="gap-list">
-        <li>Reescrever AC em formato Cenário + Dado/Quando/Então.</li>
-        <li>Rotular verificação (deploy/operacional).</li>
-        <li><strong>Bloqueio externo (múltiplo):</strong> ambiente de produção, janela do 1º fechamento e suporte de IT/Infra — nenhum confirmado.</li>
-        <li>Definir gatilho objetivo de rollback (que falha, em qual janela).</li>
+        <li><strong>Bloqueio externo (real, não resolvo sozinho no card):</strong> ambiente de produção, janela do 1º fechamento e suporte de IT/Infra — nenhum confirmado.</li>
         <li><strong>Sugestão (não bloqueia):</strong> fluxogramas técnico (janela de deploy/rollback) e de processo (passos do go-live e hypercare) ajudariam a visualizar o plano.</li>
       </ul></div>
       <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12401" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
