@@ -304,7 +304,10 @@
         <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
         <div class="check-item"><span class="mark partial">◐</span>Sem bloqueio aberto</div>
       </div>
-      <div><h3>O que falta</h3><ul class="gap-list"><li>Teto de reprocessamento ainda em definição com o time técnico — já isolado e rastreado na task #12502, não bloqueia o card em si.</li></ul></div>
+      <div><h3>O que falta</h3><ul class="gap-list">
+        <li>Teto de reprocessamento ainda em definição com o time técnico — já isolado e rastreado na task #12502, não bloqueia o card em si.</li>
+        <li><strong>Sugestão (não bloqueia):</strong> um fluxograma técnico do fluxo de gravação direta + soft delete + reprocessamento ajudaria o dev a visualizar o AD-1, mas a decisão já está documentada no ADR.</li>
+      </ul></div>
       <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12405" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
     </div>
   </div>
@@ -364,7 +367,7 @@
         <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
         <div class="check-item"><span class="mark yes">✓</span>Sem bloqueio aberto</div>
       </div>
-      <div><h3>O que falta</h3><ul class="gap-list clean"><li>Nenhuma — 4 cenários, incluindo o de ordem (valida antes de remover, evita lockout).</li></ul></div>
+      <div><h3>O que falta</h3><ul class="gap-list clean"><li>Nenhuma — 4 cenários, incluindo o de ordem (valida antes de remover, evita lockout). <strong>Sugestão (não bloqueia):</strong> fluxograma técnico pequeno ilustrando a sequência criar → validar → remover ajudaria o dev.</li></ul></div>
       <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12273" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
     </div>
   </div>
@@ -386,6 +389,7 @@
       </div>
       <div><h3>O que falta</h3><ul class="gap-list">
         <li>Publicação definida (Wiki da GAV). Único item em aberto: a lista de "erros mais comuns" do troubleshooting precisa ser levantada por quem opera o SSO Hub — não é algo que o PO define.</li>
+        <li><strong>Sugestão (não bloqueia):</strong> fluxogramas técnico (arquitetura do SSO Hub) e de processo (passos do runbook) ajudariam a documentar o troubleshooting, mas não são obrigatórios pra fechar o card.</li>
       </ul></div>
       <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12284" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
     </div>
@@ -406,7 +410,7 @@
         <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
         <div class="check-item"><span class="mark yes">✓</span>Sem bloqueio aberto</div>
       </div>
-      <div><h3>O que falta</h3><ul class="gap-list clean"><li>Nenhuma — 5 cenários incluindo token inválido/expirado e logout. Dependência do #12498 resolvida. 8 pts está no teto do INVEST "Small", vale reavaliar se crescer. Nota: o card voltou pra coluna "Refinement" no Azure (estava "Ready for Dev").</li></ul></div>
+      <div><h3>O que falta</h3><ul class="gap-list clean"><li>Nenhuma — 6 cenários incluindo token inválido/expirado, logout e Cenário 6 (usuário com muitos grupos no Keycloak, sem erro "Request Header Or Cookie Too Large" — risco levantado pelo Danilo linkando o bug já visto no #12283, agora explícito como critério de aceite). Dependência do #12498 resolvida. 8 pts está no teto do INVEST "Small", vale reavaliar se crescer.</li></ul></div>
       <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12499" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
     </div>
   </div>
@@ -431,6 +435,7 @@
         <li>Rotular verificação (aprovação/processo de negócio).</li>
         <li><strong>Bloqueio externo:</strong> agenda de disponibilidade das áreas de negócio ainda não confirmada.</li>
         <li>Adicionar critério pro caso de uma área rejeitar mesmo após ajustes.</li>
+        <li><strong>Sugestão (não bloqueia):</strong> um fluxograma de processo mapeando as rodadas de validação com cada área ajudaria a visualizar o cronograma.</li>
       </ul></div>
       <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12400" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
     </div>
@@ -456,6 +461,7 @@
         <li>Rotular verificação (deploy/operacional).</li>
         <li><strong>Bloqueio externo (múltiplo):</strong> ambiente de produção, janela do 1º fechamento e suporte de IT/Infra — nenhum confirmado.</li>
         <li>Definir gatilho objetivo de rollback (que falha, em qual janela).</li>
+        <li><strong>Sugestão (não bloqueia):</strong> fluxogramas técnico (janela de deploy/rollback) e de processo (passos do go-live e hypercare) ajudariam a visualizar o plano.</li>
       </ul></div>
       <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12401" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
     </div>
@@ -620,6 +626,7 @@
       <div><h3>O que falta</h3><ul class="gap-list">
         <li>Reescrever os 12 cenários pra Dado/Quando/Então — já cobre permissão, erro e auditoria, conteúdo sólido.</li>
         <li>Rotular verificação (backend para permissão/reset, UI para o botão).</li>
+        <li><strong>Sugestão (não bloqueia):</strong> fluxograma técnico é opcional aqui — os 12 cenários já cobrem permissão, erro e auditoria com clareza suficiente.</li>
       </ul></div>
       <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/11941" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
     </div>
@@ -644,6 +651,7 @@
         <li><strong>Comentário do Danilo (QA):</strong> descrição e cenários precisam de mais detalhamento pra entender o fluxo completo — já respondido no card.</li>
         <li>AC reescrito em Dado/Quando/Então com rótulo de verificação, deixando explícito o que falta: host/protocolo/credenciais/formato do FTP, e o mapeamento 1:1 das funcionalidades do PowerAutomate atual.</li>
         <li>Ainda precisa fechar essas definições técnicas antes de virar Ready for Dev.</li>
+        <li><strong>Sugestão (não bloqueia):</strong> um fluxograma técnico ajudaria a mapear o de-para 1:1 das funcionalidades do PowerAutomate atual pro novo fluxo FTP.</li>
       </ul></div>
       <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/11973" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
     </div>
