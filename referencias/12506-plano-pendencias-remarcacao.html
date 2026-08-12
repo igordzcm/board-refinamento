@@ -1,0 +1,1681 @@
+<title>Pendências de remarcação — Etiqueta Remarcados</title>
+
+<style>
+  :root {
+    --paper:    #FBFAF8;
+    --paper-2:  #F3F0EB;
+    --paper-3:  #EAE5DE;
+    --ink:      #1C1817;
+    --ink-2:    #453E3C;
+    --muted:    #7C726E;
+    --line:     #E4DED7;
+    --line-2:   #CEC5BB;
+    --accent:   #A62B37;
+    --accent-2: #8A2029;
+    --accent-soft: #F7E9E9;
+    --warn:     #91600F;
+    --warn-soft:#F6EEDC;
+    --ok:       #2C6B4F;
+    --ok-soft:  #E3EFE7;
+    --data:     #1E5F86;
+    --data-soft:#E2ECF3;
+
+    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+
+    --measure: 66ch;
+    --gutter: clamp(1.1rem, 4vw, 3rem);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper:    #171413;
+      --paper-2:  #201C1A;
+      --paper-3:  #2A2422;
+      --ink:      #F0EBE5;
+      --ink-2:    #C6BDB5;
+      --muted:    #8E837C;
+      --line:     #2F2926;
+      --line-2:   #453C37;
+      --accent:   #E4707A;
+      --accent-2: #F0959C;
+      --accent-soft: #331F20;
+      --warn:     #DBA75A;
+      --warn-soft:#2C2317;
+      --ok:       #74C097;
+      --ok-soft:  #16261E;
+      --data:     #63ABD3;
+      --data-soft:#152530;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --paper:    #171413;
+    --paper-2:  #201C1A;
+    --paper-3:  #2A2422;
+    --ink:      #F0EBE5;
+    --ink-2:    #C6BDB5;
+    --muted:    #8E837C;
+    --line:     #2F2926;
+    --line-2:   #453C37;
+    --accent:   #E4707A;
+    --accent-2: #F0959C;
+    --accent-soft: #331F20;
+    --warn:     #DBA75A;
+    --warn-soft:#2C2317;
+    --ok:       #74C097;
+    --ok-soft:  #16261E;
+    --data:     #63ABD3;
+    --data-soft:#152530;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.62;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 78rem;
+    margin: 0 auto;
+    padding: 0 var(--gutter) 6rem;
+  }
+
+  .col {
+    max-width: var(--measure);
+  }
+
+  a { color: var(--accent); }
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* ---------- masthead ---------- */
+
+  .masthead {
+    border-bottom: 2px solid var(--ink);
+    padding: 2.6rem 0 1.5rem;
+    margin-bottom: 2.6rem;
+  }
+
+  .kicker {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    font-family: var(--mono);
+    font-size: 0.688rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 0.7rem;
+    margin-bottom: 1.5rem;
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(2.3rem, 6vw, 3.7rem);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+    margin: 0 0 0.85rem;
+  }
+
+  .dek {
+    font-family: var(--serif);
+    font-size: clamp(1.06rem, 2.1vw, 1.28rem);
+    line-height: 1.5;
+    color: var(--ink-2);
+    max-width: 54ch;
+    margin: 0 0 1.7rem;
+    text-wrap: pretty;
+  }
+
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem 1.4rem;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--muted);
+  }
+  .meta span::before {
+    content: "▪";
+    color: var(--accent);
+    margin-right: 0.45em;
+  }
+
+  /* ---------- sections ---------- */
+
+  section {
+    padding-top: 3.4rem;
+  }
+  section + section {
+    border-top: 1px solid var(--line);
+  }
+
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    gap: 0.85rem;
+    margin-bottom: 1.5rem;
+  }
+  .sec-num {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    padding-top: 0.3rem;
+  }
+  h2 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(1.5rem, 3.4vw, 2.05rem);
+    line-height: 1.14;
+    letter-spacing: -0.015em;
+    margin: 0;
+    text-wrap: balance;
+  }
+  h3 {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 2.4rem 0 0.9rem;
+  }
+
+  p { margin: 0 0 1.05rem; text-wrap: pretty; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 650; color: var(--ink); }
+
+  code {
+    font-family: var(--mono);
+    font-size: 0.86em;
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 0.08em 0.35em;
+    white-space: nowrap;
+  }
+
+  .lead {
+    font-family: var(--serif);
+    font-size: 1.16rem;
+    line-height: 1.55;
+    color: var(--ink-2);
+  }
+  .lead strong { color: var(--ink); }
+
+  /* ---------- quote (o pedido do TL) ---------- */
+
+  .quote {
+    border-left: 3px solid var(--ink);
+    padding: 0.2rem 0 0.2rem 1.3rem;
+    margin: 1.9rem 0;
+    max-width: 56ch;
+  }
+  .quote p {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: var(--ink);
+    margin: 0 0 0.5rem;
+  }
+  .quote p:last-of-type { margin-bottom: 0.7rem; }
+  .quote cite {
+    font-family: var(--mono);
+    font-size: 0.688rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-style: normal;
+  }
+
+  /* ---------- stat row ---------- */
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    margin: 2rem 0;
+  }
+  .stat {
+    background: var(--paper);
+    padding: 1.15rem 1.25rem;
+  }
+  .stat b {
+    display: block;
+    font-family: var(--serif);
+    font-size: 2.1rem;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+    margin-bottom: 0.4rem;
+  }
+  .stat span {
+    font-size: 0.78rem;
+    color: var(--muted);
+    line-height: 1.4;
+    display: block;
+  }
+  .stat.hot b { color: var(--accent); }
+  .stat.good b { color: var(--ok); }
+
+  /* ---------- callout ---------- */
+
+  .callout {
+    border-left: 3px solid var(--accent);
+    background: var(--accent-soft);
+    padding: 1.05rem 1.3rem;
+    margin: 1.9rem 0;
+    font-size: 0.95rem;
+    max-width: var(--measure);
+  }
+  .callout.ok { border-color: var(--ok); background: var(--ok-soft); }
+  .callout.warn { border-color: var(--warn); background: var(--warn-soft); }
+  .callout.data { border-color: var(--data); background: var(--data-soft); }
+
+  /* ---------- tables ---------- */
+
+  .scroll {
+    overflow-x: auto;
+    margin: 1.6rem 0;
+    border: 1px solid var(--line);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.86rem;
+    min-width: 40rem;
+    background: var(--paper);
+  }
+  thead th {
+    text-align: left;
+    font-family: var(--sans);
+    font-size: 0.688rem;
+    font-weight: 700;
+    letter-spacing: 0.075em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: var(--paper-2);
+    padding: 0.7rem 0.9rem;
+    border-bottom: 1px solid var(--line-2);
+    white-space: nowrap;
+  }
+  td {
+    padding: 0.72rem 0.9rem;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+    line-height: 1.45;
+  }
+  tbody tr:last-child td { border-bottom: 0; }
+  .num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .nowrap { white-space: nowrap; }
+  .lvl {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+  .lvl.n1 { color: var(--ok); }
+  .lvl.n2 { color: var(--data); }
+  .lvl.n3 { color: var(--warn); }
+
+  /* ---------- situation chips ---------- */
+
+  .chip {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 0.688rem;
+    font-weight: 650;
+    letter-spacing: 0.03em;
+    padding: 0.16rem 0.5rem;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+  .chip.crit { background: var(--accent-soft); color: var(--accent); }
+  .chip.warn { background: var(--warn-soft); color: var(--warn); }
+  .chip.ok   { background: var(--ok-soft);   color: var(--ok); }
+  .chip.mute { background: var(--paper-3);   color: var(--muted); }
+
+  /* ---------- taxonomy ---------- */
+
+  .taxo {
+    display: grid;
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    margin: 1.8rem 0;
+  }
+  .tx {
+    background: var(--paper);
+    display: grid;
+    grid-template-columns: 4px minmax(0, 13rem) minmax(0, 1fr);
+    gap: 0 1.2rem;
+    align-items: start;
+    padding: 0;
+  }
+  .tx-bar { background: var(--line-2); }
+  .tx.crit .tx-bar { background: var(--accent); }
+  .tx.warn .tx-bar { background: var(--warn); }
+  .tx.ok   .tx-bar { background: var(--ok); }
+  .tx-name {
+    padding: 1rem 0 1rem 1.2rem;
+  }
+  .tx-name b {
+    display: block;
+    font-family: var(--sans);
+    font-size: 0.83rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 0.28rem;
+  }
+  .tx.crit .tx-name b { color: var(--accent); }
+  .tx.warn .tx-name b { color: var(--warn); }
+  .tx.ok   .tx-name b { color: var(--ok); }
+  .tx-name span {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--muted);
+    line-height: 1.45;
+    display: block;
+  }
+  .tx-desc {
+    padding: 1rem 1.2rem 1rem 0;
+    font-size: 0.9rem;
+    color: var(--ink-2);
+  }
+  @media (max-width: 40rem) {
+    .tx { grid-template-columns: 4px minmax(0, 1fr); }
+    .tx-desc { grid-column: 2; padding-top: 0; padding-left: 1.2rem; }
+  }
+
+  /* ---------- composition bar ---------- */
+
+  .compo {
+    margin: 1.9rem 0;
+    max-width: 46rem;
+  }
+  .compo-bar {
+    display: flex;
+    height: 2.6rem;
+    border: 1px solid var(--line-2);
+    overflow: hidden;
+  }
+  .compo-seg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--paper);
+    min-width: 0;
+  }
+  .compo-seg.void { background: var(--line-2); color: var(--ink-2); }
+  .compo-seg.real { background: var(--accent); }
+  .compo-key {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.5rem;
+    margin-top: 0.7rem;
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+  .compo-key i {
+    display: inline-block;
+    width: 0.7rem;
+    height: 0.7rem;
+    margin-right: 0.4em;
+    vertical-align: -1px;
+  }
+
+  /* ---------- régua de custo (escala log) ---------- */
+
+  .ruler {
+    margin: 2rem 0 1rem;
+    max-width: 50rem;
+  }
+  .rl-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 9.5rem) minmax(0, 1fr) minmax(0, 5rem);
+    gap: 0.55rem 0.9rem;
+    align-items: center;
+  }
+  .rl-lbl {
+    font-family: var(--mono);
+    font-size: 0.688rem;
+    letter-spacing: 0.05em;
+    color: var(--ink-2);
+    text-align: right;
+    line-height: 1.3;
+  }
+  .rl-lbl i {
+    font-style: normal;
+    display: block;
+    color: var(--muted);
+    letter-spacing: 0.03em;
+  }
+  .rl-track {
+    position: relative;
+    height: 0.85rem;
+    background: var(--paper-2);
+    border-left: 1px solid var(--line-2);
+  }
+  .rl-fill {
+    position: absolute;
+    inset: 0 auto 0 0;
+    background: var(--ok);
+  }
+  .rl-row.n2 .rl-fill { background: var(--data); }
+  .rl-row.n3 .rl-fill { background: var(--warn); }
+  .rl-row.never .rl-fill {
+    background: repeating-linear-gradient(
+      135deg, var(--accent) 0 5px, var(--accent-soft) 5px 10px
+    );
+  }
+  .rl-val {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    font-weight: 650;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .rl-row.never .rl-val { color: var(--accent); }
+  .rl-axis {
+    position: relative;
+    height: 1.4rem;
+    margin-top: 0.15rem;
+    border-top: 1px solid var(--line-2);
+  }
+  .rl-tick {
+    position: absolute;
+    top: 0;
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    color: var(--muted);
+    transform: translateX(-50%);
+    white-space: nowrap;
+  }
+  .rl-tick::before {
+    content: "";
+    position: absolute;
+    top: -0.32rem;
+    left: 50%;
+    width: 1px;
+    height: 0.3rem;
+    background: var(--line-2);
+  }
+  .rl-budget {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 0;
+    border-left: 1px dashed var(--accent);
+    pointer-events: none;
+  }
+  .rl-budget span {
+    position: absolute;
+    top: -1.35rem;
+    left: 0.35rem;
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+  .rl-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 1.4rem;
+    margin-top: 1rem;
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+  .rl-legend i {
+    display: inline-block;
+    width: 0.7rem;
+    height: 0.7rem;
+    margin-right: 0.4em;
+    vertical-align: -1px;
+  }
+  @media (max-width: 46rem) {
+    .rl-grid { grid-template-columns: minmax(0, 6.5rem) minmax(0, 1fr) minmax(0, 4rem); }
+    .rl-lbl { font-size: 0.63rem; }
+  }
+
+  /* ---------- code ---------- */
+
+  .code {
+    margin: 1.7rem 0;
+    border: 1px solid var(--line);
+    background: var(--paper-2);
+  }
+  .code-head {
+    font-family: var(--mono);
+    font-size: 0.688rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .code-head b { color: var(--ok); font-weight: 700; }
+  .code-head b.slow { color: var(--warn); }
+  pre {
+    margin: 0;
+    padding: 1.1rem 1rem;
+    overflow-x: auto;
+    font-family: var(--mono);
+    font-size: 0.76rem;
+    line-height: 1.62;
+    color: var(--ink-2);
+    tab-size: 2;
+  }
+
+  /* ---------- screen mockup ---------- */
+
+  .screen {
+    border: 1px solid var(--line-2);
+    background: var(--paper);
+    margin: 1.9rem 0;
+    font-size: 0.78rem;
+    line-height: 1.45;
+    box-shadow: 0 1px 0 var(--line), 0 14px 32px -22px rgba(0,0,0,0.4);
+  }
+  .sc-head { padding: 0.95rem 1.1rem; border-bottom: 1px solid var(--line); background: var(--paper-2); }
+  .sc-title-row { display: flex; justify-content: space-between; gap: 0.9rem; flex-wrap: wrap; align-items: flex-start; }
+  .sc-title { font-size: 1rem; font-weight: 700; }
+  .sc-sub { color: var(--muted); font-size: 0.76rem; }
+  .sc-btn {
+    display: inline-block;
+    border: 1px solid var(--line-2);
+    border-radius: 5px;
+    padding: 0.28rem 0.65rem;
+    color: var(--ink-2);
+    font-size: 0.74rem;
+    white-space: nowrap;
+    background: var(--paper);
+  }
+  .sc-btn.solid { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .sc-window {
+    display: inline-block;
+    margin-top: 0.7rem;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-radius: 999px;
+    padding: 0.24rem 0.7rem;
+    font-family: var(--mono);
+    font-size: 0.68rem;
+  }
+  .sc-filters {
+    display: flex; gap: 0.55rem; flex-wrap: wrap; align-items: center;
+    padding: 0.75rem 1.1rem; border-bottom: 1px solid var(--line); color: var(--ink-2);
+  }
+  .sc-filters span.f { border: 1px solid var(--line-2); border-radius: 5px; padding: 0.28rem 0.6rem; font-size: 0.74rem; }
+  .sc-lat {
+    margin-left: auto;
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    font-weight: 700;
+    background: var(--ok-soft);
+    color: var(--ok);
+    border-radius: 4px;
+    padding: 0.2rem 0.5rem;
+  }
+  .sc-lat.slow { background: var(--warn-soft); color: var(--warn); }
+  .sc-body { padding: 1rem 1.1rem 1.2rem; }
+  .sc-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(112px, 1fr)); gap: 0.5rem; }
+  .sc-kpi { border: 1px solid var(--line); border-radius: 6px; padding: 0.55rem 0.65rem; }
+  .sc-kpi.hot { background: var(--accent-soft); border-color: var(--accent-soft); }
+  .sc-kpi em { font-style: normal; display: block; font-size: 0.68rem; color: var(--muted); }
+  .sc-kpi b {
+    display: block; font-family: var(--serif); font-size: 1.4rem; font-weight: 600;
+    line-height: 1.15; font-variant-numeric: tabular-nums;
+  }
+  .sc-kpi.hot b { color: var(--accent); }
+  .sc-label {
+    margin-top: 1.15rem; font-size: 0.688rem; font-weight: 700;
+    letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted);
+  }
+  .sc-scroll { overflow-x: auto; margin-top: 0.4rem; }
+  .sc-table { width: 100%; border-collapse: collapse; font-size: 0.74rem; min-width: 40rem; }
+  .sc-table th {
+    font-size: 0.66rem; font-weight: 650; letter-spacing: 0.05em; text-transform: uppercase;
+    color: var(--muted); padding: 0.4rem 0.5rem; border-bottom: 1px solid var(--line-2); text-align: right; white-space: nowrap;
+  }
+  .sc-table th:first-child, .sc-table th.l { text-align: left; }
+  .sc-table td {
+    padding: 0.45rem 0.5rem; border-bottom: 1px solid var(--line);
+    text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap;
+  }
+  .sc-table td:first-child, .sc-table td.l { text-align: left; }
+  .sc-table tr.sel { background: var(--accent-soft); }
+  .sc-table tr.sel td:first-child { color: var(--accent); font-weight: 700; }
+  .sc-table tr.open td { border-bottom: 0; background: var(--paper-2); }
+  .sc-table tr.sub td { background: var(--paper-2); padding-top: 0; padding-bottom: 0.7rem; }
+  .sc-table .hot { color: var(--accent); font-weight: 700; }
+  .sc-table .dim { color: var(--muted); }
+  .sc-table .good { color: var(--ok); font-weight: 650; }
+  .sc-table .mid { color: var(--warn); }
+  .sc-mono { font-family: var(--mono); font-size: 0.72rem; }
+  .sc-caret {
+    display: inline-block;
+    width: 0; height: 0;
+    border-left: 4.5px solid var(--muted);
+    border-top: 3.5px solid transparent;
+    border-bottom: 3.5px solid transparent;
+    margin-right: 0.45rem;
+    vertical-align: 1px;
+  }
+  .sc-caret.open {
+    border-left: 3.5px solid transparent;
+    border-right: 3.5px solid transparent;
+    border-top: 4.5px solid var(--accent);
+    border-bottom: 0;
+    vertical-align: 2px;
+  }
+  .sc-sub-box { border-left: 2px solid var(--line-2); padding: 0.2rem 0 0 0.75rem; margin-left: 0.4rem; }
+  .sc-sub-line {
+    display: flex; flex-wrap: wrap; gap: 0.3rem 1rem;
+    font-family: var(--mono); font-size: 0.7rem; color: var(--ink-2); padding: 0.12rem 0;
+  }
+  .sc-sub-line b { min-width: 3.2rem; display: inline-block; }
+  .sc-detail-head { display: flex; justify-content: space-between; align-items: center; gap: 0.7rem; flex-wrap: wrap; margin-top: 1.2rem; }
+  .sc-caption { font-size: 0.72rem; color: var(--muted); margin-top: 0.55rem; }
+  .sc-crumb {
+    font-family: var(--mono); font-size: 0.7rem; color: var(--data);
+    padding: 0.55rem 1.1rem; border-bottom: 1px solid var(--line);
+  }
+
+  .drill {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    max-width: 50rem;
+    margin: 0.4rem 0 0.4rem;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .drill::before,
+  .drill::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line-2);
+  }
+
+  .figcap {
+    font-size: 0.78rem;
+    color: var(--muted);
+    max-width: var(--measure);
+    margin: -0.6rem 0 0;
+  }
+
+  /* ---------- timeline ---------- */
+
+  .tl { margin: 1.8rem 0; border-left: 1px solid var(--line-2); display: grid; gap: 1.4rem; }
+  .tl-item { padding-left: 1.4rem; position: relative; max-width: 58ch; }
+  .tl-item::before {
+    content: ""; position: absolute; left: -4.5px; top: 0.5rem;
+    width: 8px; height: 8px; background: var(--line-2); border-radius: 50%;
+  }
+  .tl-item.key::before { background: var(--accent); }
+  .tl-when {
+    font-family: var(--mono); font-size: 0.688rem; letter-spacing: 0.07em;
+    text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 0.15rem;
+  }
+  .tl-item b { display: block; font-size: 0.95rem; margin-bottom: 0.2rem; }
+  .tl-item p { font-size: 0.88rem; color: var(--ink-2); margin: 0; }
+
+  /* ---------- pending list ---------- */
+
+  .pend { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); margin: 1.7rem 0; }
+  .pend-item { background: var(--paper); padding: 0.95rem 1.1rem; }
+  .pend-item b { display: block; font-size: 0.92rem; margin-bottom: 0.2rem; }
+  .pend-item p { font-size: 0.86rem; color: var(--ink-2); margin: 0 0 0.4rem; }
+  .pend-owner { font-family: var(--mono); font-size: 0.688rem; color: var(--muted); }
+
+  footer {
+    margin-top: 4rem;
+    padding-top: 1.1rem;
+    border-top: 2px solid var(--ink);
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    font-family: var(--mono);
+    font-size: 0.688rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="kicker">
+      <span>GAV · Portal da Retaguarda</span>
+      <span>Etiqueta Remarcados · rev. 11.08.2026</span>
+    </div>
+    <h1>Quem ainda não remarcou</h1>
+    <p class="dek">A quarta tela do Etiqueta Remarcados. As três primeiras contam o que foi feito; esta abre na rede inteira e diz, em menos de um segundo, quais lojas não fizeram.</p>
+    <div class="meta">
+      <span>Épico 12428 · Var Retaguarda</span>
+      <span>Módulo <code>price-remark</code> · API + Front</span>
+      <span>Medições na base <code>teste</code> · APP_PRICETAG</span>
+      <span>Revisão 2 — rede como visão primária</span>
+    </div>
+  </header>
+
+  <section id="porque">
+    <div class="sec-head"><span class="sec-num">01</span><h2>Quem usa, e o que pergunta</h2></div>
+
+    <div class="col">
+      <p class="lead">A primeira versão deste desenho abria por loja: escolha a loja, veja o que falta nela. Estava errada, e o erro não era de dado — era de usuário.</p>
+    </div>
+
+    <div class="quote">
+      <p>“Pensa que precisamos ter uma visão das lojas que não fizeram. O Bruno vai entrar e ver quem não fez, e aí cobrar o pessoal. Ele vai fazer isso por loja. E se tiver interesse, entrar no detalhe.”</p>
+      <cite>Luiz Spinelli · revisão do desenho</cite>
+    </div>
+
+    <div class="col">
+      <p>Uma tela que exige a loja no filtro só serve a quem <strong>já sabe qual loja olhar</strong>. O Bruno não sabe — é justamente isso que ele abre a tela para descobrir. Pedir a loja antes de mostrar qualquer coisa transfere para o usuário a pergunta que a tela deveria responder.</p>
+      <p>A tela agora abre na <strong>rede</strong>: uma linha por loja, as piores primeiro, sem filtro obrigatório. Expandir a linha mostra os lotes daquela loja. Entrar no detalhe — e só então — paga o custo da conta exata. Três níveis, cada um pago quando o usuário pede.</p>
+      <p>O que não mudou é a tese. As telas de Produtividade, Justificativas e Auditoria partem todas da <code>REM001</code>, o ledger do que <strong>saiu da impressora</strong>. Um item que ninguém bipou não tem linha lá — logo não existe em lugar nenhum do Portal. Uma loja que nunca abriu o app é hoje <strong>invisível</strong> para o backoffice, e a ausência de dado é indistinguível de dado ausente.</p>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><b>3</b><span>telas hoje, todas sobre o que foi feito</span></div>
+      <div class="stat hot"><b>0</b><span>telas que mostram quem não fez</span></div>
+      <div class="stat"><b>~230</b><span>lojas na rede, hoje sem ranking de pendência</span></div>
+      <div class="stat good"><b>≈210 ms</b><span>custo alvo da visão de rede, ao vivo</span></div>
+    </div>
+  </section>
+
+  <section id="custo">
+    <div class="sec-head"><span class="sec-num">02</span><h2>Três níveis, três custos</h2></div>
+
+    <div class="col">
+      <p class="lead">A objeção à rede como tela principal foi o tempo de carga. Ela vinha de um número real — <strong>57 s</strong> — atribuído à pergunta errada.</p>
+      <p>Os 57,2 s são o custo de calcular o <strong>preço vigente</strong> das 230 lojas num tiro só: 42 milhões de pares (loja, item). É o filtro que decide se um item <em>entra</em> na lista de remarcação. Saber que a loja 71 lançou três lotes e não emitiu uma única etiqueta <strong>não precisa desse filtro</strong> — precisa contar linhas de dois lados e ver qual não tem par.</p>
+      <p>Essa conta já foi medida: <strong>144 ms</strong> para varrer os lotes da rede inteira em 30 dias, e cerca de <strong>90 ms</strong> para agregar a <code>REM001</code> por loja. <strong>A rede não demora.</strong> O que demora é a conta exata de uma loja — e essa fica guardada atrás de um clique.</p>
+    </div>
+
+    <div class="scroll">
+      <table>
+        <thead>
+          <tr><th style="width:9rem">Nível</th><th>Responde</th><th style="width:8rem">Custo alvo</th><th style="width:15rem">Como</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="lvl n1">N1 · REDE</span><br><span style="color:var(--muted);font-size:0.8rem">abre aqui</span></td>
+            <td><strong>Quem não fez</strong> — uma linha por loja, ordenada pela pior</td>
+            <td class="num"><strong>≤ 1,5 s</strong></td>
+            <td>Dois agregados leves no Oracle, casados em memória por loja. Sem preço vigente.</td>
+          </tr>
+          <tr>
+            <td><span class="lvl n2">N2 · LOTES</span><br><span style="color:var(--muted);font-size:0.8rem">expandir a linha</span></td>
+            <td>Quais lotes <strong>daquela</strong> loja estão parados</td>
+            <td class="num">≤ 1 s</td>
+            <td>Mesmo cruzamento, escopado a uma loja. Ainda sem preço vigente.</td>
+          </tr>
+          <tr>
+            <td><span class="lvl n3">N3 · DETALHE</span><br><span style="color:var(--muted);font-size:0.8rem">clicar na loja</span></td>
+            <td>Quais itens, quanto falta, ordem de trabalho</td>
+            <td class="num">6–16 s</td>
+            <td>A conta completa, com preço vigente, cache por loja e coalescing.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>A régua</h3>
+
+    <div class="ruler">
+      <div class="rl-grid">
+        <div class="rl-lbl">REM001 · REDE<i>agregada por loja</i></div>
+        <div class="rl-track"><div class="rl-fill" style="width:8.3%"></div></div>
+        <div class="rl-val">90 ms</div>
+
+        <div class="rl-lbl">LOTES · REDE<i>30 dias, 1,6 M linhas</i></div>
+        <div class="rl-track"><div class="rl-fill" style="width:14.9%"></div></div>
+        <div class="rl-val">144 ms</div>
+
+        <div class="rl-lbl">N1 COMPLETO<i>as duas + o casamento</i></div>
+        <div class="rl-track"><div class="rl-fill" style="width:20.2%"></div></div>
+        <div class="rl-val">≈210 ms</div>
+
+        <div class="rl-lbl">LOTES · 1 LOJA<i>base do N2</i></div>
+        <div class="rl-track"><div class="rl-fill" style="width:29.6%; background:var(--data)"></div></div>
+        <div class="rl-val">409 ms</div>
+
+        <div class="rl-lbl">VIGENTE · 1 LOJA<i>321 mil itens</i></div>
+        <div class="rl-track"><div class="rl-fill" style="width:67.7%; background:var(--warn)"></div></div>
+        <div class="rl-val">6,1 s</div>
+
+        <div class="rl-lbl">N3 COMPLETO<i>1 loja, 30 dias</i></div>
+        <div class="rl-track"><div class="rl-fill" style="width:81.0%; background:var(--warn)"></div></div>
+        <div class="rl-val">15,6 s</div>
+
+        <div class="rl-lbl">VIGENTE · REDE<i>42 M pares</i></div>
+        <div class="rl-track"><div class="rl-fill" style="width:99.3%; background:repeating-linear-gradient(135deg, var(--accent) 0 5px, var(--accent-soft) 5px 10px)"></div></div>
+        <div class="rl-val" style="color:var(--accent)">57,2 s</div>
+
+        <div class="rl-budget" style="left:calc(9.5rem + 0.9rem + (100% - 9.5rem - 5rem - 1.8rem) * 0.48)">
+          <span>orçamento do N1 · 1,5 s</span>
+        </div>
+      </div>
+
+      <div class="rl-axis" style="margin-left:calc(9.5rem + 0.9rem); margin-right:calc(5rem + 0.9rem)">
+        <span class="rl-tick" style="left:9.8%">100 ms</span>
+        <span class="rl-tick" style="left:42.3%">1 s</span>
+        <span class="rl-tick" style="left:74.7%">10 s</span>
+        <span class="rl-tick" style="left:100%">60 s</span>
+      </div>
+
+      <div class="rl-legend">
+        <span><i style="background:var(--ok)"></i>N1 — executa a cada abertura da tela</span>
+        <span><i style="background:var(--data)"></i>N2 — executa ao expandir uma loja</span>
+        <span><i style="background:var(--warn)"></i>N3 — executa ao abrir o detalhe</span>
+        <span><i style="background:repeating-linear-gradient(135deg, var(--accent) 0 3px, var(--accent-soft) 3px 6px)"></i><strong>nunca executada</strong></span>
+      </div>
+    </div>
+    <p class="figcap"><strong>Escala logarítmica</strong> — sem ela as barras do N1 seriam invisíveis, que é precisamente o ponto: há três ordens de grandeza entre o que a tela abre e o que ela nunca faz. Medições de 23/07/2026 na base <code>teste</code> (§3 do plano de BI), exceto <em>N1 completo</em>, que é a soma projetada das duas consultas e será confirmada no Passo 0.</p>
+
+    <h3>As duas consultas do N1</h3>
+
+    <div class="col">
+      <p>Nenhuma das duas toca o preço vigente, e nenhuma traz linha item a item para a aplicação — ambas agregam <strong>no banco</strong> e devolvem alguns milhares de linhas.</p>
+    </div>
+
+    <div class="code">
+      <div class="code-head"><span>Lado A · o que foi lançado — ~1.782 linhas (loja × lote)</span><b>144 ms</b></div>
+<pre>SELECT PRELOJCOD                        AS loja,
+       TO_CHAR(PREDTMOVTO,'YYYY-MM-DD') AS lote,
+       COUNT(*)                         AS itens_no_lote
+  FROM VAR.PRE0021
+ WHERE PREDTMOVTO &gt;= TO_DATE(:dataLancamento,'YYYY-MM-DD')
+   AND (:diasRetroativos IS NULL
+        OR PREDTMOVTO &gt;= TRUNC(SYSDATE) - :diasRetroativos)
+ GROUP BY PRELOJCOD, TO_CHAR(PREDTMOVTO,'YYYY-MM-DD')</pre>
+    </div>
+
+    <div class="code">
+      <div class="code-head"><span>Lado B · o que foi feito — ~230 linhas (uma por loja)</span><b>≈90 ms</b></div>
+<pre>SELECT REMLOJCOD                     AS loja,
+       COUNT(DISTINCT REMITEID)      AS itens_tocados,
+       SUM(CASE WHEN REMSTATU='EFE' THEN REMQTD ELSE 0 END) AS etiquetas,
+       MAX(REMDTOCO)                 AS ultima_emissao
+  FROM APP_PRICETAG.REM001
+ WHERE REMDTOCO &gt;= :inicioJanela
+ GROUP BY REMLOJCOD</pre>
+    </div>
+
+    <div class="col">
+      <p>O casamento é por <code>loja</code>, em TypeScript, sobre cerca de dois mil registros. Loja presente em A e ausente em B — ou presente com zero <code>EFE</code> — é uma <strong>loja silenciosa</strong>. Isso não é estimativa: é a ausência de qualquer linha no ledger, e é o número que gera a cobrança.</p>
+    </div>
+
+    <h3>O ponto ainda em aberto</h3>
+
+    <div class="col">
+      <p>A coluna <em>lotes não iniciados</em> por loja exige saber <strong>qual</strong> lote foi tocado — e o lado B, como está, agrega só por loja. Há duas formas de trazer o lote, com custos muito diferentes, e a escolha depende de uma medição que ainda não foi feita:</p>
+    </div>
+
+    <div class="taxo">
+      <div class="tx ok">
+        <div class="tx-bar"></div>
+        <div class="tx-name"><b>Candidata 1 · REMDTMOV</b><span>custo ~zero</span></div>
+        <div class="tx-desc">Acrescentar <code>REMDTMOV</code> ao <code>GROUP BY</code> do lado B: é a data do lote gravada no próprio ledger. Não custa nada. <strong>Mas a coluna aceita nulo</strong> — e cada nulo é um lote tocado que a tela contaria como não iniciado. Viável se, e só se, a fração de nulos em produção for desprezível.</div>
+      </div>
+      <div class="tx warn">
+        <div class="tx-bar"></div>
+        <div class="tx-name"><b>Candidata 2 · semi-join</b><span>custo a medir</span></div>
+        <div class="tx-desc">Um <code>EXISTS</code> entre o lote e a <code>REM001</code> por <code>REMITEID</code>, ainda sem preço vigente. Correto por construção, independente de <code>REMDTMOV</code>. O custo é desconhecido: a medição de 18,0 s registrada no plano é da agregação completa da rede, não de um semi-join.</div>
+      </div>
+    </div>
+
+    <div class="callout data">
+      <strong>Fallback definido, não improvisado.</strong> Se nenhuma das duas couber no orçamento de 1,5 s, a coluna <em>lotes não iniciados</em> sai do N1 e passa a carregar na expansão — onde o escopo é uma loja só e o custo é trivial. O N1 continua liderando por <strong>lojas silenciosas</strong> e <strong>dias sem emitir</strong>, que são os dois números mais fortes da cobrança e custam os 90 ms do lado B. A tela não deixa de funcionar; ela perde uma coluna.
+    </div>
+  </section>
+
+  <section id="teto">
+    <div class="sec-head"><span class="sec-num">03</span><h2>O que a rede pode afirmar</h2></div>
+
+    <div class="col">
+      <p>O N1 conta <strong>itens no lote</strong>: o total lançado na <code>PRE0021</code> sem o filtro <code>VLR_NOVO &lt;&gt; VLR_ATUAL</code>. É um <strong>teto</strong>, não a meta — parte desses itens já está com o preço correto, ou nem tem preço normal vigente para comparar, e nunca chega à lista do operador. Cobrar aderência percentual em cima de um teto é produzir um número que nenhuma loja atinge, e é assim que um relatório perde a confiança da operação na primeira semana.</p>
+      <p>A saída não é esconder o número: é <strong>não dividir por ele</strong>. E há uma assimetria que salva a tela — <strong>a afirmação do zero é imune ao teto</strong>:</p>
+    </div>
+
+    <div class="taxo">
+      <div class="tx crit">
+        <div class="tx-bar"></div>
+        <div class="tx-name"><b>Não iniciado</b><span>tocados = 0</span></div>
+        <div class="tx-desc"><strong>Certeza, e é a única de que a cobrança precisa.</strong> Zero itens do lote têm linha na <code>REM001</code>. O subconjunto real a remarcar está contido no teto; se ninguém tocou nem o teto, ninguém tocou o subconjunto. Nenhum filtro de preço mudaria isso.</div>
+      </div>
+      <div class="tx warn">
+        <div class="tx-bar"></div>
+        <div class="tx-name"><b>Em andamento</b><span>0 &lt; tocados &lt; lançados</span></div>
+        <div class="tx-desc">A loja está trabalhando — quanto falta, o N1 não sabe. Pode estar no meio do lote ou <strong>já ter terminado tudo o que havia</strong>: os itens que sobraram no teto podem ser justamente os que nunca precisaram de etiqueta. A tela não chuta; rotula e oferece o drill.</div>
+      </div>
+      <div class="tx ok">
+        <div class="tx-bar"></div>
+        <div class="tx-name"><b>Concluído</b><span>tocados ≥ lançados</span></div>
+        <div class="tx-desc">Certeza pelo outro lado — tocou o teto inteiro, logo tocou tudo. Mas é <strong>um caso raro por construção</strong>: só ocorre se a folga entre teto e meta for pequena. Vale codificar, não vale desenhar em cima.</div>
+      </div>
+    </div>
+
+    <div class="callout warn">
+      <strong>Quanta folga tem o teto?</strong> Ninguém sabe ainda — é a diferença entre o <code>COUNT(*)</code> bruto do lote e o mesmo lote depois do filtro de preço vigente, e essa razão nunca foi medida. Ela não afeta a coluna que importa (“não iniciado” é certeza em qualquer cenário), mas define se “itens no lote” é um número que o Bruno reconhece ou um absurdo ao lado do detalhe. <strong>Entra no Passo 0</strong>, e se a folga for grande a coluna vira secundária — ou some.
+    </div>
+
+    <div class="callout">
+      A incerteza fica <strong>concentrada num único rótulo</strong>, e esse rótulo tem um botão que a desfaz. É o que sustenta a frase do Luiz — <em>“e se tiver interesse, entrar no detalhe”</em> — em vez de apenas obedecê-la: o detalhe não é um extra, é onde a última dúvida da tela principal se resolve.
+    </div>
+  </section>
+
+  <section id="situacao">
+    <div class="sec-head"><span class="sec-num">04</span><h2>Situação da loja, situação do item</h2></div>
+
+    <div class="col">
+      <p>São duas taxonomias distintas, em dois níveis distintos, e confundi-las produz uma tela que mistura cobrança com diagnóstico. A da loja é o que o Bruno lê para decidir <strong>para quem ligar</strong>. A do item é o que o encarregado lê para saber <strong>o que fazer na gôndola</strong>.</p>
+    </div>
+
+    <h3>Da loja — o que o N1 exibe</h3>
+
+    <div class="col">
+      <p>Todas as quatro se apoiam apenas nas duas certezas do nível: <strong>silêncio total</strong> e <strong>existência de lote intocado</strong>. Nenhuma depende da folga do teto, e é por isso que a tela pode afirmá-las sem medo.</p>
+    </div>
+
+    <div class="taxo">
+      <div class="tx crit">
+        <div class="tx-bar"></div>
+        <div class="tx-name"><b>Silenciosa</b><span>lote lançado,<br>zero etiquetas na janela</span></div>
+        <div class="tx-desc"><strong>O pior caso, e o mais barato de detectar.</strong> A loja não abriu o app. Nenhum cruzamento fino é necessário — basta a ausência na <code>REM001</code>. Ordena primeiro, sempre.</div>
+      </div>
+      <div class="tx crit">
+        <div class="tx-bar"></div>
+        <div class="tx-name"><b>Parada</b><span>tem lote intocado e há<br>N dias não emite nada</span></div>
+        <div class="tx-desc">Começou e abandonou. Distinta da silenciosa porque a cobrança é outra conversa: aqui o operador conhece o processo, e alguma coisa o interrompeu.</div>
+      </div>
+      <div class="tx warn">
+        <div class="tx-bar"></div>
+        <div class="tx-name"><b>Lote parado</b><span>tem lote intocado,<br>mas emitiu recentemente</span></div>
+        <div class="tx-desc">Está trabalhando, mas deixou um lote inteiro de lado — tipicamente o mais antigo, que é justamente o que vai evaporar da janela primeiro. É o aviso que chega a tempo.</div>
+      </div>
+      <div class="tx ok">
+        <div class="tx-bar"></div>
+        <div class="tx-name"><b>Ativa</b><span>nenhum lote intocado</span></div>
+        <div class="tx-desc"><strong>Não afirma conclusão</strong> — afirma que não há nada a cobrar sem antes entrar no detalhe. Sai da lista de ação e continua contável no KPI: o gestor precisa do denominador para saber se 17 silenciosas é muito ou pouco.</div>
+      </div>
+    </div>
+
+    <h3>Do item — o que o N3 exibe</h3>
+
+    <div class="col">
+      <p>Aqui o núcleo não é um número, é uma <strong>classificação</strong>. Dizer apenas “410 itens sem etiqueta” mistura omissão com exceção legítima. A ordem de precedência importa: o primeiro caso que casa vence.</p>
+    </div>
+
+    <div class="taxo">
+      <div class="tx crit">
+        <div class="tx-bar"></div>
+        <div class="tx-name"><b>Não iniciado</b><span>sem etiqueta, sem erro,<br>sem justificativa, com estoque</span></div>
+        <div class="tx-desc"><strong>A pendência pura.</strong> Ninguém tocou — é o número que gera ação.</div>
+      </div>
+      <div class="tx warn">
+        <div class="tx-bar"></div>
+        <div class="tx-name"><b>Parcial</b><span>emitiu, mas menos que a meta</span></div>
+        <div class="tx-desc">Começou e parou. O operador sabe do lote — falta terminar.</div>
+      </div>
+      <div class="tx crit">
+        <div class="tx-bar"></div>
+        <div class="tx-name"><b>Falha de impressão</b><span>sem etiqueta válida,<br>com status <code>ERR</code></span></div>
+        <div class="tx-desc">Impressora, não operador. Ação técnica, e cobrar a loja por isso é o erro clássico deste tipo de relatório.</div>
+      </div>
+      <div class="tx">
+        <div class="tx-bar"></div>
+        <div class="tx-name"><b>Justificado</b><span>sem etiqueta,<br>com linha em <code>REM002</code></span></div>
+        <div class="tx-desc">Exceção registrada — peça não localizada, avaria, estoque divergente. <strong>Não é omissão</strong>, e misturar com “não iniciado” inflaria a pendência.</div>
+      </div>
+      <div class="tx">
+        <div class="tx-bar"></div>
+        <div class="tx-name"><b>Sem estoque</b><span>sem etiqueta, sem justificativa,<br>estoque ≤ 0</span></div>
+        <div class="tx-desc">Não acionável hoje: sem peça na gôndola não há etiqueta a trocar.</div>
+      </div>
+      <div class="tx ok">
+        <div class="tx-bar"></div>
+        <div class="tx-name"><b>Concluído</b><span>emitiu a meta</span></div>
+        <div class="tx-desc">Feito. Também entra aqui quem imprimiu sem estoque com justificativa — o app permite, e a etiqueta existe.</div>
+      </div>
+    </div>
+
+    <div class="callout warn">
+      <strong>Uma métrica só, aqui, mente.</strong> No dado real da loja 1, lote de 21/07: 2.898 itens, dos quais <strong>2.435 sem estoque</strong>. A aderência medida por etiqueta ficou em 0,6 %; a cobertura medida por item conta outra história. Por isso o detalhe mostra as duas, e a métrica que lidera é a <strong>cobertura de itens</strong>.
+    </div>
+
+    <div class="compo">
+      <div class="compo-bar" role="img" aria-label="Do lote de 2.898 itens da loja 1, 2.435 estão sem estoque e apenas 463 formam a meta real">
+        <div class="compo-seg void" style="flex: 2435">2.435</div>
+        <div class="compo-seg real" style="flex: 463">463</div>
+      </div>
+      <div class="compo-key">
+        <span><i style="background:var(--line-2)"></i>Sem estoque em loja — não há etiqueta a trocar</span>
+        <span><i style="background:var(--accent)"></i>Com estoque — a meta real</span>
+      </div>
+    </div>
+    <p class="figcap">Loja 1, lote de 21/07/2026, medido na base <code>teste</code>. Este recorte só existe no N3 — é ele que justifica o custo do drill.</p>
+  </section>
+
+  <section id="tela">
+    <div class="sec-head"><span class="sec-num">05</span><h2>A tela</h2></div>
+
+    <div class="col">
+      <p>O período não é escolhido à mão: a tela <strong>espelha a janela do coletor</strong>, lida ao vivo dos parâmetros <code>REM_DATA_LANCAMENTO</code> e <code>REM_DIAS_RETROATIVOS_LOTE</code>. Pendência fora dessa janela não é acionável — o operador nem consegue ver aquele lote no aparelho.</p>
+    </div>
+
+    <div class="screen">
+      <div class="sc-head">
+        <div class="sc-title-row">
+          <div>
+            <div class="sc-title">Pendências de remarcação</div>
+            <div class="sc-sub">Quem ainda não remarcou — rede inteira, ao vivo.</div>
+          </div>
+          <div class="sc-btn solid">Lista de cobrança ⤓</div>
+        </div>
+        <div class="sc-window">Janela do coletor · lotes de 04/08 a 11/08/2026 · go-live 01/07 · 7 dias retroativos · <strong>9 lojas perderam lote na janela em 30 dias</strong></div>
+      </div>
+
+      <div class="sc-filters">
+        <span class="f">Regional / UF: Todas ▾</span>
+        <span class="f">Buscar loja ⌕</span>
+        <span class="f" style="border-color:var(--ink);background:var(--ink);color:var(--paper)">Precisam de ação</span>
+        <span class="f">Silenciosas</span>
+        <span class="f">Todas</span>
+        <span class="sc-lat">210 ms</span>
+      </div>
+
+      <div class="sc-body">
+        <div class="sc-kpis">
+          <div class="sc-kpi hot"><em>Lojas silenciosas</em><b>17</b></div>
+          <div class="sc-kpi hot"><em>Lojas paradas</em><b>24</b></div>
+          <div class="sc-kpi"><em>Lotes não iniciados</em><b>41</b></div>
+          <div class="sc-kpi"><em>Lojas ativas</em><b>163</b></div>
+          <div class="sc-kpi"><em>Lojas na janela</em><b>228</b></div>
+        </div>
+
+        <div class="sc-label">Lojas · ordenadas pela mais crítica</div>
+        <div class="sc-scroll">
+          <table class="sc-table">
+            <thead>
+              <tr>
+                <th class="l">Loja</th><th class="l">Regional</th><th>Lotes</th><th>Não inic.</th>
+                <th>Itens no lote</th><th>Etiquetas</th><th class="l">Última emissão</th>
+                <th class="l">Parada há</th><th class="l">Situação</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="l"><i class="sc-caret"></i><strong>71</strong> DOURADOS/MS</td><td class="l dim">SUL MS</td>
+                <td>3</td><td class="hot">3</td><td>3.410</td><td class="hot">0</td>
+                <td class="l dim">—</td><td class="l hot">nunca emitiu</td>
+                <td class="l"><span class="chip crit">Silenciosa</span></td>
+              </tr>
+              <tr>
+                <td class="l"><i class="sc-caret"></i><strong>118</strong> RONDONÓPOLIS/MT</td><td class="l dim">SUL MT</td>
+                <td>2</td><td class="hot">2</td><td>2.248</td><td class="hot">0</td>
+                <td class="l dim">—</td><td class="l hot">nunca emitiu</td>
+                <td class="l"><span class="chip crit">Silenciosa</span></td>
+              </tr>
+              <tr>
+                <td class="l"><i class="sc-caret"></i><strong>12</strong> TRÊS LAGOAS/MS</td><td class="l dim">LESTE MS</td>
+                <td>4</td><td class="hot">2</td><td>3.180</td><td>1.204</td>
+                <td class="l">02/08 09:12</td><td class="l hot">9 dias</td>
+                <td class="l"><span class="chip crit">Parada</span></td>
+              </tr>
+              <tr class="open">
+                <td class="l"><i class="sc-caret open"></i><strong>43</strong> CAMPO GRANDE/MS</td><td class="l dim">CAPITAL MS</td>
+                <td>3</td><td class="hot">1</td><td>5.824</td><td>128</td>
+                <td class="l">09/08 11:07</td><td class="l">2 dias</td>
+                <td class="l"><span class="chip warn">Lote parado</span></td>
+              </tr>
+              <tr class="sub">
+                <td class="l" colspan="9">
+                  <div class="sc-sub-box">
+                    <div class="sc-sub-line"><b>04/08</b><span>980 no lote</span><span style="color:var(--accent);font-weight:700">0 tocados</span><span class="chip crit">Não iniciado</span><span>7 dias</span></div>
+                    <div class="sc-sub-line"><b>05/08</b><span>1.204 no lote</span><span>886 tocados</span><span class="chip warn">Em andamento</span><span>6 dias</span></div>
+                    <div class="sc-sub-line"><b>08/08</b><span>3.640 no lote</span><span>32 tocados</span><span class="chip warn">Em andamento</span><span>3 dias</span></div>
+                    <div style="margin-top:0.6rem"><span class="sc-btn solid">Abrir detalhe da loja →</span></div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="l"><i class="sc-caret"></i><strong>96</strong> SINOP/MT</td><td class="l dim">NORTE MT</td>
+                <td>1</td><td class="hot">1</td><td>611</td><td class="hot">0</td>
+                <td class="l dim">—</td><td class="l hot">nunca emitiu</td>
+                <td class="l"><span class="chip crit">Silenciosa</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="sc-caption">A expansão custa o mesmo cruzamento leve, escopado a uma loja: responde na hora. <strong>Só a linha 04/08 é uma afirmação</strong> — as outras duas dizem “tocou”, e é o detalhe que diz quanto falta.</p>
+      </div>
+    </div>
+
+    <div class="drill">clique em “abrir detalhe” · aqui, e só aqui, a conta cara roda</div>
+
+    <div class="screen">
+      <div class="sc-crumb">← Rede / Loja 43 — CAMPO GRANDE/MS</div>
+      <div class="sc-head">
+        <div class="sc-title-row">
+          <div>
+            <div class="sc-title">Loja 43 — CAMPO GRANDE / MS</div>
+            <div class="sc-sub">A conta exata desta loja: o que falta remarcar, por lote e por item.</div>
+          </div>
+          <div class="sc-btn">⟳ Recalcular</div>
+        </div>
+      </div>
+
+      <div class="sc-filters">
+        <span class="f">Loja: <strong>43 — CAMPO GRANDE/MS</strong> ▾</span>
+        <span class="f">Tipo: Todos ▾</span>
+        <span class="sc-lat slow">12,4 s · em cache até 14:30</span>
+      </div>
+
+      <div class="sc-body">
+        <div class="sc-kpis">
+          <div class="sc-kpi"><em>Itens a remarcar</em><b>1.868</b></div>
+          <div class="sc-kpi hot"><em>Não iniciados</em><b>925</b></div>
+          <div class="sc-kpi"><em>Parciais</em><b>12</b></div>
+          <div class="sc-kpi"><em>Justificados</em><b>22</b></div>
+          <div class="sc-kpi"><em>Falha impressão</em><b>3</b></div>
+          <div class="sc-kpi"><em>Cobertura de itens</em><b>49 %</b></div>
+        </div>
+
+        <div class="sc-label">Lotes</div>
+        <div class="sc-scroll">
+          <table class="sc-table">
+            <thead>
+              <tr>
+                <th class="l">Lote</th><th class="l">Idade</th><th>Itens</th><th>c/ estq.</th><th>s/ estq.</th>
+                <th>Não inic.</th><th>Parc.</th><th>Just.</th><th>Falha</th><th>Cobertura</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="sel">
+                <td class="l"><i class="sc-caret"></i>08/08</td><td class="l">3 dias</td><td>2.898</td><td>463</td><td class="dim">2.435</td>
+                <td class="hot">410</td><td class="mid">12</td><td>18</td><td class="hot">3</td><td><strong>7 %</strong></td>
+              </tr>
+              <tr>
+                <td class="l">05/08</td><td class="l">6 dias</td><td>908</td><td>890</td><td class="dim">18</td>
+                <td>0</td><td>0</td><td>4</td><td>0</td><td class="good">100 %</td>
+              </tr>
+              <tr>
+                <td class="l">04/08</td><td class="l hot">7 dias</td><td>742</td><td>515</td><td class="dim">227</td>
+                <td class="hot">515</td><td>0</td><td>0</td><td>0</td><td class="hot">0 %</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="sc-caption"><strong>Compare com a rede, linha por linha.</strong> O lote de 04/08 aparecia lá como “não iniciado”, e aqui confirma: 0 %. O de 05/08 aparecia como “em andamento”, <span class="sc-mono">886 de 1.204</span> — <strong>e estava concluído</strong>: só 908 daqueles itens exigiam etiqueta, 890 tinham estoque, e todos foram feitos. É esta a dúvida que o drill desfaz, e a razão de a rede não arriscar um percentual.</p>
+
+        <div class="sc-detail-head">
+          <div class="sc-label" style="margin-top:0">Itens do lote 08/08/2026</div>
+          <div style="display:flex;gap:0.4rem">
+            <span class="sc-btn">Situação: Não iniciados ▾</span>
+            <span class="sc-btn solid">Ordem de trabalho</span>
+          </div>
+        </div>
+        <div class="sc-scroll">
+          <table class="sc-table">
+            <thead>
+              <tr>
+                <th class="l">SKU</th><th class="l">Descrição</th><th class="l">Setor</th>
+                <th>De</th><th>Por</th><th>Δ%</th><th>Estq.</th><th class="l">Situação</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="l sc-mono">288833</td><td class="l">ARROZ TIPO 1 5KG</td><td class="l dim">Mercearia</td>
+                <td>24,90</td><td><strong>19,90</strong></td><td class="good">−20</td><td>36</td>
+                <td class="l"><span class="chip crit">Não iniciado</span></td>
+              </tr>
+              <tr>
+                <td class="l sc-mono">190220</td><td class="l">FEIJÃO PRETO 1KG</td><td class="l dim">Mercearia</td>
+                <td>9,49</td><td><strong>7,99</strong></td><td class="good">−16</td><td>40</td>
+                <td class="l"><span class="chip warn">Parcial 18/40</span></td>
+              </tr>
+              <tr>
+                <td class="l sc-mono">771044</td><td class="l">DETERGENTE NEUTRO 500ML</td><td class="l dim">Limpeza</td>
+                <td>3,29</td><td><strong>2,79</strong></td><td class="good">−15</td><td class="dim">0</td>
+                <td class="l"><span class="chip mute">Justificado · NLO</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <p class="figcap">Enquanto a conta roda, o detalhe mostra <em>skeletons</em> e a frase “calculando a conta exata desta loja”. Os segundos são uma escolha de projeto, não uma falha — e a tela precisa dizer isso em vez de parecer travada. <strong>Há um protótipo navegável</strong> das duas visões, no visual do Portal, com a expansão, o drill e o estado de carregamento funcionando.</p>
+  </section>
+
+  <section id="conta">
+    <div class="sec-head"><span class="sec-num">06</span><h2>A conta: quem deve × quem fez</h2></div>
+
+    <div class="scroll">
+      <table>
+        <thead>
+          <tr><th>Lado da conta</th><th>Fonte</th><th style="width:9rem">Usado em</th><th>Já existe em</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Lote lançado</strong><br><span style="color:var(--muted);font-size:0.8rem">o teto</span></td>
+            <td><code>VAR.PRE0021</code> agrupada por <code>PRELOJCOD, PREDTMOVTO</code>, <strong>sem</strong> filtro de preço</td>
+            <td><span class="lvl n1">N1</span> <span class="lvl n2">N2</span></td>
+            <td class="sc-mono">consulta nova, trivial</td>
+          </tr>
+          <tr>
+            <td><strong>Deveria remarcar</strong><br><span style="color:var(--muted);font-size:0.8rem">a meta</span></td>
+            <td><code>VAR.PRE0021</code> × <code>VAR.ITE001</code> × <code>APP_PRICETAG.VW_ESTOQUE</code>, filtrado por preço novo ≠ preço vigente</td>
+            <td><span class="lvl n3">N3</span></td>
+            <td class="sc-mono">getRemarcacoesPorLoja.query.ts<br><span style="color:var(--muted)">api-remarcacao-preco</span></td>
+          </tr>
+          <tr>
+            <td><strong>Remarcou</strong></td>
+            <td><code>APP_PRICETAG.REM001</code> agrupada por <code>REMITEID</code></td>
+            <td><span class="lvl n1">N1</span> <span class="lvl n2">N2</span> <span class="lvl n3">N3</span></td>
+            <td class="sc-mono">price-remark.repository.ts<br><span style="color:var(--muted)">getProductivity</span></td>
+          </tr>
+          <tr>
+            <td><strong>Justificou sem remarcar</strong></td>
+            <td><code>APP_PRICETAG.REM002</code> por <code>REMITEID</code></td>
+            <td><span class="lvl n3">N3</span></td>
+            <td class="sc-mono">price-remark.repository.ts<br><span style="color:var(--muted)">getJustificationsSummary</span></td>
+          </tr>
+          <tr>
+            <td><strong>Nome da loja</strong></td>
+            <td><code>VAR.W03EST</code> — <code>W03ETBCOD</code> (= <code>PRELOJCOD</code>) e cidade/UF; regional de <code>LOGIX.EMPRESAS</code></td>
+            <td><span class="lvl n1">N1</span></td>
+            <td class="sc-mono">getStores.query.ts<br><span style="color:var(--muted)">api-remarcacao-preco</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>A cola entre os dois lados</h3>
+    <div class="col">
+      <p>A chave de reconciliação é o <code>REMITEID</code> — <code>loja|sku|tipo|inicioVigencia</code> — montado no aparelho por <code>buildItemId</code> e gravado cru no ledger. A tela de Auditoria já percorre esse caminho no sentido inverso, extraindo campo a campo com <code>REGEXP_SUBSTR</code> para achar a linha da <code>PRE0021</code>.</p>
+      <p>No N3 vamos no sentido natural: <strong>montar</strong> o identificador do lado da <code>PRE0021</code> e comparar a string inteira. É mais barato, e é essa forma que casa com o índice <code>IX_REM001_ITEM</code>. A concatenação de número com texto no Oracle já está provada no dado real — é a mesma que produz o <code>STANDARD_HASH</code> que bate com o <code>REMHASH</code> gravado pelo app.</p>
+      <p>No N1, essa cola <strong>não é usada</strong>: o casamento é por loja, e é por isso que ele custa milissegundos.</p>
+    </div>
+
+    <h3>O desenho que sai daí</h3>
+    <div class="scroll">
+      <table>
+        <thead><tr><th style="width:16rem">Decisão</th><th>Por quê</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>A rede nunca calcula preço vigente</strong></td>
+            <td>É o único item de 57 s do sistema. A pergunta “quem não fez” não precisa dele, e mantê-lo fora é o que permite abrir a tela em milissegundos. O gate de loja obrigatória, que existia para nunca disparar essa varredura, deixa de ser necessário — porque o N1 não tem como disparar.</td>
+          </tr>
+          <tr>
+            <td><strong>Uma consulta cara, um cache, dois recortes</strong></td>
+            <td>No N3, a consulta pesada roda <strong>uma vez</strong> por loja e janela; o agregado por lote e a lista de itens saem os dois do mesmo resultado em memória. Rodar duas — uma para cada recorte — dobraria o custo sem entregar nada a mais.</td>
+          </tr>
+          <tr>
+            <td><strong>Coalescing antes de semáforo</strong></td>
+            <td>Requisições simultâneas para a mesma loja esperam a <em>mesma</em> promessa em vez de disparar N consultas. É o caso real — o Bruno abre três lojas em abas, dá refresh impaciente — e resolve-se com dez linhas.</td>
+          </tr>
+          <tr>
+            <td><strong>Teto explícito, nunca silencioso</strong></td>
+            <td>Cache LRU de 20 lojas e limite de linhas por loja. Estourou, a API responde <em>refine a janela</em>. O que ela não faz é engolir memória sem avisar.</td>
+          </tr>
+          <tr>
+            <td><strong>Sem job, sem tabela, sem D-1</strong></td>
+            <td>Tudo ao vivo. Um agregado noturno daria porcentagem exata na rede, mas ao preço de a tela mentir sobre a manhã de hoje — e a cobrança do Bruno acontece de manhã. O número aproximado e atual vale mais que o exato e velho.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="armadilhas">
+    <div class="sec-head"><span class="sec-num">07</span><h2>Armadilhas do dado</h2></div>
+
+    <div class="col">
+      <p>Todas verificadas no código ou no dado real. Ignorar qualquer uma produz um relatório errado com cara de certo — e um relatório de pendência errado custa a confiança da operação inteira. As duas primeiras nasceram com a inversão do eixo.</p>
+    </div>
+
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Armadilha</th><th style="width:11rem">Efeito se ignorada</th><th style="width:16rem">Tratamento</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>“Itens no lote” é teto, não meta</strong> — o N1 não aplica o filtro <code>VLR_NOVO &lt;&gt; VLR_ATUAL</code></td>
+            <td><span class="chip crit">Cobrança injusta</span></td>
+            <td>Nunca dividir por ele. Só o zero vira afirmação; o resto é rotulado e leva ao detalhe</td>
+          </tr>
+          <tr>
+            <td><strong>A folga do teto é desconhecida</strong> — quantos itens do lote bruto já estão com o preço certo, ou sem preço vigente para comparar</td>
+            <td><span class="chip warn">Número que o gestor não reconhece</span></td>
+            <td>Medir no Passo 0. Folga grande → a coluna vira secundária ou sai; a situação da loja não depende dela</td>
+          </tr>
+          <tr>
+            <td><strong><code>REMDTMOV</code> aceita nulo</strong> — de nota de rodapé passou a candidata a chave de lote do N1</td>
+            <td><span class="chip crit">Lote tocado vira “não iniciado”</span></td>
+            <td>Medir a fração de nulos no Passo 0. Se não for desprezível, cai para o semi-join por <code>REMITEID</code></td>
+          </tr>
+          <tr>
+            <td>Estoque pode ser negativo — 317 itens só na loja 1</td>
+            <td><span class="chip crit">Aderência negativa</span></td>
+            <td><code>GREATEST(estoque, 0)</code> na meta do N3</td>
+          </tr>
+          <tr>
+            <td>Reimpressão é normal — um item tem 47 emissões no dado real</td>
+            <td><span class="chip crit">Acima de 100 %</span></td>
+            <td><code>LEAST(emitidas, meta)</code>; no N1, <code>COUNT(DISTINCT REMITEID)</code></td>
+          </tr>
+          <tr>
+            <td><code>REMITEID</code> nem sempre tem 4 partes — existem linhas de teste <code>e2e|1</code></td>
+            <td><span class="chip warn">Pendência fantasma</span></td>
+            <td>Comparação por igualdade: a linha simplesmente não casa</td>
+          </tr>
+          <tr>
+            <td>O denominador é móvel — quando a remarcação vira preço corrente, o item sai da lista sozinho</td>
+            <td><span class="chip warn">O número “some”</span></td>
+            <td>Nota na tela. Joga a favor da pendência e contra o histórico</td>
+          </tr>
+          <tr>
+            <td>As tabelas antigas <code>VAR.REM001/002/004</code> ainda existem e o usuário tem grant nelas</td>
+            <td><span class="chip crit">BI em dado velho</span></td>
+            <td>Qualificar <code>APP_PRICETAG.</code> em toda tabela</td>
+          </tr>
+          <tr>
+            <td><code>STA</code> é preço que mudou depois da impressão; <code>ERR</code> é falha de impressora</td>
+            <td><span class="chip warn">Operador cobrado à toa</span></td>
+            <td>Só <code>EFE</code> conta como feito; <code>ERR</code> vira ação técnica</td>
+          </tr>
+          <tr>
+            <td>Agregado de rede sem <code>REMLOJCOD</code> líder não usa os índices atuais</td>
+            <td><span class="chip warn">Full scan em regime</span></td>
+            <td>Índice com <code>REMDTOCO</code> como coluna líder (§7 do plano de BI)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="lacunas">
+    <div class="sec-head"><span class="sec-num">08</span><h2>Para não virar mais um relatório</h2></div>
+
+    <div class="col">
+      <p>Lacunas encontradas na revisão do desenho. As três primeiras entram neste corte porque, sem elas, a tela informa e não muda nada — que é como morre a maioria dos painéis de backoffice. A inversão do eixo resolveu a quarta sozinha.</p>
+    </div>
+
+    <div class="taxo">
+      <div class="tx crit">
+        <div class="tx-bar"></div>
+        <div class="tx-name"><b>A tela não fecha o ciclo</b><span>entra neste corte</span></div>
+        <div class="tx-desc">Ver 41 lotes não iniciados sem poder agir vira relatório que ninguém abre na segunda semana. São <strong>dois exports, para dois interlocutores</strong>: na rede, a <em>lista de cobrança</em> — loja, regional, lotes parados, dias sem emitir, contato — que o Bruno usa para ligar; no detalhe, a <em>ordem de trabalho</em> — SKU, descrição, setor, preço novo, quantidade — que o encarregado imprime e leva para a gôndola.</div>
+      </div>
+      <div class="tx crit">
+        <div class="tx-bar"></div>
+        <div class="tx-name"><b>O passivo sai da janela em silêncio</b><span>entra neste corte</span></div>
+        <div class="tx-desc">Lote que passa dos dias retroativos some da tela <strong>e</strong> do coletor: nunca mais será remarcado e ninguém saberá. Correção barata, agora na escala certa: contador fixo no topo — <em>“N lojas perderam lote na janela sem remarcação em 30 dias”</em> — porque na rede a unidade de cobrança é a loja, não o item.</div>
+      </div>
+      <div class="tx crit">
+        <div class="tx-bar"></div>
+        <div class="tx-name"><b>Nada prioriza</b><span>entra neste corte</span></div>
+        <div class="tx-desc">Duzentas e trinta linhas sem ordem é uma lista que não se usa. A ordenação padrão é por gravidade — silenciosa, depois mais dias parada, depois mais lotes não iniciados — e o filtro abre em <em>“precisam de ação”</em>. O gestor nunca precisa ordenar nada para ver o pior caso: ele é a primeira linha.</div>
+      </div>
+      <div class="tx ok">
+        <div class="tx-bar"></div>
+        <div class="tx-name"><b>Faltava o ranking de lojas</b><span>resolvido</span></div>
+        <div class="tx-desc">Era a lacuna “pós-piloto” da revisão anterior — <em>“o gestor regional vai pedir minhas dez piores na primeira demonstração”</em> —, adiada porque se supunha custar 57 s. Custa 210 ms, porque o ranking não é por aderência %: é por <strong>silêncio</strong>, e silêncio é a coisa mais barata de detectar no banco. Virou a tela principal.</div>
+      </div>
+      <div class="tx">
+        <div class="tx-bar"></div>
+        <div class="tx-name"><b>Os 84 % sem estoque</b><span>a avaliar</span></div>
+        <div class="tx-desc">Não é ruído: é remarcação lançada para item que a loja não tem. Isso é informação para o comercial, não cobrança para a loja — e hoje o desenho trata como categoria neutra no N3.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="entrega">
+    <div class="sec-head"><span class="sec-num">09</span><h2>Entrega</h2></div>
+
+    <div class="col">
+      <p>A ordem mudou junto com o eixo: o N1 vai primeiro. Ele é a tela que o Luiz pediu, é a mais barata de construir e é a que valida o desenho inteiro com o Bruno antes de qualquer segundo ser gasto na conta cara.</p>
+    </div>
+
+    <div class="tl">
+      <div class="tl-item key">
+        <span class="tl-when">Passo 0</span>
+        <b>Medir antes de escrever</b>
+        <p>Quatro medições, nenhuma linha de código de produção: <strong>(a)</strong> as duas consultas do N1 contra a base, cronometradas juntas — a meta é ≤ 1,5 s; <strong>(b)</strong> a fração de <code>REMDTMOV</code> nulos na <code>REM001</code>, que decide entre as duas candidatas a chave de lote; <strong>(c)</strong> a <strong>folga do teto</strong> — <code>COUNT(*)</code> bruto contra <code>COUNT(*)</code> filtrado por preço vigente, em meia dúzia de lotes —, que decide se “itens no lote” fica na tela; <strong>(d)</strong> <code>SELECT</code> em <code>APP_PRICETAG.VW_ESTOQUE</code> com o usuário do <code>VarDataSource</code>, que destrava o N3.</p>
+      </div>
+      <div class="tl-item">
+        <span class="tl-when">API · 1</span>
+        <b>Janela do coletor</b>
+        <p>Leitura de <code>REM_DATA_LANCAMENTO</code> e <code>REM_DIAS_RETROATIVOS_LOTE</code> reusando o que a tela de Configurações já lê. Menor peça, e os dois níveis dependem dela para saber o recorte.</p>
+      </div>
+      <div class="tl-item key">
+        <span class="tl-when">API · 2</span>
+        <b>Rede (N1 + N2)</b>
+        <p>As duas consultas agregadas, o casamento por loja, a derivação de situação da loja e a ordenação por gravidade. Cache TTL curto — a tela é barata, o cache aqui é para rajada, não para latência. O N2 é a mesma coisa com <code>:loja</code> no <code>WHERE</code>.</p>
+      </div>
+      <div class="tl-item">
+        <span class="tl-when">Front · 1</span>
+        <b>A tela de rede</b>
+        <p>Tabela por loja com expansão, filtros de regional e situação, KPIs de cobrança, export da lista. Reusa filtro, KPIs, tabela e paginação que já existem no módulo. <strong>Ponto de validação com o Bruno</strong> — antes do N3 existir.</p>
+      </div>
+      <div class="tl-item">
+        <span class="tl-when">API · 3</span>
+        <b>Detalhe da loja (N3)</b>
+        <p>A consulta central com preço vigente, cache com TTL, coalescing, semáforo e LRU, e a agregação por lote em TypeScript.</p>
+      </div>
+      <div class="tl-item">
+        <span class="tl-when">Front · 2</span>
+        <b>O drill e o export</b>
+        <p>Visão de detalhe, breadcrumb, estado de carregamento explícito, e o xlsx em streaming reusando o serviço de export da Auditoria.</p>
+      </div>
+    </div>
+
+    <h3>Fica pendente</h3>
+    <div class="pend">
+      <div class="pend-item">
+        <b>Índices em produção</b>
+        <p><code>IX_REM001_ITEM (REMLOJCOD, REMITEID)</code> e <code>IX_REM001_DTMOV</code>, mais o índice com <code>REMDTOCO</code> líder de que o agregado de rede depende. Com o volume atual não aparece; em regime, é o que separa milissegundos de minutos — e agora é a tela principal que depende disso.</p>
+        <span class="pend-owner">DBA · Thalison</span>
+      </div>
+      <div class="pend-item">
+        <b>Medir uma loja grande no N3</b>
+        <p>Os 15,6 s medidos são da base de teste. O timeout do módulo é de 20 s — a margem precisa ser confirmada antes do piloto.</p>
+        <span class="pend-owner">Antes do piloto</span>
+      </div>
+      <div class="pend-item">
+        <b>Limpeza das tabelas <code>VAR.REM*</code> antigas</b>
+        <p>Renomear para <code>_OLD</code> ou dropar após conferência. É a armadilha mais provável desta integração.</p>
+        <span class="pend-owner">DBA · Thalison</span>
+      </div>
+      <div class="pend-item">
+        <b>De quem é a cobrança</b>
+        <p>A lista de cobrança precisa de um destinatário por loja — encarregado, gerente, regional. Se essa coluna não existir em lugar nenhum, o export sai sem contato e o Bruno volta a procurar no WhatsApp.</p>
+        <span class="pend-owner">Negócio · a definir</span>
+      </div>
+    </div>
+
+    <div class="callout ok">
+      <strong>O que esta tela muda:</strong> hoje, uma loja que nunca abriu o app não aparece em lugar nenhum do Portal — a ausência de dado é indistinguível de dado ausente. Depois dela, essa loja é a <strong>primeira linha da tela</strong>, com nome, regional, quantos lotes deixou parados e há quantos dias não emite. E isso custa 210 ms.
+    </div>
+  </section>
+
+  <section id="sql">
+    <div class="sec-head"><span class="sec-num">A</span><h2>Metodologia — as consultas</h2></div>
+
+    <div class="col">
+      <p>As duas consultas do N1 estão na §02. Abaixo, o N2 — que é o N1 com escopo de uma loja e o lote no cruzamento — e o N3, a conta completa. O N3 reproduz, dentro do Portal, a mesma regra de negócio que a <code>api-remarcacao-preco</code> já aplica em produção para montar o retrato do coletor, acrescentando os dois cruzamentos que faltavam.</p>
+    </div>
+
+    <div class="code">
+      <div class="code-head"><span>N2 · lotes de uma loja — sem preço vigente</span><b>&lt; 1 s</b></div>
+<pre>WITH lote AS (
+  SELECT TO_CHAR(PREDTMOVTO,'YYYY-MM-DD') AS lote,
+         PRELOJCOD ||'|'|| PREITECOD ||'|'||
+           DECODE(PRETPPRE, 2, 'promocao', 'normal') ||'|'||
+           TO_CHAR(PREDTINIC, 'YYYYMMDD') AS item_id
+    FROM VAR.PRE0021
+   WHERE PRELOJCOD    = :loja
+     AND PREDTMOVTO  &gt;= TO_DATE(:dataLancamento,'YYYY-MM-DD')
+     AND (:diasRetroativos IS NULL
+          OR PREDTMOVTO &gt;= TRUNC(SYSDATE) - :diasRetroativos)
+),
+feito AS (SELECT DISTINCT REMITEID
+            FROM APP_PRICETAG.REM001
+           WHERE REMLOJCOD = :loja AND REMSTATU = 'EFE')
+SELECT l.lote,
+       COUNT(*)                                    AS lancados,
+       COUNT(f.REMITEID)                           AS tocados
+  FROM lote l
+  LEFT JOIN feito f ON f.REMITEID = l.item_id
+ GROUP BY l.lote
+ ORDER BY l.lote DESC
+
+-- tocados = 0            -> não iniciado (certeza)
+-- tocados &gt;= lancados    -> concluído    (certeza: lancados é teto)
+-- 0 &lt; tocados &lt; lancados -> em andamento (só o N3 desfaz)</pre>
+    </div>
+
+    <div class="code">
+      <div class="code-head"><span>N3 · pendência por loja — cruzamento completo, com preço vigente</span><b class="slow">15,6 s</b></div>
+<pre>WITH retrato AS (
+  SELECT NOVO.PRELOJCOD AS loja, NOVO.PREITECOD AS sku,
+         TRIM(ITE.ITENOM) AS descricao,
+         DECODE(NOVO.PRETPPRE, 2, 'promocao', 'normal') AS tipo,
+         ATU.VLR_ATUAL AS preco_de, NOVO.PREVALUNI AS preco_por,
+         NVL(EST.QTD_LIBERADA, 0) AS estoque,
+         NOVO.PREDTTERM AS dt_term, NOVO.PREDTMOVTO AS dt_lote,
+         NOVO.PRELOJCOD ||'|'|| NOVO.PREITECOD ||'|'||
+           DECODE(NOVO.PRETPPRE, 2, 'promocao', 'normal') ||'|'||
+           TO_CHAR(NOVO.PREDTINIC, 'YYYYMMDD') AS item_id,
+         ROW_NUMBER() OVER (PARTITION BY NOVO.PRELOJCOD, NOVO.PREITECOD,
+                                         NOVO.PRETPPRE
+                            ORDER BY NOVO.PREDTMOVTO DESC,
+                                     NOVO.PREDTINIC  DESC,
+                                     NOVO.PREDTTERM  DESC) AS rn_vigente
+    FROM VAR.PRE0021 NOVO
+    JOIN VAR.ITE001 ITE ON ITE.ITECOD = NOVO.PREITECOD
+    LEFT JOIN APP_PRICETAG.VW_ESTOQUE EST
+           ON EST.LOJA = NOVO.PRELOJCOD AND EST.ITEM = NOVO.PREITECOD
+    LEFT JOIN (SELECT A.PREITECOD, MAX(A.PREVALUNI) AS VLR_ATUAL
+                 FROM VAR.PRE0021 A
+                WHERE A.PRELOJCOD = :loja AND A.PRETPPRE = 1
+                  AND A.PREDTINIC &lt;= TRUNC(SYSDATE)
+                  AND A.PREDTTERM &gt;= TRUNC(SYSDATE)
+                GROUP BY A.PREITECOD) ATU ON ATU.PREITECOD = NOVO.PREITECOD
+   WHERE NOVO.PRELOJCOD   = :loja
+     AND NOVO.PREDTMOVTO &gt;= TO_DATE(:dataLancamento, 'YYYY-MM-DD')
+     AND (:diasRetroativos IS NULL
+          OR NOVO.PREDTMOVTO &gt;= TRUNC(SYSDATE) - :diasRetroativos)
+),
+alvo AS (SELECT * FROM retrato WHERE preco_por &lt;&gt; preco_de AND rn_vigente = 1),
+feito AS (
+  SELECT REMITEID AS item_id,
+         SUM(CASE WHEN REMSTATU='EFE' THEN REMQTD ELSE 0 END) AS efe,
+         SUM(CASE WHEN REMSTATU='ERR' THEN REMQTD ELSE 0 END) AS err,
+         MAX(REMDTOCO) AS ultima
+    FROM APP_PRICETAG.REM001 WHERE REMLOJCOD = :loja GROUP BY REMITEID
+),
+just AS (
+  SELECT REMITEID AS item_id,
+         MAX(REMJUSCTX) KEEP (DENSE_RANK LAST ORDER BY REMDTCAD) AS contexto,
+         MAX(REMJUSTX)  KEEP (DENSE_RANK LAST ORDER BY REMDTCAD) AS texto
+    FROM APP_PRICETAG.REM002 WHERE REMLOJCOD = :loja GROUP BY REMITEID
+)
+SELECT TO_CHAR(a.dt_lote,'YYYY-MM-DD') AS lote, a.sku, a.descricao, a.tipo,
+       a.preco_de, a.preco_por, a.estoque,
+       GREATEST(a.estoque, 0)                       AS meta,
+       LEAST(NVL(f.efe,0), GREATEST(a.estoque,0))   AS emitidas,
+       j.contexto, j.texto,
+       CASE
+         WHEN NVL(f.efe,0) &gt; 0 AND (a.estoque &lt;= 0
+              OR NVL(f.efe,0) &gt;= GREATEST(a.estoque,0)) THEN 'CONCLUIDO'
+         WHEN NVL(f.efe,0) &gt; 0      THEN 'PARCIAL'
+         WHEN NVL(f.err,0) &gt; 0      THEN 'FALHA_IMPRESSAO'
+         WHEN j.item_id IS NOT NULL THEN 'JUSTIFICADO'
+         WHEN a.estoque &lt;= 0        THEN 'SEM_ESTOQUE'
+         ELSE 'NAO_INICIADO'
+       END AS situacao
+  FROM alvo a
+  LEFT JOIN feito f ON f.item_id = a.item_id
+  LEFT JOIN just  j ON j.item_id = a.item_id</pre>
+    </div>
+
+    <div class="col">
+      <p>A equivalência entre o identificador montado no app e o montado no SQL é a mesma verificada na revisão anterior: <code>tipoFromPretppre(PRETPPRE)</code> ↔ <code>DECODE(PRETPPRE, 2, 'promocao', 'normal')</code>, e <code>buildItemId(loja, sku, tipo, dt)</code> ↔ a concatenação com <code>TO_CHAR(PREDTINIC,'YYYYMMDD')</code>. O agregado por lote do N3 — itens, com e sem estoque, contagem por situação, meta, emitidas e cobertura — é derivado <strong>em TypeScript</strong> sobre esse resultado, sem uma segunda ida ao banco.</p>
+    </div>
+  </section>
+
+  <section id="glossario">
+    <div class="sec-head"><span class="sec-num">B</span><h2>Glossário</h2></div>
+
+    <div class="scroll">
+      <table>
+        <thead><tr><th style="width:11rem">Termo</th><th>Significado</th></tr></thead>
+        <tbody>
+          <tr><td class="nowrap">N1 · N2 · N3</td><td>Os três níveis de custo da tela: rede (uma linha por loja), lotes de uma loja (expansão) e detalhe item a item. Cada um roda só quando o usuário pede.</td></tr>
+          <tr><td class="nowrap">Loja silenciosa</td><td>Loja com lote lançado na janela e <strong>zero</strong> etiquetas emitidas. É o pior caso e o mais barato de detectar — não exige nenhum cruzamento fino.</td></tr>
+          <tr><td class="nowrap">Itens no lote</td><td>Total lançado na <code>PRE0021</code> sem o filtro de preço vigente. É um <strong>teto</strong>: o número real a remarcar é menor ou igual. Nunca serve de denominador.</td></tr>
+          <tr><td class="nowrap">Folga do teto</td><td>Razão entre o teto e a meta real de um lote. Ainda <strong>não medida</strong>. Não afeta a detecção de lote não iniciado; afeta só o quanto “itens no lote” é um número reconhecível.</td></tr>
+          <tr><td class="sc-mono nowrap">REM001</td><td>Ledger de execuções em <code>APP_PRICETAG</code> — uma linha por emissão de etiqueta. É a base das três telas atuais e o lado “feito” de todos os três níveis.</td></tr>
+          <tr><td class="sc-mono nowrap">REM002</td><td>Justificativas registradas pelo operador: conferência (<code>CNF</code>), falha de impressão (<code>IMP</code>), reimpressão (<code>REI</code>) e impressão sem estoque (<code>SME</code>).</td></tr>
+          <tr><td class="sc-mono nowrap">REMITEID</td><td>Chave de reconciliação <code>loja|sku|tipo|inicioVigencia</code>, montada no aparelho e gravada crua no ledger. Cola do N3; no N1 não é usada.</td></tr>
+          <tr><td class="sc-mono nowrap">REMDTMOV</td><td>Data do lote gravada no ledger. <strong>Aceita nulo</strong> — é a incógnita que o Passo 0 mede, porque dela depende a coluna de lotes não iniciados do N1.</td></tr>
+          <tr><td class="sc-mono nowrap">PRE0021</td><td>Tabela de preços da retaguarda, 155 milhões de linhas. Origem do lote e do preço vigente.</td></tr>
+          <tr><td class="sc-mono nowrap">EFE / STA / ERR</td><td>Status da etiqueta: efetivada · invalidada porque o preço mudou depois da impressão · falha da impressora. Só <code>EFE</code> conta como produção.</td></tr>
+          <tr><td class="nowrap">Janela do coletor</td><td>Recorte de lotes que o operador enxerga no aparelho, definido por <code>REM_DATA_LANCAMENTO</code> (go-live) e <code>REM_DIAS_RETROATIVOS_LOTE</code>.</td></tr>
+          <tr><td class="nowrap">Cobertura de itens</td><td>Itens com ao menos uma etiqueta emitida, dividido pelos itens com estoque. Só existe no N3 — é a métrica que lidera o detalhe.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer>
+    <span>Etiqueta Remarcados · Quem ainda não remarcou</span>
+    <span>GAV · Portal da Retaguarda · rev. 2 · 11.08.2026</span>
+  </footer>
+
+</div>

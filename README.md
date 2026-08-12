@@ -26,6 +26,10 @@ Abra qualquer um dos dois arquivos direto no navegador — são HTML autocontido
 
 Backups de versões originais de cards e o ADR-1 (decisão de arquitetura do redesenho do Motor de Descontos) produzidos durante o refinamento do card #12405 e outros.
 
+## Referências (`referencias/`)
+
+Material bruto recebido de terceiros (planos técnicos, protótipos navegáveis, specs) usado como insumo pra refinar um card — diferente de `_bmad-output/planning-artifacts/`, que guarda o que *o Claude produz* durante o refinamento. Nomeado `<card-id>-<slug>.html`. Quando cair um arquivo novo desses na raiz do workspace, ele é movido pra cá.
+
 ## O que NÃO está aqui (e como restaurar numa máquina nova)
 
 Estas pastas ficam de fora (`.gitignore`) porque são código-fonte de terceiros ou da empresa, cada uma já com seu próprio repositório remoto. Depois de clonar este repositório, rode:
