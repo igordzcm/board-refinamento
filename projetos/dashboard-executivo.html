@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard Executivo — GAV · 12.08.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FAFAF7;
+    --surface: #FFFFFF;
+    --surface-soft: #F2F1EC;
+    --border: #E5E2DA;
+    --border-soft: #EFECE5;
+    --ink: #14130F;
+    --ink-soft: #55524A;
+    --label: #94908A;
+    --accent: #1E3A8A;
+    --accent-soft: #DBEAFE;
+    --good: #166534;
+    --good-soft: #DCFCE7;
+    --warn: #92400E;
+    --warn-soft: #FEF3C7;
+    --crit: #991B1B;
+    --crit-soft: #FEE2E2;
+    --font-display: 'Instrument Serif', Georgia, serif;
+    --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #15140F; --surface: #1E1C17; --surface-soft: #262319; --border: #38342A; --border-soft: #2C2921;
+      --ink: #F2EFE7; --ink-soft: #B8B2A4; --label: #857F71;
+      --accent: #93B4F5; --accent-soft: #1E2E4D;
+      --good: #6EDBA0; --good-soft: #123420;
+      --warn: #F0B65C; --warn-soft: #3A2A0E;
+      --crit: #F0908A; --crit-soft: #3D1A18;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #15140F; --surface: #1E1C17; --surface-soft: #262319; --border: #38342A; --border-soft: #2C2921;
+    --ink: #F2EFE7; --ink-soft: #B8B2A4; --label: #857F71;
+    --accent: #93B4F5; --accent-soft: #1E2E4D;
+    --good: #6EDBA0; --good-soft: #123420;
+    --warn: #F0B65C; --warn-soft: #3A2A0E;
+    --crit: #F0908A; --crit-soft: #3D1A18;
+  }
+  :root[data-theme="light"] {
+    --bg: #FAFAF7; --surface: #FFFFFF; --surface-soft: #F2F1EC; --border: #E5E2DA; --border-soft: #EFECE5;
+    --ink: #14130F; --ink-soft: #55524A; --label: #94908A;
+    --accent: #1E3A8A; --accent-soft: #DBEAFE;
+    --good: #166534; --good-soft: #DCFCE7;
+    --warn: #92400E; --warn-soft: #FEF3C7;
+    --crit: #991B1B; --crit-soft: #FEE2E2;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--ink); font-family: var(--font-body);
+    font-size: 14px; line-height: 1.5; -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1360px; margin: 0 auto; padding: 32px 28px 48px; }
+  .eyebrow {
+    font-family: var(--font-mono); font-size: 10.5px; font-weight: 500; color: var(--label);
+    letter-spacing: .12em; text-transform: uppercase;
+  }
+  header {
+    display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 12px;
+    padding-bottom: 20px; border-bottom: 1px solid var(--border); margin-bottom: 24px;
+  }
+  h1 {
+    font-family: var(--font-display); font-weight: 400; font-size: 38px; line-height: 1;
+    letter-spacing: -.01em; text-wrap: balance; margin: 6px 0 0;
+  }
+  h1 em { font-style: italic; color: var(--ink-soft); }
+  .meta { font-family: var(--font-mono); font-size: 11px; color: var(--ink-soft); letter-spacing: .04em; text-align: right; }
+  .meta .date { font-family: var(--font-display); font-size: 24px; color: var(--ink); letter-spacing: 0; display: block; margin-bottom: 2px; }
+
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 24px; }
+  .stat { position: relative; overflow: hidden; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px 18px; }
+  .stat::before { content: ""; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: var(--rail, var(--accent)); }
+  .stat .label { font-family: var(--font-mono); font-size: 10px; font-weight: 500; color: var(--label); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 8px; }
+  .stat .value { font-family: var(--font-display); font-size: 42px; line-height: 1; margin-bottom: 6px; letter-spacing: -.02em; color: var(--rail, var(--accent)); }
+  .stat .caption { font-size: 11.5px; color: var(--ink-soft); }
+
+  section.card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin-bottom: 16px; }
+  .card > .card-head { padding: 14px 18px; border-bottom: 1px solid var(--border-soft); background: var(--surface-soft); display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .card-head h2 { font-size: 13px; font-weight: 600; letter-spacing: .02em; text-transform: uppercase; margin: 0; }
+  .card-head .count { font-family: var(--font-mono); font-size: 11px; color: var(--label); }
+
+  .squad-label {
+    font-family: var(--font-mono); font-size: 9.5px; font-weight: 600; color: var(--label); letter-spacing: .12em;
+    text-transform: uppercase; padding: 10px 18px 4px; display: flex; align-items: center; gap: 8px;
+  }
+  .squad-label .rule { flex: 1; height: 1px; background: var(--border-soft); }
+
+  .blockers-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; padding: 12px 18px 16px; }
+  .blocker { background: var(--crit-soft); border-left: 3px solid var(--crit); border-radius: 4px; padding: 12px 14px; }
+  .blocker .tag { font-family: var(--font-mono); font-size: 9px; font-weight: 600; color: var(--crit); letter-spacing: .12em; text-transform: uppercase; margin-bottom: 6px; }
+  .blocker .title { font-weight: 600; font-size: 13.5px; margin-bottom: 4px; line-height: 1.3; }
+  .blocker .desc { font-size: 12px; color: var(--ink-soft); line-height: 1.4; }
+
+  .columns { display: grid; grid-template-columns: 1.4fr 1fr; gap: 16px; align-items: start; }
+  .col { display: flex; flex-direction: column; gap: 16px; }
+
+  .delivery-list { padding: 0 18px 12px; }
+  .delivery { display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--border-soft); }
+  .delivery:last-child { border-bottom: none; }
+  .delivery .dot { width: 18px; height: 18px; border-radius: 50%; background: var(--good-soft); color: var(--good); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; }
+  .delivery .title { font-weight: 500; color: var(--ink); font-size: 13.5px; }
+  .delivery .desc { font-size: 11.5px; color: var(--ink-soft); margin-top: 1px; }
+  .pill { font-family: var(--font-mono); font-size: 9.5px; padding: 2px 8px; border-radius: 10px; font-weight: 500; letter-spacing: .05em; text-transform: uppercase; white-space: nowrap; display: inline-flex; align-items: center; gap: 5px; background: var(--good-soft); color: var(--good); }
+  .pill.warn { background: var(--warn-soft); color: var(--warn); }
+  .pill .date { font-family: var(--font-mono); font-size: 9px; background: rgba(0,0,0,.06); padding: 1px 5px; border-radius: 3px; }
+  @media (prefers-color-scheme: dark) { .pill .date { background: rgba(255,255,255,.1); } }
+  :root[data-theme="dark"] .pill .date { background: rgba(255,255,255,.1); }
+
+  details.history { border: 1px solid var(--border); border-radius: 8px; margin: 6px 18px 14px; overflow: hidden; }
+  details.history summary {
+    cursor: pointer; list-style: none; padding: 12px 16px; background: var(--surface-soft);
+    display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 500; color: var(--ink-soft);
+  }
+  details.history summary::-webkit-details-marker { display: none; }
+  details.history summary::before { content: "▶"; font-size: 9px; color: var(--label); transition: transform .15s; }
+  details.history[open] summary::before { transform: rotate(90deg); }
+  @media (prefers-reduced-motion: reduce) { details.history summary::before { transition: none; } }
+  details.history summary small { display: block; font-size: 11px; font-weight: 400; color: var(--label); margin-top: 2px; }
+  details.history .history-list { padding: 4px 16px 8px; }
+  details.history .history-item { display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: center; padding: 9px 0; border-bottom: 1px solid var(--border-soft); opacity: .8; }
+  details.history .history-item:last-child { border-bottom: none; }
+  details.history .history-item .title { font-weight: 500; font-size: 13px; }
+  details.history .history-item .desc { font-size: 11px; color: var(--ink-soft); margin-top: 1px; }
+
+  .milestones { padding: 4px 0 4px; }
+  .milestone { display: grid; grid-template-columns: 84px 1fr; gap: 14px; padding: 12px 18px; border-bottom: 1px solid var(--border-soft); position: relative; }
+  .milestone:last-child { border-bottom: none; }
+  .milestone .when { font-family: var(--font-mono); font-size: 11px; font-weight: 600; color: var(--ink-soft); text-align: right; padding-top: 1px; }
+  .milestone .when small { display: block; font-size: 9px; font-weight: 400; color: var(--label); letter-spacing: .08em; margin-top: 2px; }
+  .milestone .what { font-weight: 600; font-size: 13.5px; line-height: 1.3; }
+  .milestone .sub { font-size: 12px; color: var(--ink-soft); margin-top: 2px; line-height: 1.4; }
+  .milestone.urgent .when { color: var(--crit); }
+  .milestone.today .when { color: var(--good); }
+  .milestone.future .when { color: var(--accent); }
+
+  .progress-list { padding: 12px 18px 16px; }
+  .progress-item { padding: 12px 0; border-bottom: 1px solid var(--border-soft); }
+  .progress-item:last-child { border-bottom: none; }
+  .progress-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-bottom: 6px; }
+  .progress-head .name { font-weight: 500; font-size: 13.5px; }
+  .progress-head .owner { color: var(--ink-soft); font-weight: 400; font-family: var(--font-mono); font-size: 11px; margin-left: 6px; }
+  .progress-head .pct { font-family: var(--font-mono); font-size: 11px; font-weight: 500; color: var(--ink-soft); flex-shrink: 0; }
+  .progress-track { height: 4px; background: var(--surface-soft); border-radius: 2px; overflow: hidden; margin-bottom: 5px; }
+  .progress-fill { height: 100%; border-radius: 2px; }
+  .progress-item .desc { font-size: 11.5px; color: var(--ink-soft); }
+
+  .risk-list { padding: 8px 18px 14px; }
+  .risk { display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid var(--border-soft); }
+  .risk:last-child { border-bottom: none; }
+  .risk .badge { width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; margin-top: 1px; background: var(--warn-soft); color: var(--warn); }
+  .risk .title { font-weight: 600; font-size: 13.5px; margin-bottom: 3px; }
+  .risk .desc { font-size: 12px; color: var(--ink-soft); line-height: 1.4; }
+
+  .stale-note { font-size: 11px; color: var(--label); padding: 8px 18px 2px; font-style: italic; }
+
+  footer { margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; font-family: var(--font-mono); font-size: 10px; color: var(--label); letter-spacing: .06em; text-transform: uppercase; }
+
+  @media (max-width: 980px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .columns { grid-template-columns: 1fr; }
+    .blockers-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div>
+      <div class="eyebrow">Status &amp; Alinhamento de Projetos</div>
+      <h1>Dashboard <em>Executivo</em></h1>
+    </div>
+    <div class="meta">
+      <span class="date">12.08.2026</span>
+      Retaguarda Sprint 26 · VAR 3.0 · Tesouraria
+    </div>
+  </header>
+
+  <div class="stats">
+    <div class="stat" style="--rail:var(--good)">
+      <div class="label">Entregas</div>
+      <div class="value">8</div>
+      <div class="caption">confirmadas nas últimas 2 semanas</div>
+    </div>
+    <div class="stat" style="--rail:var(--accent)">
+      <div class="label">Em Andamento</div>
+      <div class="value">12</div>
+      <div class="caption">frentes ativas</div>
+    </div>
+    <div class="stat" style="--rail:var(--crit)">
+      <div class="label">Bloqueios</div>
+      <div class="value">3</div>
+      <div class="caption">críticos · ação imediata</div>
+    </div>
+    <div class="stat" style="--rail:var(--warn)">
+      <div class="label">Riscos</div>
+      <div class="value">4</div>
+      <div class="caption">em monitoramento</div>
+    </div>
+  </div>
+
+  <section class="card">
+    <div class="card-head">
+      <h2>🔴 Bloqueios Críticos</h2>
+      <span class="count">3 itens · ação imediata</span>
+    </div>
+    <div class="blockers-grid">
+      <div class="blocker">
+        <div class="tag">SIGA · Indicadores</div>
+        <div class="title">Sem fonte de dados para performance de indicadores</div>
+        <div class="desc">Segue bloqueado por falta de uma origem de dados confiável. Kovalski deve retomar esta frente assim que fechar o SSO e organizar a automação fiscal — sem data definida ainda.</div>
+      </div>
+      <div class="blocker">
+        <div class="tag">Overlimit · VAR</div>
+        <div class="title">Fornecedor (RPE) e limitação técnica do gateway seguem travando o projeto</div>
+        <div class="desc">RPE prometeu resposta em 04/08 sobre a credencial de teste e não confirmou; sem essa resposta o time nem consegue validar a solução para a limitação do Kong (que não suporta duas credenciais simultâneas). Bloqueio segue sem novidade em 12/08. Escopo foi destrinchado em planejamento (tela de import Excel + distribuição pra loja igual à blacklist) com meta de release de setembro do VAR — mas isso não desbloqueia o fornecedor.</div>
+      </div>
+      <div class="blocker">
+        <div class="tag">SmileGo (NeuroTech) · VAR</div>
+        <div class="title">Ambiente de teste do fornecedor não funciona</div>
+        <div class="desc">Sem atualização nesta rodada — já são mais de 4 semanas sem retorno do fornecedor, sem massa de dados válida para simular aprovação.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="columns">
+    <div class="col">
+
+      <section class="card">
+        <div class="card-head">
+          <h2>✅ Entregas</h2>
+          <span class="count">8 últimas 2 semanas · 21 anteriores</span>
+        </div>
+
+        <div class="squad-label">Retaguarda<span class="rule"></span></div>
+        <div class="delivery-list">
+          <div class="delivery">
+            <div class="dot">✓</div>
+            <div><div class="title">Virada da infraestrutura de Osasco (Kong)</div>
+            <div class="desc">Deploy que estava represado há semanas por janela de mudança foi executado com sucesso no fim de semana de 02/08. Ambiente novo já sustenta o SSO e outras integrações.</div></div>
+            <span class="pill">Concluído</span>
+          </div>
+          <div class="delivery">
+            <div class="dot">✓</div>
+            <div><div class="title">SSO / Keycloak — praticamente concluído, virada final nesta semana</div>
+            <div class="desc">Falha de segurança do fluxo de reset de senha foi validada e descartada pela própria equipe de segurança; time criou um fluxo customizado de troca de senha para respeitar as regras da empresa depois que a flexibilização foi negada. Só falta remover uma última regra de prazo mínimo para o portal ficar 100% liberado.</div></div>
+            <span class="pill warn">Quase pronto</span>
+          </div>
+          <div class="delivery">
+            <div class="dot">✓</div>
+            <div><div class="title">Migração VARRet — lote 1 e lote 2 concluídos pelo JB</div>
+            <div class="desc">Lote 1 (~10 funções) entregue e testado. Lote 2 finalizado em 12/08, em code review e QA — Ozéias vai marcar call com o JB pra subir tudo. Próxima tarefa do JB: migrar as exportações Excel/PDF do lote 1 pro padrão worker+e-mail (card #12484).</div></div>
+            <span class="pill">Lote 2 em QA</span>
+          </div>
+          <div class="delivery">
+            <div class="dot">✓</div>
+            <div><div class="title">Conciliação Fase 2 — implementação concluída, em homologação com um bug novo</div>
+            <div class="desc">Time dedicado em tempo integral adiantou a entrega em relação ao esperado. Subiu para homologação em 10/08. Bug novo na parte de "linhas" identificado em 12/08 — Diego segue focado nas correções, Kauã libera de volta pra Gamificação.</div></div>
+            <span class="pill warn">Em teste</span>
+          </div>
+          <div class="delivery">
+            <div class="dot">✓</div>
+            <div><div class="title">Etiquetas de Remarcação — ajustes finais antes da virada</div>
+            <div class="desc">App para emissão e controle de etiquetas remarcadas nas lojas. Pequenos ajustes de exibição corrigidos; novo PR aguardando aprovação para subir.</div></div>
+            <span class="pill warn">Em teste</span>
+          </div>
+        </div>
+
+        <div class="squad-label">VAR 3.0<span class="rule"></span></div>
+        <div class="delivery-list">
+          <div class="delivery">
+            <div class="dot">✓</div>
+            <div><div class="title">Migração GeneXus — concluída</div>
+            <div class="desc">Desenvolvimento finalizado (feito com metodologia orientada a testes). Caixeta passou a se dedicar à cobertura de testes automatizados fiscais e de descontos, com o conhecimento da migração ainda fresco.</div></div>
+            <span class="pill">Concluído</span>
+          </div>
+          <div class="delivery">
+            <div class="dot">✓</div>
+            <div><div class="title">Release fiscal — piloto em lojas desde 03/08</div>
+            <div class="desc">Piloto começou conforme planejado. Correções de contingência para os casos em que a SEFAZ ou o Migrate saem do ar foram incluídas na release, resolvendo falhas que ocorreram no fim de julho.</div></div>
+            <span class="pill">Piloto ativo</span>
+          </div>
+          <div class="delivery">
+            <div class="dot">✓</div>
+            <div><div class="title">Tap on Phone (GetNet) — piloto iniciado em 10/08</div>
+            <div class="desc">Piloto em loja começou junto com o piloto do VAR 4G, seguindo recomendação técnica de rodar os dois pilotos de mobile juntos. GetNet corrigiu, antes do início, um bug de erro sem descrição que havia sido reportado.</div></div>
+            <span class="pill">Piloto 10/08</span>
+          </div>
+        </div>
+
+        <details class="history">
+          <summary>Entregas anteriores<small>maio–julho de 2026 — 21 itens</small></summary>
+          <div class="history-list">
+            <div class="history-item">
+              <div class="dot" style="width:16px;height:16px;font-size:10px">✓</div>
+              <div><div class="title">Conciliação de Depósitos — correção de duplicidade de NSU</div><div class="desc">Bug de NSU duplicado corrigido, validado com a área.</div></div>
+              <span class="pill">Prod</span>
+            </div>
+            <div class="history-item">
+              <div class="dot" style="width:16px;height:16px;font-size:10px">✓</div>
+              <div><div class="title">RPA CDs — lentidão de conexão corrigida</div><div class="desc">Problema de conexão com a base Oracle que travava os jobs foi resolvido.</div></div>
+              <span class="pill">Prod</span>
+            </div>
+            <div class="history-item">
+              <div class="dot" style="width:16px;height:16px;font-size:10px">✓</div>
+              <div><div class="title">Engine — correção de contingência fiscal</div><div class="desc">Mecanismo para nunca perder registro de venda mesmo com falha do parceiro fiscal.</div></div>
+              <span class="pill">Prod</span>
+            </div>
+            <div class="history-item">
+              <div class="dot" style="width:16px;height:16px;font-size:10px">✓</div>
+              <div><div class="title">Correções de bugs de troca e devolução</div><div class="desc">Bug de busca de produto trocado e inconsistência de fluxo corrigidos.</div></div>
+              <span class="pill">Prod</span>
+            </div>
+            <div class="history-item">
+              <div class="dot" style="width:16px;height:16px;font-size:10px">✓</div>
+              <div><div class="title">Motor de Descontos — pacote completo</div><div class="desc">10 itens de sustentação e melhoria entregues.</div></div>
+              <span class="pill">Prod</span>
+            </div>
+            <div class="history-item">
+              <div class="dot" style="width:16px;height:16px;font-size:10px">✓</div>
+              <div><div class="title">Automação Planilha Fiscal — pacote anterior</div><div class="desc">Cálculos fiscais, exportação e controle de acesso.</div></div>
+              <span class="pill">Prod</span>
+            </div>
+            <div class="history-item">
+              <div class="dot" style="width:16px;height:16px;font-size:10px">✓</div>
+              <div><div class="title">GNRE, Roleta e Conexão — deploy</div><div class="desc">Filas de processamento e automação de e-mail.</div></div>
+              <span class="pill">Prod</span>
+            </div>
+            <div class="history-item">
+              <div class="dot" style="width:16px;height:16px;font-size:10px">✓</div>
+              <div><div class="title">Engine — atualização de base</div><div class="desc">Correções fiscais e reativação do webhook.</div></div>
+              <span class="pill">Prod</span>
+            </div>
+            <div class="history-item">
+              <div class="dot" style="width:16px;height:16px;font-size:10px">✓</div>
+              <div><div class="title">Dashboard de CDs</div><div class="desc">Integração de dados dos Centros de Distribuição.</div></div>
+              <span class="pill">Prod</span>
+            </div>
+            <div class="history-item">
+              <div class="dot" style="width:16px;height:16px;font-size:10px">✓</div>
+              <div><div class="title">Testes automatizados VAR — fase 1</div><div class="desc">Cobertura fiscal obrigatória desde 09/06.</div></div>
+              <span class="pill">Prod</span>
+            </div>
+            <div class="history-item">
+              <div class="dot" style="width:16px;height:16px;font-size:10px">✓</div>
+              <div><div class="title">Copa do Mundo, CAV Offline e ALI — base</div><div class="desc">Estáveis em produção.</div></div>
+              <span class="pill">Prod</span>
+            </div>
+          </div>
+        </details>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>📅 Próximos Marcos</h2>
+          <span class="count">curto e médio prazo</span>
+        </div>
+        <div class="milestones">
+          <div class="milestone today">
+            <div class="when">Esta semana<small>SSO</small></div>
+            <div><div class="what">Virada final do SSO / Keycloak</div><div class="sub">Falta apenas remover a regra de prazo mínimo de troca de senha para liberar o portal 100%.</div></div>
+          </div>
+          <div class="milestone today">
+            <div class="when">Semana de 10.08<small>Retaguarda</small></div>
+            <div><div class="what">Conclusão dos testes e virada da Conciliação Fase 2</div><div class="sub">Subiu para homologação em 10/08; time espera fechar os testes ainda esta semana.</div></div>
+          </div>
+          <div class="milestone future">
+            <div class="when">15.08<small>Markdown</small></div>
+            <div><div class="what">Prazo revisado da Remarcação de Preços</div><div class="sub">Projeto à parte (fora do board do Retaguarda), conduzido por Victor com a área de expansão. Sem atualização nova nesta rodada — segue em homologação com débito técnico.</div></div>
+          </div>
+          <div class="milestone">
+            <div class="when">Fim de ago.<small>revisado</small></div>
+            <div><div class="what">Retomada do Overlimit</div><div class="sub">Depende da resposta da RPE sobre a credencial de teste, ainda pendente.</div></div>
+          </div>
+          <div class="milestone">
+            <div class="when">A definir<small>JB</small></div>
+            <div><div class="what">Retomada do Dashboard de CDs</div><div class="sub">Reunião com a Maria (12/08) descartou a premissa original: ela não trocou de fonte nem parou de usar o WMS, então a integração via FTP (#11973) não fica automaticamente obsoleta. Prioridade do JB ao retomar é replicar 8 mudanças de cálculo/gráfico que a Maria já fez na planilha dela.</div></div>
+          </div>
+          <div class="milestone future">
+            <div class="when">14.08<small>Automação Fiscal</small></div>
+            <div><div class="what">Triagem do backlog de Automação Fiscal (Ozéias)</div><div class="sub">Revisão de ~40 cards criados pelo Kovalski — decidir o que descarta e o que move pra Refinement, prazo combinado em planejamento de sprint (12/08).</div></div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <div class="col">
+
+      <section class="card">
+        <div class="card-head">
+          <h2>🔄 Em Andamento</h2>
+          <span class="count">12 frentes</span>
+        </div>
+        <div class="squad-label" style="padding-top:12px">Retaguarda<span class="rule"></span></div>
+        <div class="progress-list">
+          <div class="progress-item">
+            <div class="progress-head"><span class="name">SSO — ajustes finais<span class="owner">Kovalski</span></span><span class="pct">97%</span></div>
+            <div class="progress-track"><div class="progress-fill" style="width:97%;background:var(--warn)"></div></div>
+            <div class="desc">Praticamente pronto; só falta a última regra de troca de senha para liberar o portal por completo. Deploy previsto para esta semana.</div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-head"><span class="name">Migração VARRet — lote 2<span class="owner">JB</span></span><span class="pct">95%</span></div>
+            <div class="progress-track"><div class="progress-fill" style="width:95%;background:var(--good)"></div></div>
+            <div class="desc">Concluído em 12/08, agora em code review e QA. Ozéias vai marcar call com o JB pra subir tudo. Próxima tarefa dele: migrar exportações Excel/PDF do lote 1 pro padrão worker+e-mail (card #12484).</div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-head"><span class="name">Conciliação Fase 2<span class="owner">Diego</span></span><span class="pct">90%</span></div>
+            <div class="progress-track"><div class="progress-fill" style="width:90%;background:var(--good)"></div></div>
+            <div class="desc">Em homologação. Bug novo na parte de "linhas" achado em 12/08 — Diego segue sozinho nas correções finais; Kauã libera de volta pra Gamificação.</div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-head"><span class="name">Gamificação Roleta 3.0<span class="owner">Kauã</span></span><span class="pct">40%</span></div>
+            <div class="progress-track"><div class="progress-fill" style="width:40%;background:#6D28D9"></div></div>
+            <div class="desc">Kauã libera da Conciliação Fase 2 e volta em breve (combinado 12/08) — mas Ozéias reportou não conseguir mais ver o portal em homolog, precisa investigar antes do retomo.</div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-head"><span class="name">Remarcação de Preços<span class="owner">Victor</span></span><span class="pct">55%</span></div>
+            <div class="progress-track"><div class="progress-fill" style="width:55%;background:var(--accent)"></div></div>
+            <div class="desc">Sem atualização nesta rodada. Prazo revisado para 15/08 (ver Próximos Marcos).</div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-head"><span class="name">Automação Fiscal — retomada<span class="owner">Kovalski · Ozéias</span></span><span class="pct">20%</span></div>
+            <div class="progress-track"><div class="progress-fill" style="width:20%;background:var(--accent)"></div></div>
+            <div class="desc">Ozéias iniciou em 12/08 a triagem ao vivo de ~40 cards de backlog criados pelo Kovalski — decidindo o que descarta e o que move pra Refinement. Prazo: 14/08.</div>
+          </div>
+        </div>
+
+        <div class="squad-label">VAR 3.0<span class="rule"></span></div>
+        <div class="progress-list">
+          <div class="progress-item">
+            <div class="progress-head"><span class="name">Tap on Phone (GetNet)<span class="owner">Gui Oliveira</span></span><span class="pct">95%</span></div>
+            <div class="progress-track"><div class="progress-fill" style="width:95%;background:var(--good)"></div></div>
+            <div class="desc">Piloto em loja ativo desde 10/08, junto com o VAR 4G. Ponto de atenção: instabilidade recorrente do cache do aplicativo da GetNet, já sinalizada a eles.</div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-head"><span class="name">Release fiscal — Engine + Portal Automação<span class="owner">Donato</span></span><span class="pct">95%</span></div>
+            <div class="progress-track"><div class="progress-fill" style="width:95%;background:var(--good)"></div></div>
+            <div class="desc">Piloto em andamento desde 03/08; time acompanha e envia pequenos ajustes fiscais conforme aparecem.</div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-head"><span class="name">VAR 4G — segurança<span class="owner">Gui Oliveira · Walter</span></span><span class="pct">92%</span></div>
+            <div class="progress-track"><div class="progress-fill" style="width:92%;background:var(--good)"></div></div>
+            <div class="desc">Piloto em andamento, agora integrado ao piloto do Tap on Phone — decisão técnica de não rodar os dois pilotos de mobile separadamente.</div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-head"><span class="name">Pix pelo Pinpad<span class="owner">Time VAR</span></span><span class="pct">15%</span></div>
+            <div class="progress-track"><div class="progress-fill" style="width:15%;background:var(--accent)"></div></div>
+            <div class="desc">Pedido da área de negócio (Diego) entrou no meio da sprint em 04/08; desenvolvimento apenas para desktop, mobile segue pela API atual. Ver Riscos.</div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-head"><span class="name">Overlimit (crédito na venda)<span class="owner">Gui Oliveira</span></span><span class="pct">5%</span></div>
+            <div class="progress-track"><div class="progress-fill" style="width:5%;background:var(--crit)"></div></div>
+            <div class="desc">Parado — ver Bloqueios. Escopo destrinchado em planejamento (12/08): tela de import Excel + distribuição pra loja igual à blacklist, meta release de setembro do VAR — mas segue sem resposta da RPE.</div>
+          </div>
+        </div>
+
+        <div class="squad-label">Tesouraria<span class="rule"></span></div>
+        <div class="progress-list">
+          <div class="progress-item">
+            <div class="progress-head"><span class="name">Migração para novo sistema<span class="owner">Walter</span></span><span class="pct">55%</span></div>
+            <div class="progress-track"><div class="progress-fill" style="width:55%;background:#0F766E"></div></div>
+            <div class="desc">Sem atualização nesta rodada — não houve daily de Tesouraria no período. Última posição: cronograma final depende de decisão sobre incluir ou não o GSX no escopo.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>⚠️ Riscos em Monitoramento</h2>
+          <span class="count">4 itens</span>
+        </div>
+        <div class="risk-list">
+          <div class="risk">
+            <div class="badge">!</div>
+            <div><div class="title">Pedidos fora do planejamento entrando no meio da sprint do VAR</div>
+            <div class="desc">Padrão estrutural apontado na retrospectiva do time: a área de negócio (via Diego) segue inserindo pedidos urgentes no meio da sprint (ex. Pix pelo Pinpad), gerando retrabalho de priorização e desgaste no time. O novo coordenador do VAR está tentando negociar e filtrar o que é realmente urgente.</div></div>
+          </div>
+          <div class="risk">
+            <div class="badge">!</div>
+            <div><div class="title">Dependência recorrente de terceiros trava ou instabiliza múltiplos projetos do VAR</div>
+            <div class="desc">GetNet (cache instável no app, já em piloto), RPE (Overlimit bloqueado) e o fornecedor do SmileGo (sem retorno há mais de um mês) seguem sendo o principal fator de atraso fora do controle do time.</div></div>
+          </div>
+          <div class="risk">
+            <div class="badge">!</div>
+            <div><div class="title">Job noturno da Conciliação segue instável no portal Retaguarda</div>
+            <div class="desc">Duplicação de lojas no processamento voltou a ocorrer em pelo menos três ocasiões no período, exigindo correção manual repetida. Time já testando mover o processo para um worker dedicado para estabilizar.</div></div>
+          </div>
+          <div class="risk">
+            <div class="badge">!</div>
+            <div><div class="title">Testes automatizados do VAR ainda sem dono formal</div>
+            <div class="desc">Caixeta vem assumindo o papel de fato (fiscal e descontos), reforçado por dois desenvolvedores novos em ambientação, mas segue sem uma definição formal de responsável pela frente de automação.</div></div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <footer>
+    <span>Dashboard Executivo · Status de Projetos · GAV · Retaguarda Sprint 26 · VAR 3.0 · Tesouraria</span>
+    <span>Fontes: dailies Retaguarda 28/07–10/08 (9 sessões) · dailies VAR 28/07, 30/07, 04–06/08 · Pré-Planning VAR 06/08 · Sprint Planning Retaguarda 26 (05/08) · Review/Retro Retaguarda Sprint 25 (04/08) · Planejamento de sprint 12/08 (Ozéias/Igor/Léo) · Reunião Dashboard CDs 12/08 (Maria/JB/Léo) — ver <a href="prioridades-sprint.md" style="color:inherit">prioridades-sprint.md</a></span>
+  </footer>
+
+</div>
+</body>
+</html>
