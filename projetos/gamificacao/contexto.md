@@ -6,21 +6,25 @@
 
 Portal de Gamificação Avenida (Roleta 3.0): cliente identifica-se por CPF, é elegível a campanhas com diferentes mecânicas de jogo (Roleta, Raspadinha, Caça-Níquel, Gol Premiado) e recebe voucher de desconto gerado pela lógica de voucher já existente no VAR (campo PRO015). Inclui backoffice step-by-step para cadastro de campanhas, antifraude/auditoria de cadastro e analytics (CRM/BI + pixel).
 
-Épico: **[#11950 — Gameficação](https://dev.azure.com/GrupoAvenida/409b9844-c75c-4e46-8a4d-17e4c455ca1b/_workitems/edit/11950)** (Var Retaguarda). Cards ativos hoje: **T7–T10** (#12186–#12189), em **Refinement**.
+Épico: **[#11950 — Gameficação](https://dev.azure.com/GrupoAvenida/409b9844-c75c-4e46-8a4d-17e4c455ca1b/_workitems/edit/11950)** (Var Retaguarda). Cards ativos: **T1–T10** (#12179, #12181–#12189), todos em **Ready for Dev** desde 13/08.
 
 ## Dono
 
 Dev: **Kauã**. Dono de negócio: **Ozéias Tavares**.
 
-## Status atual (12/08/2026, via reunião de planejamento de sprint)
+## Status atual (13/08/2026 — decisão do Igor no refinamento do board)
 
-> Fonte: [`../dailies/2026-08-12-planejamento-sprint.md`](../dailies/2026-08-12-planejamento-sprint.md).
+**Deixou de ser "perpetuamente despriorizado".** Igor decidiu (13/08) mover os 10 cards T1-T10 (#12179, #12181-12189) de "Refinement" pra **"Ready for Dev"**, considerados prontos no board de refinamento — justificativa: o planejamento (docs v9.3 e EP1/EP2/EP3) é anterior ao processo de refinamento deste workspace e já é completo (Story/AC/estimativa desde a criação), não precisa da reescrita em Cenário/GWT. **Kauã volta a ter Gamificação como prioridade.** Todos os 10 cards foram atribuídos a ele.
 
-**Kauã volta pra Gamificação em breve.** Combinado entre Igor e Ozéias em 12/08: como o que resta da Conciliação Fase 2 tende a ser correção pontual (não mais desenvolvimento novo — Diego segue sozinho nisso), o Kauã libera e volta pra Gamificação, "que ele tem bastante coisa pra fazer ainda".
+**Achado técnico grande (13/08, durante o refinamento do T7/#12186):** já existe um módulo `campaign-roulette` em produção no `ConciliaçãoCaixaAPI` (`src/modules/campaign-roulette/`) — cria campanhas, grava direto na tabela `VAR.PRO015`, sobe banners, configura lojas e probabilidades. Tipos suportados hoje: `ROULETTE` e `WORLD_CUP` (não as 4 mecânicas do Gamificação — Roleta, Raspadinha, Caça-Níquel, Gol Premiado). **Vale o Kauã avaliar se dá pra estender esse módulo em vez de construir do zero em T5-T10** — pode mudar dimensionamento. Detalhe: os campos de validade do voucher (`P15DIASINI`/`P15VALID`/`P15DIASVAL`) são gravados hoje com valores fixos (`PRO015_DEFAULTS`), não configuráveis por campanha — precisaria de extensão se o Gamificação exigir validade configurável. Registrado como comentário no card #12186.
 
-**Alerta de visibilidade em homolog**: Ozéias reportou que não consegue mais ver o Portal Gamificação em homolog — "sempre quando eu olho homolog nunca mais está lá. Será que tiraram de homolog?" — não foi investigado na própria reunião, fica como pendência a checar antes do Kauã retomar.
+**Pendências que seguem valendo, mesmo com os cards em Ready for Dev** (não bloqueiam o board, mas bloqueiam a execução real):
+- **T1/T2/T3 (#12179/12181/12182):** reprovados pelo QA (Danilo) em rodadas anteriores — rework real pendente (cor de marca, validação de CPF, telas de confirmação/antifraude caindo em tela genérica, escopo vazado pra Fase 3). Ver comentários dos cards.
+- **T8 (#12187):** bloqueio externo de CRM/BI/marketing (destino/formato de exportação, IDs de tags) segue sem resposta da área.
+- **T9 (#12188):** assets visuais das 4 mecânicas (arte/sprites/sons) ainda não entregues pelo design.
+- **Alerta de visibilidade em homolog** (Ozéias, 12/08): não consegue mais ver o Portal Gamificação em homolog — ainda não investigado.
 
-Confirma o padrão histórico: projeto **perpetuamente despriorizado** sempre que a Conciliação Fase 2 precisa do Kauã, não é um bloqueio pontual. Via daily de 04/08 (info anterior): ajustes no mockup de front-end ainda estavam sendo feitos a pedido do Ozéias.
+Padrão histórico anterior a 13/08 (mantido como contexto): o projeto foi **repetidamente despriorizado** sempre que a Conciliação Fase 2 precisava do Kauã — não era um bloqueio pontual. Via daily de 04/08 (info anterior): ajustes no mockup de front-end ainda estavam sendo feitos a pedido do Ozéias.
 
 ## Mapeamento entre a numeração original (T1–T10) e os cards T7–T10 do Azure
 
@@ -51,4 +55,4 @@ Nenhuma reunião registrada ainda.
 
 ## Próxima atualização
 
-Preencher aqui quando o Kauã voltar a ter capacidade dedicada a este projeto: status dos bloqueios de T8 (CRM/BI+pixel), T9 (assets de design) e T10 (ambiente/stakeholders), se os ajustes de mockup pedidos pelo Ozéias em 04/08 foram fechados, e **se o sumiço do portal em homolog (flagado por Ozéias em 12/08) foi investigado e explicado**.
+Preencher aqui quando: (1) o Kauã avaliar se o módulo `campaign-roulette` existente pode ser estendido em vez de construir T5-T10 do zero; (2) o rework de QA em T1-T3 for endereçado; (3) os bloqueios externos de T8 (CRM/BI+pixel) e T9 (assets de design) forem resolvidos; (4) o sumiço do portal em homolog (flagado por Ozéias em 12/08) for investigado e explicado.

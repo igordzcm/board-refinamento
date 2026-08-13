@@ -26,6 +26,7 @@ Instrução explícita do **Spin (Luiz Spineli Lucchi Neto)** na daily de 06/08:
 
 - **05/08** — Gui Oliveira relata bug no app da GetNet identificado durante apresentação do Diego para a diretoria da GetNet; corrigido pela GetNet antes do início do piloto. GAV negociando compra de ~400 celulares dedicados para as lojas (conversa com a Vivo).
 - **06/08** — Diego apresenta o Tap on Phone para a presidência da GetNet; bug aparece ao vivo na apresentação — aparentemente ligado a instabilidade de cache no app da GetNet (Tap on Phone), não no app da GAV. Comportamento: limpar o cache do app resolve, mas de forma inconsistente entre operadores/sessões. Gui Oliveira escala o ponto por e-mail para a GetNet. Compra dos ~400 celulares confirmada em conversa com a Vivo.
+- **11/08 e 12/08** (via [`../dailies/2026-08-11-var3-projsust.md`](../dailies/2026-08-11-var3-projsust.md) e [`../dailies/2026-08-12-var3-projsust.md`](../dailies/2026-08-12-var3-projsust.md)) — Gui Oliveira segue unificando os testes 4G + Tap on Phone com o Walter (dia 11/08 com queda de energia/internet, contornado via 4G no celular). Nicolas/Felipe Pinheiro testando vendas no 4G, ainda falta validar localmente; **pendência de decisão se a correção da Danf sobe nessa release**. Dev box relacionado (do Moises) pronto, aguardando decisão se entra nessa sprint ou na seguinte. RPE/Rigolon (Overlimit) segue sem resposta em ambas as datas.
 
 ## Riscos e pontos de atenção
 

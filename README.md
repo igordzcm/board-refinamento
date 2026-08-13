@@ -8,7 +8,7 @@ Workspace pessoal de trabalho como PO no projeto **Var Retaguarda** (Azure DevOp
 
 ## Boards
 
-- **[`boards/board-refinamento.html`](boards/board-refinamento.html)** — board estilo Trello com os 25 cards de "Ready for Dev" + "Refinement" do Var Retaguarda, agrupados por status de prontidão (Precisa refinar / Quase pronto / 100% pronto) contra um checklist de refinamento: formato Cenário + Dado/Quando/Então, rótulo de nível de verificação (backend, UI, revisão), estimativa preenchida e ausência de bloqueio real. Clique num card pra abrir o detalhe do que falta. Também publicado como [Artifact](https://claude.ai/code/artifact/ced8aba8-8054-44d2-a8f9-a4b410264a96).
+- **[`boards/board-refinamento.html`](boards/board-refinamento.html)** — board estilo Trello com os 31 cards de "Ready for Dev" + "Refinement" do Var Retaguarda, agrupados por status de prontidão (Precisa refinar / Quase pronto / 100% pronto) contra um checklist de refinamento: formato Cenário + Dado/Quando/Então, rótulo de nível de verificação (backend, UI, revisão), estimativa preenchida e ausência de bloqueio real. Clique num card pra abrir o detalhe do que falta. Também publicado como [Artifact](https://claude.ai/code/artifact/ced8aba8-8054-44d2-a8f9-a4b410264a96).
 - **[`boards/breakdown-ready-for-dev.html`](boards/breakdown-ready-for-dev.html)** — dashboard anterior com a lista de trabalho por card e o veredito de necessidade de fluxograma (técnico via `senior-architect` ou de processo via `process-mapper`) para cada um.
 
 Abra qualquer um dos dois arquivos direto no navegador — são HTML autocontidos, sem dependência externa.
@@ -74,19 +74,24 @@ Material bruto recebido de terceiros (planos técnicos, protótipos navegáveis,
 
 ## O que NÃO está aqui (e como restaurar numa máquina nova)
 
-Estas pastas ficam de fora (`.gitignore`) porque são código-fonte de terceiros ou da empresa, cada uma já com seu próprio repositório remoto. **Já estão clonadas nesta máquina, mas um nível acima** (`TAREFAS/ConciliaçãoCaixaAPI` e `TAREFAS/ConciliaçãoCaixaFront`, irmãs de `board-refinamento/`, não dentro dela) — é lá que fica o código real do Portal Retaguarda (Motor de Descontos, Automação Fiscal, Migração Var Ret etc.), útil pra citar arquivo/classe exatos ao refinar um card técnico. Numa máquina nova sem elas, clone a partir da raiz do workspace (`TAREFAS/`, não de dentro de `board-refinamento/`):
+Estas pastas ficam de fora (`.gitignore`) porque são código-fonte de terceiros ou da empresa, cada uma já com seu próprio repositório remoto. **Localização real confirmada em 13/08/2026** (a nota anterior sobre `TAREFAS/` estava desatualizada/incorreta — a pasta não existe nesta máquina): clonadas em `C:\Users\igor.diniz\Documents\ConciliacaoCaixa\ConciliacaoCaixaAPI` e `...\ConciliacaoCaixaFront` — dois níveis acima deste workspace (`Documents/ConciliacaoCaixa/`, não `Documents/BMAD/`). É lá que fica o código real do Portal Retaguarda (Motor de Descontos, Automação Fiscal, Migração Var Ret, Gamificação/campaign-roulette etc.), útil pra citar arquivo/classe exatos ao refinar um card técnico. Numa máquina nova sem elas, clone a partir de `Documents/ConciliacaoCaixa/` (crie a pasta se não existir):
 
 ```bash
 # Código proprietário do Grupo Avenida (projeto "Conciliação de Caixa" no Azure DevOps —
 # é onde vive o back-end/front-end do Motor de Descontos, Portal de Retaguarda etc.)
-git clone "https://dev.azure.com/GrupoAvenida/Projeto%20-%20Concilia%C3%A7%C3%A3o%20de%20Caixa/_git/Concilia%C3%A7%C3%A3oCaixaAPI" "Concilia%C3%A7%C3%A3oCaixaAPI"
-git clone "https://dev.azure.com/GrupoAvenida/Projeto%20-%20Concilia%C3%A7%C3%A3o%20de%20Caixa/_git/Concilia%C3%A7%C3%A3oCaixaFront" "Concilia%C3%A7%C3%A3oCaixaFront"
+git clone "https://dev.azure.com/GrupoAvenida/Projeto%20-%20Concilia%C3%A7%C3%A3o%20de%20Caixa/_git/Concilia%C3%A7%C3%A3oCaixaAPI" "ConciliacaoCaixaAPI"
+git clone "https://dev.azure.com/GrupoAvenida/Projeto%20-%20Concilia%C3%A7%C3%A3o%20de%20Caixa/_git/Concilia%C3%A7%C3%A3oCaixaFront" "ConciliacaoCaixaFront"
+
+# Código proprietário do projeto "Automação Dados Cartões" — onde vive o backend
+# Python do Dashboard CDs (módulo modules/cds/, usado como referência técnica
+# ao refinar cards do Epic #10810 no Var Retaguarda).
+git clone "https://dev.azure.com/GrupoAvenida/Automa%C3%A7%C3%A3o%20Dados%20Cart%C3%B5es/_git/rpa-service" "rpa-service"
 
 # Biblioteca completa de skills de terceiros (só precisa se for instalar mais skills)
 git clone https://github.com/alirezarezvani/claude-skills.git
 ```
 
-Requer acesso ao Azure DevOps do Grupo Avenida (`az` CLI autenticado ou credencial de git configurada) para os dois primeiros clones.
+Requer acesso ao Azure DevOps do Grupo Avenida (`az` CLI autenticado ou credencial de git configurada) para os clones de código proprietário.
 
 ## Contexto
 

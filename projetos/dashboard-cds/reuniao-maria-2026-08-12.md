@@ -42,9 +42,23 @@
 - [ ] Salvar a planilha recebida em `board-refinamento/referencias/` (seguindo a convenção: `<card-id>-<slug>`) — aguardando Maria enviar a planilha atualizada no grupo.
 - [x] Se ela confirmar que não usa mais WMS: revisar se #10811 ficou obsoleto — **não se aplica**, ela confirmou que continua usando WMS.
 - [x] Registrar aqui o resumo da reunião — ver abaixo.
-- [ ] **Novo:** replicar no sistema as mudanças que a Maria já fez na planilha (prioridade nº1 combinada na reunião, antes de qualquer melhoria nova).
-- [ ] **Novo:** falar com Sergio (da Silva) sobre a mudança de data no relatório do WMS que chega pro time.
-- [ ] **Novo:** registrar como pedidos de melhoria (pós-paridade): filtro no gráfico, campo "último carregamento" (manual, por rota), exibir "média da rota" ao lado da capacidade disponível, números sempre visíveis no gráfico (sem precisar de hover — vai pra uma TV).
+- [x] **Novo:** replicar no sistema as mudanças que a Maria já fez na planilha (prioridade nº1 combinada na reunião, antes de qualquer melhoria nova) — **cards criados em 13/08** (ver tabela abaixo).
+- [x] **Novo:** falar com Sergio (da Silva) sobre a mudança de data no relatório do WMS que chega pro time — **card #12512 criado em 13/08**, atribuído ao Igor (PO), que vai fazer o alinhamento diretamente.
+- [x] **Novo:** registrar como pedidos de melhoria (pós-paridade): filtro no gráfico, campo "último carregamento" (manual, por rota), exibir "média da rota" ao lado da capacidade disponível, números sempre visíveis no gráfico (sem precisar de hover — vai pra uma TV) — **card #12513 criado em 13/08**, os 4 pedidos agrupados num card único por decisão do PO.
+
+## Cards criados a partir desta reunião (13/08/2026)
+
+Todos sob o Epic [#10810 — Dashboard CD](https://dev.azure.com/GrupoAvenida/409b9844-c75c-4e46-8a4d-17e4c455ca1b/_workitems/edit/10810), estado **Refinement** (sub-coluna Doing), Sprint 27. **Ainda dependem da planilha atualizada da Maria pra fechar o refino** — valores/fórmulas exatos precisam ser conferidos contra ela antes de sair de Refinement.
+
+| Card | Título | Observação |
+|---|---|---|
+| [#12509](https://dev.azure.com/GrupoAvenida/409b9844-c75c-4e46-8a4d-17e4c455ca1b/_workitems/edit/12509) | Atualizar data de referência, tabela de lojas e gráfico "Top 20 lojas + lead time" | Itens 1+2+3+4 da reunião, agrupados (mesma entrega visível) |
+| [#12510](https://dev.azure.com/GrupoAvenida/409b9844-c75c-4e46-8a4d-17e4c455ca1b/_workitems/edit/12510) | Corrigir cálculo de quantidade de peças via PROCV | Item 5; Cenário 2 tem pendência interna (definir tratamento do caso "PROCV não encontra") |
+| [#12511](https://dev.azure.com/GrupoAvenida/409b9844-c75c-4e46-8a4d-17e4c455ca1b/_workitems/edit/12511) | Corrigir fórmula do lead time médio (ponderado por rota) | Item 6, bug fix; nota técnica no card: implementação não encontrada nos repos do Portal Retaguarda (dashboard provavelmente vive fora, Power BI/Excel + PowerAutomate) |
+| [#12512](https://dev.azure.com/GrupoAvenida/409b9844-c75c-4e46-8a4d-17e4c455ca1b/_workitems/edit/12512) | Atualizar relatório do WMS com nova data | Item 7; atribuído ao Igor (PO) — trabalho é coordenação com Sergio da Silva |
+| [#12513](https://dev.azure.com/GrupoAvenida/409b9844-c75c-4e46-8a4d-17e4c455ca1b/_workitems/edit/12513) | Melhorias pós-paridade (filtro, último carregamento, média da rota, números visíveis) | 4 pedidos de melhoria agrupados num card único; bloqueio externo real registrado — Maria vai desenhar esboço antes de qualquer mudança visual |
+
+Item 8 (Mapa) não virou card — reunião confirmou que não teve mudança.
 
 ## Resumo da reunião
 
@@ -71,7 +85,3 @@
 - **Números sempre visíveis no gráfico** — hoje só aparecem no hover; o painel vai pra uma TV operacional, então precisa aparecer sempre.
 
 **Combinado:** prioridade imediata é replicar as mudanças 1–8 acima pra manter sistema e planilha compatíveis; só depois entrar nas melhorias novas. Maria vai desenhar um esboço/protótipo antes de qualquer mudança visual nova ser implementada, pra validar entendimento antes de ir pro programa. Maria vai atualizar as rotas na planilha e enviar a versão nova pro grupo ainda em 12/08.
-
-
-
-criar cards a partir dessa reuniao
