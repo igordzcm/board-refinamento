@@ -15,12 +15,54 @@ Abra qualquer um dos dois arquivos direto no navegador — são HTML autocontido
 
 ## Skills (`.claude/skills/`)
 
-21 skills selecionadas para uso como PO, vindas de [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills):
+22 skills — 21 selecionadas de [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills) pra uso como PO, mais 1 própria (`refinement-checklist`) construída neste workspace. **Regra do workspace: sempre invocar a skill que combina com a tarefa, em vez de fazer a mesma análise "à mão".** Não são referência passiva — são o fluxo de trabalho padrão.
 
-`agile-product-owner`, `apple-hig-expert`, `code-to-prd`, `competitive-teardown`, `experiment-designer`,
-`landing-page-generator`, `process-mapper`, `product-analytics`, `product-discovery`, `product-manager-toolkit`,
-`product-skills`, `product-strategist`, `research-summarizer`, `roadmap-communicator`, `saas-scaffolder`,
-`scrum-master`, `senior-architect`, `senior-pm`, `spec-to-repo`, `ui-design-system`, `ux-researcher-designer`.
+### Refinamento de card (o dia a dia deste workspace)
+
+| Skill | Quando usar |
+|---|---|
+| `refinement-checklist` | **Ponto de entrada padrão** pra qualquer trabalho em card do Var Retaguarda — refinar, reescrever, revisar. Define a sequência (ler comentários do Danilo, checar padrão técnico no repo, escrever Story+Cenário, rotular verificação, linkar formalmente, estimar, decidir fluxograma/mock) e o gate de 4 pontos. Orquestra quando chamar as demais abaixo. Ver também [`docs/processo-de-refinamento.md`](docs/processo-de-refinamento.md). |
+| `agile-product-owner` | Escrever/validar user story e AC fora do card em si, INVEST, quebra de epic, planejamento e capacidade de sprint |
+| `senior-architect` | Fluxograma técnico (🧭 roxo), ADR, decisão de stack/dependência, revisão de arquitetura |
+| `process-mapper` | Fluxograma de processo de negócio (🧭 verde-água), BPMN, gargalo e tempo de ciclo — quando o card é sobre handoff entre áreas/pessoas |
+| `senior-pm` | Priorização de portfólio (WSJF, EMV), análise de risco quantitativa, relatório executivo multi-frente |
+| `scrum-master` | Forecast de velocidade (Monte Carlo), health score de sprint, análise de retro |
+
+### Pesquisa, descoberta e estratégia
+
+| Skill | Quando usar |
+|---|---|
+| `product-discovery` | Validar oportunidade/hipótese antes de comprometer capacidade de dev |
+| `product-manager-toolkit` | RICE, síntese de entrevista de usuário, templates de PRD, go-to-market |
+| `product-strategist` | Cascata de OKR, planejamento trimestral, visão de produto, proposta de estrutura de time |
+| `competitive-teardown` | Análise de concorrente — matriz de features, SWOT, mapa de posicionamento |
+| `experiment-designer` | Planejar experimento/A-B test, hipótese testável, tamanho de amostra |
+| `product-analytics` | KPIs, dashboard de métricas, análise de coorte/retenção |
+| `research-summarizer` | Resumir paper/artigo/relatório, análise comparativa, citações |
+| `roadmap-communicator` | Release notes, changelog, narrativa de roadmap pra stakeholder |
+
+### Código, arquitetura e scaffolding
+
+| Skill | Quando usar |
+|---|---|
+| `code-to-prd` | Fazer engenharia reversa de um PRD a partir de código existente |
+| `spec-to-repo` | Gerar repositório novo e completo a partir de uma spec em linguagem natural |
+| `saas-scaffolder` | Boilerplate de SaaS (Next.js, auth, billing, dashboard) |
+
+### UX e design
+
+| Skill | Quando usar |
+|---|---|
+| `ux-researcher-designer` | Persona, jornada de usuário, plano de teste de usabilidade, síntese de pesquisa |
+| `ui-design-system` | Design tokens, documentação de componente, handoff pra dev |
+| `apple-hig-expert` | Auditar/desenhar UI de plataforma Apple contra a Human Interface Guidelines |
+| `landing-page-generator` | Gerar landing page (Next.js/React/Tailwind) com copy orientada a conversão |
+
+### Orquestração
+
+| Skill | Quando usar |
+|---|---|
+| `product-skills` | Coordenar trabalho que cruza várias das skills de produto acima, ou rodar o loop contínuo de discovery |
 
 ## Planejamento (`_bmad-output/planning-artifacts/`)
 
@@ -32,7 +74,7 @@ Material bruto recebido de terceiros (planos técnicos, protótipos navegáveis,
 
 ## O que NÃO está aqui (e como restaurar numa máquina nova)
 
-Estas pastas ficam de fora (`.gitignore`) porque são código-fonte de terceiros ou da empresa, cada uma já com seu próprio repositório remoto. Depois de clonar este repositório, rode:
+Estas pastas ficam de fora (`.gitignore`) porque são código-fonte de terceiros ou da empresa, cada uma já com seu próprio repositório remoto. **Já estão clonadas nesta máquina, mas um nível acima** (`TAREFAS/ConciliaçãoCaixaAPI` e `TAREFAS/ConciliaçãoCaixaFront`, irmãs de `board-refinamento/`, não dentro dela) — é lá que fica o código real do Portal Retaguarda (Motor de Descontos, Automação Fiscal, Migração Var Ret etc.), útil pra citar arquivo/classe exatos ao refinar um card técnico. Numa máquina nova sem elas, clone a partir da raiz do workspace (`TAREFAS/`, não de dentro de `board-refinamento/`):
 
 ```bash
 # Código proprietário do Grupo Avenida (projeto "Conciliação de Caixa" no Azure DevOps —

@@ -130,14 +130,14 @@
     <span>Ready for Dev</span>
   </div>
   <h1>Board de Refinamento</h1>
-  <p class="subtitle">Clique num card pra ver o checklist completo e o que falta. Colunas por status de prontidão contra o modelo de refinamento: formato Cenário + Dado/Quando/Então, rótulo de verificação, estimativa e ausência de bloqueio real. Cada card traz uma tag indicando se ele está em "Ready for Dev" ou ainda em "Refinement" no board do Azure DevOps, e — quando cabe — um chip roxo (<strong>fluxograma técnico</strong>, skill <code>senior-architect</code>), verde-água (<strong>fluxograma de processo</strong>, skill <code>process-mapper</code>) ou rosa (<strong>mock de tela</strong>, protótipo interativo publicado como Artifact — link no detalhe do card).</p>
+  <p class="subtitle">Clique num card pra ver o checklist completo e o que falta. Colunas por status de prontidão contra o modelo de refinamento: formato Cenário + Dado/Quando/Então, rótulo de verificação, estimativa e ausência de bloqueio real. Cada card traz uma tag indicando se ele está em "Ready for Dev" ou ainda em "Refinement" no board do Azure DevOps, e — quando cabe — um chip roxo (<strong>fluxograma técnico</strong>, skill <code>senior-architect</code>), verde-água (<strong>fluxograma de processo</strong>, skill <code>process-mapper</code>), rosa (<strong>mock de tela</strong>, protótipo interativo publicado como Artifact — link no detalhe do card) ou laranja (<strong>estimativa do PO</strong> — sizing relativo Fibonacci proposto pelo PO, política temporária desde 12/08, pendente de confirmação do time técnico).</p>
 </div>
 
 <div class="board">
 
   <!-- Coluna: Precisa refinar -->
   <div class="column">
-    <div class="column-head"><span class="dot" style="background:var(--bad)"></span><h2>Precisa refinar</h2><span class="count">7</span></div>
+    <div class="column-head"><span class="dot" style="background:var(--bad)"></span><h2>Precisa refinar</h2><span class="count">6</span></div>
     <div class="column-cards">
 
       <button class="kcard" onclick="m11840.showModal()">
@@ -152,13 +152,6 @@
         <div class="title">[RPA] Gerenciamento de usuários por grupo e CD</div>
         <div class="chips"><span class="chip bad">Conteúdo insuficiente</span></div>
         <div class="bottom-row"><span class="avatar">—</span><span class="gap-count">Reescrever do zero</span></div>
-      </button>
-
-      <button class="kcard" onclick="m12484.showModal()">
-        <div class="top-row"><span class="id">PBI #12484</span><span class="chip source">Refinement</span></div>
-        <div class="title">Migração relatórios pra worker + e-mail</div>
-        <div class="chips"><span class="chip bad">Conteúdo insuficiente</span></div>
-        <div class="bottom-row"><span class="avatar">—</span><span class="gap-count">3 pendências</span></div>
       </button>
 
       <button class="kcard" onclick="m12186.showModal()">
@@ -194,21 +187,14 @@
 
   <!-- Coluna: Quase pronto -->
   <div class="column">
-    <div class="column-head"><span class="dot" style="background:var(--warn)"></span><h2>Quase pronto</h2><span class="count">3</span></div>
+    <div class="column-head"><span class="dot" style="background:var(--warn)"></span><h2>Quase pronto</h2><span class="count">2</span></div>
     <div class="column-cards">
-
-      <button class="kcard" onclick="m12401.showModal()">
-        <div class="top-row"><span class="id">PBI #12401</span><span class="chip source">Ready for Dev</span></div>
-        <div class="title">US14 · Go-live, hypercare</div>
-        <div class="chips"><span class="chip bad">Bloqueio externo</span><span class="chip flow-tech">Técnico</span><span class="chip flow-proc">Processo</span></div>
-        <div class="bottom-row"><span class="avatar">KC</span><span class="gap-count">1 pendência</span></div>
-      </button>
 
       <button class="kcard" onclick="m12400.showModal()">
         <div class="top-row"><span class="id">PBI #12400</span><span class="chip source">Ready for Dev</span></div>
         <div class="title">US13 · Validação de negócio, treinamento</div>
-        <div class="chips"><span class="chip bad">Bloqueio externo</span><span class="chip flow-proc">Processo</span></div>
-        <div class="bottom-row"><span class="avatar">KC</span><span class="gap-count">1 pendência</span></div>
+        <div class="chips"><span class="chip warn">Bloqueio a confirmar</span><span class="chip flow-proc">Processo</span></div>
+        <div class="bottom-row"><span class="avatar">IC</span><span class="gap-count">1 pendência</span></div>
       </button>
 
       <button class="kcard" onclick="m12284.showModal()">
@@ -223,8 +209,29 @@
 
   <!-- Coluna: 100% pronto -->
   <div class="column">
-    <div class="column-head"><span class="dot" style="background:var(--good)"></span><h2>100% pronto</h2><span class="count">13</span></div>
+    <div class="column-head"><span class="dot" style="background:var(--good)"></span><h2>100% pronto</h2><span class="count">16</span></div>
     <div class="column-cards">
+
+      <button class="kcard" onclick="m12484.showModal()">
+        <div class="top-row"><span class="id">PBI #12484</span><span class="chip source">Refinement</span></div>
+        <div class="title">Migração relatórios pra worker + e-mail (Lote 1)</div>
+        <div class="chips"><span class="chip good">Pronto</span><span class="chip warn">Estimativa do PO</span></div>
+        <div class="bottom-row"><span class="avatar">—</span><span class="gap-count">0 pendências</span></div>
+      </button>
+
+      <button class="kcard" onclick="m12507.showModal()">
+        <div class="top-row"><span class="id">PBI #12507</span><span class="chip source">Refinement</span></div>
+        <div class="title">Motor de Descontos — corrigir insert na PRO014</div>
+        <div class="chips"><span class="chip good">Pronto</span><span class="chip warn">Estimativa do PO</span></div>
+        <div class="bottom-row"><span class="avatar">—</span><span class="gap-count">0 pendências</span></div>
+      </button>
+
+      <button class="kcard" onclick="m12401.showModal()">
+        <div class="top-row"><span class="id">PBI #12401</span><span class="chip source">Ready for Dev</span></div>
+        <div class="title">US14 · Go-live, hypercare</div>
+        <div class="chips"><span class="chip good">Pronto</span><span class="chip flow-tech">Técnico</span><span class="chip flow-proc">Processo</span></div>
+        <div class="bottom-row"><span class="avatar">IC</span><span class="gap-count">0 pendências</span></div>
+      </button>
 
       <button class="kcard" onclick="m10562.showModal()">
         <div class="top-row"><span class="id">PBI #10562</span><span class="chip source">Refinement</span></div>
@@ -290,7 +297,7 @@
       </button>
 
       <button class="kcard" onclick="m12499.showModal()">
-        <div class="top-row"><span class="id">PBI #12499</span><span class="chip source">Refinement</span></div>
+        <div class="top-row"><span class="id">PBI #12499</span><span class="chip source">Ready for Dev</span></div>
         <div class="title">Implementação front/back SSO SIGA</div>
         <div class="chips"><span class="chip good">Pronto</span></div>
         <div class="bottom-row"><span class="avatar">GL</span><span class="gap-count">0 pendências</span></div>
@@ -322,7 +329,7 @@
 
 </div>
 
-<footer>23 cards no projeto Var Retaguarda — 7 em "Ready for Dev" e 16 em "Refinement", avaliados em 2026-08-12 (nova rodada: #12483 saiu do board — item deletado no Azure; 7 cards novos entraram em Refinement — #10562 já implementado/aprovado por QA, #12115/#12484 sem conteúdo, #12186–#12189 são um épico novo "Gameficação" T7–T10, com T8/T9/T10 carregando bloqueio externo real de marketing/design/infra). Clique em qualquer card pra abrir o detalhe.</footer>
+<footer>24 cards no projeto Var Retaguarda — 8 em "Ready for Dev" e 16 em "Refinement". Revisão de 2026-08-12: todos os 24 cards de "Refinement" e "Ready for Dev" reverificados contra dados ao vivo do Azure DevOps. <strong>#12401 (US14 Go-live/hypercare)</strong> subiu de "Quase pronto" pra "100% pronto" — as três dependências externas (ambiente de produção, janela do 1º fechamento, suporte IT/Infra) foram confirmadas resolvidas, e o Cenário 2 (gatilho de rollback) foi incorporado. <strong>#12400 (US13 Validação de negócio)</strong> ganhou o Cenário 4 (escalonamento) mas segue em "Quase pronto" — a confirmação da agenda das 4 áreas de negócio (apresentação estava marcada pra hoje às 15:30) não foi verificada nesta revisão, fica como pendência explícita. Os três bloqueios externos abertos em Gameficação (#12187 CRM/BI, #12188 assets de design, #12189 ambiente/stakeholders) e a pendência de "erros mais comuns" do runbook SSO (#12284) seguem sem confirmação nos dois sentidos — não foram reabertos nem fechados. Duas sugestões não-bloqueantes do Danilo (QA) — sobre o vault do #12273 e sobre aprovação/checklist do #12284 — foram incorporadas. <strong>Atualização adicional (mesmo dia):</strong> política temporária adotada de o PO propor estimativa por sizing relativo Fibonacci (skill <code>agile-product-owner</code>) em cards travados só por falta de estimativa, em vez de deixar em aberto — <strong>#12484</strong> (8 pts) e <strong>#12507</strong> (2 pts) subiram de "Quase pronto" pra "100% pronto" com essa estimativa, marcada como pendente de confirmação do time técnico (comentário no card no Azure). Revisar essa política em ~3 sprints. Clique em qualquer card pra abrir o detalhe.</footer>
 
 <!-- ===================== MODALS ===================== -->
 
@@ -403,7 +410,7 @@
         <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
         <div class="check-item"><span class="mark yes">✓</span>Sem bloqueio aberto</div>
       </div>
-      <div><h3>O que falta</h3><ul class="gap-list clean"><li>Nenhuma — 4 cenários, incluindo o de ordem (valida antes de remover, evita lockout). <strong>Sugestão (não bloqueia):</strong> fluxograma técnico pequeno ilustrando a sequência criar → validar → remover ajudaria o dev.</li></ul></div>
+      <div><h3>O que falta</h3><ul class="gap-list clean"><li>Nenhuma — 4 cenários, incluindo o de ordem (valida antes de remover, evita lockout). <strong>Sugestão do Danilo (QA, não bloqueia):</strong> AC cita "credenciais no vault" sem nomear qual — confirmar com quem for implementar o vault padrão e as permissões do admin permanente vs. temporário. <strong>Sugestão (não bloqueia):</strong> fluxograma técnico pequeno ilustrando a sequência criar → validar → remover ajudaria o dev.</li></ul></div>
       <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12273" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
     </div>
   </div>
@@ -425,6 +432,7 @@
       </div>
       <div><h3>O que falta</h3><ul class="gap-list">
         <li>Publicação definida (Wiki da GAV). Único item em aberto: a lista de "erros mais comuns" do troubleshooting precisa ser levantada por quem opera o SSO Hub — não é algo que o PO define.</li>
+        <li><strong>Sugestão do Danilo (QA, não bloqueia):</strong> registrar quem revisa/aprova o runbook antes de considerar o card concluído, e detalhar exatamente o que o passo de "validação pós-restore" precisa conferir.</li>
         <li><strong>Sugestão (não bloqueia):</strong> fluxogramas técnico (arquitetura do SSO Hub) e de processo (passos do runbook) ajudariam a documentar o troubleshooting, mas não são obrigatórios pra fechar o card.</li>
       </ul></div>
       <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12284" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
@@ -457,17 +465,18 @@
     <div class="modal-head">
       <div class="row1"><div><span class="id">PBI #12400</span><div class="title">US13 · Validação com as áreas (homologação de negócio) e treinamento</div></div>
       <button class="close-btn" onclick="m12400.close()">✕</button></div>
-      <div class="meta">Kauã Cunha · 40 pts · Epic Conciliação Fase 2 (#12387)</div>
+      <div class="meta">Igor Camargo · 40 pts · Epic Conciliação Fase 2 (#12387)</div>
     </div>
     <div class="modal-body">
       <div class="checkgrid">
         <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
         <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
         <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
-        <div class="check-item"><span class="mark no">✕</span>Sem bloqueio aberto</div>
+        <div class="check-item"><span class="mark partial">◐</span>Sem bloqueio aberto</div>
       </div>
       <div><h3>O que falta</h3><ul class="gap-list">
-        <li><strong>Bloqueio externo (real, não resolvo sozinho no card):</strong> agenda de disponibilidade das 4 áreas de negócio (Financeiro, Contábil, RH, Diretoria) ainda não confirmada pras sessões de validação. Apresentação ao responsável marcada pra hoje às 15:30.</li>
+        <li>Refinado de novo às 14:53 de 12/08: Cenário 4 adicionado (área rejeita mesmo após ajustes) — critério de escalonamento explícito, sugestão do Danilo (QA) já incorporada.</li>
+        <li><strong>Bloqueio externo (real, ainda a confirmar):</strong> agenda de disponibilidade das 4 áreas de negócio (Financeiro, Contábil, RH, Diretoria) para as sessões de validação. Havia apresentação ao responsável marcada pra 12/08 às 15:30 — status dessa apresentação não verificado nesta revisão; confirmar com Igor se a agenda saiu de lá antes de fechar o card.</li>
       </ul></div>
       <a class="ext" href="https://claude.ai/code/artifact/2b33340a-6d0a-415e-835c-87cfd64943ee" target="_blank" rel="noopener">🧭 Ver fluxograma →</a>
       <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12400" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
@@ -480,19 +489,16 @@
     <div class="modal-head">
       <div class="row1"><div><span class="id">PBI #12401</span><div class="title">US14 · Go-live, pilotagem do 1º fechamento e sustentação inicial (hypercare)</div></div>
       <button class="close-btn" onclick="m12401.close()">✕</button></div>
-      <div class="meta">Kauã Cunha · 48 pts · Epic Conciliação Fase 2 (#12387)</div>
+      <div class="meta">Igor Camargo · 48 pts · Epic Conciliação Fase 2 (#12387)</div>
     </div>
     <div class="modal-body">
       <div class="checkgrid">
         <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
         <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
         <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
-        <div class="check-item"><span class="mark no">✕</span>Sem bloqueio aberto</div>
+        <div class="check-item"><span class="mark yes">✓</span>Sem bloqueio aberto</div>
       </div>
-      <div><h3>O que falta</h3><ul class="gap-list">
-        <li><strong>Bloqueio externo (real, não resolvo sozinho no card):</strong> ambiente de produção, janela do 1º fechamento e suporte de IT/Infra — nenhum confirmado.</li>
-        <li><strong>Sugestão (não bloqueia):</strong> fluxogramas técnico (janela de deploy/rollback) e de processo (passos do go-live e hypercare) ajudariam a visualizar o plano.</li>
-      </ul></div>
+      <div><h3>O que falta</h3><ul class="gap-list clean"><li>Nenhuma — refinado de novo às 17:34 de 12/08: Cenário 2 (gatilho objetivo de rollback) adicionado, antes implícito. Bloqueio externo (ambiente de produção, janela do 1º fechamento, suporte IT/Infra) confirmado resolvido — as três dependências foram destravadas.</li></ul></div>
       <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12401" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
     </div>
   </div>
@@ -705,21 +711,19 @@
 <dialog id="m12484">
   <div class="modal-inner">
     <div class="modal-head">
-      <div class="row1"><div><span class="id">PBI #12484</span><div class="title">Migração Var Ret — Mover os relatórios para workers e enviar por e-mail</div></div>
+      <div class="row1"><div><span class="id">PBI #12484</span><div class="title">Migração Var Ret — Lote 1: mover exportações de Excel/PDF para worker e envio por e-mail</div></div>
       <button class="close-btn" onclick="m12484.close()">✕</button></div>
-      <div class="meta">sem estimativa · Sprint 26 · Coluna Azure: Refinement</div>
+      <div class="meta">8 pts (estimativa do PO) · Epic Migração VARRet (#11985) · Sprint 26 · Coluna Azure: Refinement</div>
     </div>
     <div class="modal-body">
       <div class="checkgrid">
-        <div class="check-item"><span class="mark no">✕</span>Formato Cenário + GWT</div>
-        <div class="check-item"><span class="mark no">✕</span>Rótulo de verificação</div>
-        <div class="check-item"><span class="mark no">✕</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
         <div class="check-item"><span class="mark yes">✓</span>Sem bloqueio aberto</div>
       </div>
-      <div><h3>O que falta</h3><ul class="gap-list">
-        <li>Descrição e AC formais estão vazios, mas há direção clara num comentário: "lote 2 — tudo que é exportação de excel e pdf deveria ser no worker e enviado pro e-mail, tal qual no lote 1".</li>
-        <li>Precisa: escrever a história (Como/Quero/Para que), listar quais relatórios/exportações entram no "lote 2", e formato Cenário + Dado/Quando/Então usando o "lote 1" já entregue como referência de padrão.</li>
-        <li>Preencher estimativa de esforço.</li>
+      <div><h3>O que falta</h3><ul class="gap-list clean">
+        <li>Nenhuma. Escopo: Lote 1 (Funções 1, 3, 16, 21, 35, já entregues). Das 5, só 3 têm exportação Excel/PDF ainda síncrona: Função 1 — Demonstrativo de Caixa (#11987), Função 3 — Movimento de Caixa e Crediário (#11989) e Função 16 — Listagem de Itens Vendidos (#11991). Funções 21 e 35 não têm exportação e ficam fora do escopo. Padrão worker+e-mail (<code>ExcelGenerationQueue</code>/<code>ExcelNotifier</code>) confirmado no repositório, hoje exclusivo da Automação Planilha Fiscal — este seria o primeiro uso fora do fechamento fiscal. 4 cenários Dado/Quando/Então (um por tela + falha), vinculado aos 3 cards das telas e ao Epic. <strong>Estimativa de 8 pts proposta pelo PO por sizing relativo</strong> (comparável a #12405 e #12499, ambos 8 pts) — política temporária combinada em 12/08 (revisar em ~3 sprints); pendente de confirmação do time técnico, sinalizado em comentário no card.</li>
       </ul></div>
       <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12484" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
     </div>
@@ -820,6 +824,28 @@
         <li>Depende de T9 concluída.</li>
       </ul></div>
       <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12189" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m12507">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #12507</span><div class="title">Motor de Descontos — Corrigir insert na tabela PRO014</div></div>
+      <button class="close-btn" onclick="m12507.close()">✕</button></div>
+      <div class="meta">Sem atribuição · 2 pts (estimativa do PO) · Epic Motor de Descontos (#6669) · Sprint 26 · Coluna Azure: Refinement</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark yes">✓</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list clean">
+        <li>Nenhuma. História (Como/Quero/Para que) e 3 cenários Dado/Quando/Então a partir do comentário do Fabio: campanhas do tipo L3P2 cadastradas pelo Arthur gravavam o campo <code>P14PAGUE</code> errado (2 em vez de 1) — regra confirmada por Fabio, "é sempre a diferença" entre "leva" e "pague". Vinculado ao Epic Motor de Descontos (#6669). <strong>Estimativa de 2 pts proposta pelo PO por sizing relativo</strong> (comparável a #12403, mesmo porte) — política temporária combinada em 12/08 (revisar em ~3 sprints); pendente de confirmação do time técnico, sinalizado em comentário no card.</li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12507" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
     </div>
   </div>
 </dialog>
