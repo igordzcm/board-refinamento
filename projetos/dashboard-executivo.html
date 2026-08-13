@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dashboard Executivo — GAV · 12.08.2026</title>
+<title>Dashboard Executivo — GAV · 13.08.2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -182,7 +182,7 @@
       <h1>Dashboard <em>Executivo</em></h1>
     </div>
     <div class="meta">
-      <span class="date">12.08.2026</span>
+      <span class="date">13.08.2026</span>
       Retaguarda Sprint 26 · VAR 3.0 · Tesouraria
     </div>
   </header>
@@ -195,7 +195,7 @@
     </div>
     <div class="stat" style="--rail:var(--accent)">
       <div class="label">Em Andamento</div>
-      <div class="value">12</div>
+      <div class="value">13</div>
       <div class="caption">frentes ativas</div>
     </div>
     <div class="stat" style="--rail:var(--crit)">
@@ -217,9 +217,9 @@
     </div>
     <div class="blockers-grid">
       <div class="blocker">
-        <div class="tag">SIGA · Indicadores</div>
-        <div class="title">Sem fonte de dados para performance de indicadores</div>
-        <div class="desc">Segue bloqueado por falta de uma origem de dados confiável. Kovalski deve retomar esta frente assim que fechar o SSO e organizar a automação fiscal — sem data definida ainda.</div>
+        <div class="tag">SIGA · Performance de Indicadores</div>
+        <div class="title">Épico inteiro em "To do" (18 cards) — o que foi feito antes estava errado</div>
+        <div class="desc">Correção em relação ao levantamento de 12/08: não é caso de "só falta o Danilo validar". Conferido no Azure em 13/08: os 18 cards do épico #10373 (dados por área, mecanismos de upload, gráficos, job de congelar dados etc.) estão todos em "To do" — nada foi de fato entregue. Já existem conversas em andamento pra retomar (não é mais um bloqueio parado/sem dono), mas ainda sem solução/dono de dev definido. Não confundir com o SSO no SIGA (#12499), que é uma frente separada e está em andamento — ver "Em Andamento".</div>
       </div>
       <div class="blocker">
         <div class="tag">Overlimit · VAR</div>
@@ -260,13 +260,13 @@
           <div class="delivery">
             <div class="dot">✓</div>
             <div><div class="title">Migração VARRet — lote 1 e lote 2 concluídos pelo JB</div>
-            <div class="desc">Lote 1 (~10 funções) entregue e testado. Lote 2 finalizado em 12/08, em code review e QA — Ozéias vai marcar call com o JB pra subir tudo. Próxima tarefa do JB: migrar as exportações Excel/PDF do lote 1 pro padrão worker+e-mail (card #12484).</div></div>
+            <div class="desc">Lote 1 (~10 funções) entregue e testado. Lote 2 finalizado em 12/08, em code review e QA — Ozéias vai marcar call com o JB pra subir tudo. JB já ativo desde 13/08 no card #12484 (migrar exportações Excel/PDF do lote 1 pro padrão worker+e-mail).</div></div>
             <span class="pill">Lote 2 em QA</span>
           </div>
           <div class="delivery">
             <div class="dot">✓</div>
-            <div><div class="title">Conciliação Fase 2 — implementação concluída, em homologação com um bug novo</div>
-            <div class="desc">Time dedicado em tempo integral adiantou a entrega em relação ao esperado. Subiu para homologação em 10/08. Bug novo na parte de "linhas" identificado em 12/08 — Diego segue focado nas correções, Kauã libera de volta pra Gamificação.</div></div>
+            <div><div class="title">Conciliação Fase 2 — implementação concluída, em homologação</div>
+            <div class="desc">Time dedicado em tempo integral adiantou a entrega em relação ao esperado. Subiu para homologação em 10/08. Bug de "linhas" (12/08) já corrigido; 2 bugs achados na demo com o Ozéias corrigidos e subidos na manhã de 13/08, ainda em teste. Bug de token quebrando permissionamento de rotas (achado 11-12/08) segue sem fix. Reunião com o Wagner (dono original do projeto) realizada 13/08 — aprovação geral, 2 gaps novos achados (Consolidado antes do fechamento do ciclo, Ranking sem agregação Regional/Tesouraria).</div></div>
             <span class="pill warn">Em teste</span>
           </div>
           <div class="delivery">
@@ -375,6 +375,10 @@
             <div class="when">Semana de 10.08<small>Retaguarda</small></div>
             <div><div class="what">Conclusão dos testes e virada da Conciliação Fase 2</div><div class="sub">Subiu para homologação em 10/08; time espera fechar os testes ainda esta semana.</div></div>
           </div>
+          <div class="milestone today">
+            <div class="when">Hoje 17h10<small>Conciliação F2</small></div>
+            <div><div class="what">Reunião Diego ↔ Wagner — realizada</div><div class="sub">Aprovação geral das 4 telas ("vocês estão de parabéns"). Bug de parcela negativa confirmado corrigido; item órfão na fila do RH não veio à pauta (segue pendente). 2 gaps novos achados: Consolidado disponível antes do fechamento do ciclo, Ranking sem agregação Regional/Tesouraria.</div></div>
+          </div>
           <div class="milestone future">
             <div class="when">15.08<small>Markdown</small></div>
             <div><div class="what">Prazo revisado da Remarcação de Preços</div><div class="sub">Projeto à parte (fora do board do Retaguarda), conduzido por Victor com a área de expansão. Sem atualização nova nesta rodada — segue em homologação com débito técnico.</div></div>
@@ -385,7 +389,7 @@
           </div>
           <div class="milestone">
             <div class="when">A definir<small>JB</small></div>
-            <div><div class="what">Retomada do Dashboard de CDs</div><div class="sub">Reunião com a Maria (12/08) descartou a premissa original: ela não trocou de fonte nem parou de usar o WMS, então a integração via FTP (#11973) não fica automaticamente obsoleta. Prioridade do JB ao retomar é replicar 8 mudanças de cálculo/gráfico que a Maria já fez na planilha dela.</div></div>
+            <div><div class="what">Retomada do Dashboard de CDs</div><div class="sub">Reunião com a Maria (12/08) descartou a premissa original: ela não trocou de fonte nem parou de usar o WMS, então a integração via FTP (#11973) não fica automaticamente obsoleta. Prioridade do JB ao retomar é replicar 8 mudanças de cálculo/gráfico que a Maria já fez na planilha dela. <strong>Status 13/08:</strong> Maria segue sem enviar a planilha corrigida — está esperando resposta de alguém da área dela antes de mandar.</div></div>
           </div>
           <div class="milestone future">
             <div class="when">14.08<small>Automação Fiscal</small></div>
@@ -401,7 +405,7 @@
       <section class="card">
         <div class="card-head">
           <h2>🔄 Em Andamento</h2>
-          <span class="count">12 frentes</span>
+          <span class="count">13 frentes</span>
         </div>
         <div class="squad-label" style="padding-top:12px">Retaguarda<span class="rule"></span></div>
         <div class="progress-list">
@@ -413,17 +417,17 @@
           <div class="progress-item">
             <div class="progress-head"><span class="name">Migração VARRet — lote 2<span class="owner">JB</span></span><span class="pct">95%</span></div>
             <div class="progress-track"><div class="progress-fill" style="width:95%;background:var(--good)"></div></div>
-            <div class="desc">Concluído em 12/08, agora em code review e QA. Ozéias vai marcar call com o JB pra subir tudo. Próxima tarefa dele: migrar exportações Excel/PDF do lote 1 pro padrão worker+e-mail (card #12484).</div>
+            <div class="desc">Concluído em 12/08, agora em code review e QA. Ozéias vai marcar call com o JB pra subir tudo. JB já ativo desde 13/08 no card #12484 (worker+e-mail do lote 1).</div>
           </div>
           <div class="progress-item">
             <div class="progress-head"><span class="name">Conciliação Fase 2<span class="owner">Diego</span></span><span class="pct">90%</span></div>
             <div class="progress-track"><div class="progress-fill" style="width:90%;background:var(--good)"></div></div>
-            <div class="desc">Em homologação. Bug novo na parte de "linhas" achado em 12/08 — Diego segue sozinho nas correções finais; Kauã libera de volta pra Gamificação.</div>
+            <div class="desc">Em homologação. Bug de "linhas" (12/08) corrigido; 2 bugs da demo do Ozéias corrigidos e em teste desde 13/08 de manhã; bug de token no permissionamento de rotas (11-12/08) ainda sem fix. Reunião com o Wagner realizada 13/08 — aprovação geral, 2 gaps novos achados.</div>
           </div>
           <div class="progress-item">
-            <div class="progress-head"><span class="name">Gamificação Roleta 3.0<span class="owner">Kauã</span></span><span class="pct">40%</span></div>
-            <div class="progress-track"><div class="progress-fill" style="width:40%;background:#6D28D9"></div></div>
-            <div class="desc">Kauã libera da Conciliação Fase 2 e volta em breve (combinado 12/08) — mas Ozéias reportou não conseguir mais ver o portal em homolog, precisa investigar antes do retomo.</div>
+            <div class="progress-head"><span class="name">Gamificação Roleta 3.0<span class="owner">Kauã</span></span><span class="pct">45%</span></div>
+            <div class="progress-track"><div class="progress-fill" style="width:45%;background:#6D28D9"></div></div>
+            <div class="desc"><strong>Volta a ser prioridade do Kauã (decisão do Igor, 13/08):</strong> os 10 cards do breakdown técnico (T1-T10) saíram de Refinement e foram pra "Ready for Dev" — plano já é anterior ao processo de refinamento do time, não precisava reescrita. Achado no caminho: já existe um módulo de campanhas (<code>campaign-roulette</code>) em produção que pode servir de base pra boa parte do T5-T10, em vez de construir do zero — Kauã vai avaliar. Pendências reais que seguem: rework de QA em 3 telas (T1-T3), bloqueio externo de dados de CRM/BI (T8) e assets visuais das mecânicas (T9), e o sumiço do portal em homolog reportado pelo Ozéias (12/08), ainda não investigado.</div>
           </div>
           <div class="progress-item">
             <div class="progress-head"><span class="name">Remarcação de Preços<span class="owner">Victor</span></span><span class="pct">55%</span></div>
@@ -434,6 +438,11 @@
             <div class="progress-head"><span class="name">Automação Fiscal — retomada<span class="owner">Kovalski · Ozéias</span></span><span class="pct">20%</span></div>
             <div class="progress-track"><div class="progress-fill" style="width:20%;background:var(--accent)"></div></div>
             <div class="desc">Ozéias iniciou em 12/08 a triagem ao vivo de ~40 cards de backlog criados pelo Kovalski — decidindo o que descarta e o que move pra Refinement. Prazo: 14/08.</div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-head"><span class="name">SSO no SIGA<span class="owner">Kovalski</span></span><span class="pct">70%</span></div>
+            <div class="progress-track"><div class="progress-fill" style="width:70%;background:var(--good)"></div></div>
+            <div class="desc">Frente separada da "Performance de Indicadores" (ver Bloqueios) — integrar o SIGA ao login único (Keycloak/Kong). Arquitetura concluída (#12498); implementação front+back em andamento (#12499, 8 pts), meta de terminar até sexta 14/08.</div>
           </div>
         </div>
 
@@ -495,12 +504,12 @@
           <div class="risk">
             <div class="badge">!</div>
             <div><div class="title">Job noturno da Conciliação segue instável no portal Retaguarda</div>
-            <div class="desc">Duplicação de lojas no processamento voltou a ocorrer em pelo menos três ocasiões no período, exigindo correção manual repetida. Time já testando mover o processo para um worker dedicado para estabilizar.</div></div>
+            <div class="desc">Duplicação de lojas no processamento voltou a ocorrer em pelo menos três ocasiões no período, exigindo correção manual repetida. Time já testando mover o processo para um worker dedicado para estabilizar. <strong>Sinal parcial em 12/08:</strong> Kauã corrigiu um job que não estava pegando algumas lojas (sintoma relacionado, não confirmado se é a mesma causa raiz da duplicação) — subida prevista pra 13/08 com o Leonardo. Kauã também está construindo, junto com o Danilo, uma forma de disparar o cron job pela UI pra testar com mais controle.</div></div>
           </div>
           <div class="risk">
             <div class="badge">!</div>
             <div><div class="title">Testes automatizados do VAR ainda sem dono formal</div>
-            <div class="desc">Caixeta vem assumindo o papel de fato (fiscal e descontos), reforçado por dois desenvolvedores novos em ambientação, mas segue sem uma definição formal de responsável pela frente de automação.</div></div>
+            <div class="desc">Caixeta vem assumindo o papel de fato (fiscal e descontos), reforçado por dois desenvolvedores novos em ambientação, mas segue sem uma definição formal de responsável pela frente de automação. Confirmado ativo em 11-12/08: seguindo nos testes de integração da "rotina de desconto" (Motor de Descontos), caminho feliz avançando, sem gap de cenário identificado até 12/08.</div></div>
           </div>
         </div>
       </section>
@@ -510,7 +519,7 @@
 
   <footer>
     <span>Dashboard Executivo · Status de Projetos · GAV · Retaguarda Sprint 26 · VAR 3.0 · Tesouraria</span>
-    <span>Fontes: dailies Retaguarda 28/07–10/08 (9 sessões) · dailies VAR 28/07, 30/07, 04–06/08 · Pré-Planning VAR 06/08 · Sprint Planning Retaguarda 26 (05/08) · Review/Retro Retaguarda Sprint 25 (04/08) · Planejamento de sprint 12/08 (Ozéias/Igor/Léo) · Reunião Dashboard CDs 12/08 (Maria/JB/Léo) — ver <a href="prioridades-sprint.md" style="color:inherit">prioridades-sprint.md</a></span>
+    <span>Fontes: dailies Retaguarda 28/07–13/08 (12 sessões) · dailies VAR 28/07, 30/07, 04–06/08, 11–12/08 · Pré-Planning VAR 06/08 · Sprint Planning Retaguarda 26 (05/08) · Review/Retro Retaguarda Sprint 25 (04/08) · Planejamento de sprint 12/08 (Ozéias/Igor/Léo) · Reunião Dashboard CDs 12/08 (Maria/JB/Léo) · Reunião Conciliação Fase 2 com Ozéias 12/08 · refinamento do board 13/08 (decisão Gamificação, achado campaign-roulette) · correção do Igor 13/08 + levantamento completo no Azure (SIGA tem 3 frentes distintas: Performance de Indicadores bloqueado, SSO no SIGA em andamento, Sustentação majoritariamente entregue) — ver <a href="prioridades-sprint.md" style="color:inherit">prioridades-sprint.md</a></span>
   </footer>
 
 </div>

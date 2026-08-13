@@ -92,6 +92,11 @@ Se o repositório do sistema estiver disponível localmente, vale ler o código 
 - **Sim, investigue** quando o objetivo é descrever com precisão o comportamento esperado, corrigir um fato errado no card (ex: nome de campo/coluna), ou fechar uma lacuna de "o que falta" que o QA já apontou.
 - **Não pré-resolva a investigação** quando o próprio card já reserva isso como escopo do desenvolvedor (ex: um bug com timebox de investigação). Achar a causa raiz de antemão tira do dev o trabalho que é dele — nesse caso, pare e pergunte antes de aprofundar.
 - Achados técnicos sempre entram como "levantamento — sugestão", nunca como determinação do PO.
+- **Obrigatório em bug fix e card de sustentação (regra de 13/08/2026, gap achado no #12507):** todo card de correção de comportamento existente — bug, correção de dado, sustentação — precisa da sugestão técnica escrita no card em **dois lugares, os dois sempre, não só um**:
+  1. Um comentário no work item com o levantamento completo (arquivos, o que foi checado, o raciocínio).
+  2. Uma versão **mais enxuta** dentro da própria Descrição do card (seção curta tipo "Nota técnica") — poucas frases citando o(s) arquivo(s)/tela e o ponto provável da correção, não a investigação inteira. A Descrição é o que o dev abre primeiro; um achado que só existe numa thread de comentário é fácil de passar batido.
+
+  Anotação só no board local nunca é suficiente — os dois itens acima precisam estar no card real do Azure DevOps. No mínimo, os dois precisam dizer **onde a correção provavelmente entra** — o arquivo exato (backend) ou a tela/componente (frontend) — mesmo sem cravar a causa raiz completa. Buscar no repo local pelo campo/tabela/função citado no bug antes de concluir que "não achou". Quando der pra rastrear o caminho real do dado (ex: confirmar que um valor passa sem transformação por criação/edição/persistência), isso vale mais que um chute de correção — às vezes reenquadra o próprio bug (caso do #12507: não era fórmula errada, era fórmula ausente, em três pontos do código). Só pula essa etapa quando não há repositório plausível pra buscar (card de regra de negócio pura, sem componente técnico).
 
 ## Quando usar fluxograma
 

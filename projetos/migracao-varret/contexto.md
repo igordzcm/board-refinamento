@@ -28,6 +28,8 @@ Migração de funções do VAR Retaguarda legado para o Portal Nova Retaguarda, 
 
 **Próxima tarefa do JB, já combinada com o Léo:** pegar tudo que já estava pronto no **lote 1** e que ainda exporta Excel/PDF direto na tela, e migrar pro padrão **worker + envio por e-mail** (mesmo padrão já usado na Automação Planilha Fiscal — `ExcelGenerationQueue`/`BullExcelGenerationQueue` + `ExcelNotifier`/`GraphExcelNotifier`, ver card **#12484** no board de refinamento do Var Retaguarda, já refinado e faltando só estimativa). Depois disso, o JB volta pro Dashboard CDs (que também tem "umas coisinhas" pra ele corrigir, mas nada grande — ver `../dashboard-cds/contexto.md`).
 
+**Confirmado em 13/08** (via [`../dailies/2026-08-13-retaguarda.md`](../dailies/2026-08-13-retaguarda.md)): JB já está trabalhando no **#12484** — Igor moveu o card pra Doing na própria daily ("pegar o lote 1 e ajeitar esses downloads pra mandar por e-mail corretinho e fazer o uso do worker"). Em paralelo, ainda respondendo itens de rework do lote 2 apontados pelo Danilo.
+
 ## Bloqueios e pendências
 
 - **Instabilidade recorrente do banco em homolog** — bloqueio recorrente citado nas dailies anteriores (10/08), impacta testes do lote 2. Não mencionado na reunião de 12/08 — status não confirmado, mas o lote 2 seguiu até QA, então pode ter sido contornado.

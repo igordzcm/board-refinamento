@@ -28,6 +28,11 @@ Demais itens de backlog futuro (baixa prioridade, sem urgência confirmada por A
 - Destinatários do e-mail de criação de campanha (uso interno) — Arthur ainda precisa definir e passar a lista final (provisoriamente Igor + Arthur).
 - Interface de gerenciamento de destinatários no portal (evitar depender de deploy para alterar a lista) — pedido de Taunay, sem prioridade confirmada.
 
+## Atividade recente (11–13/08/2026, via dailies)
+
+- **Leonardo (Retaguarda)** começou em 12/08 a **configurar e desenhar a arquitetura da sincronização nas lojas** (propagação de campanhas — a mesma frente descrita no card #12405, "gravação direta de campanhas no banco Retaguarda", cuja propagação pra loja passa a ser de outra equipe). Seguiu nisso em 13/08. Ver [`../dailies/2026-08-12-retaguarda.md`](../dailies/2026-08-12-retaguarda.md) e [`../dailies/2026-08-13-retaguarda.md`](../dailies/2026-08-13-retaguarda.md).
+- **Time VAR 3.0** (squad diferente, ver [`../dailies/2026-08-11-var3-projsust.md`](../dailies/2026-08-11-var3-projsust.md) e [`../dailies/2026-08-12-var3-projsust.md`](../dailies/2026-08-12-var3-projsust.md)) está rodando, em paralelo, testes de integração da "rotina de desconto" pelo lado loja/PDV (Guilherme Caixeta) — caminho feliz passando, "primeira compra" é o cenário mais complicado, **nenhum gap de cenário identificado na história até 12/08**. É a contraparte de teste do lado loja pro que o Leonardo está desenhando do lado Retaguarda — vale cruzar antes de fechar o desenho de sincronização.
+
 ## Reuniões
 
 Nenhuma reunião registrada ainda.

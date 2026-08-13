@@ -40,11 +40,19 @@ US8–US12 confirmadas em **In Test** no Azure em 12/08 — bate com o dashboard
 - **US8**: mecanismo/credenciais de envio (MTA) pendentes de definição por Spin/Taunay — confirmar se já resolvido, já que o card avançou pra QA.
 - **US9**: autorização do tenant Microsoft (Mail.Read) pra ler webhooks — mesma observação, confirmar status.
 
-## Bug novo levantado na reunião de planejamento (12/08)
+## Bug novo levantado na reunião de planejamento (12/08) — resolvido
 
-> Fonte: [`../dailies/2026-08-12-planejamento-sprint.md`](../dailies/2026-08-12-planejamento-sprint.md).
+> Fonte: [`../dailies/2026-08-12-planejamento-sprint.md`](../dailies/2026-08-12-planejamento-sprint.md) e [`../dailies/2026-08-12-retaguarda.md`](../dailies/2026-08-12-retaguarda.md).
 
-Ozéias sinalizou um bug relacionado às **linhas** (não detalhado na transcrição — precisa confirmar com o Diego o card/sintoma exato). Diego está focado em corrigir. Plano combinado: como o que resta da Conciliação Fase 2 tende a ser correção (não mais desenvolvimento novo), **Kauã volta pra Gamificação** e Diego segue sozinho nos ajustes finais da Fase 2.
+Ozéias sinalizou um bug relacionado às **linhas** (não detalhado na transcrição da reunião de planejamento). Na daily do mesmo dia (12/08), o Fernando relatou ter corrigido "um bug de uma contagem de linhas" — provável mesmo item (não há um segundo candidato nas dailies revisadas). Plano combinado: como o que resta da Conciliação Fase 2 tende a ser correção (não mais desenvolvimento novo), **Kauã volta pra Gamificação** e Diego segue sozinho nos ajustes finais da Fase 2.
+
+## Bug de token quebrando permissionamento de rotas — NÃO é desta Fase 2
+
+> Fonte: [`../dailies/2026-08-11-retaguarda.md`](../dailies/2026-08-11-retaguarda.md), [`../dailies/2026-08-12-retaguarda.md`](../dailies/2026-08-12-retaguarda.md).
+
+Achado durante homologação da Conciliação Fase 2 (o usuário de teste do Danilo apresentava erro no meio do fluxo), mas é um **bug geral do portal**, não específico desta feature — Diego + Danilo confirmaram em devbox que o tamanho do token quebra o permissionamento de rotas pra qualquer usuário com muitos grupos, independente da tela.
+
+**Reclassificado em 13/08:** virou **[Bug #12514](https://dev.azure.com/GrupoAvenida/409b9844-c75c-4e46-8a4d-17e4c455ca1b/_workitems/edit/12514)**, tipo Bug (era PBI), linkado ao épico **#6640 — Portal de Retaguarda (Sustentação)** (não mais ao #12387). Confirmado como o mesmo bug de "muitos grupos no usuário" que o Leonardo já corrigia em paralelo — ele é o owner. Segue só citado aqui como contexto de origem; acompanhamento formal fica em `projetos/dailies/` e no próprio card.
 
 ## Risco ativo (dashboard executivo, 10/08)
 
@@ -54,7 +62,38 @@ Vale mencionar pro Ozeias — é um risco de produção que pode pesar na decis�
 
 ## Reuniões
 
-- [reuniao-ozeias-apresentacao-inicial.md](reuniao-ozeias-apresentacao-inicial.md) — apresentação da v1 pro Ozeias, antes de levar às áreas.
+- [reuniao-ozeias-apresentacao-inicial.md](reuniao-ozeias-apresentacao-inicial.md) — apresentação da v1 pro Ozeias, antes de levar às áreas. **Realizada em 12/08 (18:32), ver resumo e transcrição completa em [transcricao-ozeias-2026-08-12.md](transcricao-ozeias-2026-08-12.md).** Aprovação **condicional**: virou uma sessão de teste exploratório ao vivo e achou 2 gaps reais — ver seção abaixo.
+- [reuniao-wagner-2026-08-13.md](reuniao-wagner-2026-08-13.md) — ata da apresentação das 4 telas pro **Wagner** (dono original do projeto — mapeou os requisitos com a área e desenhou o desenho inicial antes de repassar pro time). **Realizada em 13/08 (17:10, 42min), ver ata e transcrição completa em [transcricao-wagner-2026-08-13.md](transcricao-wagner-2026-08-13.md).** Aprovação geral ("vocês estão de parabéns"), com 2 gaps reais novos e esclarecimentos — ver seção abaixo.
+
+## Achados da demo com o Ozéias (12/08) — 2 gaps reais + 1 ponto de atenção
+
+1. **Bug confirmado e corrigido (validado na reunião do Wagner em 13/08):** validação de parcelas na tela de Aprovação de Vales rejeitava valor negativo, mas "desconto em folha" é inerentemente negativo (débito do funcionário) — mensagem de erro "installment amount must be positive". Diego corrigiu e demonstrou ao vivo pro Wagner: agora o sistema **bloqueia valor positivo** no aprovar (alerta "sem valor a descontar") e aceita negativo normalmente — comportamento correto confirmado.
+2. **Ambiguidade a resolver com o Wagner — AINDA NÃO TRATADA:** reverter uma aprovação **depois** que ela caiu na fila de Aprovação de Vales mas **antes** do RH agir deixa o item "aguardando" na fila em vez de sumir — Leonardo acha que deveria sumir, não tem certeza. Apesar de a reunião com o Wagner ter acontecido em 13/08, **esse ponto especificamente não veio à pauta** (Leonardo estava presente mas não conduziu a pergunta) — segue pendente pra próxima interação com o Wagner.
+3. **Ponto de atenção, não bloqueante:** timing do cron de fechamento (23h do último dia do ciclo) pode deixar incompletas conciliações feitas no próprio dia de corte — Ozéias levantou a ideia de um botão manual de "fechar ciclo" em vez de horário fixo; não decidido, vai reconfirmar com as áreas. **A regra de fechamento em si foi confirmada como correta pelo Wagner em 13/08** (ver seção abaixo) — o que ficou em aberto é só a ideia do botão manual.
+
+**Prazo combinado:** ajustar os pontos 1 e 2 até **sexta-feira (14/08)**. Depois disso, prévia informal do Ozéias com uma responsável (nome capturado como "Mídia" na transcrição — confirmar) + Adriana; só na semana seguinte a reunião formal com RH e as demais áreas. **Não sobe pra produção sem aprovação formal** (documento de aceite + e-mail + prints de teste — já pedido ao Danilo/QA pra começar a guardar evidência).
+
+### Atualização 13/08 (via [`../dailies/2026-08-13-retaguarda.md`](../dailies/2026-08-13-retaguarda.md))
+
+- Diego corrigiu os bugs achados na própria demo do Ozéias e subiu pra homologação hoje de manhã; ainda testando, "algumas coisas pendentes" (não especificado se são os pontos 1/2 acima ou itens novos — confirmar na próxima daily).
+- Kauã está construindo uma forma do Danilo disparar o cron job pela UI/front (em vez de precisar ir direto pra Prod sem passar por DevBox) — infraestrutura de teste, não um bug novo.
+- Existem cards em "Bloqueado" que podem deixar de ser necessários assim que a Fase 2 confirmar que não precisam mais ser aplicados; Igor vai comentar/fechar quando isso for confirmado — **decisão do Igor, não uma ação a tomar unilateralmente**.
+
+## Achados da reunião com o Wagner (13/08) — 2 gaps novos + esclarecimentos
+
+> Ata completa: [reuniao-wagner-2026-08-13.md](reuniao-wagner-2026-08-13.md).
+
+**Aprovação geral das 4 telas** (Gerenciar Perdas ajustada, Dashboard, RH·Aprovação de Vales, RH·E-mail de Setores) — "vocês estão de parabéns", nada bloqueia a Fase 2.
+
+**2 gaps reais encontrados — cards criados em 13/08:**
+1. **[#12515](https://dev.azure.com/GrupoAvenida/409b9844-c75c-4e46-8a4d-17e4c455ca1b/_workitems/edit/12515) — Bug: "Consolidado" do mês corrente aparece disponível pra download antes do fechamento oficial do ciclo** (deveria só liberar depois de ~23h do último dia do mês). Confirmado ao vivo pelo Diego. Workaround já existe (filtro de range de data customizado funciona certo). Refinement/Doing, atribuído ao Diego.
+2. **[#12516](https://dev.azure.com/GrupoAvenida/409b9844-c75c-4e46-8a4d-17e4c455ca1b/_workitems/edit/12516) — Ranking export sem agregação por Regional e Tesouraria** — a planilha padrão anterior tinha essas 2 visões agregadas, além da flat que foi mostrada na demo. Refinement/Doing, atribuído ao Diego.
+
+**Esclarecimentos de negócio (documentar, não é bug):**
+- "Reprovado" na fila de Aprovação de Vales = reprovação do **parcelamento**, não do desconto em si (o desconto segue pro RH normalmente).
+- Planilha do Sênior (RH): todos os valores exportados são sempre **positivos** (formato fixo pedido pela área), com colunas obrigatórias rubrica + referência (coluna V) + CPF. Já implementado conforme.
+
+**Sugestões de produto (não são ação agora):** unificar a lógica de sinal (positivo/negativo) desde a origem na tela de conciliação de caixa (vale reunir com o Ozéias pra decidir); ideia de "inteligência de dados consultiva" pra versões futuras (área do Taunay, backlog sem prazo).
 
 ## Plano técnico original (VSCODE)
 
@@ -83,4 +122,4 @@ Vale mencionar pro Ozeias — é um risco de produção que pode pesar na decis�
 
 ## Próxima atualização
 
-Preencher aqui depois da reunião: o que o Ozeias aprovou/pediu de ajuste, e se a agenda de validação com as áreas foi liberada.
+Preencher aqui quando: (1) os cards #12515/#12516 (gaps novos da reunião do Wagner: Consolidado antes do fechamento, Ranking sem agregação Regional/Tesouraria) entrarem em andamento; (2) a ambiguidade da fila do RH pós-reversão (não tratada na reunião do Wagner) for finalmente esclarecida numa próxima interação; (3) a prévia informal com a responsável ("Mídia"/confirmar nome) + Adriana acontecer (prevista sexta 14/08); (4) a reunião formal com RH e demais áreas da semana seguinte for marcada e/ou realizada; (5) os bloqueios técnicos US8/US9 e o risco do job noturno instável forem finalmente discutidos com o Ozéias; (6) Igor decidir sobre os cards em "Bloqueado" que podem não ser mais necessários; (7) a reunião Ozéias↔time sobre validar valor positivo direto na conciliação de caixa acontecer. (Bug de token/permissionamento saiu do escopo deste projeto — virou Bug #12514, épico Portal de Retaguarda Sustentação #6640.)
