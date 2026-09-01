@@ -28,7 +28,7 @@ Reunião com a Maria (área de operação) realizada em 12/08 — ver `reuniao-m
 
 **Prioridade combinada com JB:** primeiro replicar no sistema as 8 mudanças que a Maria já fez na planilha (data de referência, tabela de lojas, gráfico novo, base de rotas unificada, PROCV de peças, fórmula de lead time ponderada, relatório WMS com data nova) — só depois entrar nos pedidos de melhoria novos (filtro, "último carregamento", "média da rota", números sempre visíveis). Detalhe completo em `reuniao-maria-2026-08-12.md`.
 
-Confirmado também (reunião de planejamento de sprint, 12/08, `../dailies/2026-08-12-planejamento-sprint.md`): JB está fechando a Migração VARRet lote 2 (em code review/QA) antes de voltar full-time pro Dashboard CDs; "umas coisinhas" do Dashboard CDs já entraram na lista de correções dele, mas "nada tão absurdo".
+Confirmado também (reunião de planejamento de sprint, 12/08, `../reviews-retros-planning/2026-08-12-planejamento-sprint.md`): JB está fechando a Migração VARRet lote 2 (em code review/QA) antes de voltar full-time pro Dashboard CDs; "umas coisinhas" do Dashboard CDs já entraram na lista de correções dele, mas "nada tão absurdo".
 
 **Cards criados em 13/08/2026** (ver tabela completa em `reuniao-maria-2026-08-12.md`): #12509 (data/tabela/gráfico Top 20), #12510 (peças via PROCV), #12511 (fórmula lead time), #12512 (relatório WMS, atribuído ao Igor), #12513 (melhorias pós-paridade, agrupadas). Todos em Refinement/Sprint 27, ainda pendentes da planilha atualizada da Maria pra fechar o refino.
 

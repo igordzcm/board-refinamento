@@ -141,17 +141,18 @@
   <div class="breadcrumb">
     <span>Grupo Avenida</span><span class="sep">/</span>
     <span>Var Retaguarda</span><span class="sep">/</span>
-    <span>Ready for Dev</span>
+    <span>Ready for Dev</span><span class="sep">/</span>
+    <span>Sprint 28</span>
   </div>
   <h1>Board de Refinamento</h1>
-  <p class="subtitle">Clique num card pra ver o checklist completo e o que falta. Colunas por status de prontidão contra o modelo de refinamento: formato Cenário + Dado/Quando/Então, rótulo de verificação, estimativa e ausência de bloqueio real. Cards de <strong>bug fix ou sustentação</strong> ganham um 5º item condicional no checklist — <strong>nota técnica no card</strong> — que só aparece nesse tipo de card (política de 13/08): exige tanto um comentário completo quanto uma nota enxuta na Descrição citando o arquivo/tela onde a correção provavelmente entra, e marca "não se aplica" quando o próprio card já reserva a investigação como escopo do dev (ex: bug com timebox). Cada card traz uma tag indicando se ele está em "Ready for Dev" ou ainda em "Refinement" no board do Azure DevOps, e — quando cabe — um chip roxo (<strong>fluxograma técnico</strong>, skill <code>senior-architect</code>), verde-água (<strong>fluxograma de processo</strong>, skill <code>process-mapper</code>), rosa (<strong>mock de tela</strong>, protótipo interativo publicado como Artifact — link no detalhe do card) ou laranja (<strong>estimativa do PO</strong> — sizing relativo Fibonacci proposto pelo PO, política temporária desde 12/08, pendente de confirmação do time técnico).</p>
+  <p class="subtitle"><strong>Filtrado pra Sprint 28 (02/09–15/09):</strong> os 30 cards abaixo são exatamente os que estão hoje com <code>IterationPath</code> = Sprint 28 no Azure — confirmado card a card em 01/09. Clique num card pra ver o checklist completo e o que falta. Colunas por status de prontidão contra o modelo de refinamento: formato Cenário + Dado/Quando/Então, rótulo de verificação, estimativa e ausência de bloqueio real. Cards de <strong>bug fix ou sustentação</strong> ganham um 5º item condicional no checklist — <strong>nota técnica no card</strong> — que só aparece nesse tipo de card (política de 13/08): exige tanto um comentário completo quanto uma nota enxuta na Descrição citando o arquivo/tela onde a correção provavelmente entra, e marca "não se aplica" quando o próprio card já reserva a investigação como escopo do dev (ex: bug com timebox). Cada card traz uma tag indicando se ele está em "Ready for Dev" ou ainda em "Refinement" no board do Azure DevOps, e — quando cabe — um chip roxo (<strong>fluxograma técnico</strong>, skill <code>senior-architect</code>), verde-água (<strong>fluxograma de processo</strong>, skill <code>process-mapper</code>), rosa (<strong>mock de tela</strong>, protótipo interativo publicado como Artifact — link no detalhe do card) ou laranja (<strong>estimativa do PO</strong> — sizing relativo Fibonacci proposto pelo PO, política temporária desde 12/08, pendente de confirmação do time técnico).</p>
 </div>
 
 <div class="board">
 
   <!-- Coluna: Precisa refinar -->
   <div class="column">
-    <div class="column-head"><span class="dot" style="background:var(--bad)"></span><h2>Precisa refinar</h2><span class="count">4</span></div>
+    <div class="column-head"><span class="dot" style="background:var(--bad)"></span><h2>Precisa refinar</h2><span class="count">6</span></div>
     <div class="column-cards">
 
       <button class="kcard" onclick="m11840.showModal()">
@@ -182,17 +183,31 @@
         <div class="bottom-row"><span class="avatar">DR</span><span class="gap-count">Bloqueado — Adriana/layout</span></div>
       </button>
 
+      <button class="kcard" onclick="m12889.showModal()">
+        <div class="top-row"><span class="id">Bug #12889</span><span class="chip source">Ready for Dev</span></div>
+        <div class="title">Ajustar expansão de menus e posicionamento incorreto do DTEF</div>
+        <div class="chips"><span class="chip warn">Sem formato Cenário/GWT</span><span class="chip warn">Sem nota técnica</span></div>
+        <div class="bottom-row"><span class="avatar">KC</span><span class="gap-count">3 pendências</span></div>
+      </button>
+
+      <button class="kcard" onclick="m12890.showModal()">
+        <div class="top-row"><span class="id">Item #12890</span><span class="chip source">Ready for Dev</span></div>
+        <div class="title">Engenharia Reversa — Número da Loja na Conciliação de Depósitos</div>
+        <div class="chips"><span class="chip bad">Conteúdo insuficiente</span></div>
+        <div class="bottom-row"><span class="avatar">—</span><span class="gap-count">Reescrever do zero</span></div>
+      </button>
+
     </div>
   </div>
 
   <!-- Coluna: Quase pronto -->
   <div class="column">
-    <div class="column-head"><span class="dot" style="background:var(--warn)"></span><h2>Quase pronto</h2><span class="count">10</span></div>
+    <div class="column-head"><span class="dot" style="background:var(--warn)"></span><h2>Quase pronto</h2><span class="count">11</span></div>
     <div class="column-cards">
 
       <button class="kcard" onclick="m11941.showModal()">
         <div class="top-row"><span class="id">PBI #11941</span><span class="chip source">Ready for Dev</span></div>
-        <div class="title">Reset de senha na Consulta de Acessos</div>
+        <div class="title">Reset de senha na Consulta de Acessos (usuário e operador)</div>
         <div class="chips"><span class="chip warn">QA: cenário condicional</span></div>
         <div class="bottom-row"><span class="avatar">JN</span><span class="gap-count">1 pendência</span></div>
       </button>
@@ -260,6 +275,13 @@
         <div class="bottom-row"><span class="avatar">LS</span><span class="gap-count">1 pendência</span></div>
       </button>
 
+      <button class="kcard" onclick="m12892.showModal()">
+        <div class="top-row"><span class="id">PBI #12892</span><span class="chip source">Refinement</span></div>
+        <div class="title">Fechamento Contábil da Conciliação + Perdas/Vales no Oracle</div>
+        <div class="chips"><span class="chip warn">Sem formato GWT</span><span class="chip warn">Sem estimativa</span><span class="chip mock">Mock necessário</span></div>
+        <div class="bottom-row"><span class="avatar">KC</span><span class="gap-count">3 pendências</span></div>
+      </button>
+
     </div>
   </div>
 
@@ -311,7 +333,7 @@
       </button>
 
       <button class="kcard" onclick="m11933.showModal()">
-        <div class="top-row"><span class="id">PBI #11933</span><span class="chip source">Refinement</span></div>
+        <div class="top-row"><span class="id">PBI #11933</span><span class="chip source">Ready for Dev</span></div>
         <div class="title">Sangria, saídas e suprimento na Conciliação</div>
         <div class="chips"><span class="chip good">Pronto</span></div>
         <div class="bottom-row"><span class="avatar">—</span><span class="gap-count">0 pendências</span></div>
@@ -366,19 +388,21 @@
 </div>
 
 <div class="worklist">
-  <h2>O que falta trabalhar — 14 cards</h2>
+  <h2>O que falta trabalhar — 17 cards</h2>
   <p class="sub">Pendência principal de cada card ainda não "100% pronto", pra começar por aqui. Detalhe completo em cada modal acima.</p>
 
   <div class="worklist-group">
-    <h3><span class="dot" style="background:var(--bad)"></span>Precisa refinar (4)</h3>
+    <h3><span class="dot" style="background:var(--bad)"></span>Precisa refinar (6)</h3>
     <div class="work-item"><span class="wid">Item #11840</span><span class="wtitle">Migração Postgres Oracle</span><span class="wpend"><strong>Provável card órfão</strong> — épico pai tem 17 batches, todos Done ("Batch 16 - FINAL"). Aguardando confirmação do Igor pra descartar.</span></div>
     <div class="work-item"><span class="wid">PBI #12115</span><span class="wtitle">RPA · Gerenciamento de usuários</span><span class="wpend">Formato+rótulo feitos (achado: sem associação usuário↔CD no banco hoje); faltam 4 decisões de negócio antes de estimar.</span></div>
     <div class="work-item"><span class="wid">PBI #12813</span><span class="wtitle">Ciacon · Levantamento e documentação</span><span class="wpend"><strong>Card novo (27/08)</strong> — Description/AC vazios, 0 comentários. Kovalski diz verbalmente que já terminou; precisa formalizar no Azure antes de refinar.</span></div>
     <div class="work-item"><span class="wid">PBI #12812</span><span class="wtitle">Conciliação F2 · Planilha Contábil</span><span class="wpend"><strong>Card novo (26/08), bloqueio externo real</strong> — Adriana ainda vai levantar o layout Oracle com o contábil. Ambiguidade em aberto: "Arco" (citado 28/08) pode ser mudança de abordagem.</span></div>
+    <div class="work-item"><span class="wid">Bug #12889</span><span class="wtitle">Menus/DTEF · Portal Conexão</span><span class="wpend"><strong>Card novo (01/09) — achado pela varredura, não sinalizado pelo Igor.</strong> AC bom em prosa (7 critérios) mas sem formato Cenário/GWT, sem rótulo, sem estimativa, sem nota técnica (bug/sustentação, 0 comentários).</span></div>
+    <div class="work-item"><span class="wid">Item #12890</span><span class="wtitle">Engenharia Reversa · Nº loja na Conciliação de Depósitos</span><span class="wpend"><strong>Card novo (01/09)</strong> — Description/AC são só o título repetido, 0 comentários. Mesmo padrão do #11840: reescrever do zero com o time técnico.</span></div>
   </div>
 
   <div class="worklist-group">
-    <h3><span class="dot" style="background:var(--warn)"></span>Quase pronto (10)</h3>
+    <h3><span class="dot" style="background:var(--warn)"></span>Quase pronto (11)</h3>
     <div class="work-item"><span class="wid">PBI #11941</span><span class="wtitle">Reset de senha · Consulta de Acessos</span><span class="wpend"><strong>Avançou pra "Ready for Dev" no Azure, mas QA (Danilo, 25/08) flagou pendência</strong> — Cenário 7 (auditoria) com redação condicional, precisa virar obrigatório ou ser removido antes de seguir.</span></div>
     <div class="work-item"><span class="wid">PBI #12400</span><span class="wtitle">US13 · Validação de negócio</span><span class="wpend">Reunião com o Wagner (13/08) aprovou geral. Os 2 gaps novos (#12515, #12516) já foram corrigidos e verificados (21/08). Falta: prévia informal + validação formal com RH/áreas.</span></div>
     <div class="work-item"><span class="wid">Bug #12178</span><span class="wtitle">Upstream error — Excel/campanhas</span><span class="wpend"><strong>Voltou de "Ready for Dev" (25/08)</strong> — QA (Danilo) bloqueou o Cenário 4 (regressão): falta levantar com arquitetura a lista concreta de fluxos/serviços afetados pelo mesmo proxy/timeout.</span></div>
@@ -389,10 +413,11 @@
     <div class="work-item"><span class="wid">PBI #12511</span><span class="wtitle">Dashboard CDs · Lead time</span><span class="wpend">Estimativa do PO (3 pts, pendente de confirmação); Cenário 2 depende do "mapa do estoque" do CD 83, que JB já está trabalhando ativamente (24/08).</span></div>
     <div class="work-item"><span class="wid">PBI #12512</span><span class="wtitle">Dashboard CDs · Relatório WMS</span><span class="wpend">Sem estimativa formal (é coordenação, não dev) — Igor precisa falar com o Sergio da Silva.</span></div>
     <div class="work-item"><span class="wid">PBI #12513</span><span class="wtitle">Dashboard CDs · Melhorias</span><span class="wpend"><strong>Bloqueio externo real</strong> — esboço/protótipo da Maria ainda não chegou; nenhum dos 4 itens avança sem ele.</span></div>
+    <div class="work-item"><span class="wid">PBI #12892</span><span class="wtitle">Fechamento Contábil · Perdas/Vales Oracle</span><span class="wpend"><strong>Movido de "To do" pra Refinement em 01/09, sob pedido do Igor.</strong> Story + 16 Cenários já ricos, só falta reescrever em Dado/Quando/Então + rótulo + estimativa; provável tela nova ("Encerrar Ciclo") precisa de mock-check.</span></div>
   </div>
 </div>
 
-<footer>27 cards no projeto Var Retaguarda (4 Precisa refinar + 10 Quase pronto + 13 100% pronto). Atualizado em 2026-09-01. <strong>8 cards da Gamificação saíram do board</strong> (#12179 T1, #12181 T2, #12183 T4, #12184 T5, #12185 T6, #12186 T7, #12187 T8, #12189 T10) — todos avançaram de "Ready for Dev" pra "In Test"/QA no Azure, além da etapa de refinamento deste board. <strong>#12182 (T3) é a única Gamificação que segue no board</strong> — continua em "Refinement"/"Quase pronto" com o bloqueador de QA de 25/08 (ordem do fluxo campanha/cadastro não fechada com o negócio) — ou seja, ao contrário do que constava no contexto do projeto, nem toda a Gamificação avançou. <strong>#11941</strong> (Reset de senha) avançou pra "Ready for Dev" no Azure mas saiu de "100% pronto" pra "Quase pronto" — QA (Danilo, 25/08) flagou o Cenário 7 (auditoria) com redação condicional, pendente de resolução antes de seguir. <strong>#12190</strong> avançou de "Refinement" pra "Ready for Dev" no Azure (chip atualizado), segue "100% pronto" sem mudança de conteúdo. <strong>2 cards novos encontrados e adicionados</strong> (não estavam rastreados neste board): <strong>#12813</strong> (Ciacon — levantamento e documentação, Kovalski) entrou em "Precisa refinar" — Description/AC vazios, 0 comentários, apesar do Kovalski relatar verbalmente que já terminou. <strong>#12812</strong> (Conciliação Fase 2 — planilha Contábil, Diego Rafael) entrou em "Precisa refinar" com bloqueio externo real — Adriana ainda vai levantar o layout Oracle com o time contábil; ambiguidade em aberto sobre se "Arco" (citado 28/08) muda a abordagem. <strong>Achado de qualidade de dado:</strong> quase todos os cards do board compartilham o mesmíssimo `ChangedDate` (2026-08-31T13:17:42), sinal de uma atualização em lote no Azure (provavelmente campo administrativo) — não dá pra usar esse campo isoladamente pra saber quando um card realmente mudou de estado; a comparação foi feita direto contra o State/BoardColumn atual. Clique em qualquer card pra abrir o detalhe completo.</footer>
+<footer><strong>Filtro de sprint aplicado em 01/09 (4ª/5ª rodada do dia):</strong> os 30 cards deste board foram movidos em lote pro <code>IterationPath</code> "Sprint 28" no Azure (16 cards de uma lista do Igor + todos que estavam em Ready for Dev, depois todos os 20 que estavam em Refinement) — confirmado card a card que os 30 estão mesmo na Sprint 28, nenhum ficou de fora. <strong>Drift conhecido, não corrigido nesta rodada:</strong> #12892 já foi movido pelo Ozéias (não pelo Igor/Claude) de Refinement pra <strong>Ready for Dev</strong> no Azure (20:47) — o chip/coluna deste card abaixo ainda mostra Refinement/Quase pronto, desatualizado; correção fica pra um board-sync completo. 30 cards no projeto Var Retaguarda (6 Precisa refinar + 11 Quase pronto + 13 100% pronto). Atualizado em 2026-09-01 (3ª rodada do dia — Igor pediu pra mover #12892 pra Refinement e adicionar no board). <strong>8 cards da Gamificação saíram do board</strong> (#12179 T1, #12181 T2, #12183 T4, #12184 T5, #12185 T6, #12186 T7, #12187 T8, #12189 T10) — todos avançaram de "Ready for Dev" pra "In Test"/QA no Azure, além da etapa de refinamento deste board. <strong>#12182 (T3) é a única Gamificação que segue no board</strong> — continua em "Refinement"/"Quase pronto" com o bloqueador de QA de 25/08 (ordem do fluxo campanha/cadastro não fechada com o negócio). <strong>#11941</strong> (Reset de senha) segue "Quase pronto" — mesmo bloqueio de QA (Cenário 7 condicional); título no Azure foi atualizado pra "...usuários e operador..." (conteúdo do AC já cobria os dois, é só ajuste cosmético). <strong>#11933</strong> (Sangria/saídas/suprimento) avançou de "Refinement" pra "Ready for Dev" no Azure nesta 2ª varredura (chip atualizado) — sem mudança de conteúdo/DoR, segue "100% pronto". <strong>2 cards novos encontrados e adicionados nesta varredura</strong>: <strong>#12889</strong> (Bug — menus/DTEF do Portal Conexão, Kauã Cunha) — <em>não estava na lista que o Igor sinalizou; achado só pela consulta WIQL</em> — entrou em "Precisa refinar": AC rico em prosa mas sem formato Cenário/GWT, sem rótulo, sem estimativa e sem nota técnica (bug/sustentação). <strong>#12890</strong> (Engenharia Reversa — nº da loja na Conciliação de Depósitos) — um dos dois IDs sinalizados pelo Igor — entrou em "Precisa refinar": Description/AC vazios (só o título repetido), 0 comentários. <strong>#12892</strong> — o outro ID sinalizado pelo Igor — estava em "To do" na 2ª varredura (fora do escopo do board); o Igor pediu explicitamente pra mover pra Refinement, o que foi feito no Azure nesta 3ª rodada, e o card entrou em "Quase pronto": Story + 16 Cenários já ricos, só falta forma (Dado/Quando/Então), rótulo, estimativa, e passar pelo mock-check (provável tela nova de "Encerrar Ciclo"). <strong>Achado de qualidade de dado (mantido da 1ª varredura):</strong> quase todos os cards antigos do board compartilham o mesmíssimo `ChangedDate` (2026-08-31T13:17:42), sinal de atualização em lote no Azure — não serve isoladamente pra saber quando um card mudou de estado; a comparação foi feita direto contra o State/BoardColumn atual. Clique em qualquer card pra abrir o detalhe completo.</footer>
 
 <!-- ===================== MODALS ===================== -->
 
@@ -603,7 +628,7 @@
     <div class="modal-head">
       <div class="row1"><div><span class="id">PBI #11933</span><div class="title">Exibir Informações de Sangria, Saídas de Caixa e Suprimento na Conciliação</div></div>
       <button class="close-btn" onclick="m11933.close()">✕</button></div>
-      <div class="meta">7 pts · Epic #7032 · Coluna Azure: Refinement</div>
+      <div class="meta">7 pts · Epic #7032 · Coluna Azure: Ready for Dev</div>
     </div>
     <div class="modal-body">
       <div class="checkgrid">
@@ -612,7 +637,7 @@
         <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
         <div class="check-item"><span class="mark yes">✓</span>Sem bloqueio aberto</div>
       </div>
-      <div><h3>O que falta</h3><ul class="gap-list clean"><li>Nenhuma — 8 cenários (consolidados dos 14 originais, sem perder cobertura). Rótulo backend (cálculos) + UI (destaque em vermelho).</li></ul></div>
+      <div><h3>O que falta</h3><ul class="gap-list clean"><li>Nenhuma — 8 cenários (consolidados dos 14 originais, sem perder cobertura). Rótulo backend (cálculos) + UI (destaque em vermelho). <strong>Avançou de "Refinement" pra "Ready for Dev" no Azure (01/09)</strong> — sem mudança de conteúdo/DoR, só atualização do estado no board.</li></ul></div>
       <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/11933" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
     </div>
   </div>
@@ -661,7 +686,7 @@
 <dialog id="m11941">
   <div class="modal-inner">
     <div class="modal-head">
-      <div class="row1"><div><span class="id">PBI #11941</span><div class="title">Implementar reset de senha para usuários na Consulta de Acessos</div></div>
+      <div class="row1"><div><span class="id">PBI #11941</span><div class="title">Implementar reset de senha para usuários e operador na Consulta de Acessos</div></div>
       <button class="close-btn" onclick="m11941.close()">✕</button></div>
       <div class="meta">João Neto · 4 pts · Epic #7032 · Coluna Azure: Ready for Dev</div>
     </div>
@@ -960,6 +985,31 @@
   </div>
 </dialog>
 
+<dialog id="m12892">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #12892</span><div class="title">Fechamento Contábil da Conciliação e Integração de Perdas e Vales com Oracle</div></div>
+      <button class="close-btn" onclick="m12892.close()">✕</button></div>
+      <div class="meta">Kauã Cunha · sem estimativa · Epic Conciliação Fase 2 (#12387) · Sprint 27 · Coluna Azure: Refinement</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark no">✕</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark no">✕</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark no">✕</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark yes">✓</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list">
+        <li><strong>Movido pra Refinement em 01/09 (estava em "To do") — conteúdo já é forte:</strong> Story completa (Eu como/Quero/Para) + 16 Cenários bem detalhados (competência, validação de pendências, geração de lote contábil no Oracle com contas/centros de custo exatos, lançamento consolidado de Vale). Só não estão no formato Dado/Quando/Então do checklist — é reescrita de forma, não de conteúdo. Falta também o rótulo de verificação (backend/UI/revisão).</li>
+        <li>Sem estimativa.</li>
+        <li><strong>Provável tela nova</strong> — a Descrição fala em "novo módulo de fechamento" com a opção "Encerrar Ciclo"; precisa passar pelo mock-check obrigatório deste board antes de fechar o refino.</li>
+      </ul></div>
+      <p style="font-size:12.5px;color:var(--text-secondary);margin-top:10px;">Já tem uma task filha (#12893) criada sob o mesmo parent. Epic pai #12387 é o mesmo da Conciliação Fase 2 — vale checar sobreposição com o #12812 (planilha Contábil/layout Oracle) antes de estimar os dois.</p>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12892" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
 <dialog id="m12813">
   <div class="modal-inner">
     <div class="modal-head">
@@ -1001,6 +1051,55 @@
         <li><strong>Ambiguidade em aberto:</strong> Diego citou em daily (28/08) "integração diretamente no Arco" como destino — não confirmado se é o mesmo layout Oracle original ou uma mudança de abordagem (integração direta em vez de planilha exportável). Esclarecer com Diego/Ozéias antes de reescrever o card.</li>
       </ul></div>
       <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12812" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m12889">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">Bug #12889</span><div class="title">Ajustar comportamento de expansão dos menus e posicionamento incorreto do DTEF</div></div>
+      <button class="close-btn" onclick="m12889.close()">✕</button></div>
+      <div class="meta">Kauã Cunha · sem estimativa · Coluna Azure: Ready for Dev</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark no">✕</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark no">✕</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark no">✕</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark yes">✓</span>Sem bloqueio aberto</div>
+        <div class="check-item"><span class="mark no">✕</span>Nota técnica no card</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list">
+        <li><strong>Card novo (criado 01/09) — achado só pela varredura WIQL desta sweep, não estava na lista de 2 IDs que o Igor sinalizou.</strong> Descrição e AC já em bom estado de conteúdo: dois problemas claros no Portal Conexão — (1) ao expandir submenus de Conciliação (Administrativo, Relatórios) os demais itens do menu são deslocados e ficam inacessíveis (DTEF, E-mails); (2) o item DTEF/Formas de Pagamento aparece indevidamente em Financeiro em vez de só dentro de Conciliação. 7 critérios de aceite já listados, mas ainda em bullet/prosa — precisa virar Cenário + Dado/Quando/Então com rótulo de verificação (prováveis: teste de frontend/e2e pros dois problemas).</li>
+        <li>Sem estimativa.</li>
+        <li><strong>Nota técnica no card ausente (política de bug/sustentação, 13/08):</strong> 0 comentários no work item — falta localizar e citar o componente de menu responsável pelo deslocamento/z-index e o roteamento indevido do DTEF, tanto em comentário quanto numa nota curta na Descrição. Não investigado por este agente (escopo do `refinement-gate`).</li>
+        <li><strong>Sugestão (não bloqueia):</strong> mock provavelmente não é necessário — é ajuste de comportamento (layout/scroll) de um menu já existente, não introduz tela nova.</li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12889" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m12890">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">Item #12890</span><div class="title">Engenharia Reversa para Trazer Número da Loja na Conciliação de Depósitos</div></div>
+      <button class="close-btn" onclick="m12890.close()">✕</button></div>
+      <div class="meta">Sem atribuição · sem estimativa · Epic #11629 · Coluna Azure: Ready for Dev</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark no">✕</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark no">✕</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark no">✕</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark no">✕</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list">
+        <li><strong>Card novo (criado 01/09) — um dos 2 IDs sinalizados pelo Igor.</strong> Descrição e AC são a mesma frase do título repetida: "Engenharia Reversa para Trazer número da Loja na conciliação de depósitos". Sem persona, sem regra de negócio, sem escopo definido, 0 comentários. Já está em "Ready for Dev" no Azure apesar do conteúdo vazio — marcado ✕ em "Sem bloqueio aberto" porque não dá pra confirmar ausência de bloqueio sem nenhum conteúdo real pra avaliar.</li>
+        <li>Precisa ser escrito do zero com o time técnico antes de qualquer refinamento de formato fazer sentido — mesmo padrão do #11840.</li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12890" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
     </div>
   </div>
 </dialog>

@@ -1,6 +1,6 @@
 ---
 name: daily-digest
-description: Finds new meeting/daily-standup transcripts (.docx) in the workspace, extracts their text, and produces concise digest .md files under projetos/dailies/ — grouped sensibly, deduplicated against what's already covered. Use when new transcripts have landed and need to be read ("N novas transcrições, leia e me diga o que tem pra fazer"). Reports findings and flags which project files look stale as a result — does NOT edit README.md, contexto.md, prioridades-sprint.md, dashboard-executivo.html, or minhas-pendencias.md, and does NOT delete source .docx files, unless explicitly told to in the invocation.
+description: Finds new meeting/daily-standup transcripts (.docx) in the workspace, extracts their text, and produces concise digest .md files under projetos/dailies/ (standups) or projetos/reviews-retros-planning/ (review/retro/planning) — grouped sensibly, deduplicated against what's already covered. Use when new transcripts have landed and need to be read ("N novas transcrições, leia e me diga o que tem pra fazer"). Reports findings and flags which project files look stale as a result — does NOT edit README.md, contexto.md, prioridades-sprint.md, dashboard-executivo.html, or minhas-pendencias.md, and does NOT delete source .docx files, unless explicitly told to in the invocation.
 tools: Read, Write, Glob, Grep, Bash
 model: sonnet
 ---
@@ -29,7 +29,12 @@ For each transcript, identify:
 
 ## 4. Write digests
 
-Group sensibly — don't create one file per transcript by default if several cover the same team/date-range (e.g. 5 dailies from the same squad across a week is one digest, not five). Follow the existing naming convention in `board-refinamento/projetos/dailies/`: `YYYY-MM-DD[-a-DD]-descriptive-name.md` (check existing filenames there before inventing a new pattern). Keep digests concise — findings and action items, not a transcription. Cross-reference project folders by relative link (`../<projeto>/contexto.md`) where a finding clearly belongs to one project.
+Group sensibly — don't create one file per transcript by default if several cover the same team/date-range (e.g. 5 dailies from the same squad across a week is one digest, not five). Follow the existing naming convention: `YYYY-MM-DD[-a-DD]-descriptive-name.md` (check existing filenames before inventing a new pattern). Keep digests concise — findings and action items, not a transcription. Cross-reference project folders by relative link (`../<projeto>/contexto.md`) where a finding clearly belongs to one project.
+
+**Route by meeting type:**
+- Daily/standup → `board-refinamento/projetos/dailies/`.
+- Review, retrospectiva, or planning (whether squad-specific or transversal) → `board-refinamento/projetos/reviews-retros-planning/`.
+A single transcript almost never mixes types, but if a digest genuinely spans both (e.g. a combined retro+planning session), file it once under `reviews-retros-planning/` and cross-link from `dailies/` only if there's a real reason to.
 
 ## 5. What you do NOT do
 

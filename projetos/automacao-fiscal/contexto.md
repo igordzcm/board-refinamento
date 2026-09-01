@@ -35,7 +35,7 @@ Funcionalidade **entregue e em uso**, mas gera bugs e retrabalho recorrentes des
 
 ## Triagem de backlog em andamento (12/08, reunião de planejamento de sprint)
 
-> Fonte: [`../dailies/2026-08-12-planejamento-sprint.md`](../dailies/2026-08-12-planejamento-sprint.md).
+> Fonte: [`../reviews-retros-planning/2026-08-12-planejamento-sprint.md`](../reviews-retros-planning/2026-08-12-planejamento-sprint.md).
 
 Ozéias está revisando ao vivo a lista de ~40 cards que o **Kovalski** mandou criar pro backlog de Automação Fiscal (provider service da GNRE, repositório, migrations, modelagem de tabela de UF, correção de caracteres UTF-8 no portal, etc.) — boa parte sem contexto claro nem para o próprio Ozéias ("não sei nem o que é a maioria"). Decisão combinada: **descartar tudo que não fizer mais sentido**, e mover pra coluna **Refinement** tudo que ainda vale a pena trabalhar, pra separar do que é lixo de backlog antigo.
 
@@ -43,7 +43,7 @@ Ozéias está revisando ao vivo a lista de ~40 cards que o **Kovalski** mandou c
 
 ## Reuniões
 
-- [`../dailies/2026-08-12-planejamento-sprint.md`](../dailies/2026-08-12-planejamento-sprint.md) — reunião de planejamento de sprint (transversal) onde a triagem do backlog começou.
+- [`../reviews-retros-planning/2026-08-12-planejamento-sprint.md`](../reviews-retros-planning/2026-08-12-planejamento-sprint.md) — reunião de planejamento de sprint (transversal) onde a triagem do backlog começou.
 
 ## Próxima atualização
 

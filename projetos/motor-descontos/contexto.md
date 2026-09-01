@@ -33,14 +33,18 @@ Demais itens de backlog futuro (baixa prioridade, sem urgência confirmada por A
 - Destinatários do e-mail de criação de campanha (uso interno) — Arthur ainda precisa definir e passar a lista final (provisoriamente Igor + Arthur).
 - Interface de gerenciamento de destinatários no portal (evitar depender de deploy para alterar a lista) — pedido de Taunay, sem prioridade confirmada.
 
+## Arquitetura de propagação (atualizado 01/09) — Retaguarda não propaga mais direto pra loja
+
+Confirmado pelo Igor: a Retaguarda só grava campanha/desconto no banco da Retaguarda (card #12405, Leonardo — já Ready for Dev). Quem propaga pra loja, de acordo com a necessidade, é **Thalison (time de DB)** — não é mais responsabilidade da Retaguarda. Arthur ainda não sabia dessa mudança; Igor vai explicar na call de 02/09.
+
 ## Atividade recente (11–13/08/2026, via dailies)
 
-- **Leonardo (Retaguarda)** começou em 12/08 a **configurar e desenhar a arquitetura da sincronização nas lojas** (propagação de campanhas — a mesma frente descrita no card #12405, "gravação direta de campanhas no banco Retaguarda", cuja propagação pra loja passa a ser de outra equipe). Seguiu nisso em 13/08. Ver [`../dailies/2026-08-12-retaguarda.md`](../dailies/2026-08-12-retaguarda.md) e [`../dailies/2026-08-13-retaguarda.md`](../dailies/2026-08-13-retaguarda.md).
+- **Leonardo (Retaguarda)** começou em 12/08 a **configurar e desenhar a arquitetura da sincronização nas lojas** (propagação de campanhas — a mesma frente descrita no card #12405, "gravação direta de campanhas no banco Retaguarda", cuja propagação pra loja passa a ser de outra equipe — ver nota acima, essa outra equipe é o Thalison/DB). Seguiu nisso em 13/08. Ver [`../dailies/2026-08-12-retaguarda.md`](../dailies/2026-08-12-retaguarda.md) e [`../dailies/2026-08-13-retaguarda.md`](../dailies/2026-08-13-retaguarda.md).
 - **Time VAR 3.0** (squad diferente, ver [`../dailies/2026-08-11-var3-projsust.md`](../dailies/2026-08-11-var3-projsust.md) e [`../dailies/2026-08-12-var3-projsust.md`](../dailies/2026-08-12-var3-projsust.md)) está rodando, em paralelo, testes de integração da "rotina de desconto" pelo lado loja/PDV (Guilherme Caixeta) — caminho feliz passando, "primeira compra" é o cenário mais complicado, **nenhum gap de cenário identificado na história até 12/08**. É a contraparte de teste do lado loja pro que o Leonardo está desenhando do lado Retaguarda — vale cruzar antes de fechar o desenho de sincronização.
 
 ## Reuniões
 
-- **02/09/2026 — Igor + Arthur.** Call pra fechar o escopo da US5 (notificação às lojas): destinatários por loja, formato do e-mail, se entra como Fase 2 ou 3.
+- **02/09/2026 — Igor + Arthur.** Pauta enxuta: (1) Igor explica a mudança de arquitetura de propagação (Retaguarda só grava no banco, Thalison/DB propaga pra loja); (2) conversa aberta sobre melhorias no sistema e próximos passos. Pauta completa em [pauta-call-arthur-2026-09-02.md](pauta-call-arthur-2026-09-02.md).
 
 ## Próxima atualização
 

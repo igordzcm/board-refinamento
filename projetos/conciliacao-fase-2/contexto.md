@@ -52,7 +52,7 @@ US8–US12 confirmadas em **In Test** no Azure em 12/08 — bate com o dashboard
 
 ## Bug novo levantado na reunião de planejamento (12/08) — resolvido
 
-> Fonte: [`../dailies/2026-08-12-planejamento-sprint.md`](../dailies/2026-08-12-planejamento-sprint.md) e [`../dailies/2026-08-12-retaguarda.md`](../dailies/2026-08-12-retaguarda.md).
+> Fonte: [`../reviews-retros-planning/2026-08-12-planejamento-sprint.md`](../reviews-retros-planning/2026-08-12-planejamento-sprint.md) e [`../dailies/2026-08-12-retaguarda.md`](../dailies/2026-08-12-retaguarda.md).
 
 Ozéias sinalizou um bug relacionado às **linhas** (não detalhado na transcrição da reunião de planejamento). Na daily do mesmo dia (12/08), o Fernando relatou ter corrigido "um bug de uma contagem de linhas" — provável mesmo item (não há um segundo candidato nas dailies revisadas). Plano combinado: como o que resta da Conciliação Fase 2 tende a ser correção (não mais desenvolvimento novo), **Kauã volta pra Gamificação** e Diego segue sozinho nos ajustes finais da Fase 2.
 

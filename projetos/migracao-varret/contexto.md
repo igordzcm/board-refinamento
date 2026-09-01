@@ -30,7 +30,7 @@ Aprovado, com exceção de uma pequena correção pendente — resto do escopo s
 
 ## Status anterior (12/08/2026, via reunião de planejamento de sprint)
 
-> Fonte: [`../dailies/2026-08-12-planejamento-sprint.md`](../dailies/2026-08-12-planejamento-sprint.md).
+> Fonte: [`../reviews-retros-planning/2026-08-12-planejamento-sprint.md`](../reviews-retros-planning/2026-08-12-planejamento-sprint.md).
 
 **Lote 2 concluído pelo JB — agora em code review e QA.** Igor confirmou pra Ozéias: "o lote 1 já tá pronto, o lote 2 ele acabou, terminou esses dias, tá tudo em processo de code review e QA." Ozéias vai marcar uma conversa direta com o JB pra "subir tudo" (não tinham conseguido se falar na sexta anterior).
 

@@ -14,7 +14,7 @@ Funcionalidade de crédito na venda (Overlimit) no PDV VAR 3.0.
 
 **5% — bloqueado, mas escopo agora está mais claro e ganhou prazo-alvo.** Projeto seguia parado desde antes de 04/08 por falta de resposta do fornecedor RPE; a reunião de 12/08 não resolveu esse bloqueio, mas destrinchou o que precisa ser construído e definiu meta de entrega.
 
-> Fonte: [`../dailies/2026-08-12-planejamento-sprint.md`](../dailies/2026-08-12-planejamento-sprint.md).
+> Fonte: [`../reviews-retros-planning/2026-08-12-planejamento-sprint.md`](../reviews-retros-planning/2026-08-12-planejamento-sprint.md).
 
 **Escopo confirmado por Ozéias (12/08):**
 1. Tela de **import de planilha Excel** — lista de clientes elegíveis a receber o bônus/crédito do overlimit (leitura + [trecho da gravação inaudível, provavelmente "validação/aplicação" — confirmar]).
@@ -31,7 +31,7 @@ Citado no dashboard executivo (10/08) como um dos três fatores externos recorre
 
 ## Reuniões
 
-- [`../dailies/2026-08-12-planejamento-sprint.md`](../dailies/2026-08-12-planejamento-sprint.md) — reunião de planejamento de sprint (transversal, não específica deste projeto) onde o escopo foi destrinchado e o prazo de setembro definido.
+- [`../reviews-retros-planning/2026-08-12-planejamento-sprint.md`](../reviews-retros-planning/2026-08-12-planejamento-sprint.md) — reunião de planejamento de sprint (transversal, não específica deste projeto) onde o escopo foi destrinchado e o prazo de setembro definido.
 
 ## Próxima atualização
 

@@ -1,6 +1,6 @@
 # Dailies — transcrições
 
-Cole aqui as transcrições das dailies (um arquivo por sessão, sugestão de nome `AAAA-MM-DD-squad.md` ou `.txt`, ex.: `2026-08-12-retaguarda.md`).
+Cole aqui as transcrições das **dailies** (standup) — um arquivo por sessão, sugestão de nome `AAAA-MM-DD-squad.md` ou `.txt`, ex.: `2026-08-12-retaguarda.md`. Review, retrospectiva e planning de sprint vão em [`../reviews-retros-planning/`](../reviews-retros-planning/), não aqui.
 
 **Fluxo:** toda vez que uma transcrição cair aqui, ela deve ser lida e usada pra:
 1. Atualizar `../dashboard-executivo.html` (entregas, em andamento, bloqueios, riscos, próximos marcos).

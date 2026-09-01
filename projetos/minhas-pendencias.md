@@ -18,7 +18,8 @@
 
 ## 🗓️ Reuniões a marcar
 
-- [x] **Call com Arthur** — confirmada pra **quarta-feira, 02/09**. Escopo ampliado: não é só a US5 (notificação às lojas), cobre os próximos passos do épico inteiro, incluindo o que fazer com o job que o Leo desativou. Ver [motor-descontos/contexto.md](motor-descontos/contexto.md).
+- [x] **Call com Arthur** — confirmada pra **quarta-feira, 02/09**. Pauta enxuta (ajustada 01/09): explicar a mudança de arquitetura de propagação (Retaguarda só grava no banco, Thalison/DB propaga) + conversa aberta sobre melhorias e próximos passos. Ver [motor-descontos/pauta-call-arthur-2026-09-02.md](motor-descontos/pauta-call-arthur-2026-09-02.md).
+- [x] **Reunião com Ana Carina e Marcos** — confirmada pra **quarta-feira, 02/09, 17h–18h**, sobre testes de Gamificação. Combinada na review/retro de 01/09 — Igor vai encaminhar o invite. Ver [reviews-retros-planning/2026-09-01-review-retro-retaguarda.md](reviews-retros-planning/2026-09-01-review-retro-retaguarda.md).
 - [ ] **Alinhar com Sergio da Silva** — destrava o refino do card #12512 (Dashboard CDs, relatório WMS com nova data). Ver [dashboard-cds/contexto.md](dashboard-cds/contexto.md).
 - [ ] **Reunião com o Ozéias** — decidir se vale validar/bloquear valor positivo direto na tela de conciliação de caixa (origem), em vez de só no aprovar do RH. Sugestão do Wagner, 13/08. Ver [conciliacao-fase-2/contexto.md](conciliacao-fase-2/contexto.md).
 - [ ] **Próxima interação com o Wagner** — esclarecer a ambiguidade da fila do RH pós-reversão (não veio à pauta da reunião de 13/08). Dono provável: Leonardo.
@@ -26,7 +27,7 @@
 
 ## 📄 Material recebido, pra revisar
 
-- [ ] **Ver a TAP que o Spin enviou.** (Possível relação com o Ciacon — Spin está envolvido na decisão desse projeto, ver [README.md](README.md) — confirmar.)
+- [ ] **Ler o TAP + Especificação Funcional da "Ferramenta Pesquisas Colaboradores"** (recebidos, arquivados em [pesquisas-colaboradores/](pesquisas-colaboradores/) em 01/09, ainda não lidos). Pelo nome dos arquivos, parece ser um projeto novo (ferramenta de pesquisa com colaboradores) — **não confirmado se é a mesma TAP que o Spin tinha enviado sobre o Ciacon** ou um assunto totalmente separado. Confirmar ao ler.
 
 ## 🛠️ A fazer
 
@@ -34,7 +35,10 @@
 - [ ] **Cobrar Kovalski pra formalizar a documentação do Ciacon no ADO.** Ele diz que terminou (28/08), mas o #12813 segue com 0 comentários no Azure.
 - [ ] **Definir apoio ao Kovalski pra assumir SigaPub/Siga.** Máquinas físicas chegam 31/08, viram responsabilidade direta da Retaguarda — ele já sinalizou que não dá conta sozinho.
 - [ ] **Revisar cards em Homologação/Verified que precisam de reunião com alguma área.** Checado em 26/08: o épico Automação Planilha Fiscal (#11103) está inteiramente "Done", não "Verified" — a suposição inicial não bateu. Amostrei outros ~9 cards "Verified" (10562, 12001, 12430, 12431, 12506) sem achar um comentário do Danilo sugerindo especificamente "testar com a área" — precisa apontar os cards certos ou pedir pro Danilo indicar quais.
-- [ ] **Endereçar "se tudo é urgente, nada é urgente"** — reclamação #1 do retro VAR 3.0 (28/08). Ver [dailies/2026-08-28-retro-var.md](dailies/2026-08-28-retro-var.md).
+- [ ] **Endereçar "se tudo é urgente, nada é urgente"** — reclamação #1 do retro VAR 3.0 (28/08). Ver [reviews-retros-planning/2026-08-28-retro-var.md](reviews-retros-planning/2026-08-28-retro-var.md).
+- [ ] **Enviar o resumo da review/retro de 01/09 pro Spin — prazo: amanhã, quarta-feira 02/09.** Inclui em especial o ponto da compressão de prazo da Conciliação Fase 2 (3 meses → 2 dias), que Igor sinalizou querer escalar. Resumo pronto em [reviews-retros-planning/2026-09-01-review-retro-retaguarda.md](reviews-retros-planning/2026-09-01-review-retro-retaguarda.md).
+- [ ] **Decidir se o card de Motor de Descontos em "Verified" passa pra outra pessoa** — levantado na review de 01/09, sem decisão registrada ainda.
+- [ ] **Checar sobreposição entre #12812 e #12892** (ambos sob o épico Conciliação Fase 2, ambos envolvendo layout/integração Oracle) antes de estimar os dois — #12892 foi movido pra Refinement e adicionado ao board em 01/09.
 
 ## 📤 Devo pra alguém
 

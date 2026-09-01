@@ -32,7 +32,8 @@ Do [dashboard executivo](dashboard-executivo.html) de 10/08 — criar pasta quan
 
 ## Pastas de apoio
 
-- [dailies/](dailies/) — cole as transcrições de daily (ou de reuniões transversais, tipo planejamento de sprint) aqui; usadas pra manter o dashboard, o `prioridades-sprint.md`, os `contexto.md` e o `minhas-pendencias.md` atualizados.
+- [dailies/](dailies/) — cole as transcrições/digests de **daily** (standup) aqui; usadas pra manter o dashboard, o `prioridades-sprint.md`, os `contexto.md` e o `minhas-pendencias.md` atualizados.
+- [reviews-retros-planning/](reviews-retros-planning/) — resumos de **review, retrospectiva e planning** de sprint (reuniões maiores/transversais, não daily) — mesmo fluxo de atualização acima.
 - [dashboard-executivo.html](dashboard-executivo.html) — dashboard vivo, atualizado a partir das dailies e reuniões.
 - [prioridades-sprint.md](prioridades-sprint.md) — o que está atrasado/bloqueado, o que está em andamento, e o planejamento da próxima sprint (backlog priorizado, decisões de triagem). Complementa o dashboard executivo com uma visão mais acionável.
 - [minhas-pendencias.md](minhas-pendencias.md) — pendências **pessoais** do Igor: reuniões a marcar, devolutivas que ele deve pra alguém, coisas que alguém prometeu entregar pra ele. Não é status de projeto — é a lista de "não posso esquecer disso". Consultar diariamente.

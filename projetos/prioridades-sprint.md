@@ -101,7 +101,7 @@
 - [dailies/2026-08-24-a-28-digest-retaguarda.md](dailies/2026-08-24-a-28-digest-retaguarda.md) — digest das 5 dailies Retaguarda.
 - [dailies/2026-08-24-a-28-digest-var3.md](dailies/2026-08-24-a-28-digest-var3.md) — digest das 5 dailies VAR 3.0.
 - [dailies/2026-08-25-tesouraria-daily.md](dailies/2026-08-25-tesouraria-daily.md) — daily Tesouraria (regra de NSU + rollout 100%).
-- [dailies/2026-08-31-planning-var.md](dailies/2026-08-31-planning-var.md) — planning VAR 3.0.
-- [dailies/2026-08-28-retro-var.md](dailies/2026-08-28-retro-var.md) — retro VAR 3.0 (sobrecarga, critério de aceite).
+- [reviews-retros-planning/2026-08-31-planning-var.md](reviews-retros-planning/2026-08-31-planning-var.md) — planning VAR 3.0.
+- [reviews-retros-planning/2026-08-28-retro-var.md](reviews-retros-planning/2026-08-28-retro-var.md) — retro VAR 3.0 (sobrecarga, critério de aceite).
 - [dashboard-executivo.html](dashboard-executivo.html) — dashboard de status.
 - [README.md](README.md) — índice de todos os projetos com `contexto.md` próprio.

@@ -1,6 +1,6 @@
 # Daily Retaguarda — 12/08/2026
 
-> Resumo (não transcrição literal), convertido de `RETAGUARDA - Daily (2025) q.docx` (raiz do workspace, movido pra cá). 8m36s. Não confundir com a reunião transversal de planejamento de sprint do mesmo dia ([2026-08-12-planejamento-sprint.md](2026-08-12-planejamento-sprint.md)) — são duas sessões diferentes no mesmo dia.
+> Resumo (não transcrição literal), convertido de `RETAGUARDA - Daily (2025) q.docx` (raiz do workspace, movido pra cá). 8m36s. Não confundir com a reunião transversal de planejamento de sprint do mesmo dia ([2026-08-12-planejamento-sprint.md](../reviews-retros-planning/2026-08-12-planejamento-sprint.md)) — são duas sessões diferentes no mesmo dia.
 
 **Participantes:** Igor (PO), Diego, Kauã, Kovalski, Matheus Donato, JB, Fernando, Danilo, Leonardo, Spin.
 
