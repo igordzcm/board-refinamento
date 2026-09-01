@@ -85,13 +85,14 @@ Material bruto recebido de terceiros (planos técnicos, protótipos navegáveis,
 
 ## O que NÃO está aqui (e como restaurar numa máquina nova)
 
-Estas pastas ficam de fora (`.gitignore`) porque são código-fonte de terceiros ou da empresa, cada uma já com seu próprio repositório remoto. **Localização real confirmada em 13/08/2026** (a nota anterior sobre `TAREFAS/` estava desatualizada/incorreta — a pasta não existe nesta máquina): clonadas em `C:\Users\igor.diniz\Documents\ConciliacaoCaixa\ConciliacaoCaixaAPI` e `...\ConciliacaoCaixaFront` — dois níveis acima deste workspace (`Documents/ConciliacaoCaixa/`, não `Documents/BMAD/`). É lá que fica o código real do Portal Retaguarda (Motor de Descontos, Automação Fiscal, Migração Var Ret, Gamificação/campaign-roulette etc.), útil pra citar arquivo/classe exatos ao refinar um card técnico. Numa máquina nova sem elas, clone a partir de `Documents/ConciliacaoCaixa/` (crie a pasta se não existir):
+Estas pastas ficam de fora (`.gitignore`) porque são código-fonte de terceiros ou da empresa, cada uma já com seu próprio repositório remoto. **Convenção fixa (não depende de máquina/usuário — confirmado 01/09/2026):** `ConciliaçãoCaixaAPI` e `ConciliaçãoCaixaFront` ficam como pastas **irmãs** de `board-refinamento`, um nível acima — ou seja, dentro da mesma pasta-pai onde você clonou este repositório, não em um caminho absoluto fixo tipo `C:\Users\<usuário>\...`. Isso é proposital: o Claude Code lê essas pastas por caminho relativo (`../ConciliaçãoCaixaAPI`) a partir daqui, então funciona igual em qualquer máquina/usuário, desde que a estrutura de pastas-irmãs seja mantida. É lá que fica o código real do Portal Retaguarda (Motor de Descontos, Automação Fiscal, Migração Var Ret, Gamificação/campaign-roulette etc.), útil pra citar arquivo/classe exatos ao refinar um card técnico. Numa máquina nova sem elas, clone na pasta-pai de `board-refinamento` (ao lado dele, não dentro):
 
 ```bash
+# a partir da pasta que contém board-refinamento/ (ex: cd .. se você estiver dentro dele)
 # Código proprietário do Grupo Avenida (projeto "Conciliação de Caixa" no Azure DevOps —
 # é onde vive o back-end/front-end do Motor de Descontos, Portal de Retaguarda etc.)
-git clone "https://dev.azure.com/GrupoAvenida/Projeto%20-%20Concilia%C3%A7%C3%A3o%20de%20Caixa/_git/Concilia%C3%A7%C3%A3oCaixaAPI" "ConciliacaoCaixaAPI"
-git clone "https://dev.azure.com/GrupoAvenida/Projeto%20-%20Concilia%C3%A7%C3%A3o%20de%20Caixa/_git/Concilia%C3%A7%C3%A3oCaixaFront" "ConciliacaoCaixaFront"
+git clone "https://dev.azure.com/GrupoAvenida/Projeto%20-%20Concilia%C3%A7%C3%A3o%20de%20Caixa/_git/Concilia%C3%A7%C3%A3oCaixaAPI" "ConciliaçãoCaixaAPI"
+git clone "https://dev.azure.com/GrupoAvenida/Projeto%20-%20Concilia%C3%A7%C3%A3o%20de%20Caixa/_git/Concilia%C3%A7%C3%A3oCaixaFront" "ConciliaçãoCaixaFront"
 
 # Código proprietário do projeto "Automação Dados Cartões" — onde vive o backend
 # Python do Dashboard CDs (módulo modules/cds/, usado como referência técnica
