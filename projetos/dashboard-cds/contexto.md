@@ -12,7 +12,17 @@ Dashboard consolidando dados de **WMS** e **BI** dos Centros de Distribuição (
 
 **JB (João Bernardo Ferreira Neto)** — depois de fechar a Migração VARRet (lote 2), volta pra esse projeto.
 
-## Status atual (12/08/2026, via reunião com a Maria)
+## Status atual (27/08/2026)
+
+JB: "acredito que já fiz quase tudo que tinha que ser feito" — mapa do estoque encaminhado, ajustes visuais nos gráficos concluídos. Tentando marcar a validação final com a Maria pra fechar de vez.
+
+## Status anterior (24/08/2026)
+
+**Mudanças pedidas pela Maria entregues** — as 8 mudanças de paridade com a planilha (data de referência, tabela de lojas, gráfico, rotas unificadas, PROCV, lead time ponderado, etc.) foram replicadas no sistema. Fonte: Igor (PO).
+
+**JB agora trabalhando no mapa do estoque** — nova frente, ainda sem escopo/card formal registrado; a confirmar.
+
+## Status anterior (12/08/2026, via reunião com a Maria)
 
 Reunião com a Maria (área de operação) realizada em 12/08 — ver `reuniao-maria-2026-08-12.md`. Principal descoberta: **a premissa que motivou a reunião não se confirmou.** Maria não trocou de fonte de dados nem parou de usar o WMS — o time dela identificou e contornou o problema original sem precisar migrar. Ou seja, **isso por si só não elimina a necessidade do FTP** (#11973); a questão do card segue em aberto porque **não foi discutida nesta rodada** (o foco foi 100% nas mudanças de cálculo/gráfico que a Maria já fez na planilha dela).
 

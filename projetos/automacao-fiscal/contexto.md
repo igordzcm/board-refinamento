@@ -29,6 +29,10 @@ Funcionalidade **entregue e em uso**, mas gera bugs e retrabalho recorrentes des
 - Arredondamento: `ROUND_HALF_UP` é obrigatório para bater com o Excel/fiscal; o padrão do Python (`ROUND_HALF_EVEN`) gera diferenças reais de centavos — já validado com casos reais na amostragem original.
 - Notas com chave de acesso presente em um sistema (GFT ou VAR) e ausente no outro — comportamento esperado (zero, vazio ou `#N/D`) precisa estar alinhado com o time fiscal.
 
+## Status atual (31/08/2026)
+
+⚠️ Sem confirmação se a triagem de Ozéias (prazo combinado 14/08, ver abaixo) foi concluída — nenhuma daily das 13 novas transcrições (24-31/08) trouxe o desfecho. **Danilo (QA)** segue revisando ativamente cards deste projeto pra apontar quais precisam de "teste com a área" (via prioridades-sprint, 31/08), mas sem lista específica ainda. **Kovalski** (planning 31/08) vai fazer uma correção pontual de SSO aqui antes de seguir pra migração — nova frente pequena, ainda sem card confirmado.
+
 ## Triagem de backlog em andamento (12/08, reunião de planejamento de sprint)
 
 > Fonte: [`../dailies/2026-08-12-planejamento-sprint.md`](../dailies/2026-08-12-planejamento-sprint.md).

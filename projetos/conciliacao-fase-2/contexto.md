@@ -24,7 +24,17 @@ Segunda fase do processo de Conciliação: envio automático de arquivos (cron +
 | US13 | [#12400](https://dev.azure.com/GrupoAvenida/409b9844-c75c-4e46-8a4d-17e4c455ca1b/_workitems/edit/12400) | Validação de negócio (Financeiro/Contábil/RH/Diretoria) + treinamento | Ready for Dev — bloqueio externo: agenda das 4 áreas |
 | US14 | [#12401](https://dev.azure.com/GrupoAvenida/409b9844-c75c-4e46-8a4d-17e4c455ca1b/_workitems/edit/12401) | Go-live, pilotagem 1º fechamento, hypercare | Ready for Dev — bloqueio externo: ambiente prod, janela do fechamento, IT/Infra |
 
-## Status atual (10/08/2026, via dashboard executivo)
+## 🚀 Status atual (31/08/2026) — módulo RH pronto, sobe pra produção hoje
+
+Pacote completo de correções (#12808–#12811: parcela única auto-aprovada, CPF do gerente via responsável do caixa 99 na data de referência, envio ao RH só no fechamento com ciclo 20→19, prévia do ciclo aberto) passou por QA completo com o Danilo e foi **aceito em 31/08**. O card #12800 original (contexto no modal individual, filtro de data, export sem Referência) também foi ajustado e aceito no mesmo ciclo. **GMUD de hoje (31/08) sobe tudo pra produção**, junto com a Migração VarRet.
+
+2 bugs pré-existentes (não causados por este projeto) achados durante a validação do #12810 viraram cards próprios, não bloqueiam a subida:
+- [#12882](https://dev.azure.com/GrupoAvenida/409b9844-c75c-4e46-8a4d-17e4c455ca1b/_workitems/edit/12882) — `can-close` não valida o status da conciliação antes de liberar o botão de fechar.
+- [#12884](https://dev.azure.com/GrupoAvenida/409b9844-c75c-4e46-8a4d-17e4c455ca1b/_workitems/edit/12884) — recusa de negócio no fechamento chega como erro genérico (500) em vez da mensagem real.
+
+**Mecanismo técnico confirmado (Ozéias, comentário no #12809):** a identidade do gerente pra desconto em folha vem do **responsável pelo caixa 99 na data de referência da conciliação** (não a data do fechamento), sem consulta a Senior/Logix. Lojas que pagam quebra de caixa (descontam do próprio operador, não do gerente): **12, 14, 25, 69, 71, 80, 103, 144**.
+
+## Status anterior (10/08/2026, via dashboard executivo)
 
 > Implementação concluída bem mais rápido que o esperado; subiu para homologação em 10/08 e já começou a bateria de testes. **~90%.**
 
@@ -85,15 +95,31 @@ Vale mencionar pro Ozeias — é um risco de produção que pode pesar na decis�
 
 **Aprovação geral das 4 telas** (Gerenciar Perdas ajustada, Dashboard, RH·Aprovação de Vales, RH·E-mail de Setores) — "vocês estão de parabéns", nada bloqueia a Fase 2.
 
-**2 gaps reais encontrados — cards criados em 13/08:**
-1. **[#12515](https://dev.azure.com/GrupoAvenida/409b9844-c75c-4e46-8a4d-17e4c455ca1b/_workitems/edit/12515) — Bug: "Consolidado" do mês corrente aparece disponível pra download antes do fechamento oficial do ciclo** (deveria só liberar depois de ~23h do último dia do mês). Confirmado ao vivo pelo Diego. Workaround já existe (filtro de range de data customizado funciona certo). Refinement/Doing, atribuído ao Diego.
-2. **[#12516](https://dev.azure.com/GrupoAvenida/409b9844-c75c-4e46-8a4d-17e4c455ca1b/_workitems/edit/12516) — Ranking export sem agregação por Regional e Tesouraria** — a planilha padrão anterior tinha essas 2 visões agregadas, além da flat que foi mostrada na demo. Refinement/Doing, atribuído ao Diego.
+**2 gaps reais encontrados — cards criados em 13/08, ambos já Verified/Homologação (confirmado 25/08):**
+1. **[#12515](https://dev.azure.com/GrupoAvenida/409b9844-c75c-4e46-8a4d-17e4c455ca1b/_workitems/edit/12515) — Bug: "Consolidado" do mês corrente aparece disponível pra download antes do fechamento oficial do ciclo** (deveria só liberar depois de ~23h do último dia do mês). Confirmado ao vivo pelo Diego. Workaround já existe (filtro de range de data customizado funciona certo). **Verified.**
+2. **[#12516](https://dev.azure.com/GrupoAvenida/409b9844-c75c-4e46-8a4d-17e4c455ca1b/_workitems/edit/12516) — Ranking export sem agregação por Regional e Tesouraria** — a planilha padrão anterior tinha essas 2 visões agregadas, além da flat que foi mostrada na demo. **Verified.**
 
 **Esclarecimentos de negócio (documentar, não é bug):**
 - "Reprovado" na fila de Aprovação de Vales = reprovação do **parcelamento**, não do desconto em si (o desconto segue pro RH normalmente).
 - Planilha do Sênior (RH): todos os valores exportados são sempre **positivos** (formato fixo pedido pela área), com colunas obrigatórias rubrica + referência (coluna V) + CPF. Já implementado conforme.
 
 **Sugestões de produto (não são ação agora):** unificar a lógica de sinal (positivo/negativo) desde a origem na tela de conciliação de caixa (vale reunir com o Ozéias pra decidir); ideia de "inteligência de dados consultiva" pra versões futuras (área do Taunay, backlog sem prazo).
+
+## Achados da demo pra área — RH/Financeiro/Contábil (25/08) + alinhamento interno (26/08)
+
+> Atas completas: [reuniao-area-rh-financeiro-2026-08-25.md](reuniao-area-rh-financeiro-2026-08-25.md), [alinhamento-interno-2026-08-26.md](alinhamento-interno-2026-08-26.md).
+
+Demo do módulo de RH (Gerenciar Perdas → Aprovação de Vales) pro Gilson (RH — Folha), Midia (RH) e Adriana (Contábil). 4 correções levantadas, formalizadas em cards no dia seguinte:
+
+1. **[#12808](https://dev.azure.com/GrupoAvenida/409b9844-c75c-4e46-8a4d-17e4c455ca1b/_workitems/edit/12808) — Parcela única deve ser aprovada automaticamente**, sem passar pela fila do RH. 3 pts (PO).
+2. **[#12809](https://dev.azure.com/GrupoAvenida/409b9844-c75c-4e46-8a4d-17e4c455ca1b/_workitems/edit/12809) — CPF do gerente em lojas sem quebra de caixa.** ⚠️ Conflita com decisão D8 já documentada no código (CPF sempre do operador) — precisa alinhar com o time técnico antes de implementar. Sem estimativa ainda.
+3. **[#12810](https://dev.azure.com/GrupoAvenida/409b9844-c75c-4e46-8a4d-17e4c455ca1b/_workitems/edit/12810) — Envio ao RH no fechamento da conciliação (não na aprovação), com ciclo do RH mudando de 26→25 pra 20→19**, e trava de edição pós-fechamento. 8 pts (PO) — maior das 5, muda o gatilho central do fluxo.
+4. **[#12811](https://dev.azure.com/GrupoAvenida/409b9844-c75c-4e46-8a4d-17e4c455ca1b/_workitems/edit/12811) — Permitir prévia do ciclo RH ainda aberto**, sem duplicar no export oficial. 5 pts (PO).
+5. **[#12812](https://dev.azure.com/GrupoAvenida/409b9844-c75c-4e46-8a4d-17e4c455ca1b/_workitems/edit/12812) — Planilha pro Contábil no layout de importação do Oracle.** 🔴 Bloqueado — Adriana ainda vai levantar o layout exato. Resolve a discrepância já apontada no item 7 do plano técnico original (seção abaixo).
+
+Todos filhos do Epic #12387, Sprint 27, atribuídos ao Diego. **Atualização 31/08: #12808, #12809, #12810 e #12811 foram todos pra Accepted** (ver seção de status atual, topo do arquivo) — só o #12812 (planilha Oracle/Contábil) segue em Refinement, bloqueado pela Adriana.
+
+**Achado técnico relevante:** o módulo de RH já está implementado, mas só na branch `epic/GAV-RTG-12387` (ambos os repos), ainda não mesclada em main/develop.
 
 ## Plano técnico original (VSCODE)
 

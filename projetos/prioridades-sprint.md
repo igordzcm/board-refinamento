@@ -1,101 +1,107 @@
 # Prioridades e Planejamento de Sprint
 
-> Visão acionável — atrasado/bloqueado, o que está sendo feito agora, e o que entra na próxima sprint. Complementa o [dashboard executivo](dashboard-executivo.html) (mais voltado a status/stakeholder) e o [índice de projetos](README.md) (navegação). Atualizado a partir de dailies, reuniões e do dashboard executivo — mesma fonte, ângulo diferente: aqui o corte é por **urgência e alocação de time**, não por projeto.
+> Visão acionável — atrasado/bloqueado, o que está sendo feito agora, e o que precisa virar reunião, card novo ou card refinado. Complementa o [dashboard executivo](dashboard-executivo.html) (status/stakeholder) e o [índice de projetos](README.md) (navegação).
 
-**Última atualização:** 12/08/2026, via reunião de planejamento de sprint (Ozéias, Igor, Léo — [transcrição](dailies/2026-08-12-planejamento-sprint.md)) + reunião Dashboard CDs (Igor, Maria, JB, Léo — [transcrição](dashboard-cds/transcricao-reuniao-maria-2026-08-12.md)) + [dashboard executivo](dashboard-executivo.html) de 10/08.
+**Última atualização:** 31/08/2026, a partir de 13 transcrições novas (5 dailies Retaguarda, 5 dailies VAR 3.0, 1 Tesouraria, 1 Planning VAR, 1 Review/Retro VAR) cobrindo 24–31/08, mais o desfecho da validação QA da Conciliação Fase 2 no ADO. Ver digests em [dailies/2026-08-24-a-28-digest-retaguarda.md](dailies/2026-08-24-a-28-digest-retaguarda.md) e [dailies/2026-08-24-a-28-digest-var3.md](dailies/2026-08-24-a-28-digest-var3.md).
+
+---
+
+## ✅ Resolvido desde a última atualização (24/08)
+
+- **Conciliação Fase 2 (módulo RH) — pronta, sobe pra produção na GMUD de hoje (31/08).** Pacote completo (#12800, #12808–#12811) aceito após QA com o Danilo. 2 bugs pré-existentes achados na validação viraram cards próprios (#12882, #12884), não bloqueiam.
+- **Migração VarRet — testada, aprovada, sobe pra produção na mesma GMUD de hoje.**
+- **Tesouraria — rollout 100% do parque concluído** (25/08 à noite).
+- **Overlimit — RPE liberou credenciais/webhooks.** Testes de endpoint em produção já começaram, direto no Kong, sem precisar de credencial. Sai da lista de bloqueios críticos.
+- **Motor de Descontos — job de duplicação desativado** pelo Leo (mitigação), como combinado com Thalison/Fábio.
+- **Reunião com o Arthur confirmada para quarta-feira (02/09)** — escopo ampliado além da US5, cobre os próximos passos do épico inteiro.
+- **Ciacon — integração fechada, PR aberto pro Spin.** Cards #12813/#12814 criados e linkados ao Epic SSO (#11853).
+- **Gamificação T1–T10** — avançaram todos pra QA/In Test no board; painel administrativo já subiu no portal.
 
 ---
 
 ## 🔴 Atrasado / Bloqueado
 
-Itens onde o time está travado por algo que não controla, ou que já passou do prazo esperado sem decisão.
-
-| Item | Há quanto tempo | Trava | Ação necessária |
+| Item | Desde quando | Trava | Status/ação |
 |---|---|---|---|
-| **SIGA · Indicadores** | Sem data — retomada adiada repetidamente | Sem fonte de dados confiável pra performance de indicadores | Kovalski assume assim que fechar SSO + Automação Fiscal — sem data definida ainda |
-| **Overlimit (crédito na venda)** | Desde antes de 04/08 | Fornecedor RPE não respondeu sobre credencial de teste; sem ela não dá pra validar a solução pra limitação do Kong (não suporta 2 credenciais simultâneas) | Cobrar RPE de novo. Bloqueio **não avançou** mesmo com o escopo tendo sido destrinchado em 12/08 (ver Próxima Sprint) — escopo pronto não desbloqueia o fornecedor |
-| **SmileGo (NeuroTech)** | +4 semanas sem retorno | Ambiente de teste do fornecedor não funciona, sem massa de dados válida | Escalar formalmente se não houver retorno até o fim da semana |
-| **#11973 — FTP no Dashboard CDs** | Em aberto desde antes de 10/08 | Ninguém decidiu se ainda é necessário — a premissa de que a planilha corrigida eliminaria a necessidade do FTP **não se confirmou nem se descartou** na reunião de 12/08 (não entrou na pauta) | Agendar conversa específica sobre esse card entre JB e Maria/área — não misturar com a paridade de planilha |
-| **Portal Gamificação sumindo de homolog** | Detectado 12/08 | Ozéias não consegue mais ver o ambiente em homolog | Investigar com o time técnico antes do Kauã retomar o projeto |
-
-**Risco ativo (não bloqueia, mas pesa):** job noturno da Conciliação segue instável no portal Retaguarda — duplicação de lojas em pelo menos 3 ocasiões recentes, correção manual repetida. Time testando mover pra worker dedicado.
+| **NFe — rejeição em massa pela Migrate (VAR 3.0)** | 21/08 | Documentos antigos travando o DocPay identificados; pedido de limpeza feito ao Vini pra liberar notas represadas | Sem confirmação de resolução total até 28/08 — checar direto com Franklin/Donato antes do fechamento fiscal do mês |
+| **SmileGo (NeuroTech)** | +5 semanas sem retorno | Ambiente de teste do fornecedor não funciona | Sem qualquer menção desde 10/08 — confirmar se segue parado ou foi abandonado silenciosamente |
+| **Tap on Phone / VAR 4G — bugs críticos novos** 🆕 | Achado no retro de 28/08 | Transações sendo canceladas com pagamento ainda ativo (fatura, acordo) | Squad inteiro dedicado a estabilizar antes do rollout pras lojas (meta: semana de 01/09) |
+| **SSO SIGA — deploy bloqueado** | 28/08 | Pablo (deploy) de férias + WAF bloqueando acessos por questão de contrato | Implementação pronta (Dev Review), só falta destravar o deploy |
+| **Ciacon — self-review sem segunda pessoa** 🆕 | 28/08 | Kovalski descreveu o fluxo como "eu faço, eu valido e eu aprovo" | Vale pedir revisão de outro dev antes de mesclar definitivamente |
 
 ---
 
-## 🔄 Em andamento agora
+## 📅 Reuniões a ter / agendar
 
-Por squad/dono, o que está sendo trabalhado nesta sprint.
+- [x] **Igor + Arthur — Motor de Descontos, novas etapas.** Confirmada pra **quarta-feira, 02/09**. Escopo ampliado além da US5 — define os próximos passos do épico inteiro, incluindo o que fazer com o job desativado pelo Leo.
+- [ ] **Cobrar formalização da documentação do Ciacon no ADO** — Kovalski diz que terminou (28/08), mas o card #12813 segue com 0 comentários no Azure.
+- [ ] **Definir apoio ao Kovalski pras máquinas do Siga** — a partir de 31/08 SigaPub + resto do Siga viram responsabilidade direta da Retaguarda; Kovalski já sinalizou que não dá conta sozinho, precisa de Diego/Kauã.
+- [ ] **Endereçar "se tudo é urgente, nada é urgente"** — reclamação #1 do retro VAR 3.0 (28/08). Cards sem critério de aceite criados tarde demais; Gustavo (PO) sobrecarregado cobrindo 2 projetos + infra à noite.
+
+---
+
+## 🃏 Cards a criar
+
+- [x] **Conciliação Fase 2 — 2 bugs pré-existentes achados na validação do #12810.** Criados 31/08: [#12882](https://dev.azure.com/GrupoAvenida/409b9844-c75c-4e46-8a4d-17e4c455ca1b/_workitems/edit/12882) (can-close sem validar status) e [#12884](https://dev.azure.com/GrupoAvenida/409b9844-c75c-4e46-8a4d-17e4c455ca1b/_workitems/edit/12884) (erro genérico em vez da mensagem real).
+- [x] **Ciacon — Kovalski, documentação e implementação.** Criados 27/08: [#12813](https://dev.azure.com/GrupoAvenida/409b9844-c75c-4e46-8a4d-17e4c455ca1b/_workitems/edit/12813) e [#12814](https://dev.azure.com/GrupoAvenida/409b9844-c75c-4e46-8a4d-17e4c455ca1b/_workitems/edit/12814), linkados ao Epic SSO (#11853).
+- [ ] **VAR 3.0 — Epic de migração GeneXus → Java.** Ainda sem Epic formal. Jeferson já começou a 1ª tarefa (tabela de Feature Flag) a pedido do Walter — Igor pediu card formal pra não perder rastreio.
+- [ ] **Tesouraria — regra de NSU padronizada em 8 dígitos.** Pedido do Financeiro (4 dígitos loja + 4 dígitos comprovante GVT); vai numa release separada (3.0.1→3.0.2) por ser mudança de risco assumido — Sola: "provavelmente vai dar rollback depois".
+- [ ] **SIGA — Indicadores de Performance, em Ready for Dev.** Segue sem dono/card formal confirmado.
+
+---
+
+## 🔍 Cards a refinar / decisões do PO pendentes
+
+- [ ] **Conciliação Fase 2 #12812 (planilha Contábil).** Bloqueado até a Adriana levantar o layout exato — ⚠️ ainda em aberto se "Arco" (citado por Diego em 28/08 como destino da integração) é o mesmo que o layout Oracle original ou uma mudança de abordagem (integração direta em vez de planilha exportável). Precisa esclarecer com o Diego/Ozéias antes de reescrever o card.
+- [ ] **Dashboard CDs — validação final com a Maria.** JB diz que já fez quase tudo, só falta agendar a conferência final.
+
+---
+
+## 🔄 Em andamento agora (por pessoa)
 
 ### Retaguarda
 
-| Frente | Dono | Status | Nota |
-|---|---|---|---|
-| Conciliação Fase 2 — correções finais | **Diego** | ~90%, US8-12 em homologação (In Test) | Bug novo na parte de "linhas" (achado 12/08) — Diego segue sozinho, Kauã libera pra Gamificação |
-| Migração VARRet — lote 2 | **JB** | Concluído, em code review/QA | Ozéias vai marcar call com JB pra "subir tudo" |
-| SSO / Keycloak | **Kovalski** | 97% | Só falta remover a regra de prazo mínimo de troca de senha |
-| Dashboard CDs — replicar paridade de planilha | **JB** (após lote 2) | Escopo definido 12/08, dev ainda não iniciado | 8 mudanças da Maria a replicar (ver `dashboard-cds/contexto.md`) — prioridade sobre as melhorias novas |
-| Indicadores de performance (SIGA) | **Danilo** (validação) | "Em tese" pronto, em homolog e Dev | Danilo precisa começar a validar o fluxo completo o quanto antes; validação de regra é em conjunto com o time |
-| Automação Fiscal — triagem de backlog | **Ozéias** | Em andamento | Revisando ~40 cards do Kovalski, decidindo o que descarta vs. refina — prazo 14/08 |
-| Onboarding Fernandes (Júnior) | **Fernandes**, com Léo acompanhando | Em sustentação | Corrigindo bugs pontuais achados pelo Danilo numa revisão geral do portal; hoje corrigindo bug no contador de conciliação (front) |
+| Pessoa | Frente | Status em 31/08 |
+|---|---|---|
+| **Diego** | Conciliação Fase 2 (produção hoje) + SIGA Indicadores | Fase 2 pronta e aceita, indo pra GMUD; SIGA Indicadores em segundo plano, ~30% |
+| **Kauã** | Gamificação (todos os T1-T10 em QA) | Painel administrativo no ar, bugs de auto-increment em ajuste; teste ponta a ponta previsto pra semana de 01/09 |
+| **JB** | Dashboard CDs + Migração VarRet (produção hoje) | CDs quase pronto, falta validação final com a Maria; Migração VarRet aprovada, sobe hoje |
+| **Fernando** | Automação de testes do portal (8 fases) | Todas as 8 fases concluídas, Playwright (E2E) quase pronto |
+| **Kovalski** | SigaPub/SSO, Ciacon (integração fechada) | SSO bloqueado por deploy (Pablo férias + WAF); Ciacon com PR aberto; chegada das máquinas físicas do Siga aumenta a carga |
+| **Danilo (QA)** | Testes cruzados — foco intenso em Conciliação Fase 2 essa semana | Validou o pacote completo da Fase 2 até aceitar em 31/08; segue revisando cards de Automação Fiscal pra "teste com área" |
+| **Léo** | Motor de Descontos (job desativado) | Aguardando reunião de 02/09 com o Arthur pra formalizar o resto do mapeamento |
 
 ### VAR 3.0
 
-| Frente | Dono | Status |
+| Pessoa | Frente | Status em 31/08 |
 |---|---|---|
-| Tap on Phone (GetNet) + VAR 4G — piloto | Gui Oliveira · Walter | 95% / 92%, pilotos rodando juntos desde 10/08 |
-| Release fiscal — Engine + Portal Automação | Donato | 95%, piloto desde 03/08 |
-| Pix pelo Pinpad | Time VAR | 15%, entrou no meio da sprint |
-
-### Tesouraria
-
-| Frente | Dono | Status |
-|---|---|---|
-| Migração pra novo sistema | Walter | 55%, sem atualização — depende de decisão sobre incluir o GSX |
+| **Caixeta** | Overlimit (agora liberado) | Testando endpoints direto no Kong, sem credencial |
+| **Donato** | Desconto de Gerente (Java) + apoio Ozéias/Kovalski | Desenvolvimento terminado, aguardando aprovação de review; ajudando na engenharia reversa do Ciacon/loja 208 |
+| **Moises + Jeferson** | Testes automatizados mobile + migração GeneXus | POC de teste entregue ao Lacerda; Jeferson iniciou tarefa de Feature Flag da migração |
+| **Walter** | Migração GeneXus (documentação) | Documentação atualizada, 1ª tarefa (Feature Flag) já delegada ao Jeferson |
+| **Wesley** | Pix pelo Pinpad (TEF) | Bug de truncamento de ID de transação achado, em correção |
+| **Nicolas / Felipe** | Tap on Phone / 4G | Bugs críticos novos de fatura/acordo — foco total em estabilizar |
+| **Gustavo (PO)** | Cobrindo 2 projetos + infra à noite | Sinal de sobrecarga real — retro de 28/08 votou isso como problema #1 |
 
 ---
 
-## 🎯 Planejamento — próxima sprint
+## ⚠️ Riscos ativos (resumo)
 
-Decisões e prioridades saídas da reunião de planejamento de 12/08 (Ozéias + Igor + Léo).
-
-### Realocação de time
-
-- **Kauã**: sai da Conciliação Fase 2 (que agora é só correção com Diego) e volta pra **Gamificação** — mas só depois de confirmado o sumiço do portal em homolog.
-- **Diego**: segue sozinho nas correções finais da Conciliação Fase 2 (bug de linhas).
-- **JB**: fecha o lote 2 da Migração VARRet (code review/QA) → migra as exportações Excel/PDF do lote 1 pro padrão worker+e-mail (**card #12484**, já refinado) → volta pro Dashboard CDs pra replicar a paridade de planilha com a Maria.
-- **Fernandes** (novo Júnior): fica em sustentação por enquanto — tarefas pequenas e variadas de propósito, pra ganhar familiaridade com o sistema e ajudar a esvaziar o backlog de itens pequenos.
-
-### Escopo novo confirmado
-
-- **Overlimit** — escopo destrinchado: tela de import de planilha Excel (clientes elegíveis ao bônus) + mecanismo de distribuição pra loja igual ao da **blacklist** (RPA). Meta: **release de setembro do VAR**, antes do code freeze. Confirmar com o Gui se ele já tinha algo desenvolvido antes de começar do zero.
-- **Migração VARRet — lote 1 → worker+e-mail** — pegar tudo que no lote 1 ainda exporta Excel/PDF direto na tela e migrar pro padrão assíncrono (mesmo usado na Automação Planilha Fiscal). Já existe como card **#12484** no board de refinamento (Var Retaguarda), refinado, faltando só a estimativa do time técnico.
-- **Dashboard CDs** — replicar as 8 mudanças de cálculo/gráfico que a Maria já fez na planilha dela (prioridade), só depois entrar nos pedidos de melhoria novos (filtro, "último carregamento", "média da rota", números sempre visíveis no gráfico). Detalhe completo em [dashboard-cds/reuniao-maria-2026-08-12.md](dashboard-cds/reuniao-maria-2026-08-12.md).
-
-### Backlog — triagem em andamento
-
-Ozéias está revisando ao vivo a coluna **Backlog** do board, card a card:
-
-- Itens sem contexto claro, parados há +1 ano → **descartar**.
-- Itens do Kovalski pra Automação Fiscal (~40 cards) → Ozéias revisa até **sexta (14/08)**.
-- SPPO → **morto**, não vai ser feito.
-- Itens pequenos e "legais de fazer" → candidatos naturais pro **Fernandes**.
-- Tudo que sobreviver à triagem e estiver "mínimo pra desenvolver" → mover pra coluna **Refinement**, separado do que ainda não foi decidido.
-- Igor já tinha limpado as colunas **To Do** e **Refinement** antes desta reunião — ficaram vazias, por isso a necessidade da triagem agora.
-
-### Pendências a confirmar antes de fechar o planejamento
-
-- [ ] Card/sintoma exato do bug de "linhas" na Conciliação Fase 2 (Diego) — não detalhado na transcrição.
-- [ ] Se o Gui já tem algo desenvolvido pro Overlimit antes de iniciar do zero.
-- [ ] Se o sumiço do Portal Gamificação em homolog foi investigado.
-- [ ] Se a planilha atualizada da Maria (Dashboard CDs) chegou no grupo.
-- [ ] Decisão sobre o card #11973 (FTP) — ainda necessário ou obsoleto?
-- [ ] Resultado da triagem de backlog do Ozéias (prazo 14/08).
+1. **NFe/Migrate** — segue sem confirmação total de resolução, prazo do fechamento fiscal se aproximando.
+2. **Tap on Phone/4G** — bugs críticos novos, achados no retro de 28/08.
+3. **Sobrecarga da equipe VAR 3.0** — "se tudo é urgente, nada é urgente" foi a reclamação #1 do retro; PO cobrindo demais.
+4. **Ciacon sem segunda revisão** — Kovalski aprovando o próprio trabalho, somado à chegada das máquinas do Siga (mais carga pra ele).
+5. **NSU 8 dígitos (Tesouraria)** — mudança que o próprio time já espera precisar de rollback; mitigada por ir em release separada.
+6. **Motor de Descontos** — job desativado é mitigação, não solução definitiva; depende da reunião de 02/09.
 
 ---
 
 ## Fontes
 
-- [dailies/2026-08-12-planejamento-sprint.md](dailies/2026-08-12-planejamento-sprint.md) — transcrição completa da reunião de planejamento.
-- [dashboard-cds/reuniao-maria-2026-08-12.md](dashboard-cds/reuniao-maria-2026-08-12.md) — resumo estruturado da reunião com a Maria.
-- [dashboard-executivo.html](dashboard-executivo.html) — dashboard de status, 10/08/2026.
+- [dailies/2026-08-24-a-28-digest-retaguarda.md](dailies/2026-08-24-a-28-digest-retaguarda.md) — digest das 5 dailies Retaguarda.
+- [dailies/2026-08-24-a-28-digest-var3.md](dailies/2026-08-24-a-28-digest-var3.md) — digest das 5 dailies VAR 3.0.
+- [dailies/2026-08-25-tesouraria-daily.md](dailies/2026-08-25-tesouraria-daily.md) — daily Tesouraria (regra de NSU + rollout 100%).
+- [dailies/2026-08-31-planning-var.md](dailies/2026-08-31-planning-var.md) — planning VAR 3.0.
+- [dailies/2026-08-28-retro-var.md](dailies/2026-08-28-retro-var.md) — retro VAR 3.0 (sobrecarga, critério de aceite).
+- [dashboard-executivo.html](dashboard-executivo.html) — dashboard de status.
 - [README.md](README.md) — índice de todos os projetos com `contexto.md` próprio.

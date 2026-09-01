@@ -64,6 +64,17 @@ Abra qualquer um dos dois arquivos direto no navegador — são HTML autocontido
 |---|---|
 | `product-skills` | Coordenar trabalho que cruza várias das skills de produto acima, ou rodar o loop contínuo de discovery |
 
+## Agentes (`.claude/agents/`)
+
+> **Portabilidade — importante:** o Claude Code só carrega `.claude/agents/` do diretório com que a sessão foi aberta (diferente das skills, que são descobertas em subpastas dinamicamente). Pra esses 4 agentes ficarem disponíveis, **abra o Claude Code de dentro de `board-refinamento/`** (`cd board-refinamento` antes de rodar `claude`), não de `TAREFAS/`. Isso vale em qualquer máquina — como este repo é versionado no GitHub, um clone novo já traz os agentes junto, desde que a sessão seja aberta a partir daqui.
+
+| Agente | Quando usar |
+|---|---|
+| `refinement-gate` | Bater o Definition of Ready (4 pontos + o 5º condicional de nota técnica) contra um ou mais cards do ADO, de forma completa e sem pular passo — sempre que for refinar/re-checar cards em lote ou auditar se um card específico está mesmo pronto. Roda a `refinement-checklist` por dentro (invocada explicitamente a cada vez, não assume pré-carregamento) e invoca `senior-architect`/`process-mapper`/`Artifact` quando o card pedir fluxograma ou mock. Nunca inventa estimativa nem resolve bloqueio externo sozinho — sinaliza pro Igor decidir. Retorna um relatório estruturado por card, pronto pra virar atualização do board. |
+| `board-sync` | Reconciliar `board-refinamento.html` com o ADO de verdade — a varredura de 3 partes obrigatória (diff de estado/coluna dos cards rastreados, ler comentário de tudo que moveu, consultar cards novos não rastreados) antes de qualquer edição. Só edita o arquivo do board + republica o Artifact — não escreve no ADO. Usar sempre que for "atualizar o dash de cards", não só quando cards específicos forem citados. |
+| `daily-digest` | Processar transcrições novas (.docx) em digests `.md` concisos sob `projetos/dailies/`, deduplicando contra o que já foi coberto. Não edita README/contexto.md/prioridades-sprint/dashboard/pendências nem apaga os .docx de origem — só lista achados e sinaliza o que ficou desatualizado, pra revisão antes de qualquer edição em outro arquivo (ordem que o Igor pediu explicitamente). |
+| `portfolio-report` | Os 3 relatórios que não tinham dono: calcular métricas do time (lead time, salvo em `metricas-time.md` como série histórica), atualizar o `dashboard-executivo.html` (via `senior-pm`/`roadmap-communicator`), e **aplicar de fato** os achados que o `daily-digest` só lista (editando `contexto.md`/README/`prioridades-sprint.md`/`minhas-pendencias.md`). Precisa dizer qual dos 3 modos rodar — não adivinha. |
+
 ## Planejamento (`_bmad-output/planning-artifacts/`)
 
 Backups de versões originais de cards e o ADR-1 (decisão de arquitetura do redesenho do Motor de Descontos) produzidos durante o refinamento do card #12405 e outros.

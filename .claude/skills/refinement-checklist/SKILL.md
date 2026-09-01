@@ -154,8 +154,14 @@ Mentioning a related card by `#ID` in prose is not the same as linking it. Use `
 
 ## 7. Estimate, or name who does
 
-Never invent a story-point number to make a card look complete — an estimate is the technical team's call, not the PO's. If it's missing:
+Default rule: never invent a story-point number to make a card look complete — an estimate is the technical team's call, not the PO's.
 
+**Standing temporary override (added 2026-08-12, revisit ~2026-11):** the user asked for a deliberate, temporary exception — propose a Fibonacci estimate via the `agile-product-owner` skill's relative-sizing framework instead of leaving the field blank, for cards that are otherwise ready (story+scenarios written, not "Precisa refinar"). While this override is active:
+- Write the proposed number into the card's Effort field, **and** leave a comment framing it explicitly as a PO-proposed estimate pending tech-team confirmation — never present a PO guess as if the team already sized it.
+- Still don't back-fill an estimate on a card whose content isn't written yet — sizing empty scope is guessing, not relative sizing.
+- The override was scoped to expire ~3 sprints after 2026-08-12 — if you're well past that, flag it and ask the user whether to keep proposing estimates, revert to the default rule below, or adopt something else.
+
+If the override isn't active (expired, or not confirmed for the session you're in), fall back to the default rule:
 - Note explicitly in the card who needs to size it (usually the tech lead/dev who'll pick it up) and why it's pending (e.g. "escopo pequeno, mas fica a critério do time técnico").
 - A card with everything else done and only the estimate outstanding still belongs in "Quase pronto," not "100% pronto" — the board is honest about this, keep it that way.
 

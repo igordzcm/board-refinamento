@@ -12,7 +12,11 @@ Portal de Gamificação Avenida (Roleta 3.0): cliente identifica-se por CPF, é 
 
 Dev: **Kauã**. Dono de negócio: **Ozéias Tavares**.
 
-## Status atual (13/08/2026 — decisão do Igor no refinamento do board)
+## Status atual (31/08/2026)
+
+**Todos os T1-T10 avançaram pra "In Test"/QA no board** (confirmado via ADO). Painel administrativo já subiu no portal (28/08), com bugs de auto-increment em ajuste (Kauã investigando). Plano é testar tudo de ponta a ponta na semana de 01/09. Verificar se as pendências da rodada de 13/08 (rework de T1-T3, bloqueio de CRM/BI em T8, assets visuais em T9, visibilidade em homolog) já foram endereçadas nessa fase de teste — não confirmado nas dailies desse período.
+
+## Status anterior (13/08/2026 — decisão do Igor no refinamento do board)
 
 **Deixou de ser "perpetuamente despriorizado".** Igor decidiu (13/08) mover os 10 cards T1-T10 (#12179, #12181-12189) de "Refinement" pra **"Ready for Dev"**, considerados prontos no board de refinamento — justificativa: o planejamento (docs v9.3 e EP1/EP2/EP3) é anterior ao processo de refinamento deste workspace e já é completo (Story/AC/estimativa desde a criação), não precisa da reescrita em Cenário/GWT. **Kauã volta a ter Gamificação como prioridade.** Todos os 10 cards foram atribuídos a ele.
 

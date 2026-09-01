@@ -16,7 +16,9 @@ Módulo NestJS em `ConciliacaoDeCaixaAPI/src/modules/price-markdown/` + páginas
 
 ## Status atual (12/08/2026, via dashboard executivo)
 
-**55%** — sem atualização na última rodada. Segue em homologação com débito técnico. **Prazo revisado de 24/07 para 15/08/2026** (marco listado no dashboard executivo como "Prazo revisado da Remarcação de Preços").
+**55%** — sem atualização desde então, inclusive na rodada de 13 transcrições novas de 24-31/08. Segue em homologação com débito técnico. **Prazo revisado de 24/07 para 15/08/2026** (marco listado no dashboard executivo como "Prazo revisado da Remarcação de Preços") — já vencido sem confirmação de status.
+
+**Esclarecimento (28/08, retro VAR 3.0):** o "app de remarcação de preços" que o Donato tem trabalhado com o Ozéias **não é este projeto** — é o app de chão de loja do épico Etiqueta Remarcados (#12428), projeto separado que só compartilha o nome. Ver [etiqueta-remarcados/contexto.md](../etiqueta-remarcados/contexto.md).
 
 ## Particularidade de processo — roda fora do board do Retaguarda
 

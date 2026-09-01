@@ -22,9 +22,14 @@ A maior parte do escopo priorizado foi **entregue em 22/06/2026 sob responsabili
 
 Demais itens de backlog futuro (baixa prioridade, sem urgência confirmada por Arthur): combo entre departamentos inteiros, filtro por família na listagem de campanhas, relatórios de performance de campanhas, histórico consolidado com "duplicar campanha".
 
+## 🔴 Risco ativo (31/08) — job de duplicação desativado, sem reativação formal ainda
+
+**Leo desativou o envio pras lojas** depois de confirmar que o job estava duplicando descontos/cupons nas lojas — mitigação no ar desde a semana de 24/08. O mapeamento completo (o que mais desativar, o que reativar — inclui uma tabela "03" que precisa voltar) só fica formal na call de quarta-feira (02/09) com o Arthur, que também vai definir os próximos passos/escopo maior do épico (não só a US5).
+
 ## Bloqueios e pendências
 
-- **US5 (notificação às lojas)**: escopo pendente de alinhamento Igor + Arthur — não iniciar desenvolvimento antes dessa call.
+- **US5 (notificação às lojas) + próximas etapas**: escopo pendente de alinhamento Igor + Arthur, call confirmada pra **02/09** — não iniciar desenvolvimento antes dessa call.
+- **Job de duplicação de desconto/cupom**: desativado por precaução (Leo), reativação/correção definitiva depende da call de 02/09.
 - Destinatários do e-mail de criação de campanha (uso interno) — Arthur ainda precisa definir e passar a lista final (provisoriamente Igor + Arthur).
 - Interface de gerenciamento de destinatários no portal (evitar depender de deploy para alterar a lista) — pedido de Taunay, sem prioridade confirmada.
 
@@ -35,7 +40,7 @@ Demais itens de backlog futuro (baixa prioridade, sem urgência confirmada por A
 
 ## Reuniões
 
-Nenhuma reunião registrada ainda.
+- **02/09/2026 — Igor + Arthur.** Call pra fechar o escopo da US5 (notificação às lojas): destinatários por loja, formato do e-mail, se entra como Fase 2 ou 3.
 
 ## Próxima atualização
 

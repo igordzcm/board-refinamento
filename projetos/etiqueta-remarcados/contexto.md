@@ -10,9 +10,15 @@ BI e Configurações para o módulo de **Etiqueta Remarcados** no Portal da Reta
 
 Épico: **[#12428 — BI e Configurações — Etiqueta Remarcados no Portal da Retaguarda](https://dev.azure.com/GrupoAvenida/409b9844-c75c-4e46-8a4d-17e4c455ca1b/_workitems/edit/12428)** (Var Retaguarda), status **To Do**.
 
+## Status atual (31/08/2026)
+
+✅ **#12506 validado e aprovado pelo QA** (Danilo, comentário de 25/08) — teste manual front-end + back-end cobrindo AC1-AC9 (rede sem filtro obrigatório, N1/N2/N3, situação de loja/item, KPIs, export), veredito "aprovado". Só ficaram pendências menores fora do escopo do veredito (ex.: coluna Regional/métrica de lotes parados em AC8) — não bloqueiam a aprovação. Estado no board era **Verified** na última consulta (26/08).
+
+**Nova frente adjacente (28/08, retro VAR 3.0):** o **Donato** está numa força-tarefa com o **Ozéias** no app de chão de loja (`app-remarcacao-preco`, "roda nos coletores de loja"), construindo uma **tela no portal Retaguarda pra acompanhar por etiqueta, com justificativas** — soa como escopo diretamente relacionado (ou sobreposto) ao módulo de BI/Configurações deste mesmo épico (#12428). Vale confirmar com o Donato se é frente nova dentro do mesmo épico ou trabalho paralelo a alinhar. **Não confundir com "Markdown / Remarcação de Preços"** (projeto do Victor+Hudá) — confirmado 28/08 que são projetos diferentes, mesmo com nomes parecidos.
+
 ## Card vigente e autoritativo: #12506
 
-**[#12506 — Tela de pendências no módulo de etiqueta remarcados](https://dev.azure.com/GrupoAvenida/409b9844-c75c-4e46-8a4d-17e4c455ca1b/_workitems/edit/12506)** — status **Doing**, atribuído a **Matheus Gabriel Donato Alves**, Sprint 26, esforço 21 pts. Reescrito em 12/08/2026 com um plano técnico N1/N2/N3 detalhado — **este card é a fonte de verdade atual do projeto**, superior a qualquer planejamento anterior.
+**[#12506 — Tela de pendências no módulo de etiqueta remarcados](https://dev.azure.com/GrupoAvenida/409b9844-c75c-4e46-8a4d-17e4c455ca1b/_workitems/edit/12506)** — status **Verified** (era Doing/Sprint 26, atribuído a **Matheus Gabriel Donato Alves**, 21 pts). Reescrito em 12/08/2026 com um plano técnico N1/N2/N3 detalhado — **este card é a fonte de verdade atual do projeto**, superior a qualquer planejamento anterior.
 
 > **Como** Bruno (gestor que cobra as lojas) e encarregados de loja
 > **Quero** uma tela que mostre quais lojas ainda não remarcaram os preços, com drill-down até o item quando eu precisar

@@ -20,7 +20,15 @@ Migração de funções do VAR Retaguarda legado para o Portal Nova Retaguarda, 
 | Lote 2 | Funções 31 (Troca de Mercadoria), 0 (Opção de Depósito da Loja), Caixas em Aberto, 9 (Vincula NSU Depósito), 79 (Consulta NFe) | **Em andamento** |
 | Sprint 3 | QA e homologação (plano de testes, testes funcionais L1/L2, testes de integração, homologação com Financeiro/ADM, correções pós-homologação) | Conforme lotes acima avançam |
 
-## Status atual (12/08/2026, via reunião de planejamento de sprint)
+## 🚀 Status atual (31/08/2026)
+
+**Testado e aprovado por completo — sobe pra produção na GMUD de hoje**, junto com a Conciliação Fase 2. Fonte: Igor (PO).
+
+## Status anterior (24/08/2026)
+
+Aprovado, com exceção de uma pequena correção pendente — resto do escopo subiria pra produção na semana de 31/08 (confirmado — ver acima).
+
+## Status anterior (12/08/2026, via reunião de planejamento de sprint)
 
 > Fonte: [`../dailies/2026-08-12-planejamento-sprint.md`](../dailies/2026-08-12-planejamento-sprint.md).
 

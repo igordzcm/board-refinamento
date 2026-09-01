@@ -15,9 +15,24 @@ Integrar o SIGA ao novo login único (Keycloak/Kong), tirando a autenticação p
 | Card | O que é | Status |
 |---|---|---|
 | [#12498](https://dev.azure.com/GrupoAvenida/409b9844-c75c-4e46-8a4d-17e4c455ca1b/_workitems/edit/12498) | Documentação e arquitetura da implementação | **Accepted** (concluído) |
-| [#12499](https://dev.azure.com/GrupoAvenida/409b9844-c75c-4e46-8a4d-17e4c455ca1b/_workitems/edit/12499) | Implementação front-end + back-end (redirecionamento Keycloak via Kong, callback, validação de token, sessão/cookies) | **Doing** — Kovalski, 8 pts |
+| [#12499](https://dev.azure.com/GrupoAvenida/409b9844-c75c-4e46-8a4d-17e4c455ca1b/_workitems/edit/12499) | Implementação front-end + back-end (redirecionamento Keycloak via Kong, callback, validação de token, sessão/cookies) | **Dev Review** — Kovalski, 8 pts |
 
-**É isso que o Kovalski cita nas dailies desta semana** ("estou na integração do Siga", "vou começar toda a parte de desenvolvimento", meta de terminar até sexta 14/08) — **não tem relação com o item 2 abaixo (Performance de Indicadores)**, apesar de os dois aparecerem juntos em conversa por serem do mesmo sistema.
+**Atualização 28/08:** implementação tecnicamente pronta (integrou Siga e Ciacon, eliminou o microsserviço de login antigo dentro do SIGA), mas **deploy bloqueado** — Pablo (quem faz o deploy) está de férias, e a WAF bloqueou alguns acessos por questão de contrato. Novo ambiente não subiu ainda pro time testar.
+
+**Novidade operacional (31/08):** as máquinas físicas do Siga chegam segunda-feira — a partir daí, **SigaPub e o restante do Siga viram responsabilidade direta da Retaguarda** (hoje na mão de uma única pessoa do lado de fora). Kovalski sinalizou que não dá conta sozinho, vai precisar de apoio do Diego/Kauã pra assumir.
+
+**É isso que o Kovalski cita nas dailies desta semana** — **não tem relação com o item 2 abaixo (Performance de Indicadores)**, apesar de os dois aparecerem juntos em conversa por serem do mesmo sistema.
+
+### 1.1 Ciacon — sistema novo, integração fechada (Kovalski)
+
+Sistema separado do Siga, ligado à remarcação de preço (Donato tem a documentação de negócio) — login/autenticação diferentes do Siga, exigiu engenharia reversa própria. Entrou no escopo do Kovalski em 24/08. Cards filhos do mesmo Epic SSO (**#11853**):
+
+| Card | O que é | Status |
+|---|---|---|
+| [#12813](https://dev.azure.com/GrupoAvenida/409b9844-c75c-4e46-8a4d-17e4c455ca1b/_workitems/edit/12813) | Levantamento e documentação técnica | Refinement — Kovalski diz que já terminou (28/08), mas ainda não formalizado no ADO (0 comentários) |
+| [#12814](https://dev.azure.com/GrupoAvenida/409b9844-c75c-4e46-8a4d-17e4c455ca1b/_workitems/edit/12814) | Implementação | **Dev Review** — PR já aberto pro Spin (27-28/08) |
+
+**Risco de processo:** Kovalski descreveu o próprio fluxo de aprovação do PR como "eu faço, eu valido e eu aprovo" — sem segunda revisão. Vale considerar pedir revisão de outro dev antes de mesclar.
 
 ### 2. Performance de Indicadores [SIGA] — bloqueado, precisa ser refeito
 
