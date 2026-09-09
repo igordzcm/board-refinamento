@@ -5,11 +5,13 @@ Paste these into `mcp__ado__wit_work_item_write` (`format: "Html"`) and fill the
 ## Description
 
 ```html
-<p><strong>Como</strong> [persona]<br><strong>Quero</strong> [ação/capacidade]<br><strong>Para que</strong> [benefício/valor]</p>
+<p><strong>Eu, enquanto</strong> [persona]<br><strong>poderia/gostaria/devo</strong> [necessidade — a capacidade que a persona precisa, nunca a solução/tela já decidida]<br><strong>para/tal que/por que</strong> [benefício/valor]</p>
 <h3>Descrição</h3>
 <p>[contexto: o que existe hoje, o que motiva a mudança, referências a cards/comentários que embasam o escopo]</p>
 <p><strong>Nota técnica:</strong> [se houver padrão existente no código, cite arquivo/serviço exato — se buscou e não achou, diga isso explicitamente e onde procurou, sem inventar]</p>
 ```
+
+Pick whichever of poderia/gostaria/devo and para/tal que/por que fits the sentence — they're alternatives, not all three at once. Test before closing the "want" clause: does it name a capability (good) or a UI element like "um modal"/"uma tela" (rewrite it — that's the solution, not the need).
 
 If part of the scope is explicitly out, say so in its own line — don't let it live only in your head:
 
@@ -42,7 +44,8 @@ Always close with a failure/edge-case scenario when the story involves any async
 [ ] Li o card e confirmei o formato do campo (HTML vs Markdown) via multilineFieldsFormat
 [ ] Li todos os comentários — Danilo (QA) em particular — e incorporei o que for relevante na AC
 [ ] Busquei padrão técnico existente no repo (search_code / repo_file) antes de citar "já existe" — cito arquivo real ou registro busca sem resultado
-[ ] Story em Como/Quero/Para que + Cenários em Dado/Quando/Então
+[ ] Story em Eu-enquanto-poderia/gostaria/devo-para/tal/por que + Cenários em Dado/Quando/Então
+[ ] O "quero" da story é uma necessidade (capacidade), não uma solução/tela já decidida
 [ ] Cada cenário tem "Verificável por [rótulo]"
 [ ] Vinculei formalmente: parent epic + related (telas, bugs, dependências) — não só menção em texto
 [ ] Re-busquei o card depois de qualquer link_write pra confirmar que Description não foi truncada

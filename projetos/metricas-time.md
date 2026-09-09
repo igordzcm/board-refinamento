@@ -61,6 +61,76 @@ Recalcular periodicamente (sugestão: mensal) pra ter uma série histórica de v
 
 ---
 
+## Lead time: antes vs. depois de sprints reais (2025 vs. 2026)
+
+> Cálculo de **09/09/2026**, sob pedido do Igor, pra responder se o lead time melhorou depois que o time passou a rodar sprints de verdade (cerimônias reais de planning/review/retro com compromisso por sprint), a partir do início de 2026 — contra 2025 como baseline "antes" (cards existiam, mas sprint não era uma cadência real). **Definição usada nos dois lados, pra ficar comparável: primeira transição pra `Doing` → primeira transição pra `Accepted`** (mesma definição atual da seção de Lead Time acima), via histórico de revisão (`wit_work_item` `list_revisions`, um item por vez).
+
+### ⚠️ Achado que muda o desenho do cálculo: `Accepted` não existia como estado no início de 2025
+
+Antes de amostrar, testei alguns itens de janeiro–maio/2025 pra validar o método. Nenhum deles jamais passou pelo estado `Accepted` — o fluxo era `Doing` → (`Dev Box`/`Dev Review`/`In Test` etc.) → `Done` direto, sem o degrau de `Accepted` que existe hoje. Isso não é ausência de dado: é o **processo em si sendo diferente** — o board não tinha esse estado no fluxo de trabalho ainda. Primeira ocorrência de `Accepted` encontrada na amostra: um item criado em 26/06/2025 e aceito em 02/09/2025. Itens criados/trabalhados antes disso (checados: #7088, #7244, #7175, #7531, #6647, #6954, #7542, #7179, #7331) **não têm como render um lead time Doing→Accepted** — não é que o dado esteja ruim, é que a pergunta não se aplica a eles.
+
+**Por isso, o lado "antes" (2025) teve que ser restrito ao segundo semestre de 2025 (jul–dez)**, que é a janela em que `Accepted` já aparece nas transições. Comparar o ano inteiro de 2025 contra 2026 sob essa definição não é possível sem misturar processos diferentes — e isso já é, por si, uma parte da resposta pro Igor (o processo mudou mais de uma vez, não só na virada do ano).
+
+### Outras ressalvas de método descobertas durante a amostragem
+
+1. **Nem todo item passa por `Accepted`, nem em 2025 H2 nem em 2026.** Tasks parecem estruturalmente pular esse estado (vão direto `Doing`→`Done`) nos dois períodos. E mesmo fora de Tasks, alguns itens individuais pulam `Accepted` mesmo em 2026 (ex: #10766, Nonfunctional Item, fechado em 27/05/2026 sem nunca passar por `Accepted`). Por isso a amostra teve que excluir `Task` e `Epic` do universo de candidatos, e ainda assim uma fração dos itens amostrados não serviu (ver contagens abaixo) — não descartados silenciosamente, listados na íntegra.
+2. **`list_revisions` parece limitar a ~50 revisões por item.** Dois itens de alto churn na amostra 2025 H2 (#8894, #8783) tiveram o histórico cortado antes de chegar no estado final, mesmo constando como `Done`/`Verified` no estado atual — excluídos da amostra por falta de dado, não classificados como "sem Accepted".
+3. **Contaminação de fronteira no lado 2026:** a população "depois" foi selecionada por `ClosedDate` em 2026, mas pelo menos um item da amostra (#10258) teve a transição `Doing`→`Accepted` inteira em nov–dez/2025, antes do corte que o Igor definiu ("início do ano"). Ou seja, o lado "2026" não é 100% trabalho pós-cutover — tem alguma mistura residual de trabalho iniciado antes.
+4. **Rajadas de transição continuam presentes nos dois períodos** (mesmo padrão já documentado na seção de Lead Time acima) — ex: #10069 (2025) tem `Doing`→`Accepted` de **41 minutos** porque as 5 transições finais (Dev Review→In Test→Verified→Accepted→Done) aconteceram todas dentro do mesmo segundo, claramente processamento retroativo em lote, não trabalho real cronometrado. Isso está na amostra porque é um dado real do sistema, mas não representa tempo de trabalho de verdade.
+
+### Amostragem
+
+Nenhum dos dois lados foi calculado com a população inteira — inviável em uma rodada (centenas de chamadas de `list_revisions`, uma por item, sem endpoint em lote). Amostragem sistemática (todo N-ésimo item de uma lista ordenada por `ClosedDate`) sobre os candidatos filtrados por `WorkItemType NOT IN ('Task','Epic')` e estado final em `Accepted`/`Verified`/`Done`/`Closed`:
+
+| Lado | População candidata (não-Task/Epic) | Itens examinados em detalhe | Válidos (Doing→Accepted calculável) | Sem Accepted / sem Doing (não se aplica) | Truncados (limite de revisão) |
+|---|---|---|---|---|---|
+| **2025 H2** (jul–dez) | 153 | 15 | 10 | 3 | 2 |
+| **2026** (jan–09/09, todo o ano corrente) | 476 | 15 | 9 válidos + **1 outlier** (>60d) | 4 | 0 |
+
+(Itens de jan–jun/2025 examinados à parte — 8 itens, todos sem `Accepted` — serviram só pra confirmar o achado da seção anterior, não entram nessas contagens.)
+
+### Números
+
+| Métrica | 2025 H2 (n=10) | 2026 (n=9, sem outlier) |
+|---|---|---|
+| Mediana | **8,9 dias** | **15,3 dias** |
+| Média | 14,5 dias | 23,3 dias |
+| Mínimo | 0,03 dias (rajada, ver ressalva 4) | 11,0 dias |
+| Máximo (excl. outlier) | 20,1 dias | 48,3 dias |
+
+**Outliers explícitos (>60 dias):**
+
+| ID | Lado | Tipo | Lead time | Título |
+|---|---|---|---|---|
+| [#10546](https://dev.azure.com/GrupoAvenida/409b9844-c75c-4e46-8a4d-17e4c455ca1b/_workitems/edit/10546) | 2026 | Nonfunctional Item | 125,0 dias | Infra Docker Retaguarda |
+
+**Caso limítrofe sinalizado (não excluído formalmente, mas com ressalva forte):**
+
+| ID | Lado | Tipo | Lead time | Nota |
+|---|---|---|---|---|
+| [#8704](https://dev.azure.com/GrupoAvenida/409b9844-c75c-4e46-8a4d-17e4c455ca1b/_workitems/edit/8704) | 2025 H2 | Nonfunctional Item | 57,3 dias | Histórico do item mostra um "Done" aparecendo *antes* de um "Doing" logo no início da revisão — sinal de item reaproveitado/tipo trocado no meio do caminho, não um ciclo de trabalho limpo. Mantido no cálculo porque passa no limiar formal de 60 dias, mas não é um dado confiável. |
+
+### Veredito honesto: a comparação não sustenta uma conclusão de direção
+
+**Não dá pra afirmar que o lead time melhorou depois dos sprints reais — e, pelos números brutos coletados, a direção sugerida é até o contrário (mediana e média maiores em 2026 do que no 2025 H2).** Mas essa leitura também não é confiável o suficiente pra virar conclusão, pelos mesmos motivos listados acima:
+
+- Amostra pequena dos dois lados (n=9–10) — qualquer outlier ou rajada muda a mediana visivelmente.
+- O lado "2025" só pôde ser calculado pro segundo semestre, porque o próprio processo (existência do estado `Accepted`) mudou no meio do ano — então "2025 H2" já é, em si, um período de transição, não um "antes" limpo.
+- O lado "2026" tem contaminação residual de itens iniciados antes do cutover.
+- Rajadas de transição em lote (like #10069, 41 minutos) inflam artificialmente a contagem de itens "rápidos" nos dois lados, sem representar trabalho real.
+
+**Recomendação pro Igor:** se uma resposta precisa for necessária, vale considerar (a) rodar essa mesma amostragem em escala maior (populações inteiras, não amostra — o que significa varrer as ~150–480 chamadas de revisão por lado, uma decisão de custo vs. precisão que cabe a ele autorizar), ou (b) aceitar que uma comparação limpa "antes vs. depois" sob a definição Doing→Accepted não é totalmente viável pra 2025 inteiro, e usar só 2025 H2 como baseline sabendo que já é um período de transição de processo. Não decidi nenhuma dessas duas coisas unilateralmente — é uma escolha de escopo/custo que cabe ao Igor.
+
+### Como recalcular (se quiser ampliar a amostra ou rodar de novo)
+
+1. WIQL por lado, igual à seção de Lead Time acima, mas com `AND [System.WorkItemType] NOT IN ('Task','Epic')` — Tasks e Epics estruturalmente não passam por `Accepted` nos dois períodos, então incluí-los só infla a contagem de "não se aplica" sem agregar dado útil.
+2. Pra 2025, restringir a janela a partir de ~01/06/2025 (`ClosedDate`) — antes disso o estado `Accepted` não aparece nas revisões testadas.
+3. Amostragem sistemática (todo N-ésimo item da lista ordenada por `ClosedDate`) se a população candidata for grande — documentar N e o tamanho da população, como nesta rodada.
+4. Por item, `list_revisions`: achar a primeira ocorrência de `Doing` e a primeira ocorrência de `Accepted`. Se `Accepted` nunca aparecer, ou se `Doing` nunca aparecer, excluir e contar à parte (não é outlier, é "não se aplica"). Se a última revisão retornada for a de número 50, tratar como truncada (limite do endpoint), não como "sem Accepted".
+5. Checar rajadas: se `Doing`→`Accepted` for questão de minutos e as revisões ao redor tiverem timestamps quase idênticos, sinalizar como possível processamento em lote antes de usar o número como "rápido de verdade".
+
+---
+
 ## Effort entregue por sprint (velocidade do time)
 
 > Cálculo de **01/09/2026**, sob pedido do Igor. Campo usado: **`Microsoft.VSTS.Scheduling.Effort`** (não `StoryPoints` — confirmado checando o schema do tipo "Product Backlog Item" no projeto "Var Retaguarda"; é esse o campo que o time preenche). Itens considerados: Product Backlog Item com estado `Done`/`Verified`/`Accepted`/`Closed`, agrupados por `System.IterationPath` (sprint), não por `ClosedDate` — pelos mesmos motivos de rajada/lote descritos na seção de lead time acima.

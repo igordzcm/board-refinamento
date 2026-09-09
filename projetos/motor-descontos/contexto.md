@@ -22,20 +22,29 @@ A maior parte do escopo priorizado foi **entregue em 22/06/2026 sob responsabili
 
 Demais itens de backlog futuro (baixa prioridade, sem urgência confirmada por Arthur): combo entre departamentos inteiros, filtro por família na listagem de campanhas, relatórios de performance de campanhas, histórico consolidado com "duplicar campanha".
 
-## 🔴 Risco ativo (31/08) — job de duplicação desativado, sem reativação formal ainda
+## 🔴 Risco ativo (atualizado 04/09) — job de duplicação segue sem reativação formal + possível segunda ocorrência não confirmada
 
-**Leo desativou o envio pras lojas** depois de confirmar que o job estava duplicando descontos/cupons nas lojas — mitigação no ar desde a semana de 24/08. O mapeamento completo (o que mais desativar, o que reativar — inclui uma tabela "03" que precisa voltar) só fica formal na call de quarta-feira (02/09) com o Arthur, que também vai definir os próximos passos/escopo maior do épico (não só a US5).
+**Leo desativou o envio pras lojas** depois de confirmar que o job estava duplicando descontos/cupons nas lojas — mitigação no ar desde a semana de 24/08. **A call de 02/09 com o Arthur NÃO tratou desse assunto** (conferido pela transcrição — pauta real da call foi outra, ver ata). O mapeamento completo (o que mais desativar, o que reativar — inclui uma tabela "03" que precisa voltar) segue sem decisão formal. Precisa de um alinhamento à parte com Thalison/Fabio, não estava (e não foi) coberto pela call com o Arthur.
+
+**🆕 Cruzamento a verificar (01/09, digest VAR 3.0) — bug "desconto duplicado" redescoberto, sem card ainda.** Guilherme Caixeta trouxe de volta, na daily de VAR 3.0, um bug antigo de "desconto duplicado" do qual não achou task/card (Gustavo tampouco lembrava e decidiu abrir um card novo). **Não dá pra confirmar, só pelo conteúdo da transcrição, se é a mesma frente do job de duplicação acima ou um problema distinto**: pelo teor da conversa, o bug trazido pelo Caixeta parece ser do lado loja/PDV, enquanto o job desativado pelo Leo é do lado do job de propagação da Retaguarda — são pontos de falha diferentes na cadeia, então poderiam ser dois sintomas de uma mesma causa raiz (duplicação em algum ponto da propagação campanha→loja) ou dois bugs genuinamente independentes. Fonte: [`../dailies/2026-09-01-e-04-digest-var3.md`](../dailies/2026-09-01-e-04-digest-var3.md), seção "Bug 'desconto duplicado' redescoberto". **Ação:** checar isso assim que o novo card do Caixeta/Gustavo for criado, antes de tratar como a mesma coisa ou como problema novo.
 
 ## Bloqueios e pendências
 
-- **US5 (notificação às lojas) + próximas etapas**: escopo pendente de alinhamento Igor + Arthur, call confirmada pra **02/09** — não iniciar desenvolvimento antes dessa call.
-- **Job de duplicação de desconto/cupom**: desativado por precaução (Leo), reativação/correção definitiva depende da call de 02/09.
-- Destinatários do e-mail de criação de campanha (uso interno) — Arthur ainda precisa definir e passar a lista final (provisoriamente Igor + Arthur).
+- **Job de duplicação de desconto/cupom**: desativado por precaução (Leo), reativação/correção definitiva **ainda pendente** — não foi pauta da call de 02/09, precisa de alinhamento separado com Thalison/Fabio.
+- **US5 (notificação às lojas) + escopo maior do épico**: também não foi assunto da call de 02/09 (que girou em torno de usabilidade + pedidos pontuais do Arthur, ver ata) — segue sem decisão sobre destinatários por loja e sem prioridade confirmada frente aos novos itens levantados na call.
+- Destinatários do e-mail de criação de campanha (uso interno) — Arthur ainda precisa definir e passar a lista final (provisoriamente Igor + Arthur). Ligado ao item de e-mail levantado na call de 02/09 (assunto/conteúdo incorretos) — tratar junto.
 - Interface de gerenciamento de destinatários no portal (evitar depender de deploy para alterar a lista) — pedido de Taunay, sem prioridade confirmada.
+- **Novo, da call de 02/09** — retornos que o Igor deve ao Arthur por mensagem: se corrigir o lado do VAR pra campanhas de departamento já está no planejamento; viabilidade de um cancelamento real de campanha, futura e ativa (falar com Fabio); viabilidade de editar lojas de uma campanha global ativa (falar com Kauã/Fabio); e viabilidade de cadastro em nível SKU (falar com Spin/Diego — TAP já existe do lado do Arthur).
 
-## Arquitetura de propagação (atualizado 01/09) — Retaguarda não propaga mais direto pra loja
+## Arquitetura de propagação (confirmado 02/09) — Retaguarda não propaga mais direto pra loja
 
-Confirmado pelo Igor: a Retaguarda só grava campanha/desconto no banco da Retaguarda (card #12405, Leonardo — já Ready for Dev). Quem propaga pra loja, de acordo com a necessidade, é **Thalison (time de DB)** — não é mais responsabilidade da Retaguarda. Arthur ainda não sabia dessa mudança; Igor vai explicar na call de 02/09.
+A Retaguarda só grava campanha/desconto no banco da Retaguarda (card #12405, Leonardo — já Ready for Dev). Quem propaga pra loja, de acordo com a necessidade, é **Thalison (time de DB)** — não é mais responsabilidade da Retaguarda. Igor explicou a mudança pro Arthur na call de 02/09; Arthur confirmou que, nas últimas semanas, não viu mais o erro de "combo não passa" pra loja. **Ponto fechado.**
+
+## Backlog novo, levantado na call de 02/09
+
+- **Pronto pra fila de dev, sem dependência externa:** permitir campanha/combo com 1 item só (hoje mínimo 2); corrigir e-mails de notificação (assunto/conteúdo/destinatários).
+- **Direção futura, depende de TAP formal + aprovação do Diego:** criação de campanha por departamento + itens específicos (gatilho: Dia das Crianças); cadastro em nível SKU (projeto do Arthur, TAP já aberta); novos tipos de mecânica de campanha (desconto progressivo, cupom nominal — depende também do PDV/VAR).
+- Detalhe completo na ata: [2026-09-02-call-arthur.md](2026-09-02-call-arthur.md).
 
 ## Atividade recente (11–13/08/2026, via dailies)
 
@@ -44,8 +53,9 @@ Confirmado pelo Igor: a Retaguarda só grava campanha/desconto no banco da Retag
 
 ## Reuniões
 
-- **02/09/2026 — Igor + Arthur.** Pauta enxuta: (1) Igor explica a mudança de arquitetura de propagação (Retaguarda só grava no banco, Thalison/DB propaga pra loja); (2) conversa aberta sobre melhorias no sistema e próximos passos. Pauta completa em [pauta-call-arthur-2026-09-02.md](pauta-call-arthur-2026-09-02.md).
+- **02/09/2026 — Igor + Arthur. Realizada.** Cobriu: confirmação da correção de propagação, dificuldades de uso em campanhas grandes, pedido de combo com 1 item, e-mails de notificação incorretos, e uma dúvida técnica do Arthur sobre cadastro em nível SKU. **Não cobriu** US5 (notificação às lojas) nem a reativação do job de duplicação — ambos seguem em aberto. Ata completa em [2026-09-02-call-arthur.md](2026-09-02-call-arthur.md); resumo pra gestores em [2026-09-02-call-arthur-resumo-executivo.md](2026-09-02-call-arthur-resumo-executivo.md).
 
 ## Próxima atualização
 
-Preencher aqui depois da call entre Igor e Arthur sobre o escopo da US5 (notificação às lojas): quais destinatários por loja, se entra como Fase 2 ou Fase 3, e se algum item do backlog futuro (combo entre departamentos, relatórios de performance) ganhou prioridade.
+- Igor confirmar com Fabio/Kauã/Spin os pontos em aberto da call de 02/09 (ver "Bloqueios e pendências") e criar os cards dos 2 itens já prontos pra dev.
+- Agendar/alinhar separadamente a reativação do job de duplicação (Thalison/Fabio) e o escopo da US5 — nenhum dos dois tem data marcada.

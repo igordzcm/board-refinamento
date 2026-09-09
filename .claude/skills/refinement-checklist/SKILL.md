@@ -43,7 +43,7 @@ The standard this workspace runs on every backlog item touched, so a card reache
 1. Read the card as it stands (title, description, AC, current state/column).
 2. Read every comment on the card — **Danilo's comments are QA feedback and almost always mean "the AC needs to change," not "note for later."**
 3. Check technical/infra context: is there an existing pattern in the codebase this should reuse? Search it — don't assume.
-4. Write the Story (Como/Quero/Para que) + Cenários (Dado/Quando/Então) in the house format.
+4. Write the Story (Eu-enquanto-poderia/gostaria/devo-para/tal/por que) + Cenários (Dado/Quando/Então) in the house format.
 5. Label how each scenario is verified.
 6. Link formally in Azure DevOps: parent epic, related screens/cards, prior bug references.
 7. Fill the estimate, or name explicitly who needs to and why it's not you.
@@ -79,8 +79,10 @@ Before writing AC that assumes a mechanism exists ("processed via worker," "reus
 - **Not found:** say so explicitly in the card, and say what you searched (repos, keywords). Never invent a plausible-sounding file path or service name to fill the gap — a fabricated reference is worse than no reference, because it sends the developer hunting for something that doesn't exist. Flag it as a pendency for the tech lead to point to the real one.
 
 **Mandatory for bug fixes and sustentação cards (added 2026-08-13, gap found on #12507):** any card whose deliverable is a correction to existing behavior — bug fix, data-correction, sustentação — must get the technical suggestion written to the card in **two places, both required, every time:**
-1. A comment on the work item (`mcp__azure-devops__wit_work_item_comment_write`) with the full finding — file paths, what was checked, the reasoning.
-2. A **leaner** version folded into the card's Description itself (`mcp__azure-devops__wit_work_item_write`, a short "Nota técnica" section) — a couple of sentences naming the file(s)/screen and the likely fix point, not the full investigation narrative. The Description is what a developer opens first; a finding that only lives in a comment thread is easy to miss.
+1. A comment on the work item (`mcp__ado__wit_work_item_comment_write`) with the full finding — file paths, what was checked, the reasoning.
+2. A **leaner** version folded into the card's Description itself (`mcp__ado__wit_work_item_write`, a short "Nota técnica" section) — a couple of sentences naming the file(s)/screen and the likely fix point, not the full investigation narrative. The Description is what a developer opens first; a finding that only lives in a comment thread is easy to miss.
+
+**Comment format — always `format: "Markdown"` (added 2026-09-04, gap found on #12437 and 11 other comments across #12902-#12906/#12178/#12890 the same day):** `wit_work_item_write` fields (Description, AcceptanceCriteria) genuinely render `format: "Html"` correctly — that's the right choice there. But this org's work-item **comment** control renders Markdown, not HTML, regardless of what format value the API accepts — sending HTML tags (even entity-escaped) to a comment shows the literal tags/entities as visible text to the reader, not rendered formatting. Always call `wit_work_item_comment_write` with `format: "Markdown"` and actual Markdown syntax (`**bold**`, `` `code` ``, `- ` bullet lists) — never HTML tags — regardless of what format Description/AC use on the same card. If you ever see a comment render as raw tags/entities in a screenshot or a user report, that's this bug — fix by re-issuing the comment via the `update` action with `format: "Markdown"` and plain Markdown text.
 
 A local board/session note alone is never enough — both of the above must land on the actual Azure DevOps card. At minimum, both must name **where the fix will happen** — the exact file (backend) or screen/component (frontend) — even if you can't pin down the precise root cause. Grep the local repo clones for the field/table/function named in the bug report (e.g. a PRO0xx column, a service method) before concluding "not found." When you can trace the actual data path (e.g. confirming a value is passed through unchanged with no transformation, across create/update/persist), say so — that's more valuable to the dev than a guess at the fix, and often reframes the bug (see #12507: not a wrong formula, but a missing one, across three call sites). Skip this only when there's truly no plausible codebase to search (e.g. a pure content/business-rule card).
 
@@ -99,13 +101,18 @@ Also worth a look, when relevant to the story: which repo/module owns this scree
 
 This project uses **Cenário + Dado/Quando/Então** (Portuguese Given-When-Then), not the English GWT template from `agile-product-owner` — match the existing convention on the board, don't introduce a second format.
 
+**Story template (changed 2026-09-02 — this replaces the old Como/Quero/Para que):**
+
 ```html
-<p><strong>Como</strong> [persona]<br>
-<strong>Quero</strong> [ação/capacidade]<br>
-<strong>Para que</strong> [benefício/valor]</p>
+<p><strong>Eu, enquanto</strong> [persona]<br>
+<strong>poderia/gostaria/devo</strong> [necessidade]<br>
+<strong>para/tal que/por que</strong> [benefício/valor]</p>
 <h3>Descrição</h3>
 <p>[contexto, motivação, referências a cards relacionados]</p>
 ```
+
+- Pick whichever of **poderia/gostaria/devo** and **para/tal que/por que** reads most naturally for the specific persona/need — they're alternatives for the same slot, not a stack to include all three.
+- **The middle slot is always the need/capability, never the solution.** Write "poderia fazer pagamentos para minha equipe," not "gostaria de um modal que abre o pagamento" — a modal, a dedicated screen, or a multi-step flow are all implementation choices that belong downstream (in the technical note or the dev's own judgment), not baked into the story. If the "want" clause names a specific UI element/component instead of a capability the persona needs, that's a sign the solution was decided too early — rewrite toward the actual need before moving on.
 
 ```html
 <div>
@@ -152,18 +159,13 @@ Mentioning a related card by `#ID` in prose is not the same as linking it. Use `
 
 ---
 
-## 7. Estimate, or name who does
+## 7. Estimate — always propose a Fibonacci number
 
-Default rule: never invent a story-point number to make a card look complete — an estimate is the technical team's call, not the PO's.
-
-**Standing temporary override (added 2026-08-12, revisit ~2026-11):** the user asked for a deliberate, temporary exception — propose a Fibonacci estimate via the `agile-product-owner` skill's relative-sizing framework instead of leaving the field blank, for cards that are otherwise ready (story+scenarios written, not "Precisa refinar"). While this override is active:
-- Write the proposed number into the card's Effort field, **and** leave a comment framing it explicitly as a PO-proposed estimate pending tech-team confirmation — never present a PO guess as if the team already sized it.
-- Still don't back-fill an estimate on a card whose content isn't written yet — sizing empty scope is guessing, not relative sizing.
-- The override was scoped to expire ~3 sprints after 2026-08-12 — if you're well past that, flag it and ask the user whether to keep proposing estimates, revert to the default rule below, or adopt something else.
-
-If the override isn't active (expired, or not confirmed for the session you're in), fall back to the default rule:
-- Note explicitly in the card who needs to size it (usually the tech lead/dev who'll pick it up) and why it's pending (e.g. "escopo pequeno, mas fica a critério do time técnico").
-- A card with everything else done and only the estimate outstanding still belongs in "Quase pronto," not "100% pronto" — the board is honest about this, keep it that way.
+**Standing house rule (made permanent 2026-09-04 — this is no longer a temporary override, do this every time, on every card and every agent that touches estimation):** for any card that's otherwise ready (story+scenarios written, not "Precisa refinar"), always propose a Fibonacci estimate (1, 2, 3, 5, 8, 13...) via the `agile-product-owner` skill's relative-sizing framework instead of leaving the field blank or naming an owner to size it later. This applies whether you're refining an existing card or authoring a brand-new one (e.g. cards created from an incident write-up or a requirements-gathering note) — fill Effort at creation time, don't leave it for a follow-up pass.
+- Write the proposed number into the card's Effort field (`Microsoft.VSTS.Scheduling.Effort`), **and** leave a comment framing it explicitly as a PO-proposed estimate pending tech-team confirmation — never present a PO guess as if the team already sized it.
+- Size by comparison to similar past cards when you have one (e.g. "comparable to #12511, same leva") — say so in the comment. Absent a direct comparable, size by risk/scope as stated in the card itself (config-only and reversible → small; touches a contract, deploy, or a queue → larger).
+- Still don't back-fill an estimate on a card whose content isn't written yet — sizing empty scope is guessing, not relative sizing. That's the only case where you instead name explicitly who needs to size it and why it's pending.
+- A card can still move to "Ready for Dev" carrying a PO-proposed (not yet tech-confirmed) estimate — that's the point of proposing instead of blocking on it. Don't treat "pending tech confirmation" as a reason to hold the card in "Quase pronto".
 
 ---
 
@@ -185,8 +187,10 @@ Three artifact types, three chips, three trigger conditions. None of them are pa
 
 **Mandatory check for interface-generation cards (added 2026-08-12, gap found on #11813):** if the card's deliverable is a new or meaningfully-changed **screen** — title/description says "gerar/criar/implementar interface," "tela de gerenciamento," "tela de configuração," a new CRUD view, or similar — test #3 above must be run and its outcome **explicitly recorded**, the same way a skipped flowchart gets a recorded "não é necessário porque X" instead of just silently not appearing. Do not let this fall out through option 4's catch-all by default; option 4 requires actively confirming the layout has no genuine ambiguity (e.g. a single trivial label swap), not just "the AC scenarios exist." A list+add+remove management screen (#11813 is the case that surfaced this) almost always clears the bar for #3 — there's a real layout question (where does the list live, what does the add form look like, where does the validation error show) that prose alone leaves to the developer to invent. Record the decision in the card's Description/AC or a comment, and reflect it on the board (`board-refinamento.html`) either as a 🏷️ Mock chip + link, or as an explicit "Sugestão (não bloqueia): mock não necessário — [razão]" note — never as silence.
 
-**Mechanics once you decide to build one:**
-- Invoke the matching skill (`senior-architect` or `process-mapper`), or build the mock as a self-contained Artifact per `artifact-design`.
+**Mandatory checkpoint before building a 🏷️ Mock (added 2026-09-04 — hit on #12793, a mock was published without asking first):** deciding a mock is warranted (test #3 above) is not the same as being cleared to build it. **Never build/publish a mock Artifact without asking Igor first** — confirm he wants one built now, and give him the chance to describe how the screen should look/behave before you design it. This applies even when the decision test clearly says "yes, build one" — record that decision in the card as usual, but stop and ask before actually producing the mock. This checkpoint is specific to 🏷️ Mock; it does not apply to the 🧭 Técnico/Processo flowcharts, which you can still build directly once the decision test says yes.
+
+**Mechanics once Igor confirms a mock should be built:**
+- Invoke the matching skill (`senior-architect` or `process-mapper` — these two don't need the checkpoint above), or build the mock as a self-contained Artifact per `artifact-design`, incorporating whatever description Igor gave of how the screen should work.
 - Publish via the `Artifact` tool, then link it in **both** places: the Azure DevOps card (as an external link in the Description or a comment) and the board (`board-refinamento.html` — add the chip to the `.chips` row and an `<a class="ext">` link in the modal).
 - Don't touch a card's existing flowchart/mock decision when re-syncing the board unless the underlying card content changed — re-litigating "should this have a diagram" on every sync is wasted motion.
 

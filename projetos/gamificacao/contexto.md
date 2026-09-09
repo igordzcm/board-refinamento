@@ -55,7 +55,11 @@ Todos são bloqueios externos reais, não just falta de capacidade de dev — ma
 
 ## Reuniões
 
-Nenhuma reunião registrada ainda.
+- **02/09/2026 — Demo/homologação pro CRM (Ana Carina Araujo Souza e Marcos Eidi Yonamine), conduzida por Ozéias com apoio do Kauã.** Ata completa em [2026-09-02-demo-crm-ana-marcos.md](2026-09-02-demo-crm-ana-marcos.md). Mostrou o fluxo completo (cadastro de campanha + experiência do cliente final). Pontos levantados:
+  - **2 bugs achados ao vivo:** (1) acesso de homologação ao banco bloqueado — travou a demo por ~5-10min até o Alisson (infra) resolver; (2) editar rótulo/valor de símbolo no cadastro do caça-níquel quebra a tela de configuração (reproduzido ao vivo, não investigado a fundo ainda).
+  - **Discussão sobre remover a validação de "campanha ativa por tipo"** — hoje só permite 1 campanha ativa por jogo; CRM validou a ideia de permitir várias campanhas simultâneas segmentadas por CPF/loja/valor, mas **não é decisão 100% fechada tecnicamente** (Ozéias anotou pra validar depois).
+  - **Decisões pendentes:** banner customizável por campanha (Ana se inclinou a favor, não fechado) e um novo campo "nome da campanha pro cliente" (separar nome interno do nome exibido ao cliente — a implementar).
+  - **Meta informal de go-live: até o final de setembro/2026** — no lançamento, este portal substitui tanto o "Chute ao Gol" quanto a "Roleta" atuais (link da roleta atual ganha redirect; chute ao gol é descontinuado). Destacada como mais simples por não depender de nenhuma mudança no VAR.
 
 ## Próxima atualização
 

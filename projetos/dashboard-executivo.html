@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dashboard Executivo — GAV · 31.08.2026</title>
+<title>Dashboard Executivo — GAV · 08.09.2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -182,8 +182,8 @@
       <h1>Dashboard <em>Executivo</em></h1>
     </div>
     <div class="meta">
-      <span class="date">31.08.2026</span>
-      Retaguarda Sprint 27 · VAR 3.0 · Tesouraria
+      <span class="date">08.09.2026</span>
+      Retaguarda Sprint 28 · VAR 3.0 · Tesouraria
     </div>
   </header>
 
@@ -191,11 +191,11 @@
     <div class="stat" style="--rail:var(--good)">
       <div class="label">Entregas</div>
       <div class="value">7</div>
-      <div class="caption">confirmadas 24–31/08</div>
+      <div class="caption">confirmadas 21–31/08</div>
     </div>
     <div class="stat" style="--rail:var(--accent)">
       <div class="label">Em Andamento</div>
-      <div class="value">9</div>
+      <div class="value">11</div>
       <div class="caption">frentes ativas</div>
     </div>
     <div class="stat" style="--rail:var(--crit)">
@@ -205,7 +205,7 @@
     </div>
     <div class="stat" style="--rail:var(--warn)">
       <div class="label">Riscos</div>
-      <div class="value">3</div>
+      <div class="value">2</div>
       <div class="caption">em monitoramento</div>
     </div>
   </div>
@@ -219,7 +219,7 @@
       <div class="blocker">
         <div class="tag">Fiscal · NFe · VAR</div>
         <div class="title">+5.000 notas rejeitadas pela Migrate (erro 297) — risco pro fechamento fiscal do mês</div>
-        <div class="desc">Achado em 21/08 por Franklin: suspeita de bug do lado da Migrate. Documentos antigos identificados como causa de trava no DocPay (achado por Donato/Ozéias) — pedido de limpeza pro Vini pra liberar as notas represadas. Sem confirmação de resolução total nas dailies até 28/08 — vale checagem direta com Franklin/Donato antes do fechamento fiscal do mês.</div>
+        <div class="desc"><strong>Problema:</strong> bug na Migrate trava a fila de pendentes por loja com documentos antigos, represando notas novas — 5.000+ rejeitadas, mais ~6.000 "mortas" acumuladas. <strong>Situação:</strong> Kovalski começou o levantamento técnico hoje (08/09). Sem reunião marcada, sem prazo.</div>
       </div>
       <div class="blocker">
         <div class="tag">SmileGo (NeuroTech) · VAR</div>
@@ -235,22 +235,22 @@
       <section class="card">
         <div class="card-head">
           <h2>✅ Entregas</h2>
-          <span class="count">7 nos últimos 7 dias · 17 anteriores</span>
+          <span class="count">7 entre 21–31/08 · 17 anteriores · nenhuma nova desde então</span>
         </div>
 
         <div class="squad-label">Retaguarda<span class="rule"></span></div>
         <div class="delivery-list">
           <div class="delivery">
             <div class="dot">✓</div>
-            <div><div class="title">Conciliação Fase 2 (módulo RH) — pronta, sobe pra produção na GMUD de hoje</div>
-            <div class="desc">Pacote completo de correções pós-validação com a área (parcela única auto-aprovada, CPF do gerente via responsável do caixa 99, envio ao RH só no fechamento com ciclo 20→19, prévia do ciclo aberto, contexto no modal individual) passou por QA completo com o Danilo e foi aceito em 31/08.</div></div>
-            <span class="pill">Prod hoje (GMUD)</span>
+            <div><div class="title">Conciliação Fase 2 (módulo RH) — em produção, funcionando</div>
+            <div class="desc">Foi pra produção na GMUD de 31/08. Pacote de correções pós-validação com a área (parcela única auto-aprovada, CPF do gerente, envio ao RH só no fechamento, prévia do ciclo aberto).</div></div>
+            <span class="pill">Em produção</span>
           </div>
           <div class="delivery">
             <div class="dot">✓</div>
-            <div><div class="title">Migração VarRet — testada, aprovada, sobe pra produção na GMUD de hoje</div>
-            <div class="desc">Exportações do lote 1 → worker+e-mail totalmente testadas e aprovadas. Sobe junto com a Conciliação Fase 2 na GMUD de 31/08.</div></div>
-            <span class="pill">Prod hoje (GMUD)</span>
+            <div><div class="title">Migração VarRet — em produção, funcionando</div>
+            <div class="desc">Foi pra produção junto com a Conciliação Fase 2 na GMUD de 31/08. Exportações do lote 1 → worker+e-mail.</div></div>
+            <span class="pill">Em produção</span>
           </div>
           <div class="delivery">
             <div class="dot">✓</div>
@@ -298,7 +298,7 @@
             </div>
             <div class="history-item">
               <div class="dot" style="width:16px;height:16px;font-size:10px">✓</div>
-              <div><div class="title">Migração VARRet — lote 1 e lote 2</div><div class="desc">Lote 1 entregue e testado; lote 2 finalizado 12/08, code review/QA. JB seguiu direto pro card de exportações lote 1 → worker+e-mail (#12484, em dev desde 17/08).</div></div>
+              <div><div class="title">Migração VARRet — lote 1 e lote 2</div><div class="desc">Lote 1 entregue e testado; lote 2 finalizado 12/08, code review/QA. JB seguiu direto pra exportação lote 1 → worker+e-mail (em dev desde 17/08).</div></div>
               <span class="pill">Prod</span>
             </div>
             <div class="history-item">
@@ -386,13 +386,13 @@
           <span class="count">curto e médio prazo</span>
         </div>
         <div class="milestones">
-          <div class="milestone today">
-            <div class="when">31.08<small>GMUD</small></div>
-            <div><div class="what">Conciliação Fase 2 (módulo RH) sobe pra produção</div><div class="sub">Pacote completo aceito no QA — parcela única, CPF do gerente, ciclo do RH, prévia, contexto no modal. Ver Entregas.</div></div>
+          <div class="milestone future">
+            <div class="when">09.09<small>Pesquisas Colab.</small></div>
+            <div><div class="what">Reunião com o RH (Thaís), 16h — aprovação do projeto</div><div class="sub">Igor leva uma estimativa inicial de esforço. Se aprovado, define escopo e prioridade formal do projeto.</div></div>
           </div>
-          <div class="milestone urgent">
-            <div class="when">02.09<small>Igor/Arthur</small></div>
-            <div><div class="what">Call sobre novas etapas do Motor de Descontos</div><div class="sub">Confirmada pra quarta-feira. Escopo ampliado além da US5 (notificação às lojas) — define os próximos passos do épico.</div></div>
+          <div class="milestone future">
+            <div class="when">14.09<small>VAR 4G</small></div>
+            <div><div class="what">Release do Tap on Phone + início do piloto</div><div class="sub">Confirmado por Gustavo (01/09 e reforçado 08/09), 10 dias corridos a partir de 01/09. Rebuild definitivo do fix do "acordo" pendente; regressão "537" recorreu no sábado e foi ajustada, mas sem causa raiz documentada — ver Riscos.</div></div>
           </div>
         </div>
       </section>
@@ -404,39 +404,44 @@
       <section class="card">
         <div class="card-head">
           <h2>🔄 Em Andamento</h2>
-          <span class="count">9 frentes</span>
+          <span class="count">11 frentes</span>
         </div>
         <div class="squad-label" style="padding-top:12px">Retaguarda<span class="rule"></span></div>
         <div class="progress-list">
           <div class="progress-item">
             <div class="progress-head"><span class="name">Dashboard CDs — paridade com a planilha da Maria<span class="owner">JB</span></span><span class="pct">90%</span></div>
             <div class="progress-track"><div class="progress-fill" style="width:90%;background:var(--good)"></div></div>
-            <div class="desc">JB: "acredito que já fiz quase tudo que tinha que ser feito" (27/08). Tentando marcar validação final com a Maria. Cards #12509–#12513 do board de refinamento ainda trazem chip de "planilha pendente" — desatualizado.</div>
+            <div class="desc">Trabalho quase concluído, falta validação final com a Maria.</div>
           </div>
           <div class="progress-item">
             <div class="progress-head"><span class="name">SIGA — Performance de Indicadores<span class="owner">Diego</span></span><span class="pct">30%</span></div>
             <div class="progress-track"><div class="progress-fill" style="width:30%;background:var(--accent)"></div></div>
-            <div class="desc">Reunião com a área de RH sobre performance de indicadores realizada (24/08) — realinhado como e quando retomar. Diego ainda dividindo tempo com a Conciliação Fase 2; falta criar o card formal em Ready for Dev.</div>
+            <div class="desc">Realinhado com RH (24/08) como e quando retomar. Diego ainda dividindo tempo com Conciliação Fase 2; falta criar o card formal em Ready for Dev.</div>
           </div>
           <div class="progress-item">
             <div class="progress-head"><span class="name">Gamificação Roleta 3.0<span class="owner">Kauã</span></span><span class="pct">80%</span></div>
             <div class="progress-track"><div class="progress-fill" style="width:80%;background:#6D28D9"></div></div>
-            <div class="desc">Painel administrativo no portal já subiu (28/08), com alguns bugs de auto-increment em investigação. Todos os cards T1–T10 avançaram pra QA/In Test no board. Plano é testar tudo de ponta a ponta na semana de 01/09.</div>
+            <div class="desc">Demo pro CRM (02/09) achou 2 bugs (acesso ao banco bloqueado; edição de símbolo quebra o cadastro do caça-níquel, ainda não corrigido). Pendente: remover trava de "campanha ativa por tipo", banner customizável. Meta: go-live fim de setembro, substituindo Chute ao Gol e Roleta.</div>
           </div>
           <div class="progress-item">
             <div class="progress-head"><span class="name">Automação de testes do portal (8 fases)<span class="owner">Fernando</span></span><span class="pct">90%</span></div>
             <div class="progress-track"><div class="progress-fill" style="width:90%;background:var(--good)"></div></div>
-            <div class="desc">Todas as 8 fases (Auth → CRM) concluídas; parte Playwright (E2E) quase finalizada, previsão de fechar até fim de agosto. Ver <code>referencias/roadmap-testes-portal-retaguarda.md</code>.</div>
+            <div class="desc">Desenvolvida, em fase de testes ponta a ponta.</div>
           </div>
           <div class="progress-item">
             <div class="progress-head"><span class="name">Ciacon — integração fechada, PR aberto pro Spin<span class="owner">Kovalski</span></span><span class="pct">75%</span></div>
             <div class="progress-track"><div class="progress-fill" style="width:75%;background:var(--accent)"></div></div>
-            <div class="desc">Engenharia reversa concluída (login segue padrão do Siga, mas com grupos diferentes); PR já aberto pro Spin. </div>
+            <div class="desc">Engenharia reversa concluída (login segue o padrão do Siga, grupos diferentes). PR aberto pro Spin.</div>
           </div>
           <div class="progress-item">
             <div class="progress-head"><span class="name">SSO SIGA — deploy bloqueado<span class="owner">Kovalski</span></span><span class="pct">60%</span></div>
             <div class="progress-track"><div class="progress-fill" style="width:60%;background:var(--warn)"></div></div>
-            <div class="desc">Novo ambiente pronto mas não subiu — Pablo (deploy) de férias, e a WAF bloqueou acessos por questão de contrato. Login middleware antigo (microsserviço próprio dentro do SIGA) foi eliminado.</div>
+            <div class="desc">Ambiente pronto, mas não subiu — Pablo (deploy) de férias, WAF bloqueou acesso por questão de contrato.</div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-head"><span class="name">Motor de Descontos — escopo do épico definido em call (campanhas)<span class="owner">Kauã · Léo · Fabio</span></span><span class="pct">Escopo definido, dev não iniciado</span></div>
+            <div class="progress-track"><div class="progress-fill" style="width:0%;background:var(--label)"></div></div>
+            <div class="desc">Novas funcionalidades definidas com o Fabio (08/09) e prontas pra entrar na esteira de desenvolvimento: botão de encerramento de campanha, duplicação de campanha pra lojas específicas, e reativação da criação por departamento (PRO013).</div>
           </div>
         </div>
 
@@ -445,17 +450,26 @@
           <div class="progress-item">
             <div class="progress-head"><span class="name">Tap on Phone (GetNet) + VAR 4G<span class="owner">Nicolas · Felipe · Walter</span></span><span class="pct">85%</span></div>
             <div class="progress-track"><div class="progress-fill" style="width:85%;background:var(--warn)"></div></div>
-            <div class="desc"><strong>Regrediu:</strong> retro de 28/08 achou problemas críticos novos de fatura e acordo — transações sendo canceladas com pagamentos ainda ativos. Times seguem em teste intenso, previsão de subir pras lojas na semana de 01/09 se estabilizar.</div>
+            <div class="desc">Bug do "acordo" corrigido via deploy emergencial (01/09), rebuild definitivo ainda pendente. Regressão "537" recorreu no sábado (06/09), ajustada mas sem causa raiz documentada. <strong>Release + piloto confirmados pra 14/09</strong> — 4 dias úteis restantes. Novo dev Diogo entra no lugar do Matheus Martins.</div>
           </div>
           <div class="progress-item">
             <div class="progress-head"><span class="name">Migração GeneXus → Java (Epic novo)<span class="owner">Walter · Moises · Jeferson</span></span><span class="pct">25%</span></div>
             <div class="progress-track"><div class="progress-fill" style="width:25%;background:var(--accent)"></div></div>
-            <div class="desc">Walter finalizou a documentação da migração e definiu a 1ª tarefa (tabela de Feature Flag) pro Jeferson. </div>
+            <div class="desc">Documentação finalizada, 1ª tarefa (Feature Flag) definida pro Jeferson. Não entra na release do piloto de 14/09 — prazo próprio.</div>
           </div>
           <div class="progress-item">
             <div class="progress-head"><span class="name">Overlimit (crédito na venda)<span class="owner">Caixeta</span></span><span class="pct">45%</span></div>
             <div class="progress-track"><div class="progress-fill" style="width:45%;background:var(--good)"></div></div>
-            <div class="desc">RPE liberou credenciais/webhooks — testes de endpoint em produção já começaram, apontando direto pro Kong sem precisar de credencial (31/08). Sai dos bloqueios críticos, segue como frente ativa.</div>
+            <div class="desc">RPE liberou credenciais/webhooks — testes em produção já começaram. Saiu dos bloqueios críticos.</div>
+          </div>
+        </div>
+
+        <div class="squad-label">Novas Iniciativas<span class="rule"></span></div>
+        <div class="progress-list">
+          <div class="progress-item">
+            <div class="progress-head"><span class="name">Pesquisas Colaboradores — novo projeto 🆕<span class="owner">Ozéias (TAP) · Diego Aoki (revisor)</span></span><span class="pct">Em levantamento</span></div>
+            <div class="progress-track"><div class="progress-fill" style="width:0%;background:var(--label)"></div></div>
+            <div class="desc">Ferramenta interna de pesquisas com colaboradores, substitui solução de mercado — integra Senior e Data Warehouse. Entrega faseada decidida: pesquisa comum → analytics → Jornada 90 Dias. Maior risco: baixa adesão de loja (sem e-mail pra cobrar). Gap técnico sem solução: provisionamento automático de acesso na contratação. Sem estimativa de custo/prazo ainda. <strong>Aprovação com o RH amanhã (09/09, 16h).</strong></div>
           </div>
         </div>
       </section>
@@ -463,14 +477,9 @@
       <section class="card">
         <div class="card-head">
           <h2>⚠️ Riscos em Monitoramento</h2>
-          <span class="count">3 itens</span>
+          <span class="count">2 itens</span>
         </div>
         <div class="risk-list">
-          <div class="risk">
-            <div class="badge">!</div>
-            <div><div class="title">Motor de Descontos — job de duplicação desativado, sem plano formal de reativação</div>
-            <div class="desc">Leo desativou o envio pras lojas depois de confirmar duplicação de descontos/cupons. Mitigação no ar, mas o mapeamento completo (o que mais desativar/reativar) só fica formal na reunião de quarta (02/09) com o Arthur.</div></div>
-          </div>
           <div class="risk">
             <div class="badge">!</div>
             <div><div class="title">GeneXus muda em paralelo à sua própria migração</div>
@@ -478,8 +487,8 @@
           </div>
           <div class="risk">
             <div class="badge">!</div>
-            <div><div class="title">Tap on Phone/4G — bugs críticos novos de fatura e acordo</div>
-            <div class="desc">Retro de 28/08: transações sendo canceladas com pagamentos ainda ativos. Squad inteiro dedicado a estabilizar antes do rollout pras lojas.</div></div>
+            <div><div class="title">Tap on Phone/4G — regressão "537" no Desconto de Gerente + rebuild pendente do fix do "acordo"</div>
+            <div class="desc">Causa raiz do bug do "acordo" (retro de 28/08) já encontrada e corrigida via deploy emergencial (01/09 à noite — schema de banco ausente na config do GeneXus); sem novo problema em prod até 04/09, mas o rebuild definitivo do <code>.ar</code> com o esquema correto ainda está pendente. <strong>Novo (01/09):</strong> regressão "537" no cálculo/gravação do Desconto de Gerente pós-deploy — causa raiz ainda sem confirmação fechada. <strong>Atualização (08/09):</strong> recorreu no sábado (06/09) e foi ajustada segundo o time, mas ainda sem causa raiz documentada — combinado fazer double-check na sexta sobre o que de fato está na release. Release/piloto do Tap on Phone confirmado pra <strong>14/09</strong>, com Gustavo (PO) reforçando hoje que restam 4 dias úteis pra fechar tudo.</div></div>
           </div>
         </div>
       </section>
@@ -488,8 +497,8 @@
   </div>
 
   <footer>
-    <span>Dashboard Executivo · Status de Projetos · GAV · Retaguarda Sprint 27 · VAR 3.0 · Tesouraria</span>
-    <span>Fontes: dailies Retaguarda 24–28/08 (5 sessões) · dailies VAR 24–28/08 (5 sessões) · Tesouraria 25/08 · Planning VAR 31/08 · Review/Retro VAR 28/08 · reunião área RH/Financeiro (Conciliação Fase 2) 25/08 · alinhamento interno 26/08 · card #12800/#12808-12812 (ADO, validação QA até 31/08) — ver <a href="prioridades-sprint.md" style="color:inherit">prioridades-sprint.md</a> pra pendências detalhadas (reuniões a ter, cards a criar/refinar)</span>
+    <span>Dashboard Executivo · Status de Projetos · GAV · Retaguarda Sprint 28 · VAR 3.0 · Tesouraria</span>
+    <span>Fontes: dailies Retaguarda 24–28/08 (5 sessões), 01+03/09 e 08/09 · dailies VAR 24–28/08 (5 sessões), 01+04/09 e 08/09 · Tesouraria 25/08 · Planning VAR 31/08 · Planning Retaguarda 02/09 · Review/Retro VAR 28/08 · demo Gamificação (CRM) 02/09 · call Motor de Descontos (Igor/Fabio/Kauã) 08/09 · call Pesquisas Colaboradores (Igor/Ozéias/Lacerda/Spin) 08/09 — alinhamento interno, reunião de validação com RH marcada pra 09/09 16h · reunião área RH/Financeiro (Conciliação Fase 2) 25/08 · alinhamento interno 26/08 · validação QA da Conciliação Fase 2 até 31/08 — ver <a href="prioridades-sprint.md" style="color:inherit">prioridades-sprint.md</a> pra pendências detalhadas (reuniões a ter, cards a criar/refinar)</span>
   </footer>
 
 </div>

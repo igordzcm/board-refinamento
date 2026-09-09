@@ -12,7 +12,15 @@ Dashboard consolidando dados de **WMS** e **BI** dos Centros de Distribuição (
 
 **JB (João Bernardo Ferreira Neto)** — depois de fechar a Migração VARRet (lote 2), volta pra esse projeto.
 
-## Status atual (27/08/2026)
+## Status atual (08/09/2026) — bloqueio da Maria persiste, padrão recorrente
+
+> Fonte: [`../dailies/2026-09-08-digest-retaguarda.md`](../dailies/2026-09-08-digest-retaguarda.md).
+
+JB trabalhou no PR do Diego (a revisar) e no "demonstrativo do caixa" — verificou o item de exportar Excel/PDF e concluiu que já está tudo correto, nada a fazer ali. **Segue sem conseguir falar com a Maria — "sumiu"** — vai tentar mandar mensagem hoje. Igor reforçou que quer ser incluído assim que a reunião com ela for marcada.
+
+Esse é o **mesmo bloqueio já registrado em 27/08 e 13/08** (planilha corrigida da Maria, abaixo) reaparecendo nas dailies de 01/09 (JB "terminou o que tinha, mas não conseguiu falar com a Maria de novo") e agora 08/09 — um padrão recorrente de falta de resposta, não um bloqueio pontual. Ver também [`../dailies/2026-09-01-e-03-digest-retaguarda.md`](../dailies/2026-09-01-e-03-digest-retaguarda.md).
+
+## Status anterior (27/08/2026)
 
 JB: "acredito que já fiz quase tudo que tinha que ser feito" — mapa do estoque encaminhado, ajustes visuais nos gráficos concluídos. Tentando marcar a validação final com a Maria pra fechar de vez.
 
@@ -72,7 +80,7 @@ Confirmado também (reunião de planejamento de sprint, 12/08, `../reviews-retro
 - **Dependência de dados "certinhos" pro cron job** — João Neto (06/04/2026): *"Falta os dados do WMS e BI certinho para fazer o cron job rodar corretamente. Assim que tiver o depara do BI pronto."* Como o WMS não mudou, essa dependência **segue de pé**; não foi endereçada na reunião de 12/08.
 - **#11973 sem definição técnica, e sem decisão sobre necessidade** — QA (Danilo) já apontou duas vezes que falta host/protocolo/credenciais/formato do FTP. A reunião de 12/08 não resolveu se o card ainda é necessário — fica pendente de uma conversa específica sobre esse ponto (não rolou espaço na pauta, que virou toda sobre paridade de planilha).
 - **#10814 — pendência de QA menor**: formatação de data após atualização (não trava, mas não confirmado como corrigido).
-- **Planilha atualizada ainda não recebida** — status 13/08 (via [`../dailies/2026-08-13-retaguarda.md`](../dailies/2026-08-13-retaguarda.md)): Maria respondeu ao Igor hoje de manhã que **ainda não enviou** — está esperando alguém da área dela responder com informações antes de mandar. Igor segue acompanhando com ela diretamente.
+- **Planilha atualizada ainda não recebida** — status 13/08 (via [`../dailies/2026-08-13-retaguarda.md`](../dailies/2026-08-13-retaguarda.md)): Maria respondeu ao Igor hoje de manhã que **ainda não enviou** — está esperando alguém da área dela responder com informações antes de mandar. Igor segue acompanhando com ela diretamente. **Ainda sem resposta em 08/09** (ver Status atual, topo do arquivo) — JB não conseguiu falar com ela de novo, "sumiu".
 
 ## Reuniões
 
@@ -80,4 +88,4 @@ Confirmado também (reunião de planejamento de sprint, 12/08, `../reviews-retro
 
 ## Próxima atualização
 
-Preencher aqui quando: (1) a planilha atualizada da Maria chegar no grupo (destrava o refino final de #12509-#12511), (2) o esboço/protótipo da Maria chegar (destrava #12513), (3) o Igor alinhar com o Sergio da Silva (destrava #12512), (4) alguém decidir com a Maria/JB se o #11973 (FTP) ainda é necessário — ponto que ficou pendente após a reunião de 12/08.
+Preencher aqui quando: (1) a planilha atualizada da Maria chegar no grupo (destrava o refino final de #12509-#12511), (2) o esboço/protótipo da Maria chegar (destrava #12513), (3) o Igor alinhar com o Sergio da Silva (destrava #12512), (4) alguém decidir com a Maria/JB se o #11973 (FTP) ainda é necessário — ponto que ficou pendente após a reunião de 12/08, (5) a Maria finalmente responder — vem se repetindo sem novidade desde pelo menos 13/08, confirmado de novo em 27/08, 01/09 e 08/09.

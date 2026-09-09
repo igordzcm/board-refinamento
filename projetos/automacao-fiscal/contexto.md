@@ -41,6 +41,12 @@ Ozéias está revisando ao vivo a lista de ~40 cards que o **Kovalski** mandou c
 
 **Prazo combinado:** Ozéias revisa a lista completa até **sexta-feira** (14/08) e confirma com Kovalski/Kauã/Léo o que segue válido em "Automação de Fluxo Fiscal".
 
+## Novo item de sustentação — call Vinicius (Migrate)/Leonardo, GNRE + filtro CFOP (⚠️ data não confirmada)
+
+> Fonte: [`call-vini-leonardo-gnre-cfop-data-incerta.md`](call-vini-leonardo-gnre-cfop-data-incerta.md). **A data desta call não está confirmada** — fragmento colado sem metadata, não cruzado com nenhuma das 6 transcrições `.docx` processadas na mesma rodada de digest. Arquivado aqui por GNRE/CFOP já aparecerem no backlog deste projeto (ver seção "Triagem de backlog" acima), não por confirmação de que é literalmente o mesmo backlog — mover se Igor identificar que pertence a outro projeto (ex.: Engine Fiscal, NFe/Migrate).
+
+Vinicius (Migrate) reportou dois problemas pro Leonardo (Retaguarda): um de **GNRE** (não detalhado no trecho disponível, Vini vai mandar evidências) e um **filtro de CFOP** que trava o processo do time do Vini. Leonardo classificou o bug de CFOP como simples ("é só colocar o filtro lá") e falou em deploy emergencial na quarta ou quinta **daquela semana** (indeterminada, dado a data não confirmada) — o item de GNRE ele ainda ia validar antes de comprometer prazo. **Sem confirmação, neste fragmento, de que o deploy realmente subiu.** Pendências extraídas: Vini enviar evidências do GNRE; Leonardo validar complexidade do GNRE; deploy do fix de CFOP (e possivelmente GNRE); Leonardo enviar planilha do que subiu/falta subir; e confirmar a data real da call.
+
 ## Reuniões
 
 - [`../reviews-retros-planning/2026-08-12-planejamento-sprint.md`](../reviews-retros-planning/2026-08-12-planejamento-sprint.md) — reunião de planejamento de sprint (transversal) onde a triagem do backlog começou.

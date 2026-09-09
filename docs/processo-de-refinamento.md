@@ -19,13 +19,19 @@ Um card com os 4 pontos ✓ é **100% pronto**. Com 1–2 gaps pequenos é **qua
 
 ## Formato da história
 
+**Atualizado 2026-09-02** — substitui o antigo formato Como/Quero/Para que:
+
 ```
-Como [persona],
-Eu quero [ação/capacidade],
-Para que [benefício/valor].
+Eu, enquanto [persona],
+poderia/gostaria/devo [necessidade],
+para/tal que/por que [benefício/valor].
 ```
 
-Persona real (ex: "operador de campanhas do Motor de Descontos"), nunca genérica tipo "usuário". O "para que" precisa articular o benefício — não basta repetir a ação.
+Use apenas uma das opções em cada slot (poderia OU gostaria OU devo; para que OU tal que OU por que) — o que soar mais natural pra frase, não as três juntas.
+
+Persona real (ex: "operador de campanhas do Motor de Descontos"), nunca genérica tipo "usuário". O "para/tal que/por que" precisa articular o benefício — não basta repetir a ação.
+
+**Regra central: o slot do meio é sempre a necessidade, nunca a solução.** Escreva "poderia fazer pagamentos para minha equipe", não "gostaria de um modal que abre o pagamento" — modal, tela dedicada, fluxo em etapas são decisões de solução que ficam pra depois (nota técnica, ou julgamento do próprio dev), não pra dentro da história. Se o "quero" nomeia um elemento de tela específico em vez de uma capacidade, é sinal de que a solução foi decidida cedo demais — reescreva em direção à necessidade real antes de seguir.
 
 ## Formato de critério de aceite
 
@@ -122,7 +128,7 @@ Antes de reescrever um card, liste os comentários existentes. Um comentário ti
 2. Rodar o checklist de 4 pontos.
 3. Se algo depende de decisão de negócio (teto de retry, política de erro, prioridade), perguntar ao PO — nunca inventar.
 4. Se algo depende de fato técnico verificável, e o código estiver disponível, investigar (respeitando a regra acima).
-5. Reescrever descrição (Como/Quero/Para que) e AC (Cenário + Dado/Quando/Então + rótulo de verificação).
+5. Reescrever descrição (Eu-enquanto-poderia/gostaria/devo-para/tal/por que, necessidade não solução) e AC (Cenário + Dado/Quando/Então + rótulo de verificação).
 6. Decidir e registrar a necessidade de fluxograma/mock (ver seções acima) — obrigatório checar e anotar quando o card entrega uma tela, mesmo se a decisão for "não precisa".
 7. Separar achados técnicos como "levantamento — sugestão", nunca misturados no AC.
 8. Registrar decisões e pendências como comentário no card (rastro auditável).

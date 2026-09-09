@@ -24,6 +24,23 @@ A card can be genuinely in-scope (Refinement/Ready for Dev) but sitting in the w
 
 Do not skip step 3 because the user's request only mentioned specific cards — new cards get created between board updates and won't surface any other way.
 
+## The "O que falta" gap-list holds only open pendencies — never a status log
+
+**Corrected 2026-09-04 (flagged on #12511 — the real blocker, the CD 83 spreadsheet dependency, was buried under 4 other bullets narrating history).** The `<ul class="gap-list">` in each modal exists to answer one question: *what's still blocking this card from "100% pronto"?* It is not a changelog. Every time you touch a card's gap-list, actively prune it down to that question — don't just append a new bullet on top of what's already there.
+
+**Refined 2026-09-04 — this isn't "pendencies only, nothing else ever."** A card can still carry a genuinely important point about the task or about the card's state in Azure (a real technical constraint, a decision that shapes scope, a risk worth flagging) — that's fine to keep. The rule is about **priority and subject, not a hard whitelist**: open needs/pendencies always come first and dominate the list, and everything else in it must still be about the task/card itself — never about *other subjects* like the mechanics of the board process. Concretely:
+
+**Never include, in the gap-list (this is "other subjects," not about the task):**
+- State/sprint transition narration ("Avançou de Refinement pra Ready for Dev", "Sprint 27 → Sprint 28") — ADO's own revision history already has this; it's about the board/ADO process, not about the task.
+- "Atualização da varredura de [data]" entries once the thing they announced is done (an assignee field getting populated, a reattribution "confirmed as saved," etc.) — that's sync bookkeeping, not a fact about the task. Fold it into the `meta` line (assignee/estimate/etc.) instead of leaving it as a dated bullet.
+- Estimate provenance/rationale ("comparável a #12507", "sizing relativo") once the number is filled — that belongs in the ADO card's own comment (already required by `refinement-checklist`), not repeated on the board. The one exception: if the estimate is *still* PO-proposed and pending tech confirmation, that pending confirmation itself is a legitimate open item — keep a single line for it, not the reasoning behind the number.
+
+**Do include, when genuinely relevant to the task, ordered after any open pendency:** a nota técnica or other card detail that's still useful for understanding scope/risk — not everything gets stripped, only things that are about board/sync mechanics rather than the task or the card's real content.
+
+**Ordering:** the actual open blocker(s) (external dependency, unresolved QA gap, missing decision) always lead the list, each as a single tight bullet naming who/what it's waiting on. If a card has zero open items left, lead with that fact plainly rather than implying something is still pending.
+
+When you re-sync a card whose gap-list has accumulated this kind of cruft from prior passes, clean it up as part of that pass even if the card's DoR status itself didn't change — don't just add on top of the mess.
+
 ## Applying the sweep results
 
 - **Card advanced out of scope**: remove its chip and modal entirely from the board. Note it in your report (don't just silently delete it).

@@ -16,6 +16,8 @@ BI e Configurações para o módulo de **Etiqueta Remarcados** no Portal da Reta
 
 **Nova frente adjacente (28/08, retro VAR 3.0):** o **Donato** está numa força-tarefa com o **Ozéias** no app de chão de loja (`app-remarcacao-preco`, "roda nos coletores de loja"), construindo uma **tela no portal Retaguarda pra acompanhar por etiqueta, com justificativas** — soa como escopo diretamente relacionado (ou sobreposto) ao módulo de BI/Configurações deste mesmo épico (#12428). Vale confirmar com o Donato se é frente nova dentro do mesmo épico ou trabalho paralelo a alinhar. **Não confundir com "Markdown / Remarcação de Preços"** (projeto do Victor+Hudá) — confirmado 28/08 que são projetos diferentes, mesmo com nomes parecidos.
 
+**Atualização 08/09 — Ozéias repassou o conteúdo, falta o Igor revisar antes de criar os cards.** Na daily de Retaguarda de 08/09, Igor relatou ter falado com o Ozéias na sexta (04/09): o Ozéias extraiu do WhatsApp toda a conversa que tiveram sobre remarcação, e Igor vai revisar esse material pra poder criar os cards. Fonte: [`../dailies/2026-09-08-digest-retaguarda.md`](../dailies/2026-09-08-digest-retaguarda.md). **A pergunta em aberto acima (mesmo épico #12428 ou trabalho paralelo) segue sem resposta** — o material repassado pelo Ozéias ainda não foi revisado por ninguém, então não há como confirmar até o Igor concluir essa revisão e os cards saírem.
+
 ## Card vigente e autoritativo: #12506
 
 **[#12506 — Tela de pendências no módulo de etiqueta remarcados](https://dev.azure.com/GrupoAvenida/409b9844-c75c-4e46-8a4d-17e4c455ca1b/_workitems/edit/12506)** — status **Verified** (era Doing/Sprint 26, atribuído a **Matheus Gabriel Donato Alves**, 21 pts). Reescrito em 12/08/2026 com um plano técnico N1/N2/N3 detalhado — **este card é a fonte de verdade atual do projeto**, superior a qualquer planejamento anterior.
@@ -69,4 +71,4 @@ Nenhuma reunião registrada ainda.
 
 ## Próxima atualização
 
-Preencher aqui após o Passo 0 do card #12506 (medições antes de escrever código de produção): tempo real das duas consultas do N1 combinadas, fração de `REMDTMOV` nulos, folga do teto de "itens no lote", e resultado do SELECT em `VW_ESTOQUE` com o usuário do VarDataSource.
+Preencher aqui após o Passo 0 do card #12506 (medições antes de escrever código de produção): tempo real das duas consultas do N1 combinadas, fração de `REMDTMOV` nulos, folga do teto de "itens no lote", e resultado do SELECT em `VW_ESTOQUE` com o usuário do VarDataSource. Também atualizar quando o Igor concluir a revisão do material Donato/Ozéias (08/09) e os cards saírem — nesse momento dá pra confirmar se é a mesma frente do épico #12428 ou trabalho paralelo.

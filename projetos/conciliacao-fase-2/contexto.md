@@ -146,6 +146,28 @@ Todos filhos do Epic #12387, Sprint 27, atribuídos ao Diego. **Atualização 31
 
 **Pendências de área (não bloqueiam desenvolvimento, mas precisam resolver antes do go-live):** autorização do tenant Microsoft (`Mail.Read` delegada, para leitura de webhooks — US9); ambientes de dev/homolog/prod e storage de objetos definidos; confirmação dos KPIs e da política de retenção (jurídico/CTN); aval sobre exibir CPF completo na Consolidada Vale (LGPD); layouts confirmados do Oracle e do Sênior.
 
+## 🆕 Task #12887 (08/09) — divergência manual cai como "operador vazio" + GMUD prevista pro mesmo dia
+
+> Fonte: [`../dailies/2026-09-08-digest-retaguarda.md`](../dailies/2026-09-08-digest-retaguarda.md).
+
+Sexta (04/09, presencial), Diego pegou uma task passada pelo Ozéias: melhoria no "aprovar divergências" / "gerenciar perda" — caso específico em que a analista de conciliação adiciona uma divergência manualmente, e ela cai como "operador vazio", sem ser mapeada nesse caminho. Diego juntou esse caso à **task [#12887](https://dev.azure.com/GrupoAvenida/409b9844-c75c-4e46-8a4d-17e4c455ca1b/_workitems/edit/12887)** (mesma tela).
+
+Manhã de 08/09: Diego testando o #12887 pra cobrir tudo e preparar a **GMUD prevista pra 08/09** — a transcrição não detalha mais nada sobre o que compõe essa GMUD além disso, e não confirma se ela de fato subiu no dia.
+
+**A confirmar:** status atual do #12887 (testado/aceito/subido) e o que mais foi incluído na GMUD de 08/09.
+
+## 🔴 Bug novo (09/09) — sistema manda "Perda" pra fila de Aprovação de Vales
+
+Reportado pela **Midia (RH)** por telefone em 09/09 (mesma pessoa cujo nome estava pendente de confirmação desde 13/08 — confirmado agora).
+
+**Problema:** o sistema está enviando itens de **Perda** pra fila de Aprovação de Vales, quando só **Vale (desconto em folha)** deveria entrar nessa fila. Perda não pode subir o modal que envia CPF pra aprovação.
+
+**Como reproduzir:**
+1. Pegar um item de **Vale** (desconto em folha) e tentar aprovar → deve subir o modal de aprovação normalmente (comportamento correto).
+2. Pegar um item de **Perda** e tentar aprovar → **não pode** subir o modal de envio de CPF (é aqui que está o bug).
+
+**Card criado (09/09): [#12912](https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12912)**, atribuído ao Diego, Sprint 28, Ready for Dev. Pode ser regressão do módulo de RH que subiu em produção na GMUD de 31/08 (#12808–#12811) — a confirmar.
+
 ## Próxima atualização
 
-Preencher aqui quando: (1) os cards #12515/#12516 (gaps novos da reunião do Wagner: Consolidado antes do fechamento, Ranking sem agregação Regional/Tesouraria) entrarem em andamento; (2) a ambiguidade da fila do RH pós-reversão (não tratada na reunião do Wagner) for finalmente esclarecida numa próxima interação; (3) a prévia informal com a responsável ("Mídia"/confirmar nome) + Adriana acontecer (prevista sexta 14/08); (4) a reunião formal com RH e demais áreas da semana seguinte for marcada e/ou realizada; (5) os bloqueios técnicos US8/US9 e o risco do job noturno instável forem finalmente discutidos com o Ozéias; (6) Igor decidir sobre os cards em "Bloqueado" que podem não ser mais necessários; (7) a reunião Ozéias↔time sobre validar valor positivo direto na conciliação de caixa acontecer. (Bug de token/permissionamento saiu do escopo deste projeto — virou Bug #12514, épico Portal de Retaguarda Sustentação #6640.)
+Preencher aqui quando: (1) os cards #12515/#12516 (gaps novos da reunião do Wagner: Consolidado antes do fechamento, Ranking sem agregação Regional/Tesouraria) entrarem em andamento; (2) a ambiguidade da fila do RH pós-reversão (não tratada na reunião do Wagner) for finalmente esclarecida numa próxima interação; (3) a prévia informal com a responsável ("Mídia"/confirmar nome) + Adriana acontecer (prevista sexta 14/08); (4) a reunião formal com RH e demais áreas da semana seguinte for marcada e/ou realizada; (5) os bloqueios técnicos US8/US9 e o risco do job noturno instável forem finalmente discutidos com o Ozéias; (6) Igor decidir sobre os cards em "Bloqueado" que podem não ser mais necessários; (7) a reunião Ozéias↔time sobre validar valor positivo direto na conciliação de caixa acontecer; (8) o status do #12887 (divergência manual "operador vazio") e o conteúdo completo da GMUD de 08/09 forem confirmados. (Bug de token/permissionamento saiu do escopo deste projeto — virou Bug #12514, épico Portal de Retaguarda Sustentação #6640.)
