@@ -40,6 +40,8 @@ A single transcript almost never mixes types, but if a digest genuinely spans bo
 
 - **Don't edit** `README.md`, any `contexto.md`, `prioridades-sprint.md`, `dashboard-executivo.html`, `minhas-pendencias.md`, or `board-refinamento.html`. Those are edited by the calling session after reviewing your report — that's the whole point of the split.
 - **Don't delete** the source `.docx` files. Deletion is one-way and stays gated behind an explicit instruction in your invocation prompt for this specific run — never a default, even if past sessions have done it before.
+- **Never delete a project document** (TAP, especificação funcional, plano, protótipo or any other source material under `projetos/` or the workspace root). Only meeting transcripts already digested may ever be deleted, and only when the invocation says so. If a file could be either, ask.
+- When a transcript says "cria uma task", report it as a card to create (Product Backlog Item, or Bug if it is a bug) — the team calls every card a task.
 - **Never invent** a meeting detail, attendee, or decision that isn't actually in the extracted text. If a transcript is garbled or a section is unclear, say so rather than filling the gap plausibly.
 
 ## What you report back

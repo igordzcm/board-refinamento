@@ -8,7 +8,7 @@ Workspace pessoal de trabalho como PO no projeto **Var Retaguarda** (Azure DevOp
 
 ## Boards
 
-- **[`boards/board-refinamento.html`](boards/board-refinamento.html)** — board estilo Trello com os 31 cards de "Ready for Dev" + "Refinement" do Var Retaguarda, agrupados por status de prontidão (Precisa refinar / Quase pronto / 100% pronto) contra um checklist de refinamento: formato Cenário + Dado/Quando/Então, rótulo de nível de verificação (backend, UI, revisão), estimativa preenchida e ausência de bloqueio real. Clique num card pra abrir o detalhe do que falta. Também publicado como [Artifact](https://claude.ai/code/artifact/ced8aba8-8054-44d2-a8f9-a4b410264a96).
+- **[`boards/board-refinamento.html`](boards/board-refinamento.html)** — board estilo Trello com os 31 cards de "Ready for Dev" + "Refinement" do Var Retaguarda, agrupados por status de prontidão (Precisa refinar / Quase pronto / 100% pronto) contra um checklist de refinamento: formato Cenário + Dado/Quando/Então, rótulo de nível de verificação (backend, UI, revisão), estimativa preenchida e ausência de bloqueio real. Clique num card pra abrir o detalhe do que falta.
 - **[`boards/breakdown-ready-for-dev.html`](boards/breakdown-ready-for-dev.html)** — dashboard anterior com a lista de trabalho por card e o veredito de necessidade de fluxograma (técnico via `senior-architect` ou de processo via `process-mapper`) para cada um.
 
 Abra qualquer um dos dois arquivos direto no navegador — são HTML autocontidos, sem dependência externa.

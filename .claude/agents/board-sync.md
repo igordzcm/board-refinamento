@@ -64,5 +64,6 @@ When you re-sync a card whose gap-list has accumulated this kind of cruft from p
 ## Constraints
 
 - You edit the board file and comments-reading only — you do not write anything back to Azure DevOps (no comments, no state changes, no links). If a card needs an actual fix (missing scenario, missing link, missing estimate), that's `refinement-gate`'s job — flag it in your report, don't attempt it here.
+- Don't touch `projetos/dashboard-executivo.html` — it is only updated by `portfolio-report` when the PO asks.
 - Don't re-litigate an existing flowchart/mock chip on a card whose content didn't change this pass.
 - If an ADO call fails or is rate-limited, retry once or twice with a short pause; if it keeps failing, say so plainly in the report rather than silently proceeding with stale data.

@@ -112,6 +112,11 @@ This project uses **Cenário + Dado/Quando/Então** (Portuguese Given-When-Then)
 ```
 
 - Pick whichever of **poderia/gostaria/devo** and **para/tal que/por que** reads most naturally for the specific persona/need — they're alternatives for the same slot, not a stack to include all three.
+- **Judge the verb per sentence, don't default to "poderia".** poderia = optional capability; gostaria = a want being expressed; devo = an obligation or functional requirement (often the right one when the persona is a system, engine or process rather than a person).
+- **Description and Cenários must read clean without codebase knowledge.** Use domain language (campanha, loja, item, bloqueio). File paths, line numbers, SQL, table/column names and code snippets go only in the `Nota técnica` paragraph — never load-bearing inside the story clause or a Cenário sentence.
+- **No provenance in the Description.** No dates ("pedido em 17/08"), no attribution ("pedido pelo PO", "o Donato respondeu…"), no narration of how the card came to exist. If the source needs to be traceable, put it in a comment on the card.
+- **Nota técnica only with real, verified findings.** If the repo isn't cloned or the search found nothing, omit the section silently — no "repositório não clonado", "não encontrei" or "não foi possível conferir" text, in the Description or in comments.
+- **Card type:** when the team says "task", they mean a card — create it as Product Backlog Item (bugs stay Bug), never the ADO Task type.
 - **The middle slot is always the need/capability, never the solution.** Write "poderia fazer pagamentos para minha equipe," not "gostaria de um modal que abre o pagamento" — a modal, a dedicated screen, or a multi-step flow are all implementation choices that belong downstream (in the technical note or the dev's own judgment), not baked into the story. If the "want" clause names a specific UI element/component instead of a capability the persona needs, that's a sign the solution was decided too early — rewrite toward the actual need before moving on.
 
 ```html
@@ -156,6 +161,8 @@ Mentioning a related card by `#ID` in prose is not the same as linking it. Use `
 **Known gotcha (hit 2026-08-12):** Azure DevOps boards split a column into a Doing/Done sub-state (visible in the UI as a divider inside e.g. "Refinement"). This state is readable via `System.BoardColumnDone` (bool) on any work item, but that field is **read-only** — writing to it fails with `TF401326: Invalid field status 'ReadOnly'`. To actually toggle it, write the team-specific mirror field instead: `WEF_CA2D2CCF39524B8CBBEA41E6E670BF7C_Kanban.Column.Done` (this project's team GUID; confirm it hasn't changed if writes start failing). Writing that field updates `System.BoardColumnDone` as a side effect. There's no dedicated "get board config" MCP tool in this workspace's ADO server — the split state only shows up per-item via these fields, not via a board/column listing call.
 
 **Value polarity (corrected 2026-08-13, got this backwards once — caught by the user after cards #12509-#12513 landed in the wrong sub-lane):** `Kanban.Column.Done = false` → **Doing** sub-lane (still being worked). `Kanban.Column.Done = true` → **Done** sub-lane (finished within that column, ready to move on). When a card should sit in "Refinement — Doing," write `false`, not `true` — the field name reads like a completion flag for the whole item, but it's scoped to the sub-lane within the current column.
+
+**Known gotcha (hit 2026-09-29):** the API refuses to move a card that's already past dev (Dev Review, Verified) back to an earlier State — HTTP 400 "not in the list of supported values", even though the transition is allowed in the UI. Forward moves work, and Ready for Dev → Refinement works. The whole update is atomic, so a rejected State also drops any sprint/assignee change in the same call: write State in its own call (or skip it) and tell the PO to drag the card on the board UI. Don't route through intermediate states (a fake Rework pollutes the history) without the PO's OK. PBIs also have no "Removed" state via API.
 
 ---
 

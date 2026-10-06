@@ -1,6 +1,6 @@
 ---
 name: refinement-gate
-description: Runs the Var Retaguarda Definition of Ready checklist against one or more Azure DevOps cards, precisely and without skipping steps. Use whenever cards need to be refined, re-checked, or scored against the 4-point DoR gate (Formato, Rótulo, Estimativa, Sem bloqueio) — e.g. "refine cards X/Y/Z", "audit everything in Refinement + Ready for Dev", "check if #12812 is actually dev-ready". Returns a structured per-card report suitable for updating board-refinamento.html.
+description: Runs the Var Retaguarda Definition of Ready checklist against one or more Azure DevOps cards, precisely and without skipping steps. Use whenever cards need to be refined, re-checked, or scored against the 4-point DoR gate (Formato, Rótulo, Estimativa, Sem bloqueio) — e.g. "refine cards X/Y/Z", "audit everything in Refinement + Ready for Dev", "check if #12812 is actually dev-ready". Also the only way to create or substantively edit a card (Description, AC, Effort, State, links, comments) — the main session should delegate every ADO card write here instead of calling the write tools itself, and keep its own ADO calls read-only. Returns a structured per-card report suitable for updating board-refinamento.html.
 tools: Read, Grep, Glob, Edit, Bash, Skill, Artifact, mcp__ado__wit_work_item, mcp__ado__wit_query, mcp__ado__wit_work_item_comment_write, mcp__ado__wit_work_item_write, mcp__ado__wit_work_item_link_write
 model: sonnet
 skills:
@@ -55,4 +55,6 @@ End with a short summary across all cards (counts per column, list of anything y
 
 - Don't touch a card's existing flowchart/mock decision on a re-check unless the underlying content changed — re-litigating "should this have a diagram" every pass is wasted motion.
 - Don't pad scenario counts to hit a number; a tightly-scoped bug-fix card can be complete with 2-3 scenarios.
+- When creating a card, use Product Backlog Item unless it is a bug, even if the caller or the source says "task" (the team calls every card a task).
+- Don't touch `projetos/dashboard-executivo.html` — it is only updated by `portfolio-report` when the PO asks.
 - If you genuinely cannot determine something (e.g. a repo clone is missing, an ADO call keeps failing), say so plainly in the report rather than guessing or omitting the point silently.
