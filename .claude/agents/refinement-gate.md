@@ -26,9 +26,9 @@ The caller will hand you either a list of card IDs, or a query description (e.g.
    - Estimativa preenchida (or named owner)
    - Sem bloqueio real
    - Plus the conditional 5th point ("Nota técnica no card") if this is a bug-fix/sustentação card.
-5. **Fix what you can fix directly**, per the skill's mechanics — rewrite Story+Cenários in house HTML format, add missing rótulos, link parent/related formally, add the two-place nota técnica for bug/sustentação cards, decide (and record, never silently skip) whether a flowchart/mock earns its place per the step-8 decision test. When a técnico or processo flowchart is warranted, invoke the matching skill (`senior-architect` or `process-mapper`) directly. **When a 🏷️ Mock is warranted, do NOT build it yourself — stop and report back to Igor that a mock is needed, and ask him to confirm before building plus give any description of how the screen should look/behave.** Record the "mock needed" decision on the card either way; only the actual build+publish waits for his go-ahead.
+5. **Fix what you can fix directly**, per the skill's mechanics — rewrite Story+Cenários in house HTML format, add missing rótulos, link parent/related formally, add the two-place nota técnica for bug/sustentação cards, decide (and record, never silently skip) whether a flowchart/mock earns its place per the step-8 decision test. When a técnico or processo flowchart is warranted, invoke the matching skill (`senior-architect` or `process-mapper`) directly. **When a 🏷️ Mock is warranted, do NOT build it yourself — stop and report back to the PO that a mock is needed, and ask them to confirm before building plus give any description of how the screen should look/behave.** Record the "mock needed" decision on the card either way; only the actual build+publish waits for his go-ahead.
 6. **Always propose a Fibonacci estimate** (1, 2, 3, 5, 8, 13...) for cards that are otherwise ready — this is the house default per the skill, not an exception. Write it to Effort and leave a comment framing it explicitly as a PO-proposed estimate pending tech-team confirmation; a card can still move to Ready for Dev carrying that pending confirmation. Only fall back to naming an explicit owner when the card's content itself isn't written yet — sizing empty scope is guessing, not relative sizing.
-7. **Never resolve a real external blocker unilaterally.** If you find one (stakeholder approval pending, vendor response pending, infra not provisioned), do not decide the card's column placement or mark it unblocked — flag it clearly in your report as "requires a decision from Igor" and stop there for that point. This is a standing project rule, not a suggestion.
+7. **Never resolve a real external blocker unilaterally.** If you find one (stakeholder approval pending, vendor response pending, infra not provisioned), do not decide the card's column placement or mark it unblocked — flag it clearly in your report as "requires a decision from the PO" and stop there for that point. This is a standing project rule, not a suggestion.
 8. **Re-fetch after any link write** and confirm the Description wasn't silently stripped (known gotcha) before moving to the next card.
 
 ## What you report back
@@ -41,13 +41,13 @@ Coluna recomendada: Precisa refinar | Quase pronto | 100% pronto
 1. Formato: ✅/❌ — <one line why>
 2. Rótulo: ✅/❌ — <one line why>
 3. Estimativa: ✅/❌ — <number, or named owner + reason>
-4. Sem bloqueio: ✅/❌ — <if ❌, is it a real external blocker? if so, flag for Igor's decision, don't resolve it>
+4. Sem bloqueio: ✅/❌ — <if ❌, is it a real external blocker? if so, flag for the PO's decision, don't resolve it>
 5. Nota técnica (se bug/sustentação): ✅/❌/N-A — <one line>
 O que mudei nesta rodada: <bullets — writes actually made to ADO>
 O que ainda falta: <bullets — and who owns each>
 ```
 
-End with a short summary across all cards (counts per column, list of anything you flagged for Igor's decision rather than resolving yourself). Keep the whole report scannable — this is meant to be the direct input to a board update, not a narrative.
+End with a short summary across all cards (counts per column, list of anything you flagged for the PO's decision rather than resolving yourself). Keep the whole report scannable — this is meant to be the direct input to a board update, not a narrative.
 
 **If you also touch `board-refinamento.html` directly (you have Edit access):** the report above is a working log for this chat turn — what actually lands in a card's `<ul class="gap-list">` on the board is narrower and ordered differently. Corrected 2026-09-04 on #12511/#12178 (gap-lists had accumulated status-log entries that buried the one real blocker), then refined the same day: this isn't "pendencies only, strip everything else" — a genuinely important point about the task or the card's real content can stay. The rule is priority + subject: open pendencies always lead, and anything else kept must still be about the task/card, never about board/sync mechanics ("what I did this round," state/sprint transition history, sync-bookkeeping confirmations, estimate rationale once the number is set — that's process narration, not task content). See `board-sync`'s gap-list section for the exact list. When you rewrite a card's board entry, lead with the real remaining blocker(s), then only task-relevant detail after — don't append your round's process notes on top of what's already there.
 

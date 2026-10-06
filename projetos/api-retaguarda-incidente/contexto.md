@@ -39,3 +39,23 @@ Nenhuma — apuração feita unilateralmente pelo Igor via Loki/inspeção do ho
 ## Próxima atualização
 
 Atualizar quando Fernando confirmar/ajustar as estimativas, ou quando #12902/#12903 subirem e o efeito puder ser confirmado em produção.
+
+---
+
+## Incidente 2 (17/09) — HML crash-loop após queda do Redis, causa diferente
+
+API de HML ficou 2h44 indisponível depois que um estol de I/O de disco derrubou o Redis (saída limpa, `exit 0`, não recriado pela `restart_policy: on-failure`) e o boot da API travou tentando montar o Bull Board sem Redis disponível. Apuração completa em [2026-09-17-incidente-hml-crashloop-redis.md](2026-09-17-incidente-hml-crashloop-redis.md).
+
+**Card criado (18/09, Var Retaguarda) — em Refinement, não Ready for Dev (pedido explícito do Igor)**
+
+| Card | Pacote | Estimativa (PO, Fibonacci) |
+|---|---|---|
+| [#13117](https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/13117) | Resiliência do boot da API — dependência externa indisponível não pode impedir a aplicação de subir (defeito técnico: `setupBullBoard`/`logBootSnapshot` roda antes de `app.listen()` em `main.ts`, sem timeout por fila) | 3 |
+
+Enquadramento do card (ajustado em 18/09): o sintoma real onde isso dói na prática é o **deploy de homologação preso em loop de falha** sempre que a dependência externa checada no boot (Redis, no caso) está fora do ar durante a janela de deploy — dá a falsa impressão de que a PR recém-publicada quebrou algo, quando na verdade é o boot travado. Story/Descrição do card foram escritas em cima desse sintoma, não só como "resiliência de boot" abstrata.
+
+Linkado como Related aos cards #12902-#12906 (mesma família "API instável", causas diferentes) e como filho da Epic #10542 (Infraestrutura). Fica deliberadamente em Refinement — não é reprovação no gate de DoR, é decisão de timing do Igor.
+
+**O que a apuração deixa como achado relacionado, mas fora do escopo do card:** `restart_policy: on-failure` do Redis (infra/compose) não recria o container quando ele sai com exit 0 — é o que multiplicou 3min20s de estol de disco em 2h44 de indisponibilidade. Não virou card ainda.
+
+**Pendência:** confirmação técnica do card #13117 e da estimativa; decidir entre as duas opções de correção do defeito (mover o snapshot pra depois do `listen()` vs. timeout por fila — não excludentes).

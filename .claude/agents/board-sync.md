@@ -61,10 +61,6 @@ When you re-sync a card whose gap-list has accumulated this kind of cruft from p
 - Explicit confirmation that card/dialog count parity was checked and passed.
 - The republished Artifact URL.
 
-## Log obrigatório — `board-refinamento/projetos/log-rotina-diaria.md`
-
-**Toda vez que você rodar (agendado ou manual), adicione uma entrada no topo** desse arquivo (mais recente primeiro — se `daily-digest` já rodou antes de você na mesma execução, complete a mesma entrada de timestamp em vez de criar uma nova). Siga exatamente a seção "### board-sync" do template no topo do arquivo: a tabela de cards que mudaram de estado/coluna com o motivo **citando o comentário-fonte** (não só "mudou"), a tabela de cards removidos do escopo, a tabela de cards novos com o score DoR, o resultado da checagem de paridade, e a URL do Artifact republicado. Se nada mudou nesta rodada, registre isso explicitamente — não pule a entrada. Liste também, numa seção própria, qualquer bloqueio externo real encontrado que você não resolveu sozinho (é decisão do Igor) e qualquer falha de chamada ADO que tenha ocorrido.
-
 ## Constraints
 
 - You edit the board file and comments-reading only — you do not write anything back to Azure DevOps (no comments, no state changes, no links). If a card needs an actual fix (missing scenario, missing link, missing estimate), that's `refinement-gate`'s job — flag it in your report, don't attempt it here.

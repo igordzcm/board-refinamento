@@ -1,5 +1,7 @@
 # Índice de Projetos
 
+> **Visão de portfólio por estágio (a refinar → feito):** [status-projetos.md](status-projetos.md).
+>
 > Atualizado a partir de dailies, reuniões e do [dashboard executivo](dashboard-executivo.html). Cada linha é uma pasta de projeto — abra o `contexto.md` de cada uma antes de uma reunião sobre aquele projeto. Ver também [prioridades-sprint.md](prioridades-sprint.md) — visão de prioridades/planejamento (atrasado, em andamento, próxima sprint).
 
 | Projeto | Prazo | Status atual | Arquivo |
@@ -15,10 +17,23 @@
 | VAR 3.0 — Padronização de Retornos HTTP | — | ⚠️ Sem card no Azure, sem qualquer menção em daily até 31/08 — confirmar com o time se ainda é prioridade antes de agendar qualquer reunião | [var3-http-status/contexto.md](var3-http-status/contexto.md) |
 | Engine Fiscal — CNPJ Alfanumérico | — | Arquivo/referência — SHIPPED em 23/06/2026 (13 PBIs Done); mantido como padrão técnico reutilizável (função canônica de CNPJ, checklist DDL, dependência InvoiCy), não é projeto ativo | [engine-fiscal-cnpj/contexto.md](engine-fiscal-cnpj/contexto.md) |
 | Tap on Phone + VAR 4G | Piloto desde 10/08 | 🔴 Bugs críticos novos achados no retro de 28/08 (fatura, acordo — transações canceladas com pagamento ativo). Squad todo dedicado a estabilizar antes do rollout pras lojas | [tap-on-phone-var4g/contexto.md](tap-on-phone-var4g/contexto.md) |
-| Overlimit (crédito na venda) | Set/2026 | RPE liberou credenciais/webhooks (25/08) — testes de endpoint em produção já começaram, direto no Kong, sem precisar de credencial. Sai dos bloqueios críticos | [overlimit/contexto.md](overlimit/contexto.md) |
+| Overlimit — VAR (crédito na venda no PDV) | — | Frente do Gui, no squad VAR 3.0. Saiu da release do piloto em 21/09, com retrabalho de front e de testes | [overlimit/contexto.md](overlimit/contexto.md) |
+| Overlimit — RPA 🆕 | Pedido: 28–29/09 | **A iniciar agora** (Retaguarda): tela de upload de CSV no portal do RPA de cartões + tabela consultada pelo VAR (modelo do blacklist). Aguardando definição do Spin pra criar os cards. Ainda em aberto: vigência/validade e o que vem no CSV (Spin, Cartões, Aislan) | [overlimit/contexto.md](overlimit/contexto.md) |
 | SIGA | — | 4 frentes (ver [siga/contexto.md](siga/contexto.md)): **SSO no SIGA** pronto tecnicamente mas deploy bloqueado (Pablo férias + WAF); **Ciacon** com integração fechada e PR aberto pro Spin; **Performance de Indicadores** (#10373) 🔴 ainda bloqueado; **Sustentação** (#7330) majoritariamente entregue. Máquinas físicas do Siga chegam 31/08 — SigaPub vira responsabilidade direta da Retaguarda | [siga/contexto.md](siga/contexto.md) |
 | Engine — Doc Pendentes da Migrate 🆕 | — | 🔴 Card [#12901 (VAR 3.0)](https://dev.azure.com/GrupoAvenida/VAR%203.0/_workitems/edit/12901) criado (02/09) — levantamento de requisitos, ~6.000 notas fiscais "mortas" (10-28/08) presas na pasta de pendentes por loja da Migrate. Direção proposta: tirar da Migrate, deixar pendências na própria loja, possível job de hora em hora. Provável mesma raiz do bloqueio "+5.000 notas rejeitadas" já rastreado — a confirmar | [engine-doc-pendentes-migrate/contexto.md](engine-doc-pendentes-migrate/contexto.md) |
 | API Retaguarda — Incidente de instabilidade 🆕 | — | 🔴 5 cards (04/09) em **Ready for Dev**, Sprint 28, Fernando: [#12902](https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12902)–[#12906](https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12906), filhos da Epic #10542 (Infraestrutura). Achados: healthcheck do nginx em loop de restart (maior causa da instabilidade), thread pool insuficiente pro Oracle em thick mode, foto do `/me` sem cache | [api-retaguarda-incidente/contexto.md](api-retaguarda-incidente/contexto.md) |
+
+## Projetos a iniciar
+
+| Projeto | Status | Arquivo |
+|---|---|---|
+| Pesquisa Colaboradores RH | Em descoberta, sem desenvolvimento. Calls de 08/09 (interna) e 11/09 (Thaís/Francisco). Cronograma interno de ~640h ainda não apresentado ao RH. Travas: criação automática de usuário via Senior, contato pessoal (jurídico), anonimato | [pesquisas-colaboradores/contexto.md](pesquisas-colaboradores/contexto.md) |
+| Envio de Contas (Portal Conexão) | Em uso: a loja envia a fatura, a IA lê, a Gestão Imobiliária aprova e a OC é criada no Oracle. 5 cards do Diego já Done. Nova fase: Requisição + OC automáticas. Recebe as faturas capturadas pela Automação de Faturas de Concessionárias | [envio-contas/contexto.md](envio-contas/contexto.md) |
+| SSO / Keycloak — melhorias do sso-hub | Nova rodada (29/09, Kovalski, Sprint 30): link de uso único, mensagens de erro, busca de usuários/grupos sem sincronizar com o banco, telas de cadastro | [sso-keycloak/contexto.md](sso-keycloak/contexto.md) |
+| Novo Dashboard CDs — Marcelo | A definir: o Igor ainda vai ter reunião com o Marcelo pra fechar o escopo | — |
+| Automação de Faturas de Concessionárias | **Falta TAP e Especificação Funcional** (Igor vai enviar). Frente diferente da automação de energia via Enel | [faturas-concessionarias/contexto.md](faturas-concessionarias/contexto.md) |
+
+Overlimit — RPA também está começando: ver a tabela acima.
 
 ## Outras frentes ativas (ainda sem pasta própria)
 
@@ -39,4 +54,3 @@ Do [dashboard executivo](dashboard-executivo.html) de 10/08 — criar pasta quan
 - [dashboard-executivo.html](dashboard-executivo.html) — dashboard vivo, atualizado a partir das dailies e reuniões.
 - [prioridades-sprint.md](prioridades-sprint.md) — o que está atrasado/bloqueado, o que está em andamento, e o planejamento da próxima sprint (backlog priorizado, decisões de triagem). Complementa o dashboard executivo com uma visão mais acionável.
 - [minhas-pendencias.md](minhas-pendencias.md) — pendências **pessoais** do Igor: reuniões a marcar, devolutivas que ele deve pra alguém, coisas que alguém prometeu entregar pra ele. Não é status de projeto — é a lista de "não posso esquecer disso". Consultar diariamente.
-- [metricas-time.md](metricas-time.md) — métricas operacionais do time calculadas a partir do Azure DevOps (lead time médio de entrega). Inclui ressalva de qualidade do dado (fechamento de cards em lote) e como recalcular.

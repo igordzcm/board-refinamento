@@ -141,11 +141,11 @@
   <div class="breadcrumb">
     <span>Grupo Avenida</span><span class="sep">/</span>
     <span>Var Retaguarda</span><span class="sep">/</span>
-    <span>Ready for Dev</span><span class="sep">/</span>
-    <span>Sprint 28</span>
+    <span>Refinement e Ready for Dev</span><span class="sep">/</span>
+    <span>Sprints 28 a 30</span>
   </div>
   <h1>Board de Refinamento</h1>
-  <p class="subtitle"><strong>Filtrado pra Sprint 28 (02/09–15/09):</strong> os 24 cards abaixo são exatamente os que estão hoje com <code>IterationPath</code> = Sprint 28 no Azure e em estado Refinement/Ready for Dev — confirmado card a card em 04/09, quinta varredura completa desde 01/09 (1 card saiu de escopo nesta rodada — #12902 avançou pra "Doing" no Azure, dev já iniciado; nenhum card novo entrou; 11 saídas de escopo seguem acumuladas desde 01/09: ver rodapé). Clique num card pra ver o checklist completo e o que falta. Colunas por status de prontidão contra o modelo de refinamento: formato Cenário + Dado/Quando/Então, rótulo de verificação, estimativa e ausência de bloqueio real. Cards de <strong>bug fix ou sustentação</strong> ganham um 5º item condicional no checklist — <strong>nota técnica no card</strong> — que só aparece nesse tipo de card (política de 13/08): exige tanto um comentário completo quanto uma nota enxuta na Descrição citando o arquivo/tela onde a correção provavelmente entra, e marca "não se aplica" quando o próprio card já reserva a investigação como escopo do dev (ex: bug com timebox). Cada card traz uma tag indicando se ele está em "Ready for Dev" ou ainda em "Refinement" no board do Azure DevOps, e — quando cabe — um chip roxo (<strong>fluxograma técnico</strong>, skill <code>senior-architect</code>), verde-água (<strong>fluxograma de processo</strong>, skill <code>process-mapper</code>), rosa (<strong>mock de tela</strong>, protótipo interativo publicado como Artifact — link no detalhe do card) ou laranja (<strong>estimativa do PO</strong> — sizing relativo Fibonacci proposto pelo PO, política permanente desde 04/09 [antes temporária, desde 12/08], pendente de confirmação do time técnico).</p>
+  <p class="subtitle"><strong>41 cards</strong> em estado Refinement ou Ready for Dev no Azure DevOps (Sprints 28, 29 e 30 e backlog sem sprint), conforme o Azure em 29/09/2026. Clique num card pra ver o checklist completo e o que falta. Colunas por prontidão contra o modelo de refinamento: formato Cenário + Dado/Quando/Então, rótulo de verificação, estimativa e ausência de bloqueio real. Cards de <strong>bug fix ou sustentação</strong> ganham um 5º item condicional no checklist — <strong>nota técnica no card</strong> — que exige tanto um comentário completo quanto uma nota enxuta na Descrição citando o arquivo/tela onde a correção provavelmente entra, e marca "não se aplica" quando o próprio card já reserva a investigação como escopo do dev. Cada card traz uma tag indicando se ele está em "Ready for Dev" ou em "Refinement" no Azure DevOps e — quando cabe — um chip roxo (<strong>fluxograma técnico</strong>), verde-água (<strong>fluxograma de processo</strong>), rosa (<strong>mock de tela</strong>, protótipo interativo publicado como Artifact — link no detalhe do card) ou laranja (<strong>estimativa do PO</strong> — sizing relativo Fibonacci proposto pelo PO, pendente de confirmação do time técnico).</p>
 </div>
 
 <div class="board">
@@ -162,25 +162,25 @@
         <div class="bottom-row"><span class="avatar">LS</span><span class="gap-count">Reescrever do zero</span></div>
       </button>
 
-      <button class="kcard" onclick="m12115.showModal()">
-        <div class="top-row"><span class="id">PBI #12115</span><span class="chip source">Refinement</span></div>
-        <div class="title">[RPA] Gerenciamento de usuários por grupo e CD</div>
-        <div class="chips"><span class="chip bad">Conteúdo insuficiente</span></div>
+      <button class="kcard" onclick="m12910.showModal()">
+        <div class="top-row"><span class="id">Bug #12910</span><span class="chip source">Refinement</span></div>
+        <div class="title">Saldo parcial de Caixa tá derrubando o portal</div>
+        <div class="chips"><span class="chip bad">Conteúdo insuficiente</span><span class="chip bad">Voltou do QA</span></div>
         <div class="bottom-row"><span class="avatar">—</span><span class="gap-count">Reescrever do zero</span></div>
       </button>
 
-      <button class="kcard" onclick="m12812.showModal()">
-        <div class="top-row"><span class="id">PBI #12812</span><span class="chip source">Refinement</span></div>
-        <div class="title">Conciliação Fase 2 — Planilha Contábil (layout Oracle)</div>
-        <div class="chips"><span class="chip bad">Bloqueio externo</span></div>
-        <div class="bottom-row"><span class="avatar">DR</span><span class="gap-count">Bloqueado — Adriana/layout</span></div>
+      <button class="kcard" onclick="m12911.showModal()">
+        <div class="top-row"><span class="id">PBI #12911</span><span class="chip source">Ready for Dev</span></div>
+        <div class="title">Implementar Solicitação em Rede Local</div>
+        <div class="chips"><span class="chip bad">Conteúdo insuficiente</span><span class="chip warn">Sem estimativa</span></div>
+        <div class="bottom-row"><span class="avatar">KC</span><span class="gap-count">Reescrever do zero</span></div>
       </button>
 
-      <button class="kcard" onclick="m12889.showModal()">
-        <div class="top-row"><span class="id">Bug #12889</span><span class="chip source">Ready for Dev</span></div>
-        <div class="title">Ajustar expansão de menus e posicionamento incorreto do DTEF</div>
-        <div class="chips"><span class="chip warn">Sem formato Cenário/GWT</span><span class="chip warn">Sem nota técnica</span></div>
-        <div class="bottom-row"><span class="avatar">KC</span><span class="gap-count">3 pendências</span></div>
+      <button class="kcard" onclick="m13433.showModal()">
+        <div class="top-row"><span class="id">PBI #13433</span><span class="chip source">Refinement</span></div>
+        <div class="title">SSO · Gerar link de acesso: uso único e proteção do endpoint</div>
+        <div class="chips"><span class="chip bad">Fora do formato</span><span class="chip warn">Sem estimativa</span></div>
+        <div class="bottom-row"><span class="avatar">GK</span><span class="gap-count">3 pendências</span></div>
       </button>
 
     </div>
@@ -188,21 +188,154 @@
 
   <!-- Coluna: Quase pronto -->
   <div class="column">
-    <div class="column-head"><span class="dot" style="background:var(--warn)"></span><h2>Quase pronto</h2><span class="count">2</span></div>
+    <div class="column-head"><span class="dot" style="background:var(--warn)"></span><h2>Quase pronto</h2><span class="count">21</span></div>
     <div class="column-cards">
 
-      <button class="kcard" onclick="m12511.showModal()">
-        <div class="top-row"><span class="id">PBI #12511</span><span class="chip source">Ready for Dev</span></div>
-        <div class="title">Dashboard CDs · Corrigir fórmula do lead time médio</div>
-        <div class="chips"><span class="chip warn">Estimativa do PO</span><span class="chip warn">Planilha CD 83</span></div>
-        <div class="bottom-row"><span class="avatar">JB</span><span class="gap-count">1 pendência</span></div>
+      <button class="kcard" onclick="m12115.showModal()">
+        <div class="top-row"><span class="id">PBI #12115</span><span class="chip source">Refinement</span></div>
+        <div class="title">[RPA] Gerenciamento de usuários por grupo e CD</div>
+        <div class="chips"><span class="chip warn">Sem estimativa</span><span class="chip warn">Decisões de negócio</span></div>
+        <div class="bottom-row"><span class="avatar">—</span><span class="gap-count">3 pendências</span></div>
       </button>
 
-      <button class="kcard" onclick="m12513.showModal()">
-        <div class="top-row"><span class="id">PBI #12513</span><span class="chip source">Ready for Dev</span></div>
-        <div class="title">Dashboard CDs · Melhorias pós-paridade</div>
+      <button class="kcard" onclick="m12812.showModal()">
+        <div class="top-row"><span class="id">PBI #12812</span><span class="chip source">Refinement</span></div>
+        <div class="title">Conciliação Fase 2 — Planilha Contábil (layout Oracle)</div>
         <div class="chips"><span class="chip bad">Bloqueio externo</span><span class="chip warn">Sem estimativa</span></div>
-        <div class="bottom-row"><span class="avatar">JB</span><span class="gap-count">2 pendências</span></div>
+        <div class="bottom-row"><span class="avatar">—</span><span class="gap-count">Bloqueado — Adriana/layout</span></div>
+      </button>
+
+      <button class="kcard" onclick="m11941.showModal()">
+        <div class="top-row"><span class="id">PBI #11941</span><span class="chip source">Refinement</span></div>
+        <div class="title">Reset de senha de usuários na Consulta de Acessos</div>
+        <div class="chips"><span class="chip warn">Dúvida do dev em aberto</span></div>
+        <div class="bottom-row"><span class="avatar">—</span><span class="gap-count">1 pendência</span></div>
+      </button>
+
+      <button class="kcard" onclick="m13422.showModal()">
+        <div class="top-row"><span class="id">PBI #13422</span><span class="chip source">Refinement</span></div>
+        <div class="title">Motor de Descontos · UI do portal com base na Gamificação</div>
+        <div class="chips"><span class="chip warn">Estimativa do PO</span><span class="chip warn">Escopo a confirmar</span></div>
+        <div class="bottom-row"><span class="avatar">—</span><span class="gap-count">2 pendências</span></div>
+      </button>
+
+      <button class="kcard" onclick="m13426.showModal()">
+        <div class="top-row"><span class="id">PBI #13426</span><span class="chip source">Refinement</span></div>
+        <div class="title">Rodar migrações de banco automaticamente no deploy da API</div>
+        <div class="chips"><span class="chip warn">Estimativa do PO</span><span class="chip warn">Decisão GMUD</span></div>
+        <div class="bottom-row"><span class="avatar">—</span><span class="gap-count">2 pendências</span></div>
+      </button>
+
+      <button class="kcard" onclick="m13428.showModal()">
+        <div class="top-row"><span class="id">PBI #13428</span><span class="chip source">Refinement</span></div>
+        <div class="title">Motor de Descontos · Restringir campanha global a lojas (duplicar + encerrar guiado)</div>
+        <div class="chips"><span class="chip warn">Estimativa do PO</span><span class="chip warn">Mock pendente de OK</span></div>
+        <div class="bottom-row"><span class="avatar">—</span><span class="gap-count">2 pendências</span></div>
+      </button>
+
+      <button class="kcard" onclick="m13429.showModal()">
+        <div class="top-row"><span class="id">PBI #13429</span><span class="chip source">Refinement</span></div>
+        <div class="title">Motor de Descontos · Reativar campanha por departamento (PRO013)</div>
+        <div class="chips"><span class="chip bad">Bloqueio externo</span><span class="chip warn">Estimativa do PO</span></div>
+        <div class="bottom-row"><span class="avatar">—</span><span class="gap-count">Bloqueado — VAR/QAs</span></div>
+      </button>
+
+      <button class="kcard" onclick="m13435.showModal()">
+        <div class="top-row"><span class="id">PBI #13435</span><span class="chip source">Refinement</span></div>
+        <div class="title">Envio de Contas · Criar Requisição no Oracle ao aprovar a conta</div>
+        <div class="chips"><span class="chip bad">Bloqueio externo</span><span class="chip warn">Estimativa do PO</span></div>
+        <div class="bottom-row"><span class="avatar">—</span><span class="gap-count">Bloqueado — Oracle/TI</span></div>
+      </button>
+
+      <button class="kcard" onclick="m13436.showModal()">
+        <div class="top-row"><span class="id">PBI #13436</span><span class="chip source">Refinement</span></div>
+        <div class="title">Envio de Contas · Criar OC a partir da Requisição (sem duplicidade + auditoria)</div>
+        <div class="chips"><span class="chip bad">Bloqueio externo</span><span class="chip warn">Estimativa do PO</span></div>
+        <div class="bottom-row"><span class="avatar">—</span><span class="gap-count">Bloqueado — Oracle/TI</span></div>
+      </button>
+
+      <button class="kcard" onclick="m13438.showModal()">
+        <div class="top-row"><span class="id">PBI #13438</span><span class="chip source">Refinement</span></div>
+        <div class="title">Faturas de Concessionárias · Levantamento técnico e arquitetura (discovery)</div>
+        <div class="chips"><span class="chip bad">Bloqueio externo</span><span class="chip warn">Estimativa do PO</span></div>
+        <div class="bottom-row"><span class="avatar">—</span><span class="gap-count">Bloqueado — TI/Arquitetura</span></div>
+      </button>
+
+      <button class="kcard" onclick="m13439.showModal()">
+        <div class="top-row"><span class="id">PBI #13439</span><span class="chip source">Refinement</span></div>
+        <div class="title">Faturas de Concessionárias · Base operacional de lojas e acessos</div>
+        <div class="chips"><span class="chip warn">Estimativa do PO</span><span class="chip warn">Perguntas em aberto</span></div>
+        <div class="bottom-row"><span class="avatar">—</span><span class="gap-count">3 pendências</span></div>
+      </button>
+
+      <button class="kcard" onclick="m13440.showModal()">
+        <div class="top-row"><span class="id">PBI #13440</span><span class="chip source">Refinement</span></div>
+        <div class="title">Faturas de Concessionárias · Agendamento parametrizável</div>
+        <div class="chips"><span class="chip warn">Estimativa do PO</span><span class="chip warn">Perguntas em aberto</span></div>
+        <div class="bottom-row"><span class="avatar">—</span><span class="gap-count">3 pendências</span></div>
+      </button>
+
+      <button class="kcard" onclick="m13441.showModal()">
+        <div class="top-row"><span class="id">PBI #13441</span><span class="chip source">Refinement</span></div>
+        <div class="title">Faturas de Concessionárias · Motor de execução por loja</div>
+        <div class="chips"><span class="chip warn">Estimativa do PO</span><span class="chip warn">Depende do #13438</span></div>
+        <div class="bottom-row"><span class="avatar">—</span><span class="gap-count">3 pendências</span></div>
+      </button>
+
+      <button class="kcard" onclick="m13442.showModal()">
+        <div class="top-row"><span class="id">PBI #13442</span><span class="chip source">Refinement</span></div>
+        <div class="title">Faturas de Concessionárias · Tela de acompanhamento e consolidado</div>
+        <div class="chips"><span class="chip warn">Estimativa do PO</span><span class="chip warn">Pergunta em aberto</span></div>
+        <div class="bottom-row"><span class="avatar">—</span><span class="gap-count">3 pendências</span></div>
+      </button>
+
+      <button class="kcard" onclick="m13443.showModal()">
+        <div class="top-row"><span class="id">PBI #13443</span><span class="chip source">Refinement</span></div>
+        <div class="title">Faturas de Concessionárias · Conector EDP (conector-modelo)</div>
+        <div class="chips"><span class="chip warn">Estimativa do PO</span><span class="chip warn">Depende do #13438</span></div>
+        <div class="bottom-row"><span class="avatar">—</span><span class="gap-count">2 pendências</span></div>
+      </button>
+
+      <button class="kcard" onclick="m13444.showModal()">
+        <div class="top-row"><span class="id">PBI #13444</span><span class="chip source">Refinement</span></div>
+        <div class="title">Faturas de Concessionárias · Conector Energisa</div>
+        <div class="chips"><span class="chip warn">Estimativa do PO</span><span class="chip warn">Depende do #13438</span></div>
+        <div class="bottom-row"><span class="avatar">—</span><span class="gap-count">2 pendências</span></div>
+      </button>
+
+      <button class="kcard" onclick="m13445.showModal()">
+        <div class="top-row"><span class="id">PBI #13445</span><span class="chip source">Refinement</span></div>
+        <div class="title">Faturas de Concessionárias · Conector Equatorial</div>
+        <div class="chips"><span class="chip warn">Estimativa do PO</span><span class="chip warn">Depende do #13438</span></div>
+        <div class="bottom-row"><span class="avatar">—</span><span class="gap-count">2 pendências</span></div>
+      </button>
+
+      <button class="kcard" onclick="m13446.showModal()">
+        <div class="top-row"><span class="id">PBI #13446</span><span class="chip source">Refinement</span></div>
+        <div class="title">Faturas de Concessionárias · Conector Neoenergia</div>
+        <div class="chips"><span class="chip warn">Estimativa do PO</span><span class="chip warn">Depende do #13438</span></div>
+        <div class="bottom-row"><span class="avatar">—</span><span class="gap-count">2 pendências</span></div>
+      </button>
+
+      <button class="kcard" onclick="m13447.showModal()">
+        <div class="top-row"><span class="id">PBI #13447</span><span class="chip source">Refinement</span></div>
+        <div class="title">[RPA][Overlimit] Upload de CSV de clientes elegíveis</div>
+        <div class="chips"><span class="chip warn">Estimativa do PO</span><span class="chip warn">Regras em aberto</span></div>
+        <div class="bottom-row"><span class="avatar">—</span><span class="gap-count">2 pendências</span></div>
+      </button>
+
+      <button class="kcard" onclick="m13449.showModal()">
+        <div class="top-row"><span class="id">PBI #13449</span><span class="chip source">Refinement</span></div>
+        <div class="title">SSO Hub · Investigação: usuários e grupos do Keycloak x cópia no banco</div>
+        <div class="chips"><span class="chip warn">Estimativa do PO</span><span class="chip warn">Limite de tempo</span></div>
+        <div class="bottom-row"><span class="avatar">GK</span><span class="gap-count">2 pendências</span></div>
+      </button>
+
+      <button class="kcard" onclick="m13450.showModal()">
+        <div class="top-row"><span class="id">PBI #13450</span><span class="chip source">Refinement</span></div>
+        <div class="title">SSO Hub · Cadastro de usuário e de grupo em tela própria</div>
+        <div class="chips"><span class="chip warn">Estimativa do PO</span><span class="chip warn">Mock pendente de OK</span></div>
+        <div class="bottom-row"><span class="avatar">GK</span><span class="gap-count">3 pendências</span></div>
       </button>
 
     </div>
@@ -210,28 +343,91 @@
 
   <!-- Coluna: 100% pronto -->
   <div class="column">
-    <div class="column-head"><span class="dot" style="background:var(--good)"></span><h2>100% pronto</h2><span class="count">18</span></div>
+    <div class="column-head"><span class="dot" style="background:var(--good)"></span><h2>100% pronto</h2><span class="count">16</span></div>
     <div class="column-cards">
 
-      <button class="kcard" onclick="m12890.showModal()">
-        <div class="top-row"><span class="id">Item #12890</span><span class="chip source">Ready for Dev</span></div>
-        <div class="title">Engenharia Reversa — Número da Loja na Conciliação de Depósitos</div>
-        <div class="chips"><span class="chip good">Pronto</span><span class="chip warn">Estimativa do PO</span></div>
-        <div class="bottom-row"><span class="avatar">JB</span><span class="gap-count">0 pendências</span></div>
-      </button>
-
-      <button class="kcard" onclick="m12178.showModal()">
-        <div class="top-row"><span class="id">Bug #12178</span><span class="chip source">Refinement</span></div>
-        <div class="title">Upstream error — Excel e criação de campanha</div>
-        <div class="chips"><span class="chip good">Pronto</span><span class="chip warn">Estimativa do PO</span></div>
-        <div class="bottom-row"><span class="avatar">KC</span><span class="gap-count">0 pendências</span></div>
-      </button>
-
-      <button class="kcard" onclick="m11941.showModal()">
-        <div class="top-row"><span class="id">PBI #11941</span><span class="chip source">Ready for Dev</span></div>
-        <div class="title">Reset de senha na Consulta de Acessos (usuário e operador)</div>
+      <button class="kcard" onclick="m13419.showModal()">
+        <div class="top-row"><span class="id">PBI #13419</span><span class="chip source">Refinement</span></div>
+        <div class="title">Revisão de segurança das variáveis de ambiente em todas as pipelines</div>
         <div class="chips"><span class="chip good">Pronto</span></div>
-        <div class="bottom-row"><span class="avatar">JN</span><span class="gap-count">0 pendências</span></div>
+        <div class="bottom-row"><span class="avatar">—</span><span class="gap-count">0 pendências</span></div>
+      </button>
+
+      <button class="kcard" onclick="m13420.showModal()">
+        <div class="top-row"><span class="id">PBI #13420</span><span class="chip source">Refinement</span></div>
+        <div class="title">Motor de Descontos SKU · PDV (VAR): modelo de grade e paridade</div>
+        <div class="chips"><span class="chip good">Pronto</span><span class="chip warn">Estimativa do PO</span></div>
+        <div class="bottom-row"><span class="avatar">—</span><span class="gap-count">0 pendências</span></div>
+      </button>
+
+      <button class="kcard" onclick="m13421.showModal()">
+        <div class="top-row"><span class="id">PBI #13421</span><span class="chip source">Refinement</span></div>
+        <div class="title">Motor de Descontos SKU · PDV (VAR): leitura real da grade com fallback seguro</div>
+        <div class="chips"><span class="chip good">Pronto</span><span class="chip warn">Estimativa do PO</span></div>
+        <div class="bottom-row"><span class="avatar">—</span><span class="gap-count">0 pendências</span></div>
+      </button>
+
+      <button class="kcard" onclick="m13425.showModal()">
+        <div class="top-row"><span class="id">Bug #13425</span><span class="chip source">Refinement</span></div>
+        <div class="title">Editar rótulo ou valor de símbolo no caça-níquel quebra a tela de configuração</div>
+        <div class="chips"><span class="chip good">Pronto</span><span class="chip warn">Estimativa do PO</span></div>
+        <div class="bottom-row"><span class="avatar">—</span><span class="gap-count">0 pendências</span></div>
+      </button>
+
+      <button class="kcard" onclick="m13427.showModal()">
+        <div class="top-row"><span class="id">PBI #13427</span><span class="chip source">Refinement</span></div>
+        <div class="title">Botão “Encerrar campanha” com aviso de propagação em até 48h</div>
+        <div class="chips"><span class="chip good">Pronto</span><span class="chip warn">Estimativa do PO</span></div>
+        <div class="bottom-row"><span class="avatar">—</span><span class="gap-count">0 pendências</span></div>
+      </button>
+
+      <button class="kcard" onclick="m13437.showModal()">
+        <div class="top-row"><span class="id">PBI #13437</span><span class="chip source">Refinement</span></div>
+        <div class="title">Envio de Contas · Histórico de Contas com coluna Nº Requisição</div>
+        <div class="chips"><span class="chip good">Pronto</span><span class="chip warn">Estimativa do PO</span></div>
+        <div class="bottom-row"><span class="avatar">—</span><span class="gap-count">0 pendências</span></div>
+      </button>
+
+      <button class="kcard" onclick="m13448.showModal()">
+        <div class="top-row"><span class="id">PBI #13448</span><span class="chip source">Refinement</span></div>
+        <div class="title">SSO Hub · Mensagens de erro claras ao gerar link de acesso</div>
+        <div class="chips"><span class="chip good">Pronto</span><span class="chip warn">Estimativa do PO</span></div>
+        <div class="bottom-row"><span class="avatar">GK</span><span class="gap-count">0 pendências</span></div>
+      </button>
+
+      <button class="kcard" onclick="m13055.showModal()">
+        <div class="top-row"><span class="id">PBI #13055</span><span class="chip source">Ready for Dev</span></div>
+        <div class="title">Teste Regressivo — Geração do link de acesso do SSO</div>
+        <div class="chips"><span class="chip good">Pronto</span></div>
+        <div class="bottom-row"><span class="avatar">DM</span><span class="gap-count">0 pendências</span></div>
+      </button>
+
+      <button class="kcard" onclick="m13117.showModal()">
+        <div class="top-row"><span class="id">PBI #13117</span><span class="chip source">Refinement</span></div>
+        <div class="title">Resiliência do boot da API — dependência externa fora do ar não pode impedir a subida</div>
+        <div class="chips"><span class="chip good">Pronto</span><span class="chip warn">Estimativa do PO</span></div>
+        <div class="bottom-row"><span class="avatar">—</span><span class="gap-count">0 pendências</span></div>
+      </button>
+
+      <button class="kcard" onclick="m13127.showModal()">
+        <div class="top-row"><span class="id">PBI #13127</span><span class="chip source">Ready for Dev</span></div>
+        <div class="title">[ENGINE] Desenho da implementação da NFe tipo 2</div>
+        <div class="chips"><span class="chip good">Pronto</span><span class="chip warn">Estimativa do PO</span></div>
+        <div class="bottom-row"><span class="avatar">MA</span><span class="gap-count">0 pendências</span></div>
+      </button>
+
+      <button class="kcard" onclick="m13129.showModal()">
+        <div class="top-row"><span class="id">PBI #13129</span><span class="chip source">Ready for Dev</span></div>
+        <div class="title">[ENGINE] Validar uso do layout NFCe para contingência offline</div>
+        <div class="chips"><span class="chip good">Pronto</span><span class="chip warn">Estimativa do PO</span></div>
+        <div class="bottom-row"><span class="avatar">MA</span><span class="gap-count">0 pendências</span></div>
+      </button>
+
+      <button class="kcard" onclick="m13134.showModal()">
+        <div class="top-row"><span class="id">PBI #13134</span><span class="chip source">Ready for Dev</span></div>
+        <div class="title">[ENGINE] Implementação da NFe tipo 2</div>
+        <div class="chips"><span class="chip good">Pronto</span><span class="chip warn">Estimativa do PO</span></div>
+        <div class="bottom-row"><span class="avatar">MA</span><span class="gap-count">0 pendências</span></div>
       </button>
 
       <button class="kcard" onclick="m12514.showModal()">
@@ -241,59 +437,10 @@
         <div class="bottom-row"><span class="avatar">LS</span><span class="gap-count">0 pendências</span></div>
       </button>
 
-      <button class="kcard" onclick="m12793.showModal()">
-        <div class="top-row"><span class="id">PBI #12793</span><span class="chip source">Refinement</span></div>
-        <div class="title">Solicitação de Desbloqueio de Usuário/Operador pela loja</div>
-        <div class="chips"><span class="chip good">Pronto</span><span class="chip warn">Estimativa do PO</span><span class="chip mock">Mock</span></div>
-        <div class="bottom-row"><span class="avatar">—</span><span class="gap-count">0 pendências</span></div>
-      </button>
-
-      <button class="kcard" onclick="m12892.showModal()">
-        <div class="top-row"><span class="id">PBI #12892</span><span class="chip source">Ready for Dev</span></div>
-        <div class="title">Fechamento Contábil da Conciliação + Perdas/Vales no Oracle</div>
-        <div class="chips"><span class="chip good">Pronto</span><span class="chip warn">Estimativa do PO</span></div>
-        <div class="bottom-row"><span class="avatar">KC</span><span class="gap-count">0 pendências</span></div>
-      </button>
-
-      <button class="kcard" onclick="m12190.showModal()">
-        <div class="top-row"><span class="id">PBI #12190</span><span class="chip source">Ready for Dev</span></div>
-        <div class="title">Sync bloqueio de usuários Retaguarda → loja com problema</div>
-        <div class="chips"><span class="chip good">Pronto</span><span class="chip warn">Estimativa do PO</span></div>
-        <div class="bottom-row"><span class="avatar">—</span><span class="gap-count">0 pendências</span></div>
-      </button>
-
-      <button class="kcard" onclick="m12437.showModal()">
-        <div class="top-row"><span class="id">PBI #12437</span><span class="chip source">Ready for Dev</span></div>
-        <div class="title">[BE] Função 1[2] — Demonstrativo de Caixa</div>
-        <div class="chips"><span class="chip good">Pronto</span><span class="chip warn">Estimativa do PO</span></div>
-        <div class="bottom-row"><span class="avatar">JN</span><span class="gap-count">0 pendências</span></div>
-      </button>
-
-      <button class="kcard" onclick="m12509.showModal()">
-        <div class="top-row"><span class="id">PBI #12509</span><span class="chip source">Ready for Dev</span></div>
-        <div class="title">Dashboard CDs · Data de referência, tabela de lojas e gráfico Top 20</div>
-        <div class="chips"><span class="chip good">Pronto</span><span class="chip warn">Estimativa do PO</span></div>
-        <div class="bottom-row"><span class="avatar">JB</span><span class="gap-count">0 pendências</span></div>
-      </button>
-
-      <button class="kcard" onclick="m12510.showModal()">
-        <div class="top-row"><span class="id">PBI #12510</span><span class="chip source">Ready for Dev</span></div>
-        <div class="title">Dashboard CDs · Corrigir cálculo de peças via PROCV</div>
-        <div class="chips"><span class="chip good">Pronto</span><span class="chip warn">Estimativa do PO</span></div>
-        <div class="bottom-row"><span class="avatar">JB</span><span class="gap-count">0 pendências</span></div>
-      </button>
-
       <button class="kcard" onclick="m11818.showModal()">
         <div class="top-row"><span class="id">PBI #11818</span><span class="chip source">Refinement</span></div>
         <div class="title">Relatório de Performance de Campanhas</div>
         <div class="chips"><span class="chip good">Pronto</span><span class="chip mock">Mock</span></div>
-        <div class="bottom-row"><span class="avatar">KC</span><span class="gap-count">0 pendências</span></div>
-      </button>
-
-      <button class="kcard" onclick="m11935.showModal()">
-        <div class="top-row"><span class="id">PBI #11935</span><span class="chip source">Refinement</span></div>
-        <div class="title">Transferência de Tesouraria no Portal</div>
-        <div class="chips"><span class="chip good">Pronto</span></div>
         <div class="bottom-row"><span class="avatar">—</span><span class="gap-count">0 pendências</span></div>
       </button>
 
@@ -308,35 +455,7 @@
         <div class="top-row"><span class="id">PBI #11813</span><span class="chip source">Refinement</span></div>
         <div class="title">Interface para gerenciar destinatários de e-mail</div>
         <div class="chips"><span class="chip good">Pronto</span></div>
-        <div class="bottom-row"><span class="avatar">KC</span><span class="gap-count">0 pendências</span></div>
-      </button>
-
-      <button class="kcard" onclick="m12903.showModal()">
-        <div class="top-row"><span class="id">PBI #12903</span><span class="chip source">Ready for Dev</span></div>
-        <div class="title">Infra · Thread pool do Node insuficiente pros pools Oracle</div>
-        <div class="chips"><span class="chip good">Pronto</span><span class="chip warn">Estimativa do PO</span></div>
-        <div class="bottom-row"><span class="avatar">FL</span><span class="gap-count">0 pendências</span></div>
-      </button>
-
-      <button class="kcard" onclick="m12904.showModal()">
-        <div class="top-row"><span class="id">PBI #12904</span><span class="chip source">Ready for Dev</span></div>
-        <div class="title">Infra · Tirar foto do usuário do /api/auth/me (cache no navegador)</div>
-        <div class="chips"><span class="chip good">Pronto</span><span class="chip warn">Estimativa do PO</span></div>
-        <div class="bottom-row"><span class="avatar">FL</span><span class="gap-count">0 pendências</span></div>
-      </button>
-
-      <button class="kcard" onclick="m12905.showModal()">
-        <div class="top-row"><span class="id">PBI #12905</span><span class="chip source">Ready for Dev</span></div>
-        <div class="title">Infra · Separar liveness do diagnóstico completo (healthcheck API)</div>
-        <div class="chips"><span class="chip good">Pronto</span><span class="chip warn">Estimativa do PO</span></div>
-        <div class="bottom-row"><span class="avatar">FL</span><span class="gap-count">0 pendências</span></div>
-      </button>
-
-      <button class="kcard" onclick="m12906.showModal()">
-        <div class="top-row"><span class="id">PBI #12906</span><span class="chip source">Ready for Dev</span></div>
-        <div class="title">Infra · Mover StoreJobProcessor da API pro worker</div>
-        <div class="chips"><span class="chip good">Pronto</span><span class="chip warn">Estimativa do PO</span></div>
-        <div class="bottom-row"><span class="avatar">FL</span><span class="gap-count">0 pendências</span></div>
+        <div class="bottom-row"><span class="avatar">—</span><span class="gap-count">0 pendências</span></div>
       </button>
 
     </div>
@@ -345,62 +464,53 @@
 </div>
 
 <div class="worklist">
-  <h2>O que falta trabalhar — 7 cards</h2>
+  <h2>O que falta trabalhar — 25 cards</h2>
   <p class="sub">Pendência principal de cada card ainda não "100% pronto", pra começar por aqui. Detalhe completo em cada modal acima.</p>
 
   <div class="worklist-group">
     <h3><span class="dot" style="background:var(--bad)"></span>Precisa refinar (4)</h3>
-    <div class="work-item"><span class="wid">Item #11840</span><span class="wtitle">Migração Postgres Oracle</span><span class="wpend"><strong>Provável card órfão</strong> — épico pai tem 17 batches, todos Done ("Batch 16 - FINAL"). Aguardando confirmação do Igor pra descartar.</span></div>
-    <div class="work-item"><span class="wid">PBI #12115</span><span class="wtitle">RPA · Gerenciamento de usuários</span><span class="wpend">Formato+rótulo feitos (achado: sem associação usuário↔CD no banco hoje); faltam 4 decisões de negócio antes de estimar.</span></div>
-    <div class="work-item"><span class="wid">PBI #12812</span><span class="wtitle">Conciliação F2 · Planilha Contábil</span><span class="wpend"><strong>Card novo (26/08), bloqueio externo real</strong> — Adriana ainda vai levantar o layout Oracle com o contábil. Ambiguidade em aberto: "Arco" (citado 28/08) pode ser mudança de abordagem.</span></div>
-    <div class="work-item"><span class="wid">Bug #12889</span><span class="wtitle">Menus/DTEF · Portal Conexão</span><span class="wpend"><strong>Card novo (01/09) — achado pela varredura, não sinalizado pelo Igor.</strong> AC bom em prosa (7 critérios) mas sem formato Cenário/GWT, sem rótulo, sem estimativa, sem nota técnica (bug/sustentação, 0 comentários).</span></div>
+    <div class="work-item"><span class="wid">Item #11840</span><span class="wtitle">Migração Postgres Oracle</span><span class="wpend"><strong>Conteúdo insuficiente</strong> (Descrição e AC são a mesma frase) e provável card órfão — confirmar com o Igor se pode ser descartado.</span></div>
+    <div class="work-item"><span class="wid">Bug #12910</span><span class="wtitle">Saldo parcial de Caixa · Portal</span><span class="wpend"><strong>Voltou do QA (Danilo, 11/09):</strong> Descrição, Repro Steps e AC iguais; faltam passo a passo, definição de “derrubando o portal”, critério mensurável e ambiente/dado observado.</span></div>
+    <div class="work-item"><span class="wid">PBI #12911</span><span class="wtitle">Implementar Solicitação em Rede Local</span><span class="wpend"><strong>Descrição e AC são só o título</strong> — sem Cenários, sem escopo e sem estimativa, já em Ready for Dev na Sprint 29.</span></div>
+    <div class="work-item"><span class="wid">PBI #13433</span><span class="wtitle">SSO · Link de uso único</span><span class="wpend">Story no template antigo, Cenários sem Dado/Quando/Então e sem rótulo de verificação, sem estimativa.</span></div>
   </div>
 
   <div class="worklist-group">
-    <h3><span class="dot" style="background:var(--warn)"></span>Quase pronto (2)</h3>
-    <div class="work-item"><span class="wid">PBI #12511</span><span class="wtitle">Dashboard CDs · Lead time</span><span class="wpend">Cenário 2 depende do "mapa do estoque" do CD 83 (JB trabalhando ativamente); estimativa (3 pts) pendente de confirmação técnica.</span></div>
-    <div class="work-item"><span class="wid">PBI #12513</span><span class="wtitle">Dashboard CDs · Melhorias</span><span class="wpend">Bloqueio externo real: esboço/protótipo da Maria ainda não chegou; nenhum dos 4 itens avança sem ele. Sem estimativa.</span></div>
+    <h3><span class="dot" style="background:var(--warn)"></span>Quase pronto (21)</h3>
+    <div class="work-item"><span class="wid">PBI #12115</span><span class="wtitle">RPA · Usuários por grupo e CD</span><span class="wpend">4 decisões de negócio em aberto (mais de um CD por usuário, onde gerir o vínculo, quais telas respeitam a restrição, quem é o stakeholder); sem estimativa.</span></div>
+    <div class="work-item"><span class="wid">PBI #12812</span><span class="wtitle">Conciliação F2 · Planilha Contábil</span><span class="wpend"><strong>Bloqueio externo:</strong> a Adriana ainda vai levantar o layout Oracle com o contábil; sem estimativa.</span></div>
+    <div class="work-item"><span class="wid">PBI #11941</span><span class="wtitle">Reset de senha na Consulta de Acessos</span><span class="wpend">Dúvida do dev (João Neto, 10/09) sem resposta: como o reset de senha de usuário deve funcionar e com quem falar.</span></div>
+    <div class="work-item"><span class="wid">PBI #13422</span><span class="wtitle">Motor · UI com base na Gamificação</span><span class="wpend">Igor confirmar se o escopo são só os 2 pontos mapeados (lista vazia ilustrada, rascunho local + aviso de saída) ou há mais diferenças.</span></div>
+    <div class="work-item"><span class="wid">PBI #13426</span><span class="wtitle">Migrações no deploy da API</span><span class="wpend">Cenário 5 em aberto: a aprovação manual de produção cobre a migração ou ela exige passo próprio no fluxo de GMUD?</span></div>
+    <div class="work-item"><span class="wid">PBI #13428</span><span class="wtitle">Motor · Restringir campanha global a lojas</span><span class="wpend">Mock necessário e não construído — aguardando o Igor confirmar e descrever como a tela deve se comportar.</span></div>
+    <div class="work-item"><span class="wid">PBI #13429</span><span class="wtitle">Motor · Campanha por departamento (PRO013)</span><span class="wpend"><strong>Bloqueio externo:</strong> confirmação formal do Caixeta e dos QAs de que a validação da PRO013 no VAR foi concluída; não vai pra produção antes.</span></div>
+    <div class="work-item"><span class="wid">PBI #13435</span><span class="wtitle">Envio de Contas · Requisição no Oracle</span><span class="wpend"><strong>Bloqueio externo:</strong> permissões do usuário técnico no Oracle (requisitante e comprador), validação do mapeamento dos campos e parecer de Arquitetura.</span></div>
+    <div class="work-item"><span class="wid">PBI #13436</span><span class="wtitle">Envio de Contas · OC a partir da Requisição</span><span class="wpend"><strong>Bloqueio externo:</strong> os mesmos do #13435 (permissões no Oracle, mapeamento, Arquitetura); depende do #13435.</span></div>
+    <div class="work-item"><span class="wid">PBI #13438</span><span class="wtitle">Faturas · Levantamento técnico</span><span class="wpend"><strong>Bloqueio externo:</strong> pareceres de TI e de Arquitetura e o cofre de credenciais; destrava todos os demais cards do projeto (#13439 a #13446).</span></div>
+    <div class="work-item"><span class="wid">PBI #13439</span><span class="wtitle">Faturas · Base operacional de lojas</span><span class="wpend">Como a Gestão Imobiliária vai manter a base (tela, planilha ou outro) e quem faz a carga inicial; depende do #13438 (cofre de credenciais).</span></div>
+    <div class="work-item"><span class="wid">PBI #13440</span><span class="wtitle">Faturas · Agendamento</span><span class="wpend">Horário inicial das execuções e regra pra dia inexistente no mês (pular ou antecipar); depende do #13438.</span></div>
+    <div class="work-item"><span class="wid">PBI #13441</span><span class="wtitle">Faturas · Motor de execução por loja</span><span class="wpend">Depende do #13438, #13439 e #13440; estimativa (13 pts) provisória até o levantamento técnico.</span></div>
+    <div class="work-item"><span class="wid">PBI #13442</span><span class="wtitle">Faturas · Tela de acompanhamento</span><span class="wpend">Quais perfis acessam a tela; depende do motor de execução (#13441) pra ter dados.</span></div>
+    <div class="work-item"><span class="wid">PBI #13443</span><span class="wtitle">Faturas · Conector EDP</span><span class="wpend">Depende do #13438 (tipo de acesso e MFA/CAPTCHA por portal); estimativa provisória. É o conector-modelo dos demais.</span></div>
+    <div class="work-item"><span class="wid">PBI #13444</span><span class="wtitle">Faturas · Conector Energisa</span><span class="wpend">Depende do #13438; estimativa provisória. Segue o conector-modelo (#13443).</span></div>
+    <div class="work-item"><span class="wid">PBI #13445</span><span class="wtitle">Faturas · Conector Equatorial</span><span class="wpend">Depende do #13438; estimativa provisória. Segue o conector-modelo (#13443).</span></div>
+    <div class="work-item"><span class="wid">PBI #13446</span><span class="wtitle">Faturas · Conector Neoenergia</span><span class="wpend">Depende do #13438; estimativa provisória. Segue o conector-modelo (#13443).</span></div>
+    <div class="work-item"><span class="wid">PBI #13447</span><span class="wtitle">Overlimit · Upload de CSV</span><span class="wpend">Igor decidir: comportamento de nova carga (substitui, acumula ou atualiza), aceitação parcial de linhas inválidas, faixa da porcentagem e duplicados no arquivo.</span></div>
+    <div class="work-item"><span class="wid">PBI #13449</span><span class="wtitle">SSO Hub · Investigação Keycloak x banco</span><span class="wpend">Igor definir o limite aceitável de tempo de resposta do portal, pra o Cenário 3 ter critério objetivo.</span></div>
+    <div class="work-item"><span class="wid">PBI #13450</span><span class="wtitle">SSO Hub · Cadastro em tela própria</span><span class="wpend">Mock necessário e não construído; Igor esclarecer a dor do cartão atual e se a tela nova tem campo ou passo a mais.</span></div>
   </div>
 </div>
 
-<footer><strong>Quinta varredura completa, 04/09, mesmo dia (obrigatória de 3 partes — <code>get_batch</code> nos 25 IDs então rastreados, leitura de comentários de todo card tocado desde a varredura anterior, WIQL pra cards novos):</strong> board caiu de 25 pra <strong>24 cards</strong> (5 Precisa refinar + 2 Quase pronto + 17 100% pronto).
-<p style="max-width:80ch;margin:8px auto 0;padding:0 24px;font-size:12px;color:var(--text-secondary);"><strong>1 card saiu de escopo nesta rodada:</strong> <strong>#12902</strong> (Infra · healthcheck do nginx) avançou de "Ready for Dev" pra <strong>"Doing"</strong> no Azure (17:09) — dev já começou. Removido do board (chip + modal). Nenhum outro card saiu; nenhum card novo entrou.</p>
-<p style="max-width:80ch;margin:0 auto 8px;padding:0 24px;font-size:12px;color:var(--text-secondary);"><strong>#12178 fechou o gate nesta rodada</strong> (permanece em "100% pronto", onde já estava fisicamente posicionado, mas a última pendência interna real foi resolvida agora): comentário do Igor às 17:33 — depois da varredura anterior — respondeu à pendência do time de arquitetura pro Cenário 4, citando os dois fluxos concretos que passam pelo mesmo proxy síncrono/sem fila: criação de campanha PRO013/PRO014/PRO017 (<code>createAtomic</code>, abaixo de <code>ASYNC_CAMPAIGN_CREATION_ROW_THRESHOLD</code>) e, com menos força de evidência, a Automação Planilha Fiscal. Gap-list do card já refletia só a pendência de estimativa (nenhuma edição necessária); o texto desta varredura substitui a narrativa desatualizada da rodada anterior, que ainda descrevia #12178 como bloqueado.</p>
-<p style="max-width:80ch;margin:0 auto 8px;padding:0 24px;font-size:12px;color:var(--text-secondary);"><strong>WIQL em Refinement/Ready for Dev/New retornou 24 IDs</strong> — exatamente os 25 já rastreados menos o #12902 (agora em Doing); nenhum ID fora da lista, confirmando 0 cards novos não-triados.</p>
-<p style="max-width:80ch;margin:0 auto 8px;padding:0 24px;font-size:12px;color:var(--text-secondary);"><strong>Limpeza completa da lista "O que falta" em todos os cards do board</strong> (pedido explícito desta rodada, não amarrado a mudança de estado/coluna): removida narração de transição de estado/sprint (#12513 — "avançou de Refinement pra Ready for Dev / Sprint 27 pra 28"), removidas confirmações de bookkeeping de varredura já resolvidas ("Atualização da varredura de 02/09" em #12509/#12510/#12513 — o fato relevante, a conta JB=JN, foi dobrado pra dentro da linha <code>meta</code> do #12509 em vez de ficar como item datado), e removida a justificativa/comparação por trás de cada estimativa já preenchida e pendente só de confirmação técnica (#12190, #12437, #12509, #12510, #12514, #12793, #12892, #12903, #12904, #12905, #12906) — mantendo em cada uma só a linha "Estimativa de N pts, pendente de confirmação", que é a pendência real; a rationale de sizing relativo (comparável a #X) já está registrada no comentário do próprio card no Azure, não precisa se repetir no board. Nenhum card teve pendência real removida — só narrativa de processo/sync, nunca conteúdo do card.</p>
-<p style="max-width:80ch;margin:0 auto;padding:0 24px;font-size:12px;color:var(--text-secondary);"><strong>Paridade chip/modal conferida: 24 botões de card = 24 diálogos.</strong> Histórico de saídas de escopo (11 desde 01/09, incluindo #12902 nesta rodada e #12284/#12813 fechados como Done sem documentação formal do gap de QA, sinalizados pro Igor em rodadas anteriores sem ação adicional pedida) segue no histórico do repositório. Clique em qualquer card pra abrir o detalhe completo.</p></footer>
+<footer>Estado do Azure DevOps em 29/09/2026 (projeto Var Retaguarda). Cards que avançam além de Ready for Dev saem do board. Clique em qualquer card pra abrir o detalhe completo.</footer>
 
 <!-- ===================== MODALS ===================== -->
-
-<dialog id="m12178">
-  <div class="modal-inner">
-    <div class="modal-head">
-      <div class="row1"><div><span class="id">Bug #12178</span><div class="title">Upstream error — Exportação de Excel e Criação de Campanhas</div></div>
-      <button class="close-btn" onclick="m12178.close()">✕</button></div>
-      <div class="meta">Kauã Cunha · 3 pts (estimativa do PO) · Epic Bugs (#9561) · Coluna Azure: Refinement</div>
-    </div>
-    <div class="modal-body">
-      <div class="checkgrid">
-        <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
-        <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
-        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
-        <div class="check-item"><span class="mark yes">✓</span>Sem bloqueio aberto</div>
-        <div class="check-item"><span class="mark yes">✓</span>Nota técnica no card</div>
-      </div>
-      <div><h3>O que falta</h3><ul class="gap-list">
-        <li>Estimativa (3 pts) ainda é proposta do PO, pendente de confirmação do time técnico.</li>
-      </ul></div>
-      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12178" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
-    </div>
-  </div>
-</dialog>
 
 <dialog id="m11813">
   <div class="modal-inner">
     <div class="modal-head">
       <div class="row1"><div><span class="id">PBI #11813</span><div class="title">Interface para Gerenciar Destinatários de E-mail no Portal</div></div>
       <button class="close-btn" onclick="m11813.close()">✕</button></div>
-      <div class="meta">Kauã Cunha · 3 pts · Epic Motor de Descontos (#6669) · Coluna Azure: Refinement</div>
+      <div class="meta">Sem atribuição · 3 pts · Epic Motor de Descontos (#6669) · Sprint 28 · Coluna Azure: Refinement</div>
     </div>
     <div class="modal-body">
       <div class="checkgrid">
@@ -409,7 +519,7 @@
         <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
         <div class="check-item"><span class="mark yes">✓</span>Sem bloqueio aberto</div>
       </div>
-      <div><h3>O que falta</h3><ul class="gap-list clean"><li>Nenhuma — 4 cenários (visualizar, adicionar, remover, e-mail inválido/duplicado, que foi adicionado no refino). Rótulo backend (persistência/envio) + UI (tela). 3 pts.</li></ul></div>
+      <div><h3>O que falta</h3><ul class="gap-list clean"><li>Nenhuma — 4 cenários (visualizar, adicionar, remover, e-mail inválido/duplicado). Rótulo backend (persistência/envio) + UI (tela). 3 pts.</li></ul></div>
       <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/11813" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
     </div>
   </div>
@@ -420,7 +530,7 @@
     <div class="modal-head">
       <div class="row1"><div><span class="id">PBI #11818</span><div class="title">Relatório de Performance de Campanhas</div></div>
       <button class="close-btn" onclick="m11818.close()">✕</button></div>
-      <div class="meta">Kauã Cunha · 13 pts · Epic Motor de Descontos (#6669) · Coluna Azure: Refinement</div>
+      <div class="meta">Sem atribuição · 13 pts · Epic Motor de Descontos (#6669) · Sprint 28 · Coluna Azure: Refinement</div>
     </div>
     <div class="modal-body">
       <div class="checkgrid">
@@ -441,7 +551,7 @@
     <div class="modal-head">
       <div class="row1"><div><span class="id">Item #11840</span><div class="title">Migração Postgres Oracle</div></div>
       <button class="close-btn" onclick="m11840.close()">✕</button></div>
-      <div class="meta">Leonardo Silva · sem estimativa · Nonfunctional Item · Coluna Azure: Refinement</div>
+      <div class="meta">Leonardo Silva · sem estimativa · Nonfunctional Item · Sprint 28 · Coluna Azure: Refinement</div>
     </div>
     <div class="modal-body">
       <div class="checkgrid">
@@ -453,28 +563,9 @@
       <div><h3>O que falta</h3><ul class="gap-list">
         <li><strong>Isso não é um problema de formato — é conteúdo insuficiente.</strong> Descrição e AC são a mesma frase repetida: "Migração postgres oraclhe, todos os cards de batch estao no mesmo epico." Sem persona, sem regra de negócio, sem escopo definido, sem indicação de quais "cards de batch" são esses.</li>
         <li>Precisa ser reescrito do zero com o time técnico antes de qualquer refinamento de formato fazer sentido.</li>
+        <li>Provável card órfão: o épico pai tem 17 batches, todos Done (“Batch 16 - FINAL”) — confirmar com o Igor se o card pode ser descartado.</li>
       </ul></div>
       <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/11840" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
-    </div>
-  </div>
-</dialog>
-
-<dialog id="m11935">
-  <div class="modal-inner">
-    <div class="modal-head">
-      <div class="row1"><div><span class="id">PBI #11935</span><div class="title">Exibir Transferência de Tesouraria no Portal</div></div>
-      <button class="close-btn" onclick="m11935.close()">✕</button></div>
-      <div class="meta">5 pts · Epic #7032 · Coluna Azure: Refinement</div>
-    </div>
-    <div class="modal-body">
-      <div class="checkgrid">
-        <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
-        <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
-        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
-        <div class="check-item"><span class="mark yes">✓</span>Sem bloqueio aberto</div>
-      </div>
-      <div><h3>O que falta</h3><ul class="gap-list clean"><li>Nenhuma — 6 cenários (consolidados dos 12 originais, sem perder cobertura). Rótulo backend (cálculo) + UI (novo bloco).</li></ul></div>
-      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/11935" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
     </div>
   </div>
 </dialog>
@@ -482,18 +573,21 @@
 <dialog id="m11941">
   <div class="modal-inner">
     <div class="modal-head">
-      <div class="row1"><div><span class="id">PBI #11941</span><div class="title">Implementar reset de senha para usuários e operador na Consulta de Acessos</div></div>
+      <div class="row1"><div><span class="id">PBI #11941</span><div class="title">Implementar reset de senha para usuários na Consulta de Acessos</div></div>
       <button class="close-btn" onclick="m11941.close()">✕</button></div>
-      <div class="meta">João Neto · 4 pts · Epic #7032 · Coluna Azure: Ready for Dev</div>
+      <div class="meta">Sem atribuição · 4 pts · Epic #7032 · Sem sprint · Coluna Azure: Refinement</div>
     </div>
     <div class="modal-body">
       <div class="checkgrid">
         <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
         <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
         <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
-        <div class="check-item"><span class="mark yes">✓</span>Sem bloqueio aberto</div>
+        <div class="check-item"><span class="mark partial">◐</span>Sem bloqueio aberto</div>
       </div>
-      <div><h3>O que falta</h3><ul class="gap-list clean"><li>Nenhuma — <strong>fechado em 04/09.</strong> Revisão de QA do Danilo (25/08) respondida: Cenário 7 (auditoria) tinha redação condicional ("se aplicável"). Investigação no código real (<code>ConciliaçãoCaixaAPI</code>) confirmou que o padrão de auditoria já existe e roda hoje pra reset de operador — <code>resetOperatorPassword</code> (<code>access-automation/services/user-management.service.ts</code>, ~linhas 515-556) chama <code>logService.createAuditLog(...)</code> com entidade/ação/IP/e-mail, consultável via <code>GET /audit-history</code>. Não existe endpoint equivalente pra reset de usuário — é trabalho novo do próprio card. Cenário 7 reescrito como obrigatório, citando o arquivo/linhas exatos a replicar; Story também migrada pro template atual ("Eu, enquanto/poderia/para"). Estimativa de 4 pts mantida.</li></ul></div>
+      <div><h3>O que falta</h3><ul class="gap-list">
+        <li><strong>Dúvida do dev em aberto (comentário do João Neto, 10/09):</strong> o reset de senha de usuário segue indefinido pra quem vai implementar — ele pergunta com quem falar ou se já existe definição de como esse reset deve funcionar. Sem resposta registrada no card, que hoje está em Refinement no Azure (estava em Ready for Dev na leitura anterior).</li>
+        <li>Nota técnica: o padrão de auditoria já existe pro reset de operador — <code>resetOperatorPassword</code> (<code>access-automation/services/user-management.service.ts</code>, ~linhas 515-556) chama <code>logService.createAuditLog(...)</code> com entidade/ação/IP/e-mail, consultável via <code>GET /audit-history</code>. Não existe endpoint equivalente pra reset de usuário — é trabalho novo do card (Cenário 7, auditoria, obrigatório).</li>
+      </ul></div>
       <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/11941" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
     </div>
   </div>
@@ -504,7 +598,7 @@
     <div class="modal-head">
       <div class="row1"><div><span class="id">PBI #12403</span><div class="title">Ordenar lista de lojas disponíveis para extração, exibindo-as no topo</div></div>
       <button class="close-btn" onclick="m12403.close()">✕</button></div>
-      <div class="meta">2 pts · Epic #11103 · Coluna Azure: Refinement</div>
+      <div class="meta">Sem atribuição · 2 pts · Epic #11103 · Sprint 28 · Coluna Azure: Refinement</div>
     </div>
     <div class="modal-body">
       <div class="checkgrid">
@@ -524,161 +618,22 @@
     <div class="modal-head">
       <div class="row1"><div><span class="id">PBI #12115</span><div class="title">[ RPA ] Gerenciamento de Usuários por Grupo e Restrição de Visibilidade por CD</div></div>
       <button class="close-btn" onclick="m12115.close()">✕</button></div>
-      <div class="meta">sem estimativa · Coluna Azure: Refinement</div>
+      <div class="meta">Sem atribuição · sem estimativa · Sprint 28 · Coluna Azure: Refinement</div>
     </div>
     <div class="modal-body">
       <div class="checkgrid">
-        <div class="check-item"><span class="mark no">✕</span>Formato Cenário + GWT</div>
-        <div class="check-item"><span class="mark no">✕</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
         <div class="check-item"><span class="mark no">✕</span>Estimativa preenchida</div>
-        <div class="check-item"><span class="mark yes">✓</span>Sem bloqueio aberto</div>
-      </div>
-      <div><h3>O que falta</h3><ul class="gap-list"><li><strong>Descrição e AC totalmente vazios.</strong> Só o título indica o tema (gerenciar usuários por grupo, restringir visibilidade por CD). Precisa ser escrito do zero com o time técnico/RPA antes de qualquer refinamento de formato fazer sentido.</li></ul></div>
-      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12115" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
-    </div>
-  </div>
-</dialog>
-
-<dialog id="m12190">
-  <div class="modal-inner">
-    <div class="modal-head">
-      <div class="row1"><div><span class="id">PBI #12190</span><div class="title">Sync bloqueio de usuários Retaguarda → loja com problema</div></div>
-      <button class="close-btn" onclick="m12190.close()">✕</button></div>
-      <div class="meta">Sem atribuição · 3 pts (estimativa do PO) · Epic #9740 · Coluna Azure: Ready for Dev</div>
-    </div>
-    <div class="modal-body">
-      <div class="checkgrid">
-        <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
-        <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
-        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
-        <div class="check-item"><span class="mark yes">✓</span>Sem bloqueio aberto</div>
-        <div class="check-item"><span class="mark yes">✓</span>Nota técnica no card</div>
-      </div>
-      <div><h3>O que falta</h3><ul class="gap-list clean">
-        <li>Nenhuma — refinado em 13/08. História + 3 Cenários Dado/Quando/Então (bloqueio propagado, regressão do desbloqueio, causa raiz com timebox de 1 dia útil). Nota técnica no card: caminho front→back→Oracle-da-loja já é simétrico, causa raiz real ainda não localizada — Cenário 3 reserva a investigação ao dev, com timebox, mesmo padrão do #12178. <strong>Estimativa de 3 pts, pendente de confirmação do time técnico.</strong></li>
-      </ul></div>
-      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12190" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
-    </div>
-  </div>
-</dialog>
-
-<dialog id="m12437">
-  <div class="modal-inner">
-    <div class="modal-head">
-      <div class="row1"><div><span class="id">PBI #12437</span><div class="title">[BE] Função 1[2] — Demonstrativo de Caixa</div></div>
-      <button class="close-btn" onclick="m12437.close()">✕</button></div>
-      <div class="meta">João Neto · 5 pts (estimativa do PO) · Epic Migração VARRet (#11985) · Sprint 28 · Coluna Azure: Ready for Dev</div>
-    </div>
-    <div class="modal-body">
-      <div class="checkgrid">
-        <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
-        <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
-        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
-        <div class="check-item"><span class="mark yes">✓</span>Sem bloqueio aberto</div>
-      </div>
-      <div><h3>O que falta</h3><ul class="gap-list clean">
-        <li>Nenhuma — refinado em 13/08. 8 Cenários convertidos pra Dado/Quando/Então com rótulo de verificação (mistura backend — origem/consistência dos valores no Demonstrativo — e frontend — layout dos novos blocos). Nota técnica no card: componente de exportação existente em <code>demonstrative-export/types.ts</code> (ConciliaçãoCaixaFront). <strong>Estimativa de 5 pts, pendente de confirmação do time técnico.</strong></li>
-      </ul></div>
-      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12437" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
-    </div>
-  </div>
-</dialog>
-
-<dialog id="m12509">
-  <div class="modal-inner">
-    <div class="modal-head">
-      <div class="row1"><div><span class="id">PBI #12509</span><div class="title">Dashboard CDs — Atualizar data de referência, tabela de lojas e gráfico "Top 20 lojas + lead time"</div></div>
-      <button class="close-btn" onclick="m12509.close()">✕</button></div>
-      <div class="meta">João Bernardo (JB) — mesma conta usada como "João Neto (JN)" em #11941/#12437 · 8 pts (estimativa do PO) · Epic Dashboard CD (#10810) · Sprint 28 · Coluna Azure: Ready for Dev</div>
-    </div>
-    <div class="modal-body">
-      <div class="checkgrid">
-        <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
-        <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
-        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
-        <div class="check-item"><span class="mark yes">✓</span>Sem bloqueio aberto</div>
-        <div class="check-item"><span class="mark yes">✓</span>Nota técnica no card</div>
-      </div>
-      <div><h3>O que falta</h3><ul class="gap-list clean">
-        <li>Nenhuma — <strong>planilha da Maria chegou (20/08) e JB já implementou as mudanças de paridade no sistema (confirmado 24/08)</strong>, o que valida o escopo deste card na prática. Resta só a confirmação formal da estimativa pelo time técnico.</li>
-        <li><strong>Estimativa de 8 pts, pendente de confirmação do time técnico.</strong></li>
-        <li><strong>Nota técnica (13/08, código do rpa-service/rpa-front/rpa-bff):</strong> serviços de backend já existem (<code>FeaturedStoresService</code>, <code>LeadTimeService</code>, <code>CrossCdService</code>/<code>strategies</code>) mas precisam de ajuste; a tela hoje é por CD individual — não existe view combinada CD 80+83, o que muda o porte real do Cenário 3.</li>
-      </ul></div>
-      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12509" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
-    </div>
-  </div>
-</dialog>
-
-<dialog id="m12510">
-  <div class="modal-inner">
-    <div class="modal-head">
-      <div class="row1"><div><span class="id">PBI #12510</span><div class="title">Dashboard CDs — Corrigir cálculo de quantidade de peças via PROCV</div></div>
-      <button class="close-btn" onclick="m12510.close()">✕</button></div>
-      <div class="meta">João Bernardo (JB) · 3 pts (estimativa do PO) · Epic Dashboard CD (#10810) · Sprint 28 · Coluna Azure: Ready for Dev</div>
-    </div>
-    <div class="modal-body">
-      <div class="checkgrid">
-        <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
-        <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
-        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
-        <div class="check-item"><span class="mark yes">✓</span>Sem bloqueio aberto</div>
-        <div class="check-item"><span class="mark yes">✓</span>Nota técnica no card</div>
-      </div>
-      <div><h3>O que falta</h3><ul class="gap-list clean">
-        <li>Nenhuma — <strong>planilha da Maria chegou (20/08) e JB já implementou as mudanças de paridade no sistema (confirmado 24/08)</strong>, incluindo Cenário 2. Resta só a confirmação formal da estimativa pelo time técnico.</li>
-        <li><strong>Estimativa de 3 pts, pendente de confirmação do time técnico.</strong></li>
-        <li><strong>Nota técnica (13/08):</strong> o PROCV de peças-por-pack já existe no código (<code>ExtractionService._get_item_pack_lookup</code>) com fallback automático pra item sem pack conhecido — Cenário 2 confirmado coberto.</li>
-      </ul></div>
-      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12510" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
-    </div>
-  </div>
-</dialog>
-
-<dialog id="m12511">
-  <div class="modal-inner">
-    <div class="modal-head">
-      <div class="row1"><div><span class="id">PBI #12511</span><div class="title">Dashboard CDs — Corrigir fórmula do lead time médio (ponderado por rota)</div></div>
-      <button class="close-btn" onclick="m12511.close()">✕</button></div>
-      <div class="meta">João Bernardo (JB) · 3 pts (estimativa do PO) · Epic Dashboard CD (#10810) · Sprint 28 · Coluna Azure: Ready for Dev</div>
-    </div>
-    <div class="modal-body">
-      <div class="checkgrid">
-        <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
-        <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
-        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
         <div class="check-item"><span class="mark partial">◐</span>Sem bloqueio aberto</div>
-        <div class="check-item"><span class="mark yes">✓</span>Nota técnica no card</div>
       </div>
       <div><h3>O que falta</h3><ul class="gap-list">
-        <li>Cenário 2 depende de bater com a planilha de estoque do CD 83 — JB já trabalhando ativamente no "mapa do estoque" (24/08), deve destravar em breve.</li>
-        <li>Estimativa (3 pts) ainda é proposta do PO, pendente de confirmação do time técnico.</li>
+        <li><strong>4 decisões de negócio em aberto (impedem estimar):</strong> (1) um usuário pode ter mais de um CD ou só um; (2) onde o vínculo usuário↔grupo/CD é gerenciado — tela de admin nova ou configuração manual (Cenário 2); (3) quais telas/endpoints do RPA precisam respeitar a restrição — o levantamento cobriu só o Dashboard CDs (#10810); (4) quem é o stakeholder de negócio que pediu — ninguém referenciado no card.</li>
+        <li>Sem estimativa: o tamanho varia de “campo novo + filtro” a “tela de admin completa + regra de autorização em vários endpoints”.</li>
+        <li>A Story ainda está no template antigo (Como/Quero/Para que).</li>
+        <li>Nota técnica: já existe escopo por role/módulo no front (<code>rpa-front/src/types/user/rolesMap.ts</code>), mas ele restringe o módulo, não o CD; o backend (<code>rpa-service/shared/shared/models/user_models.py</code>) não tem campo de grupo ou CD no usuário — é capacidade nova, sem nada pra estender.</li>
       </ul></div>
-      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12511" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
-    </div>
-  </div>
-</dialog>
-
-<dialog id="m12513">
-  <div class="modal-inner">
-    <div class="modal-head">
-      <div class="row1"><div><span class="id">PBI #12513</span><div class="title">Dashboard CDs — Melhorias pós-paridade (filtro, último carregamento, média da rota, números visíveis)</div></div>
-      <button class="close-btn" onclick="m12513.close()">✕</button></div>
-      <div class="meta">João Bernardo (JB) · sem estimativa · Epic Dashboard CD (#10810) · Sprint 28 · Coluna Azure: Ready for Dev</div>
-    </div>
-    <div class="modal-body">
-      <div class="checkgrid">
-        <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
-        <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
-        <div class="check-item"><span class="mark no">✕</span>Estimativa preenchida</div>
-        <div class="check-item"><span class="mark no">✕</span>Sem bloqueio aberto</div>
-        <div class="check-item"><span class="mark yes">✓</span>Nota técnica no card</div>
-      </div>
-      <div><h3>O que falta</h3><ul class="gap-list">
-        <li><strong>Bloqueio externo real:</strong> a Maria vai desenhar um esboço/protótipo antes de qualquer mudança visual nova ser implementada — nenhum dos 4 itens deve avançar sem isso.</li>
-        <li>Sem estimativa.</li>
-        <li><strong>Nota técnica (13/08):</strong> o modo TV (<code>rpa-front/src/pages/cds/presentation/</code>) já existe — rotação automática de slides, splash, pause/next/prev, recuperação de erro por slide. Escopo real tende a ser ajustar componentes existentes (ex: <code>TopStoresChart.tsx</code>, que hoje só mostra valor no hover) em vez de construir infraestrutura de TV do zero.</li>
-      </ul></div>
-      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12513" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12115" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
     </div>
   </div>
 </dialog>
@@ -699,61 +654,11 @@
         <div class="check-item"><span class="mark yes">✓</span>Nota técnica no card</div>
       </div>
       <div><h3>O que falta</h3><ul class="gap-list clean">
-        <li>Nenhuma — <strong>pendência técnica resolvida em 04/09.</strong> Achei a causa raiz caracterizada e medida no próprio repo (commit de testes <code>bbb73572</code>, 20/08 — pina o bug sem corrigir): o payload do JWT é montado em <code>AuthService.getTokens</code> (<code>auth.service.ts</code>, ~linha 1822), incluindo assignments CRUD completos por grupo sem truncar/deduplicar, assinado 2x. Threshold medido: 3 grupos já cruzam ~10,7 KB, acima do orçamento típico de 8 KB de header de proxy reverso — dá o caso de teste mínimo que faltava. Cenários reescritos com esse threshold + payload reduzido sem perda de permissão + sem regressão no fluxo de substituição regional (<code>mergePermissionGroups</code>).</li>
+        <li>Nenhuma pendência que segure o início do desenvolvimento. Causa raiz caracterizada no repo (commit de testes <code>bbb73572</code>, que pina o bug sem corrigir): o payload do JWT é montado em <code>AuthService.getTokens</code> (<code>auth.service.ts</code>, ~linha 1822), com assignments CRUD completos por grupo sem truncar/deduplicar, assinado 2x. Com 3 grupos o token já cruza ~10,7 KB, acima do orçamento típico de 8 KB de header de proxy reverso. Os Cenários cobrem esse limite, payload reduzido sem perda de permissão e o fluxo de substituição regional (<code>mergePermissionGroups</code>).</li>
+        <li>Ponto não bloqueante pro Leonardo: o card já tem PRs/commits vinculados rotulados “[HOTFIX]” (8080-8153), sem descrição, e nenhum deles altera <code>auth.service.ts</code> ou <code>merge-permission-groups.ts</code> no repo local — confirmar se o fix real já foi feito.</li>
         <li><strong>Estimativa de 5 pts, pendente de confirmação do time técnico.</strong></li>
-        <li><strong>Confirmação não-bloqueante pendente do Leonardo:</strong> o card já tem PRs/commits vinculados (8080-8153, 21-27/08) rotulados "[HOTFIX]" sem descrição — não encontrei no repo local nenhum alterando <code>auth.service.ts</code>/<code>merge-permission-groups.ts</code>, então não dá pra confirmar se o fix real já foi feito em algum desses ou se os links foram associados por engano. Não impede o card de seguir — só um ponto a esclarecer.</li>
       </ul></div>
       <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12514" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
-    </div>
-  </div>
-</dialog>
-
-<dialog id="m12793">
-  <div class="modal-inner">
-    <div class="modal-head">
-      <div class="row1"><div><span class="id">PBI #12793</span><div class="title">Solicitação de Desbloqueio de USUÁRIO e OPERADOR pela loja</div></div>
-      <button class="close-btn" onclick="m12793.close()">✕</button></div>
-      <div class="meta">Sem atribuição · 8 pts (estimativa do PO) · Epic #7032 · Sprint 28 · Coluna Azure: Refinement</div>
-    </div>
-    <div class="modal-body">
-      <div class="checkgrid">
-        <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
-        <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
-        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
-        <div class="check-item"><span class="mark yes">✓</span>Sem bloqueio aberto</div>
-      </div>
-      <div><h3>O que falta</h3><ul class="gap-list clean">
-        <li>Nenhuma — <strong>reescrito do zero em 04/09.</strong> Story + 6 Cenários em Dado/Quando/Então com rótulo. Nota técnica: reaproveita infraestrutura já existente — toggle de bloqueio (<code>PATCH /operator/block</code>/<code>/user/block</code>, <code>access-automation.controller.ts</code>), validação de CPF (<code>isValidCpf</code>) e consulta de situação no Senior (<code>situacao</code> em <code>logix.tb_colaboradores_senior</code>, já usada em <code>person.repository.ts</code>) — só a tela do gerente, a fila do Financeiro e o e-mail à loja são novos.</li>
-        <li><strong>Mock-check obrigatório (gera 2 telas novas com handoff entre papéis) — construído e publicado</strong>, cobrindo a visão do Gerente (lista + bloqueio de solicitação por situação Senior) e a Fila do Financeiro (aprovar/negar com motivo obrigatório).</li>
-        <li><strong>Estimativa de 8 pts, pendente de confirmação do time técnico.</strong></li>
-      </ul></div>
-      <a class="ext" href="https://claude.ai/code/artifact/efbecb0b-b784-421b-bb3e-2cc86816128d" target="_blank" rel="noopener">🏷️ Ver mock interativo →</a>
-      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12793" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
-    </div>
-  </div>
-</dialog>
-
-<dialog id="m12892">
-  <div class="modal-inner">
-    <div class="modal-head">
-      <div class="row1"><div><span class="id">PBI #12892</span><div class="title">Fechamento Contábil da Conciliação e Integração de Perdas e Vales com Oracle</div></div>
-      <button class="close-btn" onclick="m12892.close()">✕</button></div>
-      <div class="meta">Kauã Cunha · 13 pts (estimativa do PO) · Epic Conciliação Fase 2 (#12387) · Sprint 28 · Coluna Azure: Ready for Dev</div>
-    </div>
-    <div class="modal-body">
-      <div class="checkgrid">
-        <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
-        <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
-        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
-        <div class="check-item"><span class="mark yes">✓</span>Sem bloqueio aberto</div>
-      </div>
-      <div><h3>O que falta</h3><ul class="gap-list clean">
-        <li>Nenhuma — <strong>refinado em 04/09.</strong> Story migrada pro template atual; os 16 Cenários originais (competência, validação de pendências, lote contábil de Perdas com contas/centros de custo exatos, lançamento consolidado de Vale) ganharam rótulo de verificação, mais um Cenário 17 novo (falha no envio ao Oracle — não havia caso de borda pra integração externa). Nota técnica: a janela de competência (dia 26→25) já existe pronta em <code>ACCOUNTING_CYCLE</code>/<code>fiscalCycleWindowOf</code> (<code>fiscal-cycle.util.ts</code>), reaproveitável; busquei por integração Oracle GL já pronta e não encontrei — geração do lote de Perdas e lançamento de Vale são integração nova.</li>
-        <li><strong>Mock-check avaliado e registrado — não construído:</strong> a "novo módulo de fechamento" citada na Descrição é uma tela simples (seletor de competência + botão "Encerrar Ciclo" + confirmação + bloqueio), já suficientemente descrita nos Cenários 1-4 sem ambiguidade de layout; e a sequência completa (Encerrar Ciclo → validação → Perdas/Vales → aprovação Tesouraria → fluxo Oracle) já fica clara nos 17 cenários, sem ambiguidade de processo que justifique fluxograma.</li>
-        <li><strong>Estimativa de 13 pts, pendente de confirmação do time técnico</strong> — especialmente quanto à complexidade real de conectar com o Oracle GL (sem integração similar já pronta no repo).</li>
-      </ul></div>
-      <p style="font-size:12.5px;color:var(--text-secondary);margin-top:10px;">Já tem uma task filha (#12893) criada sob o mesmo parent. Epic pai #12387 é o mesmo da Conciliação Fase 2 — vale checar sobreposição com o #12812 (planilha Contábil/layout Oracle) antes de estimar os dois.</p>
-      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12892" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
     </div>
   </div>
 </dialog>
@@ -763,30 +668,32 @@
     <div class="modal-head">
       <div class="row1"><div><span class="id">PBI #12812</span><div class="title">Conciliação Fase 2 — Planilha para o Contábil no layout de importação do Oracle</div></div>
       <button class="close-btn" onclick="m12812.close()">✕</button></div>
-      <div class="meta">Diego Rafael · sem estimativa · Epic Conciliação Fase 2 (#12387) · Coluna Azure: Refinement</div>
+      <div class="meta">Sem atribuição · sem estimativa · Epic Conciliação Fase 2 (#12387) · Sprint 28 · Coluna Azure: Refinement</div>
     </div>
     <div class="modal-body">
       <div class="checkgrid">
-        <div class="check-item"><span class="mark no">✕</span>Formato Cenário + GWT</div>
-        <div class="check-item"><span class="mark no">✕</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
         <div class="check-item"><span class="mark no">✕</span>Estimativa preenchida</div>
         <div class="check-item"><span class="mark no">✕</span>Sem bloqueio aberto</div>
       </div>
       <div><h3>O que falta</h3><ul class="gap-list">
-        <li><strong>🔴 Bloqueio externo real (comentário do Igor, 26/08):</strong> a Adriana ainda vai levantar o layout exato da planilha padrão do Oracle junto com o time contábil. Sem esse layout, não dá pra escrever AC nem estimar — decisão de negócio, não de refino.</li>
-        <li><strong>Ambiguidade em aberto:</strong> Diego citou em daily (28/08) "integração diretamente no Arco" como destino — não confirmado se é o mesmo layout Oracle original ou uma mudança de abordagem (integração direta em vez de planilha exportável). Esclarecer com Diego/Ozéias antes de reescrever o card.</li>
+        <li><strong>Bloqueio externo real:</strong> a Adriana ainda vai levantar o layout exato da planilha padrão do Oracle junto com o time contábil. O único Cenário do card (colunas do export: loja matriz 201 + código de 3 dígitos, centro de custo, conta contábil de débito, conta de crédito e descrição) está marcado como pendente da confirmação desse layout — decisão de negócio, não de refino.</li>
+        <li>Sem estimativa enquanto o layout não for confirmado.</li>
+        <li><strong>Ambiguidade em aberto:</strong> o Diego citou em daily (28/08) “integração diretamente no Arco” como destino — não confirmado se é o mesmo layout Oracle original ou uma mudança de abordagem (integração direta em vez de planilha exportável). Esclarecer com Diego/Ozéias antes de reescrever o card.</li>
+        <li>A Story ainda está no template antigo (Como/Quero/Para que).</li>
       </ul></div>
       <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12812" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
     </div>
   </div>
 </dialog>
 
-<dialog id="m12889">
+<dialog id="m12910">
   <div class="modal-inner">
     <div class="modal-head">
-      <div class="row1"><div><span class="id">Bug #12889</span><div class="title">Ajustar comportamento de expansão dos menus e posicionamento incorreto do DTEF</div></div>
-      <button class="close-btn" onclick="m12889.close()">✕</button></div>
-      <div class="meta">Kauã Cunha · sem estimativa · Coluna Azure: Ready for Dev</div>
+      <div class="row1"><div><span class="id">Bug #12910</span><div class="title">Saldo parcial de Caixa tá derrubando o portal</div></div>
+      <button class="close-btn" onclick="m12910.close()">✕</button></div>
+      <div class="meta">Sem atribuição · sem estimativa · Sprint 28 · Coluna Azure: Refinement</div>
     </div>
     <div class="modal-body">
       <div class="checkgrid">
@@ -797,44 +704,505 @@
         <div class="check-item"><span class="mark no">✕</span>Nota técnica no card</div>
       </div>
       <div><h3>O que falta</h3><ul class="gap-list">
-        <li><strong>Card novo (criado 01/09) — achado só pela varredura WIQL desta sweep, não estava na lista de 2 IDs que o Igor sinalizou.</strong> Descrição e AC já em bom estado de conteúdo: dois problemas claros no Portal Conexão — (1) ao expandir submenus de Conciliação (Administrativo, Relatórios) os demais itens do menu são deslocados e ficam inacessíveis (DTEF, E-mails); (2) o item DTEF/Formas de Pagamento aparece indevidamente em Financeiro em vez de só dentro de Conciliação. 7 critérios de aceite já listados, mas ainda em bullet/prosa — precisa virar Cenário + Dado/Quando/Então com rótulo de verificação (prováveis: teste de frontend/e2e pros dois problemas).</li>
-        <li>Sem estimativa.</li>
-        <li><strong>Nota técnica no card ausente (política de bug/sustentação, 13/08):</strong> 0 comentários no work item — falta localizar e citar o componente de menu responsável pelo deslocamento/z-index e o roteamento indevido do DTEF, tanto em comentário quanto numa nota curta na Descrição. Não investigado por este agente (escopo do `refinement-gate`).</li>
-        <li><strong>Sugestão (não bloqueia):</strong> mock provavelmente não é necessário — é ajuste de comportamento (layout/scroll) de um menu já existente, não introduz tela nova.</li>
+        <li><strong>Voltou pra Refinement por revisão de QA (Danilo, 11/09):</strong> Descrição, Repro Steps e Acceptance Criteria são a mesma frase (“Saldo parcial de Caixa ta derrubando o portal”; a Descrição acrescenta só “Precisamos tratar melhor a conexão”). Faltam: passo a passo de reprodução (fluxo/tela, loja/terminal), o que é “derrubando o portal” (erro 500, tela em branco, timeout, crash no backend), critério de aceite mensurável, ambiente e dado onde foi observado (HML ou produção, loja/data) e log/print/vídeo, se existir. O Danilo sugeriu alinhar com quem reportou antes de voltar pra Ready for Dev.</li>
+        <li>Sem estimativa e sem nota técnica no card — dependem de o erro estar definido primeiro.</li>
+        <li>O card tem Pull Requests e commits vinculados de 08 a 09/09, ou seja, o hotfix pode já ter sido implementado antes do refino: confirmar com Diego/Ozéias se o trabalho já foi feito antes de escrever AC retroativo.</li>
       </ul></div>
-      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12889" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12910" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
     </div>
   </div>
 </dialog>
 
-<dialog id="m12890">
+<dialog id="m12911">
   <div class="modal-inner">
     <div class="modal-head">
-      <div class="row1"><div><span class="id">Item #12890</span><div class="title">Engenharia Reversa para Trazer Número da Loja na Conciliação de Depósitos</div></div>
-      <button class="close-btn" onclick="m12890.close()">✕</button></div>
-      <div class="meta">João Bernardo (JB) · 3 pts (estimativa do PO) · Epic Conciliação de Depósitos (#11629) · Sprint 28 · Coluna Azure: Ready for Dev</div>
+      <div class="row1"><div><span class="id">PBI #12911</span><div class="title">Implementar Solicitação em Rede Local</div></div>
+      <button class="close-btn" onclick="m12911.close()">✕</button></div>
+      <div class="meta">Kauã Cunha · sem estimativa · Parent #12497 · Sprint 29 · Coluna Azure: Ready for Dev</div>
     </div>
     <div class="modal-body">
       <div class="checkgrid">
-        <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
-        <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
-        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark no">✕</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark no">✕</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark no">✕</span>Estimativa preenchida</div>
         <div class="check-item"><span class="mark yes">✓</span>Sem bloqueio aberto</div>
       </div>
       <div><h3>O que falta</h3><ul class="gap-list">
-        <li>Estimativa (3 pts) ainda é proposta do PO, pendente de confirmação do JB.</li>
+        <li><strong>Isso não é um problema de formato — é conteúdo insuficiente.</strong> Descrição e AC são só o título repetido (“Implementar Solicitação em Rede Local”): sem persona, regra de negócio, escopo nem Cenários. O card está em Ready for Dev na Sprint 29 sem critério de aceite.</li>
+        <li>Sem estimativa.</li>
+        <li>Precisa ser escrito do zero com quem conhece a necessidade antes de qualquer refinamento de formato fazer sentido.</li>
       </ul></div>
-      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12890" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12911" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
     </div>
   </div>
 </dialog>
 
-<dialog id="m12903">
+<dialog id="m13433">
   <div class="modal-inner">
     <div class="modal-head">
-      <div class="row1"><div><span class="id">PBI #12903</span><div class="title">Thread pool do Node insuficiente pros pools Oracle — definir UV_THREADPOOL_SIZE, registrar VAR_POOL no monitor e reverter timeout</div></div>
-      <button class="close-btn" onclick="m12903.close()">✕</button></div>
-      <div class="meta">Fernando Caetano de Lima · 3 pts (estimativa do PO) · Epic Infraestrutura (#10542) · Sprint 28 · Coluna Azure: Ready for Dev</div>
+      <div class="row1"><div><span class="id">PBI #13433</span><div class="title">SSO – Gerar link de acesso: link de uso único e proteção do endpoint</div></div>
+      <button class="close-btn" onclick="m13433.close()">✕</button></div>
+      <div class="meta">Gabriel Kovalski · sem estimativa · Parent #11853 (SSO) · Sprint 30 · Coluna Azure: Refinement</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark no">✕</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark no">✕</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark no">✕</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark yes">✓</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list">
+        <li><strong>Fora do formato da casa:</strong> a Story está no template antigo (Como/Quero/Para que) e os 5 Cenários estão em prosa, sem Dado/Quando/Então e sem rótulo de verificação (“Verificável por…”).</li>
+        <li>Sem estimativa.</li>
+        <li>O conteúdo em si é claro e tem dois escopos: (1) o link de redefinição passa a ser de uso único — identificador gravado no usuário e descartado ao concluir o processo; gerar novo link invalida o anterior; link já usado mostra a mensagem de link já utilizado; (2) o endpoint <code>realms/hub-realm/avenida-actions/generate-link</code> da extensão do Keycloak hoje não valida quem chama — sem token, na rede interna ou VPN, gera o link de redefinição de qualquer usuário e remove o Authenticator dele — e passa a exigir o token de administrador que a API do Hub já envia. O endpoint não está publicado no Kong externo. Alterações em <code>generate-link-spi</code> e no tema do Keycloak (repositório Infra.Docker).</li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/13433" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m13422">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #13422</span><div class="title">Atualizar a UI do Portal do Motor de Descontos com base na UI do Portal de Gamificação</div></div>
+      <button class="close-btn" onclick="m13422.close()">✕</button></div>
+      <div class="meta">Sem atribuição · 8 pts (estimativa do PO) · Epic Motor de Descontos (#6669) · Sprint 30 · Coluna Azure: Refinement</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark partial">◐</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list">
+        <li><strong>Escopo a confirmar com o Igor:</strong> a comparação Motor × Gamificação (listagem e wizard de criação) achou 2 diferenças — (1) lista vazia com ícone, título, descrição e botão de ação (Gamificação) no lugar do <code>EmptyTable</code> só texto; (2) rascunho local autosalvo e aviso de saída sem salvar no wizard. Falta confirmar se é só isso ou se há outras diferenças pretendidas (cores, espaçamento, outros componentes).</li>
+        <li>Mock não necessário: os dois padrões já existem rodando no Portal de Gamificação (<code>components/empty-state.tsx</code>, <code>wizard/UnsavedChangesDialog.tsx</code>, <code>create/components/LocalDraftBanner.tsx</code>) e servem de referência visual.</li>
+        <li>Nota técnica: Motor em <code>src/pages/business-planning/campaigns/</code>, Gamificação em <code>src/pages/crm/gamification/</code>. O rascunho e o guard tocam os 3 fluxos de criação do Motor (PRO013/014/017), com localStorage e guard de rota que hoje não existem no Motor (referência: <code>create/hooks/useLocalDraft.ts</code> e <code>wizard/useUnsavedChangesGuard.ts</code> da Gamificação).</li>
+        <li><strong>Estimativa de 8 pts, proposta do PO, pendente de confirmação do time técnico.</strong></li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/13422" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m13426">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #13426</span><div class="title">Rodar migrações de banco automaticamente no deploy da API</div></div>
+      <button class="close-btn" onclick="m13426.close()">✕</button></div>
+      <div class="meta">Sem atribuição · 5 pts (estimativa do PO) · Parent #9314 · Sprint 30 · Coluna Azure: Refinement</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark partial">◐</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list">
+        <li><strong>Cenário 5 em aberto (decisão com o time técnico):</strong> o deploy em produção já passa por aprovação manual; falta decidir se essa aprovação cobre a aplicação da migração ou se migração de banco em produção exige um passo/aprovação própria dentro do fluxo de GMUD. Precisa fechar antes de implementar o passo em produção.</li>
+        <li>Nota técnica: os templates de deploy da <code>ConciliaçãoCaixaAPI</code> (<code>deploy-develop.yml</code>, Swarm; <code>deploy-production.yml</code>, Compose) só fazem build/push e atualização dos serviços — nenhum roda migração. A ferramenta já é o Prisma (Postgres): <code>prisma migrate deploy</code> roda nas pipelines de teste e o script <code>prisma:start:deploy</code> já existe, mas o container de produção usa <code>start:prod</code>, que sobe a API direto. Não há mecanismo de migração de schema pro Oracle (fora do escopo) e o front não tem camada de banco.</li>
+        <li>A credencial de banco usada pra aplicar a migração precisa vir de variável secreta (alinhado ao #13419).</li>
+        <li><strong>Estimativa de 5 pts, proposta do PO, pendente de confirmação do time técnico.</strong></li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/13426" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m13428">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #13428</span><div class="title">Restringir campanha global a lojas específicas via duplicar + encerrar guiado</div></div>
+      <button class="close-btn" onclick="m13428.close()">✕</button></div>
+      <div class="meta">Sem atribuição · 8 pts (estimativa do PO) · Epic Motor de Descontos (#6669) · Sprint 30 · Coluna Azure: Refinement</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark partial">◐</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list">
+        <li><strong>Mock necessário, ainda não construído:</strong> é um fluxo de tela genuinamente novo (ponto de entrada na campanha global, formulário pré-preenchido, etapa de seleção de lojas e encerramento da original no mesmo fluxo), sem componente equivalente pra copiar. Aguardando o Igor confirmar que quer o mock agora e descrever como a tela deve se comportar.</li>
+        <li>Nota técnica: hoje o bloqueio de edição de lojas em campanha global é só um texto orientativo (<code>GlobalCampaignStoresBlock</code> em <code>campaign-stores-editor.tsx</code>) e não existe duplicar/clonar campanha no código. O encerramento da original precisa respeitar a trava de edição de campanhas já integradas a alguma loja (<code>VAR.PRO014_CONTROLE</code>, hook <code>use-campaign-edit-lock</code>) e só pode acontecer depois de a nova campanha ser criada com sucesso.</li>
+        <li>Risco: a reestruturação de banco do Motor (Fabio/Donato, ainda sem detalhes) pode exigir ajuste — é o card mais exposto a isso, porque mexe em como as lojas da campanha são gravadas.</li>
+        <li><strong>Estimativa de 8 pts, proposta do PO, pendente de confirmação do time técnico.</strong></li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/13428" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m13429">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #13429</span><div class="title">Reativar criação de campanha por departamento (PRO013) no portal</div></div>
+      <button class="close-btn" onclick="m13429.close()">✕</button></div>
+      <div class="meta">Sem atribuição · 3 pts (estimativa do PO) · Epic Motor de Descontos (#6669) · Sprint 30 · Coluna Azure: Refinement</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark no">✕</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list">
+        <li><strong>Bloqueio externo real (dono: Igor):</strong> falta a confirmação formal do Caixeta e dos QAs de que a validação da rotina PRO013 do lado VAR foi de fato concluída (a campanha #923 foi o piloto já rodado). O card não deve ir pra produção antes dessa confirmação.</li>
+        <li>Nota técnica: a opção está desligada por um único flag (<code>enabled: false</code> na entrada <code>CampaignType.PRO013</code> de <code>create/components/campaign-types-info.tsx</code>, no <code>ConciliaçãoCaixaFront</code>); o formulário completo (<code>create-pro013-form.tsx</code>, <code>steps-pro013/</code>) e o controller de backend (<code>campaign-pro013.controller.ts</code>) já existem. A checagem de conflito contra campanhas PRO013 ativas também já está implementada (<code>findPro013ConflictsForProducts</code> em <code>campaign-conflict-validator.service.ts</code>) — o Cenário 3 só confirma que ela dispara com a PRO013 reativada, não pede uma checagem nova.</li>
+        <li><strong>Estimativa de 3 pts, proposta do PO, pendente de confirmação do time técnico.</strong></li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/13429" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m13435">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #13435</span><div class="title">Criar Requisição automaticamente no Oracle ao aprovar a conta no Envio de Contas</div></div>
+      <button class="close-btn" onclick="m13435.close()">✕</button></div>
+      <div class="meta">Sem atribuição · 8 pts (estimativa do PO) · Parent #9745 · Sprint 30 · Coluna Azure: Refinement</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark no">✕</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list">
+        <li><strong>Bloqueios externos reais:</strong> (1) permissões do usuário técnico da integração no Oracle (perfis de requisitante e comprador), ressalva do parecer de TI — dono sugerido: TI (Ozéias Tavares) com o time de Oracle; (2) validação do mapeamento dos campos da Requisição, também ressalva do parecer de TI — dono sugerido: Diego Rafael com a Gestão Imobiliária; (3) parecer de Arquitetura pendente, sem arquiteto nomeado no TAP.</li>
+        <li>Escopo: uma Requisição por conta aprovada, com uma linha por componente (Consumo, Taxa de Lixo e/ou Multa/Juros), gravando o número na conta. A Ordem de Compra a partir da Requisição é o #13436 e a coluna no Histórico de Contas é o #13437; a solicitação de verba ao Financeiro continua manual.</li>
+        <li><strong>Estimativa de 8 pts, proposta do PO, pendente de confirmação do time técnico.</strong> Sem tela nova, então mock não se aplica.</li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/13435" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m13436">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #13436</span><div class="title">Criar Ordem de Compra a partir da Requisição no mesmo processamento, com reprocessamento sem duplicidade e auditoria</div></div>
+      <button class="close-btn" onclick="m13436.close()">✕</button></div>
+      <div class="meta">Sem atribuição · 8 pts (estimativa do PO) · Parent #9745 · Sprint 30 · Coluna Azure: Refinement</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark no">✕</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list">
+        <li><strong>Bloqueios externos reais (os mesmos do #13435):</strong> permissões do usuário técnico da integração no Oracle (requisitante e comprador) — dono sugerido: TI (Ozéias Tavares) com o time de Oracle; validação do mapeamento dos campos da Requisição, herdado pela OC — dono sugerido: Diego Rafael com a Gestão Imobiliária; parecer de Arquitetura pendente.</li>
+        <li>Depende da criação da Requisição (#13435). O risco está concentrado em idempotência: nenhum caminho pode gerar Requisição ou OC duplicada pra mesma conta, o vínculo é sempre pelo identificador devolvido pelo Oracle e cada processamento fica registrado pra auditoria.</li>
+        <li>Recomendação do parecer de TI pra homologação: testar Consumo, Taxa de Lixo e Multa/Juros, inclusive contas com várias linhas.</li>
+        <li><strong>Estimativa de 8 pts, proposta do PO, pendente de confirmação do time técnico.</strong> Sem tela nova, então mock não se aplica.</li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/13436" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m13438">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #13438</span><div class="title">Levantamento técnico e arquitetura da automação de faturas de concessionárias (discovery)</div></div>
+      <button class="close-btn" onclick="m13438.close()">✕</button></div>
+      <div class="meta">Sem atribuição · 5 pts (estimativa do PO, com time-box) · Epic Automação de Faturas de Concessionárias (#13434) · Sprint 30 · Coluna Azure: Refinement</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark no">✕</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list">
+        <li><strong>Bloqueios externos reais:</strong> parecer formal de TI pendente; parecer de Arquitetura pendente (plataforma, infraestrutura e modelo de integração ainda “a definir”); cofre de credenciais ainda a definir com Arquitetura e Segurança da Informação — precisa estar resolvido antes de produção.</li>
+        <li>Este card destrava os demais do projeto (#13439 a #13446): o resultado define escopo e estimativa de cada um, então as estimativas deles são provisórias até a conclusão deste levantamento.</li>
+        <li>É investigação com time-box: a entrega é um documento de decisão aprovado (plataforma e local de execução do robô, modo de acesso por concessionária e variação regional, MFA/CAPTCHA, local seguro das credenciais, volume de lojas), não código. Sugestão: limitar a uma janela fixa acordada com Arquitetura.</li>
+        <li><strong>Estimativa de 5 pts, proposta do PO, pendente de confirmação do time técnico.</strong> Sem tela: mock não se aplica.</li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/13438" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m13439">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #13439</span><div class="title">Base operacional de lojas e acessos às concessionárias</div></div>
+      <button class="close-btn" onclick="m13439.close()">✕</button></div>
+      <div class="meta">Sem atribuição · 5 pts (estimativa do PO) · Epic Automação de Faturas de Concessionárias (#13434) · Sprint 30 · Coluna Azure: Refinement</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark partial">◐</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list">
+        <li><strong>Perguntas em aberto (dono: Gestão Imobiliária com Ozéias Tavares):</strong> como a base será mantida no dia a dia (tela própria, carga de planilha ou outro meio) e quem faz a carga inicial das lojas. A resposta define a forma de entrega e pode mudar a estimativa.</li>
+        <li>Depende do levantamento técnico (#13438): o local do cofre de credenciais sai de lá. O cofre ainda indefinido é risco real pra produção — decisão do Igor se ele segura o card em Quase pronto ou só a implantação.</li>
+        <li><strong>Estimativa de 5 pts, proposta do PO, pendente de confirmação do time técnico</strong> (pode subir se a resposta exigir tela própria de manutenção). Se for tela nova, rodar o teste de mock e pedir confirmação ao Igor antes de construir.</li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/13439" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m13440">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #13440</span><div class="title">Agendamento parametrizável da execução da automação de faturas</div></div>
+      <button class="close-btn" onclick="m13440.close()">✕</button></div>
+      <div class="meta">Sem atribuição · 3 pts (estimativa do PO) · Epic Automação de Faturas de Concessionárias (#13434) · Sprint 30 · Coluna Azure: Refinement</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark partial">◐</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list">
+        <li><strong>Perguntas em aberto (dono: Gestão Imobiliária com Ozéias Tavares):</strong> (1) qual o horário inicial das execuções — ainda não definido, por isso tratado como parâmetro; (2) quando o dia configurado não existe no mês (ex.: dia 31 em mês de 30 dias), pular a execução ou antecipar pro último dia? A especificação não cobre. Nenhuma das duas impede começar, já que ambas são configuráveis.</li>
+        <li>Depende do levantamento técnico (#13438), que define a plataforma do robô. Configuração inicial: dias 05, 15 e 25 de cada mês, alteráveis sem nova publicação de código.</li>
+        <li><strong>Estimativa de 3 pts, proposta do PO, pendente de confirmação do time técnico.</strong> Não há tela definida pra editar a agenda; se a Gestão Imobiliária precisar editar por tela, rodar o teste de mock e pedir confirmação ao Igor antes de construir.</li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/13440" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m13441">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #13441</span><div class="title">Motor de execução por loja: captura da fatura, controle de duplicidade e envio ao Envio de Contas</div></div>
+      <button class="close-btn" onclick="m13441.close()">✕</button></div>
+      <div class="meta">Sem atribuição · 13 pts (estimativa do PO) · Epic Automação de Faturas de Concessionárias (#13434) · Sprint 30 · Coluna Azure: Refinement</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark partial">◐</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list">
+        <li><strong>Depende, em sequência, do levantamento técnico (#13438, plataforma), da base operacional (#13439) e do agendamento (#13440).</strong> A estimativa é provisória até o levantamento. O parecer de Arquitetura pendente vale pro projeto todo; se ele segura este card, a decisão é do Igor.</li>
+        <li>É o núcleo do projeto: orquestração por loja, controle de duplicidade (Site/Concessionária + Loja + CNPJ + Data de Geração), upload no Envio de Contas com tipo de despesa Energia, quatro resultados padronizados (Processado com sucesso, Sem nova fatura, Falha de acesso, Erro de processamento), registro mínimo de cada tentativa e recuperação de falhas — uma falha numa loja não interrompe as demais. Se o time achar grande demais, um corte natural é separar (a) captura + duplicidade e (b) upload + registro.</li>
+        <li><strong>Estimativa de 13 pts, proposta do PO, pendente de confirmação do time técnico.</strong> Sem tela: mock não se aplica; um diagrama de estados fica como sugestão não bloqueante depois que a plataforma estiver definida.</li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/13441" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m13442">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #13442</span><div class="title">Tela de acompanhamento e consolidado das execuções da automação de faturas</div></div>
+      <button class="close-btn" onclick="m13442.close()">✕</button></div>
+      <div class="meta">Sem atribuição · 8 pts (estimativa do PO) · Epic Automação de Faturas de Concessionárias (#13434) · Sprint 30 · Coluna Azure: Refinement</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark partial">◐</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list">
+        <li><strong>Pergunta em aberto (dono: Gestão Imobiliária com Ozéias Tavares):</strong> quais perfis de usuário podem acessar a tela de acompanhamento.</li>
+        <li>Depende do motor de execução (#13441) pra ter dados a exibir.</li>
+        <li>Mock não necessário agora: a especificação (seção 6.1) já define a faixa de resumo com os totais por status, a tabela de detalhe com as oito colunas, os quatro status padronizados e o acesso ao documento; escolher execução anterior e destacar lojas não processadas estão nos Cenários 1 e 4. Se a Gestão Imobiliária quiser reagir a algo concreto antes do desenvolvimento, o Igor confirma e um mock é construído.</li>
+        <li><strong>Estimativa de 8 pts, proposta do PO, pendente de confirmação do time técnico.</strong></li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/13442" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m13443">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #13443</span><div class="title">Conector EDP: acesso ao portal e captura da fatura de energia (conector-modelo)</div></div>
+      <button class="close-btn" onclick="m13443.close()">✕</button></div>
+      <div class="meta">Sem atribuição · 8 pts (estimativa do PO) · Epic Automação de Faturas de Concessionárias (#13434) · Sprint 30 · Coluna Azure: Refinement</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark partial">◐</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list">
+        <li><strong>Depende do levantamento técnico (#13438):</strong> o tipo de acesso e a presença de MFA/CAPTCHA por portal podem reordenar os tamanhos; a estimativa é provisória até lá.</li>
+        <li>É o conector-modelo: Energisa (#13444), Equatorial (#13445) e Neoenergia (#13446) seguem o mesmo contrato com o motor de execução e cobrem só o que é específico do seu portal. As fontes não trazem detalhe de layout, autenticação ou regionais por concessionária, por isso este tem os Cenários completos e os outros são enxutos. MFA ou CAPTCHA que não podem ser automatizados resultam em Falha de acesso, com o motivo.</li>
+        <li><strong>Estimativa de 8 pts, proposta do PO (igual nos quatro conectores), pendente de confirmação do time técnico.</strong> Sem tela: mock não se aplica.</li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/13443" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m13444">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #13444</span><div class="title">Conector Energisa: acesso ao portal e captura da fatura de energia</div></div>
+      <button class="close-btn" onclick="m13444.close()">✕</button></div>
+      <div class="meta">Sem atribuição · 8 pts (estimativa do PO) · Epic Automação de Faturas de Concessionárias (#13434) · Sprint 30 · Coluna Azure: Refinement</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark partial">◐</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list">
+        <li><strong>Depende do levantamento técnico (#13438):</strong> a estimativa é provisória até lá. Card enxuto que segue o conector-modelo da EDP (#13443); só entra o que é específico do portal da Energisa (endereço, layout, autenticação e regionais).</li>
+        <li><strong>Estimativa de 8 pts, proposta do PO (igual nos quatro conectores), pendente de confirmação do time técnico.</strong> Sem tela: mock não se aplica.</li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/13444" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m13445">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #13445</span><div class="title">Conector Equatorial: acesso ao portal e captura da fatura de energia</div></div>
+      <button class="close-btn" onclick="m13445.close()">✕</button></div>
+      <div class="meta">Sem atribuição · 8 pts (estimativa do PO) · Epic Automação de Faturas de Concessionárias (#13434) · Sprint 30 · Coluna Azure: Refinement</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark partial">◐</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list">
+        <li><strong>Depende do levantamento técnico (#13438):</strong> a estimativa é provisória até lá. Card enxuto que segue o conector-modelo da EDP (#13443); só entra o que é específico do portal da Equatorial (endereço, layout, autenticação e regionais).</li>
+        <li><strong>Estimativa de 8 pts, proposta do PO (igual nos quatro conectores), pendente de confirmação do time técnico.</strong> Sem tela: mock não se aplica.</li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/13445" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m13446">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #13446</span><div class="title">Conector Neoenergia: acesso ao portal e captura da fatura de energia</div></div>
+      <button class="close-btn" onclick="m13446.close()">✕</button></div>
+      <div class="meta">Sem atribuição · 8 pts (estimativa do PO) · Epic Automação de Faturas de Concessionárias (#13434) · Sprint 30 · Coluna Azure: Refinement</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark partial">◐</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list">
+        <li><strong>Depende do levantamento técnico (#13438):</strong> a estimativa é provisória até lá. Card enxuto que segue o conector-modelo da EDP (#13443); só entra o que é específico do portal da Neoenergia (endereço, layout, autenticação e regionais).</li>
+        <li><strong>Estimativa de 8 pts, proposta do PO (igual nos quatro conectores), pendente de confirmação do time técnico.</strong> Sem tela: mock não se aplica.</li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/13446" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m13447">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #13447</span><div class="title">[RPA][OVERLIMIT] Upload de CSV de clientes elegíveis ao Overlimit no portal RPA</div></div>
+      <button class="close-btn" onclick="m13447.close()">✕</button></div>
+      <div class="meta">Sem atribuição · 5 pts (estimativa do PO) · Parent #12110 · Sprint 30 · Coluna Azure: Refinement</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark partial">◐</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list">
+        <li><strong>Decisões do Igor (PO) em aberto, antes do desenvolvimento:</strong> (1) nova carga — o que acontece quando a área sobe um novo arquivo: substitui tudo, acumula ou atualiza por conta/CPF (muda o comportamento de gravação); (2) linhas inválidas — o card assume aceitação parcial (grava as válidas e reporta as inválidas); confirmar ou rejeitar o arquivo inteiro; (3) regras de validação — faixa aceita da porcentagem (ex.: 0 a 100) e se o mesmo CPF/conta repetido no arquivo é erro. O card não define esses limites.</li>
+        <li>A tabela do Overlimit terá colunas de data de vigência e de validade, mas o uso delas ainda não foi decidido: o card não exige preencher nem validar essas datas.</li>
+        <li>Mock não necessário: a tela segue o padrão de envio de arquivo já existente na blacklist do portal RPA (#9528 / #9220) e os Cenários descrevem o resultado da carga.</li>
+        <li><strong>Estimativa de 5 pts, proposta do PO, pendente de confirmação do time técnico.</strong></li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/13447" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m13449">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #13449</span><div class="title">SSO Hub – Investigação: buscar usuários e grupos direto do Keycloak x manter cópia no banco</div></div>
+      <button class="close-btn" onclick="m13449.close()">✕</button></div>
+      <div class="meta">Gabriel Kovalski · 3 pts (estimativa do PO) · Parent #11853 (SSO) · Sprint 30 · Coluna Azure: Refinement</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark partial">◐</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list">
+        <li><strong>Pendência do Igor:</strong> definir o limite aceitável de tempo de resposta do portal (em milissegundos ou segundos por listagem), pra o Cenário 3 ter um critério objetivo de “não ficou lento”.</li>
+        <li>Investigação com time-box: a entrega é uma recomendação com tempos de resposta medidos e avaliação de complexidade e impacto de cada caminho (consultar a cópia no banco ou o Keycloak direto), pra usuários e pra grupos, sem implementar nada — a implementação da alternativa escolhida vai em card próprio. O requisito inegociável é o portal não ficar lento.</li>
+        <li><strong>Estimativa de 3 pts, proposta do PO, pendente de confirmação do time técnico</strong> (funciona como teto do time-box). Sem tela: mock não se aplica.</li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/13449" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m13450">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #13450</span><div class="title">SSO Hub – Cadastro de usuário e de grupo em tela própria</div></div>
+      <button class="close-btn" onclick="m13450.close()">✕</button></div>
+      <div class="meta">Gabriel Kovalski · 5 pts (estimativa do PO) · Parent #11853 (SSO) · Sprint 30 · Coluna Azure: Refinement</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark partial">◐</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list">
+        <li><strong>Mock necessário, ainda não construído:</strong> o card troca a forma de cadastro em duas telas (usuário e grupo) e a descrição deixa em aberto o layout e a organização dos campos. Aguardando o Igor confirmar que quer o mock agora e descrever como a tela deve ficar e se comportar.</li>
+        <li><strong>Perguntas do Igor em aberto:</strong> (1) qual é a dor exata do cartão de hoje — falta de espaço pros campos, fluxo de cadastro limitado ou outra coisa (a resposta ajusta o texto da necessidade na Story); (2) a nova tela deve ter algum campo ou passo a mais que o cartão atual, ou é o mesmo formulário em tela própria.</li>
+        <li><strong>Estimativa de 5 pts, proposta do PO, pendente de confirmação do time técnico.</strong> Os dados pedidos e as regras de validação atuais permanecem os mesmos.</li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/13450" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m13419">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #13419</span><div class="title">Revisão de segurança das variáveis de ambiente em todas as pipelines</div></div>
+      <button class="close-btn" onclick="m13419.close()">✕</button></div>
+      <div class="meta">Sem atribuição · 8 pts · Parent #9314 · Sprint 30 · Coluna Azure: Refinement</div>
     </div>
     <div class="modal-body">
       <div class="checkgrid">
@@ -844,21 +1212,21 @@
         <div class="check-item"><span class="mark yes">✓</span>Sem bloqueio aberto</div>
       </div>
       <div><h3>O que falta</h3><ul class="gap-list clean">
-        <li><strong>Card novo (04/09) — mesma apuração de incidente do #12902 (01/09).</strong> Nenhuma — Story + 4 Cenários (valor logado no boot, VAR_POOL visível no monitor, erros de timeout somem, consumo de memória sob controle), todos rotulados "revisão do time técnico"/"teste de backend".</li>
-        <li><strong>Nota técnica (comentário + Descrição):</strong> thick mode do Oracle (<code>src/var.module.ts:26</code>) ocupa thread do libuv por chamada; <code>UV_THREADPOOL_SIZE</code> nunca definido (padrão 4) pra poolMax somado de 65 (<code>VAR_POOL</code> 50 em <code>var.module.ts:29</code>, RTG 15 em <code>dynamic-oracle.service.ts:87</code>). Descartada hipótese de saturação de conexão (RTG nunca passou de 5/15 em 48h de amostra). Reverter também o commit <code>1bbe311ba</code> (31/08) que só piorou o sintoma.</li>
-        <li><strong>Estimativa de 3 pts, pendente de confirmação do Fernando/time técnico.</strong></li>
+        <li>Nenhuma — 3 cenários (levantamento das variáveis sensíveis, conversão pra secret sem quebrar a pipeline, nenhuma variável exposta nem faltando). Rótulo revisão do time técnico + teste de integração em homologação. Card (era Task) já está como PBI.</li>
+        <li>Origem e escopo: a <code>RABBITMQ_URI</code> do grupo <code>HML_API</code> está gravada como variável não-secreta, com usuário e senha em texto claro; o escopo é o levantamento completo dos 4 grupos (<code>HML_API</code>/<code>PRD_API</code> no repo da API, <code>HML_APP</code>/<code>PRD_APP</code> no do Front), não só essa variável.</li>
+        <li>Nota técnica: secrets não viram variável de ambiente automaticamente — precisam de mapeamento explícito no YAML (padrão já usado nos templates: <code>export SECRET_KEY=$(echo $SECRET_KEY)</code>). O passo que gera o <code>.env</code> (<code>scripts/replace-vars.sh</code>) está em <code>.azuredevops/templates/build-and-push.yml</code> e <code>deploy-production.yml</code> (API) e <code>deploy-develop.yml</code> e <code>deploy-production.yml</code> (Front). Uma tentativa anterior de marcar variável como secreta quebrou a pipeline — o Cenário 3 cobre essa regressão.</li>
       </ul></div>
-      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12903" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/13419" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
     </div>
   </div>
 </dialog>
 
-<dialog id="m12904">
+<dialog id="m13420">
   <div class="modal-inner">
     <div class="modal-head">
-      <div class="row1"><div><span class="id">PBI #12904</span><div class="title">Tirar a foto do usuário do /api/auth/me — endpoint próprio com cache no navegador</div></div>
-      <button class="close-btn" onclick="m12904.close()">✕</button></div>
-      <div class="meta">Fernando Caetano de Lima · 5 pts (estimativa do PO) · Epic Infraestrutura (#10542) · Sprint 28 · Coluna Azure: Ready for Dev</div>
+      <div class="row1"><div><span class="id">PBI #13420</span><div class="title">Motor de Descontos SKU — motor do PDV (VAR): modelo de grade e troca dos pontos de casamento (paridade)</div></div>
+      <button class="close-btn" onclick="m13420.close()">✕</button></div>
+      <div class="meta">Sem atribuição · 8 pts (estimativa do PO) · Epic Motor de Descontos (#6669) · Sprint 30 · Coluna Azure: Refinement</div>
     </div>
     <div class="modal-body">
       <div class="checkgrid">
@@ -868,21 +1236,23 @@
         <div class="check-item"><span class="mark yes">✓</span>Sem bloqueio aberto</div>
       </div>
       <div><h3>O que falta</h3><ul class="gap-list clean">
-        <li><strong>Card novo (04/09) — mesma apuração de incidente dos #12902/#12903 (01/09).</strong> Nenhuma — Story + 4 Cenários (/me deixa de devolver base64, cache via ETag funciona, revogação de acesso continua imediata, usuário sem foto cadastrada), todos rotulados "teste de backend".</li>
-        <li><strong>Nota técnica (comentário + Descrição):</strong> <code>AuthService.getMe</code> (<code>auth.service.ts:1915</code>) chama <code>microsoftGraphService.getUserPhotoByEmail</code> (<code>microsoft-graph.service.ts:48</code>) sem cache em toda chamada — medido 115 chamadas/21min, pico de 10,9s, a rota mais cara do sistema. Decisão registrada: permissões (<code>user_permission_group</code>/<code>substitution</code>) continuam sem cache por risco de segurança — só a foto muda de endpoint.</li>
-        <li><strong>Estimativa de 5 pts, pendente de confirmação do Fernando/time técnico.</strong></li>
+        <li>Nenhuma — 4 cenários (suíte existente passa sem nenhuma linha alterada, campanha sem grade continua valendo pro item inteiro, bug histórico do Genexus reproduzido de propósito, combo leve/pague com grade só fecha com peças participantes). Rótulo backend em todos.</li>
+        <li>Escopo: só a fundação — modelo de grade em memória e troca do filtro nos 4 pontos de cálculo de desconto, com a leitura real da grade sempre vazia, então o comportamento tem que sair idêntico ao de hoje. A leitura real é o #13421.</li>
+        <li>Nota técnica: modelo novo <code>GradePro014.java</code> e extensão de <code>PromocaoPro014</code> (<code>casaCom()</code>, regra fail-closed <code>temGrade()</code>); trocar pro filtro <code>promo.casaCom(item)</code> em <code>Ppro014LCalculator:213-231</code>, <code>Ppro014cCalculator:194-213</code> e <code>:225-245</code>, <code>Ppro014ACalculator:236-266</code> e <code>Ppro014BCalculator:34</code>. Não tocar em <code>Ppro014ACalculator.java:211-215</code> — é o bug do Genexus reproduzido de propósito. Convenção contraintuitiva em <code>ItemPreVenda</code> (<code>ContextoPreVendaLoaderImpl.java:47-51,126-138</code>): HOR = cor, VER = tamanho.</li>
+        <li>As dependências externas do plano (DDL nas 200+ lojas, triggers de replicação, consumidor do <code>OPERACAOLOG</code>, publicação do JAR, sign-off de paridade E1) não bloqueiam refino nem desenvolvimento deste card, só a entrega em produção.</li>
+        <li><strong>Estimativa de 8 pts, proposta do PO, pendente de confirmação do time técnico.</strong></li>
       </ul></div>
-      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12904" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/13420" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
     </div>
   </div>
 </dialog>
 
-<dialog id="m12905">
+<dialog id="m13421">
   <div class="modal-inner">
     <div class="modal-head">
-      <div class="row1"><div><span class="id">PBI #12905</span><div class="title">Separar liveness do diagnóstico completo — healthcheck da API preso ao check da AWS que falha sempre</div></div>
-      <button class="close-btn" onclick="m12905.close()">✕</button></div>
-      <div class="meta">Fernando Caetano de Lima · 2 pts (estimativa do PO) · Epic Infraestrutura (#10542) · Sprint 28 · Coluna Azure: Ready for Dev</div>
+      <div class="row1"><div><span class="id">PBI #13421</span><div class="title">Motor de Descontos SKU — motor do PDV (VAR): leitura real da grade por loja com fallback seguro</div></div>
+      <button class="close-btn" onclick="m13421.close()">✕</button></div>
+      <div class="meta">Sem atribuição · 5 pts (estimativa do PO) · Epic Motor de Descontos (#6669) · Sprint 30 · Coluna Azure: Refinement</div>
     </div>
     <div class="modal-body">
       <div class="checkgrid">
@@ -892,21 +1262,48 @@
         <div class="check-item"><span class="mark yes">✓</span>Sem bloqueio aberto</div>
       </div>
       <div><h3>O que falta</h3><ul class="gap-list clean">
-        <li><strong>Card novo (04/09) — mesma apuração de incidente dos #12902-#12904 (01/09).</strong> Nenhuma — Story + 4 Cenários (liveness responde em milissegundos, container não é mais afetado pela AWS, diagnóstico completo continua disponível, decisão sobre o check da AWS registrada), rotulados "teste de backend"/"revisão do time técnico".</li>
-        <li><strong>Nota técnica (comentário + Descrição):</strong> os 3 checks internos (<code>healthCheck.service.ts:152</code>) rodam em <code>Promise.allSettled</code> — tempo total = o mais lento; <code>checkAWS</code> (<code>healthCheck.service.ts:345</code>) falha sempre em 2000ms, deixando a rota em ~2002ms fixos contra um timeout de container de 5s. Proposta: rota <code>/api/health/live</code> nova, sem dependências externas, pro container sondar.</li>
-        <li><strong>Estimativa de 2 pts, pendente de confirmação do Fernando/time técnico.</strong></li>
+        <li>Nenhuma — 4 cenários (grade certa numa loja que já tem a tabela, fail-closed em loja sem a tabela, detecção do fallback só uma vez por processo, falha inesperada vira contador/métrica e não só log). Rótulo teste de integração e backend.</li>
+        <li>Depende do #13420 (modelo de grade com paridade comprovada) — ordem de execução, não bloqueio.</li>
+        <li>Nota técnica: consulta nova <code>SQL_GRADE</code> em <code>Pro014DaoImpl</code> (join <code>pro0144 → pro0141 → pro014</code>, filtrando <code>pro0141.p14ativ = 1</code>); detecção de layout com fallback no molde de <code>pro014-sync.repository.ts:33,100-121</code>, cacheando “grade indisponível” ao ver <code>ORA-00942</code>/<code>ORA-00904</code>. O contador/métrica novo entra no <code>catch</code> de <code>DescontoSinteticoService.java:34-41</code>, que hoje só loga e derruba a venda inteira pro cálculo antigo (Genexus) sem alerta — o ponto que mascararia qualquer regressão do projeto.</li>
+        <li>DDL nas lojas e triggers de replicação são as dependências externas mais relevantes aqui, mas o fallback foi desenhado pra ser testado sem elas; só bloqueiam o rollout nas 200+ lojas.</li>
+        <li><strong>Estimativa de 5 pts, proposta do PO, pendente de confirmação do time técnico.</strong></li>
       </ul></div>
-      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12905" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/13421" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
     </div>
   </div>
 </dialog>
 
-<dialog id="m12906">
+<dialog id="m13425">
   <div class="modal-inner">
     <div class="modal-head">
-      <div class="row1"><div><span class="id">PBI #12906</span><div class="title">Mover o StoreJobProcessor da API pro worker — batch noturno de lojas disputando threads/CPU com o portal</div></div>
-      <button class="close-btn" onclick="m12906.close()">✕</button></div>
-      <div class="meta">Fernando Caetano de Lima · 5 pts (estimativa do PO) · Epic Infraestrutura (#10542) · Sprint 28 · Coluna Azure: Ready for Dev</div>
+      <div class="row1"><div><span class="id">Bug #13425</span><div class="title">Bug: editar rótulo ou valor de símbolo no cadastro do caça-níquel quebra a tela de configuração</div></div>
+      <button class="close-btn" onclick="m13425.close()">✕</button></div>
+      <div class="meta">Sem atribuição · 3 pts (estimativa do PO) · Parent #11950 · Sprint 30 · Coluna Azure: Refinement</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark yes">✓</span>Sem bloqueio aberto</div>
+        <div class="check-item"><span class="mark yes">✓</span>Nota técnica no card</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list clean">
+        <li>Nenhuma — 3 cenários (editar rótulo, editar valor, falha ao salvar mostra erro claro sem travar a tela). Rótulo frontend.</li>
+        <li>Nota técnica no card: o comportamento é intermitente (quebra numa tentativa, funciona na seguinte), o que aponta pra inconsistência de estado na tela, não pra erro fixo de validação. Causa provável: o <code>useFieldArray</code> de <code>mechanicConfig.mechanicParams.symbols</code> (bloco “Símbolos — Caça-níquel” em <code>src/pages/crm/gamification/components/mechanic-config-section.tsx</code>) não passa <code>keyName</code>, e cada símbolo já tem um campo de negócio chamado <code>id</code> (<code>slotSymbolSchema</code>); o react-hook-form usa <code>id</code> como key de render por padrão, e a colisão deixa a identidade das linhas instável. Nenhum outro <code>useFieldArray</code> do repositório usa <code>keyName</code>. Ajuste sugerido: <code>keyName: "fieldId"</code>, reconferindo <code>toSlotSymbol</code> em <code>edit/hooks/useFormInitialization.ts</code> (compat com o ícone legado <code>icone</code>).</li>
+        <li><strong>Estimativa de 3 pts, proposta do PO, pendente de confirmação do time técnico.</strong></li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/13425" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m13427">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #13427</span><div class="title">Botão “Encerrar campanha” com aviso de propagação em até 48h</div></div>
+      <button class="close-btn" onclick="m13427.close()">✕</button></div>
+      <div class="meta">Sem atribuição · 3 pts (estimativa do PO) · Epic Motor de Descontos (#6669) · Sprint 30 · Coluna Azure: Refinement</div>
     </div>
     <div class="modal-body">
       <div class="checkgrid">
@@ -916,11 +1313,182 @@
         <div class="check-item"><span class="mark yes">✓</span>Sem bloqueio aberto</div>
       </div>
       <div><h3>O que falta</h3><ul class="gap-list clean">
-        <li><strong>Card novo (04/09) — último item da mesma apuração de incidente (01/09), fica por último no plano por exigir cuidado com deploy/fila.</strong> Nenhuma — Story + 4 Cenários (batch sai do log da API, portal não é mais afetado durante o batch, janela histórica de apagão deixa de se repetir, worker indisponível é tratado), rotulados "revisão do time técnico"/"teste de integração".</li>
-        <li><strong>Nota técnica (comentário + Descrição):</strong> 367 registros do <code>StoreJobProcessor</code> confirmados no log do container da API (mesmo processo do portal); uma das duas janelas de apagão observadas (31/08, 05:31–06:00) coincide com o horário do batch. Reaproveitar a infra de worker já em produção pra outro caso de uso (<code>ExcelGenerationQueue</code>/<code>BullExcelGenerationQueue</code>, processor <code>TaxClosingExcelProcessor</code>).</li>
-        <li><strong>Estimativa de 5 pts, pendente de confirmação do Fernando/time técnico.</strong></li>
+        <li>Nenhuma — 4 cenários (aviso do prazo de 48h antes de confirmar, mesmo mecanismo de hoje, ação indisponível pra campanha expirada ou encerrada, falha mostra erro claro). Rótulo frontend, integração e e2e. Mock não necessário: é um diálogo de confirmação padrão, no mesmo padrão de <code>extend-campaign-modal.tsx</code> e <code>campaign-cancel-content.tsx</code>.</li>
+        <li>Só interface: o encerramento continua sendo a redução da <code>endDate</code> pelo endpoint de edição (<code>PUT /campaigns/pro014/:code</code> e equivalentes PRO013/PRO017, <code>Pro014MutationService.update()</code>). Não existe janela de 48h codificada — é acordo operacional; o achado técnico mais próximo é a propagação noturna (23:59) citada em <code>campaign-stores-editor.tsx</code>.</li>
+        <li><strong>Atenção:</strong> a ação “Cancelar Campanha” que já existe no menu da listagem (<code>data-table-row-actions.tsx</code> → <code>PUT /campaigns/:id/cancel</code>) atualiza <code>VAR.PRO015</code> (campanha de roleta/gamificação), não PRO013/014/017 — hoje mostra sucesso sem encerrar campanha do Motor. O botão novo não deve reutilizar esse endpoint; vale abrir um bug à parte (decisão do Igor).</li>
+        <li><strong>Estimativa de 3 pts, proposta do PO, pendente de confirmação do time técnico.</strong></li>
       </ul></div>
-      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/12906" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/13427" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m13437">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #13437</span><div class="title">Histórico de Contas: incluir a coluna Nº Requisição antes de Nº OC</div></div>
+      <button class="close-btn" onclick="m13437.close()">✕</button></div>
+      <div class="meta">Sem atribuição · 2 pts (estimativa do PO) · Parent #9745 · Sprint 30 · Coluna Azure: Refinement</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark yes">✓</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list clean">
+        <li>Nenhuma — 5 cenários (posição da coluna, Requisição e OC visíveis na mesma linha, traço quando não há número, contas anteriores sem Requisição, filtro/paginação/ação preservados). Rótulo e2e. Mock não necessário: a especificação já define a ordem exata das colunas (Data/Hora, Loja, Tipo, Mês Ref., Nº Requisição, Nº OC, Responsável, Ação) e o traço quando falta número.</li>
+        <li>Depende, em sequência, da criação da Requisição (#13435) pra haver número a exibir; a coluna pode ser entregue antes, mostrando traço.</li>
+        <li><strong>Estimativa de 2 pts, proposta do PO, pendente de confirmação do time técnico.</strong></li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/13437" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m13448">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #13448</span><div class="title">SSO Hub – Mensagens de erro claras ao gerar link de acesso</div></div>
+      <button class="close-btn" onclick="m13448.close()">✕</button></div>
+      <div class="meta">Gabriel Kovalski · 3 pts (estimativa do PO) · Parent #11853 (SSO) · Sprint 30 · Coluna Azure: Refinement</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark yes">✓</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list clean">
+        <li>Nenhuma — 4 cenários (erro conhecido com mensagem específica, cada tipo de erro com mensagem própria, erro não mapeado com mensagem amigável e registro pro time técnico, geração bem-sucedida inalterada). Rótulo frontend, backend, integração e e2e. Mock não necessário: é texto de mensagem numa tela que já existe.</li>
+        <li>O levantamento dos tipos de erro possíveis faz parte da entrega. Alinhar a mensagem “link já utilizado” do #13433 ao padrão de mensagens deste card; o #13055 (teste regressivo) mexe no mesmo fluxo.</li>
+        <li><strong>Estimativa de 3 pts, proposta do PO, pendente de confirmação do time técnico.</strong></li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/13448" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m13055">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #13055</span><div class="title">Teste Regressivo — Geração do link de acesso do SSO</div></div>
+      <button class="close-btn" onclick="m13055.close()">✕</button></div>
+      <div class="meta">Danilo Manzoli · 2 pts · Parent #11853 (SSO) · Sprint 29 · Coluna Azure: Ready for Dev</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark yes">✓</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list clean">
+        <li>Nenhuma — 3 cenários (link gerado pra usuário sem sessão, link aponta pro provedor certo com os parâmetros certos, falha na geração mostra mensagem clara). Rótulo frontend e integração.</li>
+        <li>Escopo: só a geração do link de acesso pelo SSO (o redirecionamento inicial ao provedor de login). Fora: troca de token, sessão, permissões, validação de qualquer sistema consumidor específico (o SIGA entra só como exemplo de sistema integrado) e a aprovação de saída pra produção do SSO.</li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/13055" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m13117">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #13117</span><div class="title">Resiliência do boot da API — dependência externa indisponível (ex.: Redis) não pode impedir a aplicação de subir</div></div>
+      <button class="close-btn" onclick="m13117.close()">✕</button></div>
+      <div class="meta">Sem atribuição · 3 pts (estimativa do PO) · Parent #10542 · Sem sprint · Coluna Azure: Refinement</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark yes">✓</span>Sem bloqueio aberto</div>
+        <div class="check-item"><span class="mark yes">✓</span>Nota técnica no card</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list clean">
+        <li>Nenhuma — 4 cenários (boot conclui mesmo com a dependência fora do ar, diagnóstico continua sem bloquear a subida, comportamento normal quando a dependência está saudável, dependência que não volta falha por timeout sem travar). Rótulo teste de integração.</li>
+        <li>Nota técnica no card (<code>ConciliaçãoCaixaAPI</code>, <code>origin/develop</code>): em <code>src/main.ts</code> o boot faz <code>await setupBullBoard(app)</code> (linha 82) antes de <code>await app.listen(port)</code> (linha 85); <code>logBootSnapshot</code> (<code>src/config/bull-board.config.ts</code>, linha 235) percorre as 15 filas com <code>await Promise.all([queue.getJobCounts(), ...])</code> sem timeout — com o Redis fora, nunca resolve nem rejeita e a porta nunca abre. O retry infinito da fila (<code>src/app.module.ts</code>, linha 242) deve ser mantido: o defeito é o boot depender dele.</li>
+        <li><strong>Decisão técnica em aberto (time técnico):</strong> mover o diagnóstico pra depois do <code>app.listen()</code> e/ou envolver cada consulta de fila em timeout (<code>Promise.race</code>) — as duas correções não se excluem.</li>
+        <li>Fora do escopo, sinalizado e sem card próprio: o <code>restart_policy: on-failure</code> do Redis em <code>Infra.Docker/docker-compose.yml</code> não recria o container quando ele sai com exit 0 (SIGTERM gracioso), o que transformou um estol de I/O de 3min20s em 2h44 de indisponibilidade.</li>
+        <li><strong>Estimativa de 3 pts, proposta do PO, pendente de confirmação do time técnico.</strong></li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/13117" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m13127">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #13127</span><div class="title">[ENGINE] Desenho da implementação da NFe tipo 2</div></div>
+      <button class="close-btn" onclick="m13127.close()">✕</button></div>
+      <div class="meta">Matheus Alves · 3 pts (estimativa do PO) · Parent #9605 · Sem sprint · Coluna Azure: Ready for Dev</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark yes">✓</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list clean">
+        <li>Nenhuma — 3 cenários (desenho técnico documentado, validação e aprovação formal do time técnico, escopo e limitações registrados). Rótulo revisão do time técnico e aprovação formal. É a etapa de desenho que precede a implementação (#13134).</li>
+        <li>Nota técnica: a Engine Fiscal não foi localizada nos repositórios locais (<code>ConciliaçãoCaixaAPI</code>/<code>ConciliaçãoCaixaFront</code>), então não há código-fonte local pra citar como ponto de partida do desenho.</li>
+        <li><strong>Estimativa de 3 pts, proposta do PO, pendente de confirmação do time técnico.</strong> Um fluxograma técnico fica como sugestão não bloqueante, depois que o desenho tiver uma sequência definida.</li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/13127" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m13129">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #13129</span><div class="title">[ENGINE] Validar uso do layout NFCe para geração de contingência offline</div></div>
+      <button class="close-btn" onclick="m13129.close()">✕</button></div>
+      <div class="meta">Matheus Alves · 3 pts (estimativa do PO) · Epic substituição do Invoicy (#13130) · Sem sprint · Coluna Azure: Ready for Dev</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark yes">✓</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list clean">
+        <li>Nenhuma — 3 cenários (viabilidade validada, riscos e lacunas registrados, decisão formalizada). Rótulo revisão do time técnico e aprovação formal. Item preparatório pra substituição do framework fiscal atual (Invoicy), vinculado ao épico #13130.</li>
+        <li>Não confundir com o #10608 (Engine — Contingência Offline, concluído), que tratou da tela de contingência; este valida o reaproveitamento do layout NFCe pra remoção futura do Invoicy. O gerador de layout NFCe da Engine não foi localizado nos repositórios locais.</li>
+        <li><strong>Estimativa de 3 pts, proposta do PO, pendente de confirmação do time técnico.</strong></li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/13129" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="m13134">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <div class="row1"><div><span class="id">PBI #13134</span><div class="title">[ENGINE] Implementação da NFe tipo 2</div></div>
+      <button class="close-btn" onclick="m13134.close()">✕</button></div>
+      <div class="meta">Matheus Alves · 8 pts (estimativa do PO) · Parent #9605 · Sem sprint · Coluna Azure: Ready for Dev</div>
+    </div>
+    <div class="modal-body">
+      <div class="checkgrid">
+        <div class="check-item"><span class="mark yes">✓</span>Formato Cenário + GWT</div>
+        <div class="check-item"><span class="mark yes">✓</span>Rótulo de verificação</div>
+        <div class="check-item"><span class="mark yes">✓</span>Estimativa preenchida</div>
+        <div class="check-item"><span class="mark yes">✓</span>Sem bloqueio aberto</div>
+      </div>
+      <div><h3>O que falta</h3><ul class="gap-list clean">
+        <li>Nenhuma — 3 cenários (emissão bem-sucedida de NFe tipo 2, retorno tratado como nos demais tipos de NFe, falha na emissão sem deixar o documento em estado inconsistente). Rótulo teste de integração e de backend.</li>
+        <li>Depende da aprovação do desenho técnico do #13127 (link Predecessor/Successor): dependência interna de sequência, não bloqueio externo. A Engine Fiscal não foi localizada nos repositórios locais, então a implementação depende desse desenho.</li>
+        <li><strong>Estimativa de 8 pts, proposta do PO, pendente de confirmação do time técnico.</strong></li>
+      </ul></div>
+      <a class="ext" href="https://dev.azure.com/GrupoAvenida/Var%20Retaguarda/_workitems/edit/13134" target="_blank" rel="noopener">Abrir no Azure DevOps →</a>
     </div>
   </div>
 </dialog>

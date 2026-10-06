@@ -51,7 +51,3 @@ Achados principais: <bullets>
 Arquivos que parecem desatualizados por causa disso: <file — what specifically should change, in one line each>
 ```
 Then a summary: total transcripts found, how many were new vs. skipped as duplicates, and a consolidated list of every downstream file flagged as stale (deduplicated across transcripts — the same `contexto.md` will often get flagged by more than one transcript). This consolidated list is what the calling session acts on next.
-
-## Log obrigatório — `board-refinamento/projetos/log-rotina-diaria.md`
-
-**Toda vez que você rodar (agendado ou manual), adicione uma entrada no topo** desse arquivo (mais recente primeiro — não sobrescreva entradas anteriores), seguindo exatamente a seção "### daily-digest" do template no topo do próprio arquivo. Preencha com o mesmo nível de detalhe do template: liste cada transcrição encontrada, qual foi pulada e por quê (citando o digest existente que já cobria), qual digest foi criado, os achados por projeto **citando a fonte** (trecho ou data da transcrição, não só a afirmação), e cada arquivo sinalizado como desatualizado com o motivo específico. Se nenhuma transcrição nova foi encontrada, ainda registre a entrada dizendo isso explicitamente — silêncio não é a mesma coisa que "nada mudou", precisa estar escrito.

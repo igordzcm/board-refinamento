@@ -55,6 +55,26 @@ Todos são bloqueios externos reais, não just falta de capacidade de dev — ma
 
 ## Reuniões
 
+- **Data não informada (resumo recebido em 02/10/2026): apresentação do Portal + revisão de UX.** Resumo em [2026-10-02-resumo-apresentacao-portal-gamificacao.md](2026-10-02-resumo-apresentacao-portal-gamificacao.md).
+  - **Situação geral:** as regras de negócio estão aprovadas, mas a experiência não está fechada.
+  - **5 grandes temas:**
+    1. landing page antes do cadastro, com página e QR Code por campanha;
+    2. gamificação dentro do domínio Avenida, com integração ao site (conversar com o Marcos/time do site);
+    3. revisão de design + Mobile First;
+    4. analytics do funil inteiro;
+    5. elegibilidade regional clara antes de jogar.
+  - **Decisões do CRM pendentes:**
+    - quais campos do cadastro são obrigatórios;
+    - como campanhas segmentadas por CPF aparecem (ou não) no site aberto.
+  - **Jonas:** a homologação precisa chegar praticamente pronta pra produção.
+  - **Cards (02/10, Kauã, Sprint 30, Ready for Dev):**
+    - #13464 landing page;
+    - #13465 QR Code;
+    - #13466 domínio Avenida (bloqueado);
+    - #13467 funil de analytics;
+    - #13468 não pedir identificação de novo;
+    - #13469 elegibilidade regional (bloqueado).
+
 - **02/09/2026 — Demo/homologação pro CRM (Ana Carina Araujo Souza e Marcos Eidi Yonamine), conduzida por Ozéias com apoio do Kauã.** Ata completa em [2026-09-02-demo-crm-ana-marcos.md](2026-09-02-demo-crm-ana-marcos.md). Mostrou o fluxo completo (cadastro de campanha + experiência do cliente final). Pontos levantados:
   - **2 bugs achados ao vivo:** (1) acesso de homologação ao banco bloqueado — travou a demo por ~5-10min até o Alisson (infra) resolver; (2) editar rótulo/valor de símbolo no cadastro do caça-níquel quebra a tela de configuração (reproduzido ao vivo, não investigado a fundo ainda).
   - **Discussão sobre remover a validação de "campanha ativa por tipo"** — hoje só permite 1 campanha ativa por jogo; CRM validou a ideia de permitir várias campanhas simultâneas segmentadas por CPF/loja/valor, mas **não é decisão 100% fechada tecnicamente** (Ozéias anotou pra validar depois).
